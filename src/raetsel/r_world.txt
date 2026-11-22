@@ -1,0 +1,132 @@
+# Welt Teil 1
+world;L;Welches runde Gebäck mit Zuckerguss heißt wie ein Mensch aus den USA?;Amerikaner;USA;39.5,-98.0;;
+world;L;Welcher Kohl mit länglichen hellen Blättern heißt nach einem riesigen Land in Asien?;Chinakohl;China;35.0,104.0;;
+world;L;Was sagt man, wenn man gar nichts versteht? „Das ist für mich …!“;Chinesisch;China;35.0,104.0;;
+world;L;Welcher Ozean liegt zwischen Afrika und Australien? Der …ische Ozean;Indischer Ozean;Indischer Ozean;-15.0,75.0;;1500
+world;L;Welcher Elefant hat kleinere Ohren als sein Verwandter aus Afrika? Der …ische Elefant;Indischer Elefant;Indien;22.0,79.0;;
+world;L;Welcher Elefant hat riesige Ohren? Der …ische Elefant;Afrikanischer Elefant;Afrika;5.0,20.0;;2000
+world;L;Welches dicke Tier lebt im Fluss und heißt nach dem längsten Fluss Afrikas?;Nilpferd;Nil;24.0,32.9;;
+world;L;Welches Meer ist so salzig, dass man darin nicht untergeht? Das … Meer;Totes Meer;Totes Meer;31.5,35.5;;
+world;L;Frisch + Gewässer + Land = ? Ein Land mit Kiwis und Schafen.;Neu + See + Land;Neuseeland;-41.5,172.5;;
+world;L;Frisch + englische Stadt York = ?;New + York;New York;=New York City/US;;
+world;L;Frisch + Mexiko = ? Ein US-Bundesstaat.;New + Mexico;New Mexico;34.5,-106.0;;
+world;L;Wie heißt „große Schlucht“ auf Englisch? Grand …;Grand Canyon;Grand Canyon;36.1,-112.1;;
+world;L;Wie heißen die „felsigen Berge“ in Nordamerika?;Rocky Mountains;Rocky Mountains;45.0,-111.0;;1000
+world;L;Welches riesige Korallenriff vor Australien heißt „Großes Barriere-Riff“?;Great Barrier Reef;Great Barrier Reef;-18.3,147.7;;
+world;L;Wie heißen die „großen Seen“ zwischen den USA und Kanada?;Great Lakes;Große Seen;45.0,-84.0;;
+world;L;Welcher Versandhändler mit dem Pfeil-Lächeln heißt fast wie der größte Fluss Südamerikas?;Amazon;Amazonas;-3.4,-60.0;;1000
+world;L;Welcher Frischkäse heißt nach einer Stadt an der Ostküste der USA?;Philadelphia;Philadelphia;=Philadelphia/US;;
+world;L;Welches Hähnchen-Restaurant mit dem Colonel heißt nach einem US-Staat? … Fried Chicken;Kentucky Fried Chicken;Kentucky;37.5,-85.3;;
+world;L;Welcher Käsekuchen heißt nach der größten Stadt der USA? … Cheesecake;New York Cheesecake;New York;=New York City/US;;
+world;L;Welches Basketballteam von Michael Jordan heißt „Bulls“? Die … Bulls;Chicago Bulls;Chicago;=Chicago/US;;
+world;L;Wie heißt ein Gesundheitssalz in Rosa aus dem höchsten Gebirge der Welt?;Himalayasalz;Himalaya;28.0,85.0;;
+world;L;Welcher Zeichentrickfilm mit Löwe, Zebra, Giraffe und Nilpferd heißt nach einer Insel?;Madagascar;Madagaskar;-19.0,46.7;;
+world;L;Welche Massage kommt aus Südostasien? Die …-Massage;Thai-Massage;Thailand;15.5,101.0;;
+world;L;Welche Band mit Bill Kaulitz heißt nach einer Hauptstadt und einem Hotel?;Tokio Hotel;Tokio;=Tokyo/JP;;
+world;L;Welches Tennisturnier im Januar ist das erste Grand-Slam-Turnier des Jahres?;Australian Open;Australien;-25.0,134.0;;1200
+world;L;Welche Gans mit schwarzem Hals heißt nach einem Land im Norden Amerikas?;Kanadagans;Kanada;56.0,-106.0;;1500
+world;L;Welcher Tanz mit Bandoneon kommt aus Buenos Aires? Der Tango …;Tango Argentino;Argentinien;-34.6,-64.0;;1000
+world;L;Welcher Piratenfilm mit Jack Sparrow heißt „Fluch der …“?;Fluch der Karibik;Karibik;16.0,-72.0;;1200
+world;L;Welche Stadt hat den Stern, der den Heiligen Drei Königen den Weg zeigte? Der Stern von …;Bethlehem;Bethlehem;31.7054,35.2024;;
+world;L;Welches Lied der Eagles handelt von einem Hotel im Westen der USA?;Hotel California;Kalifornien;37.0,-120.0;;
+world;L;Welches Lied von Lynyrd Skynyrd besingt einen Südstaat? Sweet Home …;Sweet Home Alabama;Alabama;32.8,-86.8;;
+world;L;Welches Lied von Bruce Springsteen sagt, wo er geboren ist? Born in the …;Born in the USA;USA;39.5,-98.0;;
+world;L;Welches Lied von Toto heißt wie ein Kontinent?;Africa;Afrika;5.0,20.0;;2000
+world;L;In welche Stadt wollte Udo Jürgens? „Ich war noch niemals in …“;New York;New York;=New York City/US;;
+world;L;Welches Lied von Elvis besingt die Glücksspielstadt? Viva …;Viva Las Vegas;Las Vegas;=Las Vegas/US;;
+world;M;Wie heißt „Äquator“ auf Spanisch? Gesucht ist ein Land in Südamerika.;Ecuador;Ecuador;-1.5,-78.0;;
+world;M;Wie heißt „Der Frieden“ auf Spanisch? Gesucht ist die Regierungsstadt Boliviens.;La Paz;La Paz;=La Paz/BO;;
+world;M;Wie heißt „gute Lüfte“ auf Spanisch? Gesucht ist eine Hauptstadt am Río de la Plata.;Buenos Aires;Buenos Aires;=Buenos Aires/AR;;
+world;M;Wie heißt „Fluss des Januars“ auf Portugiesisch?;Rio de Janeiro;Rio de Janeiro;=Rio de Janeiro/BR;;
+world;M;Wie heißt „Löwengebirge“ auf Portugiesisch? Ein Land in Westafrika.;Sierra Leone;Sierra Leone;8.5,-11.8;;
+world;M;Wie heißt „Grünes Kap“ auf Portugiesisch? Ein Inselstaat vor Westafrika.;Kap Verde;Kap Verde;16.0,-24.0;;
+world;M;Wie heißt „verschneit“ auf Spanisch? Ein US-Staat mit Las Vegas.;Nevada;Nevada;39.0,-116.8;;
+world;M;Was ruft man, wenn man etwas gefunden hat? Gesucht ist eine Stadt in Kalifornien.;Eureka;Eureka;=Eureka/US;;
+world;M;Salz (englisch) + See (englisch) + Stadt (englisch) = ?;Salt + Lake + City;Salt Lake City;=Salt Lake City/US;;
+world;M;Lang (englisch) + Strand (englisch) = ? Eine Stadt bei Los Angeles.;Long + Beach;Long Beach;=Long Beach/US;;
+world;M;Tod (englisch) + Tal (englisch) = ? Der heißeste Ort der Welt.;Death + Valley;Death Valley;36.5,-117.0;;
+world;M;Gelb (englisch) + Stein (englisch) = ? Ein Nationalpark mit Geysiren.;Yellow + stone;Yellowstone;44.6,-110.5;;
+world;M;Perle (englisch) + Hafen (englisch) = ? Ein Hafen auf Hawaii.;Pearl + Harbor;Pearl Harbor;21.35,-157.95;;
+world;M;Schlüssel (englisch) + Westen (englisch) = ? Die südlichste Stadt Floridas.;Key + West;Key West;=Key West/US;;
+world;M;Silizium (englisch) + Tal (englisch) = ? Hier sitzen Apple und Google.;Silicon + Valley;Silicon Valley;37.4,-122.05;;
+world;M;Stechpalme (englisch) + Wald (englisch) = ? Die Traumfabrik.;Holly + wood;Hollywood;34.1,-118.33;;
+world;M;Königin (englisch) + Land (englisch) = ? Ein Bundesstaat in Australien.;Queens + land;Queensland;-22.0,144.0;;
+world;M;Gelb (englisch) + Messer (englisch) = ? Eine Stadt im Norden Kanadas.;Yellow + knife;Yellowknife;62.454,-114.3718;;
+world;M;Weiß (englisch) + Pferd (englisch) = ? Die Hauptstadt des Yukon.;White + horse;Whitehorse;60.7212,-135.0568;;
+world;M;Palme (englisch) + Quellen (englisch) = ? Ein Wüstenort in Kalifornien.;Palm + Springs;Palm Springs;=Palm Springs/US;;
+world;M;Palme (englisch) + Strand (englisch) = ? Ein Nobelort in Florida.;Palm + Beach;Palm Beach;26.7056,-80.0364;;
+world;M;Frisch + französische Stadt an der Loire = ? Die Jazz-Stadt am Mississippi.;New + Orleans;New Orleans;=New Orleans/US;;
+world;M;Frisch + Kanalinsel mit Kühen = ? Ein US-Bundesstaat.;New + Jersey;New Jersey;40.1,-74.5;;
+world;M;Neu + gefunden + Land = ? Eine Insel vor Kanada.;Neu + fund + land;Neufundland;48.5,-56.0;;
+world;M;Welcher große schwarze Hund ist ein Rettungsschwimmer und heißt nach einer Insel vor Kanada?;Neufundländer;Neufundland;48.5,-56.0;;
+world;M;Ein Vorgebirge + Horn eines Tieres = ? Die Südspitze Amerikas.;Kap + Hoorn;Kap Hoorn;-55.98,-67.27;;
+world;M;Vorgebirge + Stadt = ? Die Stadt am Tafelberg.;Kap + Stadt;Kapstadt;=Cape Town/ZA;;
+world;M;Möbelstück zum Essen + Berg = ? Der Berg über Kapstadt.;Tafel + Berg;Tafelberg;-33.9628,18.4098;;
+world;M;Welcher Ozean heißt „der Friedliche“?;Pazifik;Pazifik;0.0,-150.0;;2500
+world;M;Welche Riesenechse heißt nach einer Insel in Indonesien? Der …waran;Komodowaran;Komodo;-8.55,119.45;;
+world;M;Welches Gebiet in Russland kennt man vom Brettspiel Risiko?;Kamtschatka;Kamtschatka;56.0,160.0;;
+world;M;Welche Katze mit langem Fell und platter Nase heißt nach dem alten Namen des Iran?;Perserkatze;Persien;32.0,53.0;Persien ist der alte Name des Iran.;
+world;M;Welche Katze heißt nach dem höchsten Gebirge der Welt?;Himalaya-Katze;Himalaya;28.0,85.0;;
+world;M;Welche Katze mit gepunktetem Fell heißt nach dem Land der Pyramiden? …ische Mau;Ägyptische Mau;Ägypten;26.8,30.8;;
+world;M;Welche große Katze mit Puschelohren heißt nach einem Bundesstaat im Nordosten der USA? … Coon;Maine Coon;Maine;45.3,-69.2;;
+world;M;Welcher kleine weiße Hund mit Locken heißt nach der Hauptstadt Kubas?;Havaneser;Havanna;=Havana/CU;;
+world;M;Welcher Schlittenhund mit blauen Augen heißt nach einer riesigen Region in Russland? …ischer Husky;Sibirischer Husky;Sibirien;60.0,100.0;;1200
+world;M;Welcher kleine Terrier mit Smoking-Muster heißt nach einer Stadt in Massachusetts? … Terrier;Boston Terrier;Boston;=Boston/US;;
+world;M;Welcher Tiger hat seinen Namen von einer Region am Golf von Bengalen? …ischer Tiger;Bengalischer Tiger;Bengalen;23.5,89.0;;
+world;M;Welches Pferd ist edel und kommt aus der Wüste? Der …;Araber;Arabien;24.0,45.0;;
+world;M;Welche Kaffeebohne ist die beliebteste der Welt und heißt nach einer Halbinsel?;Arabica;Arabien;24.0,45.0;;
+world;M;Welches Rind hat riesige Hörner und heißt nach dem größten US-Staat unten an Mexiko? … Longhorn;Texas Longhorn;Texas;31.0,-99.0;;
+world;M;Welches Rindfleisch ist marmoriert und heißt nach einer japanischen Hafenstadt? …-Rind;Kobe-Rind;Kobe;=Kobe/JP;;
+world;M;Welcher Schnaps aus Agaven heißt nach einer Stadt in Mexiko?;Tequila;Tequila;20.8823,-103.8367;;
+world;M;Welcher Rum kommt von der Insel, auf der Bob Marley geboren wurde?;Jamaika-Rum;Jamaika;18.1,-77.3;;
+world;M;Welcher Tee kommt aus einer Stadt am Fuß des Himalaya?;Darjeeling;Darjeeling;27.04,88.26;;
+world;M;Welcher kräftige Schwarztee heißt nach einem Bundesstaat im Nordosten Indiens?;Assam;Assam;26.2,92.9;;
+world;M;Welcher Cocktail mit Gin und Kirschlikör heißt nach einem Stadtstaat in Asien? … Sling;Singapore Sling;Singapur;1.35,103.82;;
+world;M;Welcher Gin heißt nach dem alten Namen der größten Stadt Indiens? … Sapphire;Bombay Sapphire;Bombay (Mumbai);19.076,72.8777;Bombay ist der alte Name von Mumbai.;
+world;M;Welcher Strand in Rio wird in einem Lied von Barry Manilow besungen?;Copacabana;Copacabana;-22.9711,-43.1822;;
+world;M;Welcher Tanz aus den 1920ern heißt nach einer Stadt in South Carolina?;Charleston;Charleston;=Charleston/US;;
+world;M;Welches Musikfestival 1969 mit Jimi Hendrix heißt nach einer Stadt im Staat New York?;Woodstock;Woodstock;42.041,-74.118;;
+world;M;Wo ist der Marathon, der als ältester Stadtmarathon der Welt gilt? Der … Marathon;Boston-Marathon;Boston;=Boston/US;;
+world;M;Welches Autorennen heißt „Indy 500“? Die … 500;Indianapolis 500;Indianapolis;=Indianapolis/US;;
+world;M;Welche Rallye fuhr früher von Paris in die Hauptstadt des Senegal? Die Rallye …;Rallye Dakar;Dakar;=Dakar/SN;;
+world;M;Welche Gefängnisinsel liegt in der Bucht von San Francisco? Flucht von …;Alcatraz;Alcatraz;37.8267,-122.423;;
+world;M;Welche Fernsehserie mit J.R. Ewing heißt nach einer Stadt in Texas?;Dallas;Dallas;=Dallas/US;;
+world;M;Welche Polizeiserie mit Crockett und Tubbs spielt in Florida? … Vice;Miami Vice;Miami;=Miami/US;;
+world;M;Welche Krimiserie spielt auf Inseln im Pazifik? … Five-O;Hawaii Five-O;Hawaii;20.8,-156.3;;
+world;M;Welche Serie heißt nach einer Postleitzahl in Kalifornien? … 90210;Beverly Hills 90210;Beverly Hills;=Beverly Hills/US;;
+world;M;Welches Musical mit „All That Jazz“ heißt nach einer Stadt am Michigansee?;Chicago;Chicago;=Chicago/US;;
+world;M;Welche Teeparty führte 1773 zur amerikanischen Revolution? Die … Tea Party;Boston Tea Party;Boston;=Boston/US;;
+world;M;Welche Briefmarke ist blau und eine der wertvollsten der Welt? Die Blaue …;Blaue Mauritius;Mauritius;-20.25,57.55;;
+world;M;Welches Seemannslied singt: „Wir lagen vor …“?;Wir lagen vor Madagaskar;Madagaskar;-19.0,46.7;;
+world;M;Wo verschwinden angeblich Schiffe und Flugzeuge spurlos? Im …dreieck;Bermudadreieck;Bermuda;32.3,-64.75;;
+world;M;Welches Kartenspiel ähnelt Mau-Mau und heißt wie eine Stadt bei Hongkong?;Macao;Macau;22.1987,113.5439;;
+world;M;Wie heißt der Forscher der Evolutionstheorie? Eine Stadt in Nordaustralien heißt genauso.;Darwin;Darwin;=Darwin/AU;;
+world;M;Wie nennt man Seeleute verschleppen? Gesucht ist die größte Stadt Chinas.;schanghaien;Shanghai;=Shanghai/CN;;
+world;M;Welcher Turm stand in Mesopotamien und brachte die Sprachen durcheinander? Der Turmbau zu …;Babel;Babylon;32.5363,44.4209;;
+world;M;Welche Mauern fielen durch Posaunen? Die Mauern von …;Jericho;Jericho;31.8667,35.45;;
+world;M;Auf welchem Berg strandete die Arche Noah?;Ararat;Ararat;39.7019,44.2983;;
+world;M;Wo wurde Saulus zum Paulus? Sein …-Erlebnis;Damaskus-Erlebnis;Damaskus;=Damascus/SY;;
+world;M;Welche zwei Städte wurden in der Bibel durch Feuer und Schwefel zerstört? … und Gomorrha;Sodom;Totes Meer;31.1,35.4;Sodom und Gomorrha sollen am Toten Meer gelegen haben.;
+world;M;Welches Abkommen zum Klimaschutz von 1997 heißt nach einer Stadt in Japan? Das …-Protokoll;Kyoto-Protokoll;Kyoto;=Kyoto/JP;;
+world;M;Welcher Ort in New Mexico ist berühmt für einen angeblichen UFO-Absturz 1947?;Roswell;Roswell;=Roswell/US;;
+world;M;Welches Gebirge in Südamerika ist das längste der Welt und hat einen großen Geier? Der …kondor;Andenkondor;Anden;-15.0,-70.0;;1200
+world;M;Welche Outdoor-Marke heißt nach einer Region an der Südspitze Südamerikas?;Patagonia;Patagonien;-45.0,-69.0;;
+world;M;Welcher Wüstenstaub färbt manchmal unseren Himmel orange?;Sahara-Staub;Sahara;23.0,10.0;;1500
+world;M;Welche Bohne heißt wie die Hauptstadt von Peru?;Limabohne;Lima;=Lima/PE;;
+world;M;Welche Party mit Trance-Musik heißt nach einem Strandstaat in Indien?;Goa-Party;Goa;15.3,74.1;;
+world;M;Welcher Riegel mit Kokos heißt wie Inseln südlich von Neuseeland?;Bounty;Bounty-Inseln;-47.75,179.05;;
+world;M;Wo wurde Napoleon zuletzt verbannt? Auf die Insel Sankt …;St. Helena;St. Helena;-15.965,-5.7;;
+world;M;Auf welcher Insel wurde der echte Robinson Crusoe ausgesetzt? Heute heißt sie …-Insel;Robinson-Crusoe-Insel;Robinson-Crusoe-Insel;-33.64,-78.85;;
+world;M;Welcher Grill heißt nach dem Land von Dschingis Khan? Der …ische Grill;Mongolischer Grill;Mongolei;46.8,103.0;;
+world;M;Welche Kaffeesorte aus Indonesien heißt wie eine große Insel? …-Kaffee;Sumatra-Kaffee;Sumatra;0.0,102.0;;
+world;M;Welche Kokos-Inseln im Indischen Ozean gehören zu Australien? Die …inseln;Kokosinseln;Kokosinseln;-12.17,96.87;;
+world;M;Welche kernlose Mandarine heißt nach einer Provinz in Japan?;Satsuma;Satsuma (Kagoshima);31.6,130.55;;
+world;M;Welcher US-Staat heißt „Grüner Berg“ auf Französisch?;Vermont;Vermont;44.0,-72.7;;
+world;M;Wie heißt „Silberfluss“ auf Spanisch? Die Mündung zwischen Argentinien und Uruguay.;Río de la Plata;Río de la Plata;-35.0,-57.0;;
+world;M;Wie heißt „Paradies-Tal“ auf Spanisch? Eine Hafenstadt in Chile.;Valparaíso;Valparaíso;=Valparaíso/CL;;
+world;M;Wie heißt „der Erlöser“ auf Spanisch? Ein Land in Mittelamerika.;El Salvador;El Salvador;13.8,-88.9;;
+world;M;Wie heißt „Dreifaltigkeit“ auf Spanisch? Eine Insel in der Karibik.;Trinidad;Trinidad;10.45,-61.25;;
+world;M;Wie heißt „Neu-Schottland“ auf Latein? Eine Provinz in Kanada.;Nova Scotia;Nova Scotia;45.0,-63.0;;
+world;M;Frisch + Guinea = ? Die zweitgrößte Insel der Welt.;Neu + guinea;Neuguinea;-5.5,141.0;;
+world;M;Welche Inseln in der Karibik heißen nach Jungfrauen? Die …inseln;Jungferninseln;Jungferninseln;18.4,-64.6;;
+world;M;Welche Hühnerrasse ist rotbraun und heißt nach dem kleinsten US-Staat? … Red;Rhode Island Red;Rhode Island;41.7,-71.5;;

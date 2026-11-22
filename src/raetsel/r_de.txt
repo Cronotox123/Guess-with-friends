@@ -1,0 +1,190 @@
+# Karte;Stufe;Rätsel;Lösung;Ort;Koordinaten (lat,lon oder =Datensatzname/Land);Erklärung (leer = automatisch);km (leer = Standard)
+de;L;Wie heißt die Mauer, die bis 1989 eine Stadt teilte?;Berliner Mauer;Berlin;=Berlin/DE;;
+de;M;Wie heißen die Filmfestspiele, bei denen es den Goldenen Bären gibt?;Berlinale;Berlin;=Berlin/DE;;
+de;M;Welches Bier trinkt man mit grünem oder rotem Sirup?;Berliner Weiße;Berlin;=Berlin/DE;;
+de;L;Wie heißt der berühmte Hafen-Kirchturm „Michel“ mit vollem Namen? Der … Michel;Hamburger Michel;Hamburg;=Hamburg/DE;;
+de;M;Welcher Fischmarkt öffnet sonntags schon um fünf Uhr früh an der Elbe?;Hamburger Fischmarkt;Hamburg;=Hamburg/DE;;
+de;L;Wie heißt das größte Volksfest der Welt auf der Theresienwiese? Das … Oktoberfest;Münchner Oktoberfest;München;=Munich/DE;;
+de;M;Welche Wurst darf das Mittagläuten nicht hören? Die … Weißwurst;Münchner Weißwurst;München;=Munich/DE;;
+de;L;Wie heißt die berühmte Kathedrale am Rhein mit zwei Türmen? Der … Dom;Kölner Dom;Köln;=Köln/DE;;
+de;M;Welcher Karneval ruft „Kölle Alaaf“?;Kölner Karneval;Köln;=Köln/DE;;
+de;M;Welcher Kranz ist eine Torte mit Buttercreme und Krokant?;Frankfurter Kranz;Frankfurt am Main;=Frankfurt am Main/DE;;
+de;M;Welche Kräutersoße aus sieben Kräutern isst man in Hessen? Die … Grüne Soße;Frankfurter Grüne Soße;Frankfurt am Main;=Frankfurt am Main/DE;;
+de;M;Welcher Zoo ist der älteste Deutschlands? Der … Zoo;Berliner Zoo;Berlin;=Berlin/DE;;
+de;L;Welcher Fernsehturm mit silberner Kugel steht am Alexanderplatz? Der … Fernsehturm;Berliner Fernsehturm;Berlin;=Berlin/DE;;
+de;M;Welcher Fernsehturm war der erste der Welt aus Stahlbeton? Der … Fernsehturm;Stuttgarter Fernsehturm;Stuttgart;=Stuttgart/DE;;
+de;M;Welches Tor aus rotem Backstein ist das Wahrzeichen einer Hansestadt? Das … Holstentor;Lübecker Holstentor;Lübeck;=Lübeck/DE;;
+de;M;Welches Marzipan ist das berühmteste in Deutschland?;Lübecker Marzipan;Lübeck;=Lübeck/DE;;
+de;M;Welches römische Stadttor heißt „schwarzes Tor“? Die … Porta Nigra;Trierer Porta Nigra;Trier;=Trier/DE;;
+de;M;Welche Kirche hat den höchsten Kirchturm der Welt? Das … Münster;Ulmer Münster;Ulm;=Ulm/DE;;
+de;M;Welches Schloss steht auf einer Insel und ist Sitz eines Landtags? Das … Schloss;Schweriner Schloss;Schwerin;=Schwerin/DE;;
+de;M;Welche Schlossruine thront über dem Neckar und der Altstadt? Das … Schloss;Heidelberger Schloss;Heidelberg;=Heidelberg/DE;;
+de;M;Welches Porzellan mit den gekreuzten blauen Schwertern ist weltberühmt?;Meißner Porzellan;Meißen;=Meissen/DE;;
+de;M;Welche Messer und Scheren kommen aus der „Klingenstadt“?;Solinger Klingen;Solingen;=Solingen/DE;;
+de;M;Welche Prunk-Residenz mit riesigem Deckenfresko steht in Unterfranken? Die … Residenz;Würzburger Residenz;Würzburg;=Würzburg/DE;;
+de;M;Welche Kirche wurde nach der Wende aus Trümmern wieder aufgebaut? Die … Frauenkirche;Dresdner Frauenkirche;Dresden;=Dresden/DE;;
+de;M;Welcher mittelalterliche Brückenbau über die Donau ist steinern? Die … Steinerne Brücke;Regensburger Steinerne Brücke;Regensburg;=Regensburg/DE;;
+de;M;Welcher Reiter aus Stein steht im Dom einer fränkischen Stadt?;Bamberger Reiter;Bamberg;=Bamberg/DE;;
+de;M;Welcher Prozess nach dem Zweiten Weltkrieg fand in Franken statt?;Nürnberger Prozesse;Nürnberg;=Nürnberg/DE;;
+de;M;Wie heißt ein Trichter, mit dem man angeblich Wissen in den Kopf gießt?;Nürnberger Trichter;Nürnberg;=Nürnberg/DE;;
+de;M;Welcher Weihnachtsmarkt ist mit dem Christkindl berühmt?;Nürnberger Christkindlesmarkt;Nürnberg;=Nürnberg/DE;;
+de;M;Welches Denkmal erinnert an die Schlacht gegen Napoleon 1813?;Leipziger Völkerschlachtdenkmal;Leipzig;=Leipzig/DE;;
+de;M;Wie hießen die Demonstrationen 1989, die zur Wende führten?;Leipziger Montagsdemonstrationen;Leipzig;=Leipzig/DE;;
+de;M;Welcher steinerne Ritter wacht auf dem Marktplatz der Hansestadt?;Bremer Roland;Bremen;=Bremen/DE;;
+de;M;Welche Segelwoche im Juni ist das größte Segelfest der Welt?;Kieler Woche;Kiel;=Kiel/DE;;
+de;S;Welche kleinen geräucherten Fische kommen aus der Landeshauptstadt im Norden?;Kieler Sprotten;Kiel;=Kiel/DE;;
+de;M;Welche Republik gab es von 1919 bis 1933?;Weimarer Republik;Weimar;=Weimar/DE;;
+de;M;Wie nannte man die Bundesrepublik, als die Hauptstadt noch am Rhein lag?;Bonner Republik;Bonn;=Bonn/DE;;
+de;M;Welcher Friede beendete 1648 den Dreißigjährigen Krieg?;Westfälischer Friede;Westfalen;51.8,8.0;;80
+de;M;Welche Konferenz der Siegermächte fand 1945 im Schloss Cecilienhof statt?;Potsdamer Konferenz;Potsdam;=Potsdam/DE;;
+de;M;Welches Rennen fährt man auf dem Ring bei Mannheim?;Hockenheimring;Hockenheim;49.3217,8.5464;;
+de;M;Welches Metal-Festival findet jedes Jahr in einem Dorf in Schleswig-Holstein statt?;Wacken Open Air;Wacken;53.9833,9.3667;;
+de;M;Welche Festspiele zeigen jedes Jahr die Opern von Richard Wagner?;Bayreuther Festspiele;Bayreuth;=Bayreuth/DE;;
+de;S;Welche Kunstausstellung findet alle fünf Jahre in Nordhessen statt?;documenta Kassel;Kassel;=Kassel/DE;;
+de;M;„Ab nach …!“ Wohin wird man laut Redensart weggeschickt?;Kassel;Kassel;=Kassel/DE;;
+de;M;Welche Stadt gibt es laut einem Internet-Witz gar nicht?;Bielefeld;Bielefeld;=Bielefeld/DE;;
+de;S;Wie heißt ein flacher Wortwitz?;Kalauer;Calau;51.7456,13.9497;Der Kalauer ist nach Calau in Brandenburg benannt.;
+de;S;Wie heißen die Bürger, die das Licht in Säcken ins Rathaus tragen wollten?;Schildbürger;Schildau;51.4560,12.9300;Die Schildbürger sollen aus Schildau stammen.;
+de;M;Wie heißt das Neujahrsskispringen auf der Olympiaschanze? Das … Neujahrsspringen;Garmischer Neujahrsspringen;Garmisch-Partenkirchen;=Garmisch-Partenkirchen/DE;;
+de;M;Welcher Karneval ruft „Helau“ und hat die „Meenzer Fassenacht“?;Mainzer Fastnacht;Mainz;=Mainz/DE;;
+de;S;Welches Volksfest ist das zweitgrößte nach dem Oktoberfest? Der … Wasen;Cannstatter Wasen;Stuttgart-Bad Cannstatt;48.8050,9.2150;;
+de;S;Welches Weinfest heißt „Wurstmarkt“, obwohl es um Wein geht? Der … Wurstmarkt;Dürkheimer Wurstmarkt;Bad Dürkheim;49.4600,8.1700;;
+de;M;Welche Klöße aus rohen Kartoffeln isst man mit Rotkohl?;Thüringer Klöße;Thüringen;50.9000,11.0000;;70
+de;M;Welches Mittelgebirge im Süden von Thüringen hat den Rennsteig? Der … Wald;Thüringer Wald;Thüringer Wald;50.6500,10.8000;;50
+de;M;Welcher Wald an der Grenze zu Tschechien ist der älteste Nationalpark? Der … Wald;Bayerischer Wald;Bayerischer Wald;48.9500,13.4000;;50
+de;S;Welcher Wald liegt in Rheinland-Pfalz und heißt nach der Pfalz? Der …;Pfälzerwald;Pfälzerwald;49.3000,7.8500;;45
+de;M;In welchem Wald besiegte Hermann die Römer? Im … Wald;Teutoburger Wald;Teutoburger Wald;52.0000,8.6000;;45
+de;M;Welche Mittelgebirgs-Hochfläche hat den Albtrauf und liegt in Württemberg? Die … Alb;Schwäbische Alb;Schwäbische Alb;48.4000,9.4000;;60
+de;S;In welcher „Schweiz“ liegt die Burg Pottenstein? Ganz sicher nicht in der echten Schweiz!;Fränkische Schweiz;Fränkische Schweiz;49.7600,11.3500;;35
+de;M;Welche „Schweiz“ mit Felsen und Bastei liegt an der Elbe?;Sächsische Schweiz;Sächsische Schweiz;50.9300,14.1000;;35
+de;S;Welche „Schweiz“ mit vielen Seen liegt zwischen Kiel und Lübeck?;Holsteinische Schweiz;Holsteinische Schweiz;54.1600,10.4500;;35
+de;M;Welche Heide ist im August lila und liegt zwischen Hamburg und Hannover?;Lüneburger Heide;Lüneburger Heide;53.1500,10.0000;;50
+de;M;Welche Seenplatte ist das größte Seengebiet Deutschlands?;Mecklenburgische Seenplatte;Mecklenburgische Seenplatte;53.4000,12.8000;;60
+de;L;Gegenteil von süß + Land = ?;Sauer + Land;Sauerland;51.2000,8.1000;Das Sauerland liegt im Süden Westfalens.;45
+de;S;Gewinner + Land = ?;Sieger + Land;Siegerland;50.8700,8.0200;Das Siegerland liegt rund um Siegen.;35
+de;S;Beamter, der früher für den Landesherrn verwaltete + Land = ?;Vogt + Land;Vogtland;50.4500,12.2000;Das Vogtland liegt in Sachsen, Thüringen und Bayern.;45
+de;S;Bäume, die Eicheln tragen + Acker = ?;Eichs + Feld;Eichsfeld;51.4000,10.2000;Das Eichsfeld liegt zwischen Göttingen und Mühlhausen.;40
+de;M;Gestein, aus dem man Metall gewinnt + Bergkette = ?;Erz + Gebirge;Erzgebirge;50.5500,13.0000;Das Erzgebirge liegt an der Grenze zu Tschechien.;50
+eu;M;Gegenteil von Zwerg + Bergkette = ?;Riesen + Gebirge;Riesengebirge;50.7400,15.7400;Das Riesengebirge liegt zwischen Polen und Tschechien.;
+de;S;Nadelbaum + Bergkette = ?;Fichtel + Gebirge;Fichtelgebirge;50.0300,11.8500;Das Fichtelgebirge liegt in Oberfranken.;40
+de;M;Zahl zwischen sechs und acht + Bergkette = ?;Sieben + Gebirge;Siebengebirge;50.6800,7.2500;Das Siebengebirge liegt am Rhein bei Bonn.;
+de;S;Tier mit Federn + Berg = ?;Vogels + Berg;Vogelsberg;50.5000,9.2500;Der Vogelsberg liegt in Mittelhessen.;40
+de;M;Herrscher über ein Kaiserreich + Sitzmöbel = ?;Kaiser + Stuhl;Kaiserstuhl;48.1000,7.6700;Der Kaiserstuhl liegt am Oberrhein bei Freiburg.;
+de;M;Womit fährt man auf Schienen + oberes Ende = ?;Zug + Spitze;Zugspitze;47.4211,10.9853;Die Zugspitze ist Deutschlands höchster Berg.;
+de;M;Wie nennt man ein großes, dickes Stück? Ein …;Brocken;Brocken;51.7991,10.6156;Der Brocken ist der höchste Berg im Harz.;
+de;S;Was gießt man ins Glas + Bergkuppe = ?;Wasser + Kuppe;Wasserkuppe;50.4980,9.9380;Die Wasserkuppe ist der höchste Berg der Rhön.;
+de;S;Ganz ohne Haare + Äste eines Baums = ?;Kahler + Asten;Kahler Asten;51.1800,8.4900;Der Kahle Asten liegt im Sauerland.;
+de;S;Acker + Berg = ? Gesucht ist der Gipfel im Schwarzwald.;Feld + Berg;Feldberg (Schwarzwald);47.8740,8.0040;;
+de;M;Wie heißt der Pariser Turm, wenn man ihn mit nur einem f schreibt?;Eifel;Eifel;50.3500,6.7000;Die Eifel ist ein Mittelgebirge in Rheinland-Pfalz und NRW.;45
+de;S;Himmelsrichtung, wo die Sonne untergeht + Wald = ?;Wester + Wald;Westerwald;50.6000,7.9000;Der Westerwald liegt östlich von Koblenz.;40
+de;L;Was liegt auf dem Fußboden + Gewässer = ?;Boden + See;Bodensee;47.6300,9.3700;Der Bodensee liegt an der Grenze zu Österreich und der Schweiz.;
+de;L;Himmelsrichtung oben auf der Karte + Gewässer = ?;Nord + See;Nordsee;54.3000,7.5000;Gemeint ist der deutsche Teil der Nordsee.;60
+de;L;Himmelsrichtung, wo die Sonne aufgeht + Gewässer = ?;Ost + See;Ostsee;54.3000,11.5000;Gemeint ist der deutsche Teil der Ostsee.;60
+de;S;Was ist die Steigerung von „dumm“?;dümmer;Dümmer (See);52.5100,8.3200;Der Dümmer ist ein See in Niedersachsen.;
+de;S;Herrscher mit Krone + Gewässer = ?;Königs + See;Königssee;47.5500,12.9800;Der Königssee liegt im Berchtesgadener Land.;
+de;S;Wie heißt das größte Binnengewässer Niedersachsens, obwohl es ein See ist? Das … Meer;Steinhuder Meer;Steinhuder Meer;52.4700,9.3400;;
+de;M;Vogel mit prächtigem Rad + Insel = ?;Pfauen + Insel;Pfaueninsel;52.4330,13.1310;Die Pfaueninsel liegt in der Havel in Berlin.;
+de;M;Wo stehen Pergamonmuseum und Bode-Museum? Auf der …;Museumsinsel;Museumsinsel (Berlin);52.5200,13.3980;;
+de;S;Männer, höflich gesagt + Insel = ? Gesucht ist eine Insel im Chiemsee.;Herren + Insel;Herreninsel;47.8700,12.4000;;
+de;S;Damen + Insel = ? Gesucht ist die kleinere Insel im Chiemsee.;Frauen + Insel;Fraueninsel;47.8730,12.4250;;
+de;S;Gegenteil von arm + Flusswiese = ? Gesucht ist eine Insel im Bodensee.;Reichen + Au;Reichenau;47.6900,9.0600;;
+de;M;Wie heißen die Inseln vor der Küste Ostfrieslands?;Ostfriesische Inseln;Ostfriesische Inseln;53.7000,7.3000;;50
+de;M;Welcher Tee wird mit Kandis und Sahne getrunken, ganz oben im Nordwesten?;Ostfriesentee;Ostfriesland;53.4500,7.5000;;55
+de;L;Welches Gebiet heißt auch „Kohlenpott“?;Ruhrgebiet;Ruhrgebiet;51.4800,7.2000;;45
+de;S;Welches Land rund um Wuppertal und Solingen hat einen Namen wie ein Berg?;Bergisches Land;Bergisches Land;51.1500,7.2500;;35
+de;S;Welches Land rund um Münster ist flach und voller Fahrräder?;Münsterland;Münsterland;51.9000,7.5000;;45
+de;S;Welche Region am Rhein ist für Riesling und Rüdesheim bekannt?;Rheingau;Rheingau;50.0000,8.0000;;
+de;S;Was verkauft ein Händler? Seine …;Waren;Waren (Müritz);53.5200,12.6800;;
+de;M;Was macht man im Chor?;singen;Singen (Hohentwiel);47.7600,8.8400;Singen liegt im Hegau nahe dem Bodensee.;
+de;S;Gegenteil von trocken?;feucht;Feucht;49.3760,11.2140;Feucht liegt südöstlich von Nürnberg.;
+de;S;Wald + Gegenteil von trocken = ?;Wald + feucht;Waldfeucht;51.0700,5.9900;Waldfeucht liegt an der niederländischen Grenze.;
+de;S;Wie heißt „Regen“ auf Englisch?;rain;Rain (Lech);48.6900,10.9200;Rain liegt am Lech in Schwaben.;
+de;S;Wie nennt man unverschämte Kinder? Die …;Frechen;Frechen;50.9100,6.8100;Frechen liegt westlich von Köln.;
+de;M;Was malt man mit dem Lippenstift rot an?;Lippe;Lippe (Kreis);51.9500,8.8500;Der Kreis Lippe liegt in Ostwestfalen.;40
+de;S;Abfall + Zuhause = ? Achtung, mit Doppel-l!;Müll + Heim;Müllheim (Baden);47.8080,7.6300;Müllheim liegt im Markgräflerland bei Freiburg.;
+de;M;Vorname von Karl dem Großen + Gegenteil von Lärm = ?;Karls + Ruhe;Karlsruhe;49.0069,8.4037;Karlsruhe liegt am Oberrhein.;
+de;M;Herrscher über ein Kaiserreich + Gegenteil von leise = ?;Kaisers + lautern;Kaiserslautern;49.4447,7.7690;Kaiserslautern liegt in der Pfalz.;
+de;M;Farbe von Schokolade + Befehl „Sei still!“ = ?;Braun + schweig;Braunschweig;52.2689,10.5268;;
+de;M;Weißes Gewürz + Zaun aus Stäben = ?;Salz + Gitter;Salzgitter;52.1500,10.4000;Salzgitter liegt südlich von Braunschweig.;
+de;M;Metall, das rostet + kleine Häuser im Wald + Stadt = ?;Eisen + Hütten + Stadt;Eisenhüttenstadt;52.1450,14.6400;Eisenhüttenstadt liegt an der Oder.;
+de;S;Die Hälfte + Stadt = ?;Halber + Stadt;Halberstadt;51.8960,11.0560;Halberstadt liegt am Nordrand des Harzes.;
+de;S;Weißes Gewürz + Staubwedel = ?;Salz + Wedel;Salzwedel;52.8550,11.1500;Salzwedel liegt in der Altmark.;
+de;S;Farbe des Schnees + Fels = ?;Weißen + Fels;Weißenfels;51.2000,11.9690;;
+de;S;Schweizer Hauptstadt + Burg = ?;Bern + Burg;Bernburg;51.7940,11.7380;Bernburg liegt an der Saale in Sachsen-Anhalt.;
+de;M;Feuer (anderes Wort) + Burg = ? Gesucht ist die Stadt, nicht das Bundesland.;Branden + Burg;Brandenburg an der Havel;52.4125,12.5316;;
+de;M;Dienstmädchen früher + Burg = ?;Magde + Burg;Magdeburg;52.1205,11.6276;;
+de;M;Fällt aus den Wolken + Burg = ?;Regens + Burg;Regensburg;49.0134,12.1016;;
+de;M;Gewürz + Burg = ?;Würz + Burg;Würzburg;49.7913,9.9534;;
+de;M;Nicht gefangen + Burg = ?;Frei + Burg;Freiburg im Breisgau;47.9990,7.8421;;
+de;M;Organ, das schlägt + Berg = ?;Herz + Berg;Herzberg am Harz;51.6500,10.3400;;
+de;M;Herrscher mit Krone + kälteste Jahreszeit = ?;Königs + Winter;Königswinter;50.6830,7.1900;Königswinter liegt am Rhein bei Bonn.;
+de;M;Kälteste Jahreszeit + Berg = ?;Winter + Berg;Winterberg;51.1950,8.5300;Winterberg ist ein Wintersportort im Sauerland.;
+de;S;Stern, der uns wärmt + Berg = ?;Sonne + Berg;Sonneberg;50.3600,11.1700;Sonneberg ist die Spielzeugstadt in Thüringen.;
+de;S;Leuchtet nachts am Himmel + Berg = ?;Stern + Berg;Sternberg;53.7100,11.8300;Sternberg liegt in Mecklenburg.;
+de;S;Wo die Wolken sind + Tor = ?;Himmel + Pforten;Himmelpforten;53.6100,9.3100;Himmelpforten liegt bei Stade.;
+de;S;Himmelswesen mit Flügeln + Kirche = ?;Engels + Kirchen;Engelskirchen;50.9900,7.4200;Engelskirchen liegt im Bergischen Land.;
+de;S;Kämpfer in Rüstung + Hüter = ?;Ritter + Hude;Ritterhude;53.1800,8.7500;Ritterhude liegt nördlich von Bremen.;
+de;S;Herrscher mit Krone + Brunnen = ?;Königs + Brunn;Königsbrunn;48.2700,10.8900;Königsbrunn liegt südlich von Augsburg.;
+de;S;Adlige, die ein Fürstentum regieren + Wald = ?;Fürsten + Walde;Fürstenwalde;52.3600,14.0600;Fürstenwalde liegt an der Spree östlich von Berlin.;
+de;S;Sehr dunkel + Wald = ?;Finster + Walde;Finsterwalde;51.6300,13.7100;Finsterwalde liegt in der Lausitz.;
+de;S;Greifvogel + Gewässer = ?;Falken + See;Falkensee;52.5600,13.0900;Falkensee liegt westlich von Berlin.;
+de;S;Greifvogel + Stein = ?;Falken + Stein;Falkenstein (Vogtland);50.4800,12.3700;;
+de;S;Hübsch + Acker = ? Dort steht der Hauptstadtflughafen.;Schöne + Feld;Schönefeld;52.3900,13.5000;;
+de;S;Farbe der Nacht + Berg = ?;Schwarzen + Berg;Schwarzenberg (Erzgebirge);50.5450,12.7800;;
+de;S;Farbe des Schnees + Wasser = ?;Weiß + Wasser;Weißwasser;51.5000,14.6400;Weißwasser liegt in der Oberlausitz.;
+de;S;Farbe der Nacht + Landschaft mit Erika = ?;Schwarz + Heide;Schwarzheide;51.4800,13.8600;;
+de;S;Farbe des Grases + Stadt = ?;Grün + Stadt;Grünstadt;49.5600,8.1700;Grünstadt liegt in der Pfalz.;
+de;S;Farbe der Liebe + Burg = ? Gesucht ist die Stadt „ob der Tauber“.;Rothen + Burg;Rothenburg ob der Tauber;49.3770,10.1790;;
+de;S;Farbe des Himmels + „beuren“ = ? Dort liegt der Blautopf.;Blau + beuren;Blaubeuren;48.4120,9.7850;;
+de;S;Männer, höflich gesagt + Berg = ?;Herren + Berg;Herrenberg;48.5960,8.8650;Herrenberg liegt südwestlich von Stuttgart.;
+de;S;Stein + Furt = ?;Stein + Furt;Steinfurt;52.1500,7.3400;Steinfurt liegt im Münsterland.;
+de;S;Was man zum Geburtstag wünscht + Stadt = ?;Glück + Stadt;Glückstadt;53.7900,9.4200;Glückstadt liegt an der Elbe in Schleswig-Holstein.;
+de;S;Was man zum Geburtstag wünscht + Burg = ?;Glücks + Burg;Glücksburg;54.8300,9.5500;Glücksburg liegt an der Flensburger Förde.;
+de;S;Kastrierte Stiere + Häuser = ?;Ochsen + Hausen;Ochsenhausen;48.0700,9.9500;Ochsenhausen liegt in Oberschwaben.;
+de;S;Bäume, an denen Lindenblütentee wächst + Fels = ?;Linden + Fels;Lindenfels;49.6830,8.7800;Lindenfels liegt im Odenwald.;
+de;S;Weiße Blumen im französischen Wappen + Tal = ?;Lilien + Thal;Lilienthal;53.1400,8.9100;Lilienthal liegt bei Bremen.;
+de;S;Bäume mit weißer Rinde + Flussinsel = ?;Birken + Werder;Birkenwerder;52.6800,13.2800;Birkenwerder liegt nördlich von Berlin.;
+de;S;Gegenteil von kurzen + umzäunter Ort = ?;Langen + Hagen;Langenhagen;52.4400,9.7400;In Langenhagen liegt der Flughafen Hannover.;
+de;S;Raubtier + umzäunter Ort = ?;Wolf + Hagen;Wolfhagen;51.3300,9.1700;Wolfhagen liegt westlich von Kassel.;
+de;M;Gesucht ist ein Wort für viele, viele Bäume zusammen + Rand = ? Kleiner Tipp: Edersee.;Wald + Eck;Waldeck;51.2060,9.0620;Waldeck liegt über dem Edersee.;
+de;S;Nicht gefangen + Berg = ?;Frei + Berg;Freiberg (Sachsen);50.9120,13.3430;;
+de;S;Nicht gefangen + Tal = ?;Frei + Tal;Freital;51.0010,13.6510;Freital liegt bei Dresden.;
+de;S;Getränk aus Trauben + Heim = ?;Wein + Heim;Weinheim;49.5500,8.6700;Weinheim liegt an der Bergstraße.;
+de;S;Weiße Flocken + Berg = ?;Schnee + Berg;Schneeberg (Erzgebirge);50.5940,12.6400;;
+de;S;Raue Erhebung + Heim = ?;Berg + Heim;Bergheim;50.9550,6.6390;Bergheim liegt westlich von Köln.;
+de;S;Riesige Salzwasserfläche + Strauch = ?;Meer + Busch;Meerbusch;51.2560,6.6890;Meerbusch liegt bei Düsseldorf.;
+de;S;Fluss in Köln + kleiner Fluss = ?;Rhein + Bach;Rheinbach;50.6250,6.9490;Rheinbach liegt südwestlich von Bonn.;
+de;S;Weg + Berg = ?;Weg + Berg;Wegberg;51.1420,6.2840;Wegberg liegt nahe der Grenze zu den Niederlanden.;
+de;S;Herzog + Rat = ?;Herzogen + Rath;Herzogenrath;50.8710,6.0940;Herzogenrath liegt bei Aachen.;
+de;M;Welcher Jagdhund mit braunem oder schwarzem Fell heißt nach einer Region in Westfalen?;Münsterländer;Münsterland;51.9000,7.5000;;45
+de;M;Welches Pferd mit Brandzeichen „O“ heißt nach einer Stadt in Niedersachsen?;Oldenburger;Oldenburg;=Oldenburg/DE;;
+de;S;Welches Spargelgebiet südlich von Potsdam ist das bekannteste in Brandenburg?;Beelitzer Spargel;Beelitz;52.2380,12.9700;;
+de;S;Welcher Spargel aus Baden ist beim Schloss mit Rokokogarten berühmt?;Schwetzinger Spargel;Schwetzingen;49.3830,8.5700;;
+de;S;Welche kleinen weißen Rübchen aus Brandenburg aß schon Goethe?;Teltower Rübchen;Teltow;52.4000,13.2700;;
+de;S;Welcher spitze Weißkohl wächst auf einer Hochebene bei Stuttgart?;Filderkraut;Fildern;48.6900,9.2200;;
+de;S;Welche kleinen, festkochenden Kartoffeln heißen „Hörnla“?;Bamberger Hörnchen;Bamberg;=Bamberg/DE;;
+de;M;Welcher Senf kommt aus der Lausitz und hat einen Stadtnamen?;Bautz’ner Senf;Bautzen;=Bautzen/DE;;
+de;M;Welcher Senf ist mittelscharf und kommt vom Rhein? Der … Senf (Löwensenf);Düsseldorfer Senf;Düsseldorf;=Düsseldorf/DE;;
+de;M;Welches dunkle Bier ist typisch für die Landeshauptstadt am Rhein? Das … Alt;Düsseldorfer Altbier;Düsseldorf;=Düsseldorf/DE;;
+de;M;Welches Exportbier ist nach einer Ruhrgebietsstadt benannt?;Dortmunder Export;Dortmund;=Dortmund/DE;;
+de;M;Welches helle Bier bestellt man in Bayerns Hauptstadt? Ein … Hell;Münchner Hell;München;=Munich/DE;;
+de;S;Welcher Hefezopf mit Rosinen heißt in der Hansestadt „Klaben“?;Bremer Klaben;Bremen;=Bremen/DE;;
+de;S;Welche Krabben vom Kutter heißen nach einem Fischerort in Dithmarschen?;Büsumer Krabben;Büsum;54.1330,8.8590;;
+de;S;Welcher Katenschinken heißt nach einem Landesteil Schleswig-Holsteins?;Holsteiner Katenschinken;Holstein;54.0000,10.0000;;60
+de;M;Welcher Schinken aus dem Süden ist geräuchert und heißt nach einem Mittelgebirge?;Schwarzwälder Schinken;Schwarzwald;48.3000,8.2000;;60
+de;S;Welcher Zwiebelkuchen mit Speck heißt nach einer Region am Oberrhein? Der … Flammkuchen;Elsässer Flammkuchen;Elsass;48.3000,7.5000;Das Elsass gehört zu Frankreich.;50
+de;M;Welche Brezel mit dünnen Ärmchen und dickem Bauch? Die … Brezel;Schwäbische Brezel;Schwaben;48.5000,9.5000;;70
+de;M;Welche Spätzle sind nach einem Volksstamm im Südwesten benannt?;Schwäbische Spätzle;Schwaben;48.5000,9.5000;;70
+de;M;Welcher Lebkuchen kommt aus Franken? Die … Elisenlebkuchen;Nürnberger Elisenlebkuchen;Nürnberg;=Nürnberg/DE;;
+de;S;Welche kurze, dicke Wurst aus der Oberpfalz heißt nach der Stadt mit der Steinernen Brücke? Die …;Regensburger;Regensburg;=Regensburg/DE;;
+de;S;Welche Schokoladen-Pralinen aus der ältesten Schokoladenfabrik Deutschlands heißen nach einer Stadt an der Saale?;Halloren-Kugeln;Halle (Saale);=Halle (Saale)/DE;;
+de;S;Welche Puffbohne ist das Wappenzeichen der Thüringer Landeshauptstadt?;Erfurter Puffbohne;Erfurt;=Erfurt/DE;;
+de;S;Welche Spitze ist aus dem Vogtland weltberühmt?;Plauener Spitze;Plauen;=Plauen/DE;;
+de;S;Welcher Schmuck kommt aus der „Goldstadt“ am Nordrand des Schwarzwalds?;Pforzheimer Schmuck;Pforzheim;=Pforzheim/DE;;
+de;S;Welche Edelsteine kommen aus der Schmuckstadt im Hunsrück?;Idar-Obersteiner Edelsteine;Idar-Oberstein;49.7100,7.3100;;
+de;M;Welche Holzkunst mit Räuchermännchen und Nussknackern? Die … Holzkunst;Erzgebirgische Holzkunst;Erzgebirge;50.5500,13.0000;;50
+de;M;Welches Gebirge in Niedersachsen hat Hexen, die in der Walpurgisnacht tanzen?;Harz;Harz;51.7500,10.6000;;50
+de;S;Wie heißt das Hochmoor mit dem gleichnamigen Teufel bei Bremen? Das …;Teufelsmoor;Teufelsmoor;53.2700,8.9000;;
+de;S;Welche Stadt nannte Theodor Storm „die graue Stadt am Meer“?;Husum;Husum;54.4860,9.0510;;
+de;M;Auf welcher Hochseeinsel steht die rote Felsnadel „Lange Anna“?;Helgoland;Helgoland;54.1820,7.8850;;
+de;L;Welche Nordseeinsel ist das Kreuzworträtsel-Wort mit vier Buchstaben und hat den Hindenburgdamm?;Sylt;Sylt;54.9000,8.3100;;
