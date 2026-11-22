@@ -99,3 +99,903 @@
 98;mittel
 99;mittel
 100;schwer
+101;leicht;Frankfurt liegt nahe
+102;leicht;Märchen kennt jeder
+103;leicht;bekannte Sage
+104;mittel;Hunderasse bekannt, Stadt nicht jedem klar
+105;mittel;Pfalz ableitbar
+106;mittel;Allgäu ableitbar, Region großräumig
+107;mittel;Westfalen ableitbar
+108;mittel;Schwaben klar; Schreibweise "Herrgottsbscheißerle" prüfen
+109;mittel;Ostfriesland oder Friesland, etwas ungenau
+110;schwer;Wortzerlegung, ach klar
+111;schwer;Ochsenfurt wenig bekannt
+112;mittel;Wortspiel Kiel/Schiffsbalken ok
+113;mittel;Stadt Hof, Wortspiel fair
+114;leicht;Halle sofort klar
+115;mittel;Weiden als Baum, Stadt etwas obskur
+116;schwer;Wangen im Allgäu kaum bekannt
+117;schwer;Wetter (Ruhr) obskur
+118;schwer;Satzlücke "kamen", Ort Kamen unbekannt
+119;schwer;"geht zum Lauf" holprig; besser: Was macht ein Jogger? → laufen
+120;schwer;Brake kaum bekannt, Englisch-Umweg
+121;mittel;Freude + Stadt klar
+122;leicht;Hannover naheliegend
+123;mittel;Holstein ableitbar
+124;mittel;Schweden nach kurzem Überlegen
+125;mittel;Redewendung bekannt
+126;mittel;Florentiner → Florenz
+127;leicht;Zürich klar
+128;leicht;Schweiz klar
+129;leicht;Irland klar
+130;leicht;Schottland klar
+131;leicht;Russisch Brot bekannt
+132;mittel;Polonaise → Polen
+133;mittel;Krakau ableitbar
+134;mittel;Prag durch Hinweis klar
+135;leicht;Tirol klar
+136;mittel;Salzburg ableitbar
+137;leicht;Griechenland klar
+138;leicht;Türkei klar
+139;leicht;Ungarn klar
+140;leicht;Stockholm klar
+141;mittel;Burgund durch Hinweis ableitbar
+142;leicht;Dijon bekannt
+143;leicht;Cognac bekannt
+144;mittel;Roquefort bekannt, Ort kaum
+145;mittel;Gorgonzola bekannt, Ort unklar
+146;mittel;Cheddar ist ein Dorf, nicht jedem klar
+147;leicht;Parma klar
+148;schwer;Prosecco als Dorf kaum bekannt
+149;mittel;Chianti als Region ableitbar
+150;leicht;Porto klar
+151;mittel;Tokaj ableitbar
+152;leicht;Belgien klar
+153;mittel;ähnlich 101, Wien aber klar
+154;leicht;Berlin klar
+155;leicht;Mexiko klar
+156;leicht;China klar
+157;mittel;Indien klar, Lösung vage
+158;leicht;Ägypten klar
+159;mittel;Arabien als Zielort ungenau
+160;leicht;Kalifornien klar
+161;leicht;Texas klar
+162;leicht;Alaska klar
+163;leicht;Manhattan bekannt
+164;leicht;Jamaika-Koalition bekannt
+165;mittel;Kenia-Koalition weniger bekannt
+166;mittel;Afghanistan ableitbar
+167;leicht;Peking klar
+168;leicht;Kuba klar
+169;mittel;Long Island ableitbar
+170;mittel;Australien als Wortspiel-Falle, fair
+171;mittel;Mekka als Redewendung
+172;leicht;Sibirien klar
+173;schwer;Bengalen als Umweg
+174;leicht;Galápagos klar
+175;leicht;Tasmanien klar
+176;mittel;Timbuktu bekannt, Lage nicht jedem klar
+177;leicht;Havanna klar
+178;leicht;Kanada klar
+179;mittel;"einer der besten", Brasilien auch möglich
+180;mittel;Tibet ableitbar
+181;leicht;Duplikat zu 154, Berlin klar
+182;leicht;Berlinale → Berlin
+183;leicht;Berliner Weiße bekannt
+184;leicht;Michel → Hamburg
+185;leicht;Hamburg klar
+186;leicht;München klar
+187;leicht;München klar
+188;leicht;Köln klar
+189;leicht;Köln klar
+190;mittel;Frankfurter Kranz bekannt
+191;mittel;Frankfurt durch Hessen ableitbar
+192;leicht;Berlin klar
+193;leicht;Berlin klar
+194;mittel;Stuttgarter Fernsehturm weniger bekannt
+195;leicht;Lübeck klar
+196;leicht;Lübeck klar
+197;mittel;Porta Nigra → Trier
+198;leicht;Ulm klar
+199;mittel;Schwerin ableitbar
+200;leicht;Heidelberg klar
+201;leicht;Meißen via Porzellan
+202;mittel;Solingen
+203;mittel;Würzburg durch Unterfranken
+204;leicht;Dresden klar
+205;mittel;Regensburg via Donau
+206;mittel;Bamberger Reiter bekannt
+207;leicht;Nürnberg klar
+208;mittel;Nürnberger Trichter Redensart
+209;leicht;Nürnberg klar
+210;mittel;Leipzig ableitbar
+211;leicht;Leipzig klar
+212;mittel;Bremer Roland
+213;leicht;Kiel klar
+214;mittel;Kieler Sprotten
+215;leicht;Weimar klar
+216;leicht;Bonn klar
+217;mittel;Westfalen ableitbar
+218;mittel;Potsdam ableitbar
+219;mittel;Hockenheim, Hinweis Mannheim hilft
+220;leicht;Wacken bekannt
+221;leicht;Bayreuth klar
+222;leicht;Kassel klar
+223;mittel;Redensart "Ab nach Kassel"
+224;leicht;Bielefeld klar
+225;schwer;Kalauer/Calau, Herkunft umstritten
+226;mittel;Schildau ableitbar
+227;mittel;Garmisch-Partenkirchen
+228;leicht;Mainz klar
+229;mittel;Cannstatter Wasen → Stuttgart
+230;schwer;Bad Dürkheim wenig bekannt
+231;mittel;Thüringen ableitbar
+232;mittel;Thüringer Wald, Hinweis im Rätsel
+233;leicht;Bayerischer Wald bekannt
+234;mittel;Pfälzerwald ableitbar
+235;leicht;Teutoburger Wald bekannt
+236;leicht;Schwäbische Alb bekannt
+237;mittel;Fränkische Schweiz ableitbar
+238;leicht;Sächsische Schweiz bekannt
+239;schwer;Holsteinische Schweiz weniger bekannt
+240;leicht;Lüneburger Heide klar
+241;mittel;Mecklenburgische Seenplatte
+242;leicht;Sauerland klar
+243;mittel;Siegerland ableitbar
+244;schwer;Vogt + Land, Vogtland weniger bekannt
+245;schwer;Eichsfeld wenig bekannt
+246;mittel;Erzgebirge ableitbar
+247;leicht;Riesengebirge klar
+248;mittel;Fichtelgebirge ableitbar
+249;mittel;Siebengebirge ableitbar
+250;mittel;Vogelsberg ableitbar
+251;mittel;Kaiserstuhl ableitbar
+252;mittel;Zugspitze ableitbar
+253;mittel;Brocken als Wortspiel
+254;schwer;Wasserkuppe wenig bekannt
+255;schwer;Kahler Asten, "Asten" für Äste ungenau
+256;mittel;Feldberg ableitbar
+257;leicht;Eifel klar
+258;mittel;Westerwald ableitbar
+259;mittel;Bodensee ableitbar
+260;leicht;Nordsee klar
+261;leicht;Ostsee klar
+262;schwer;Dümmer (See) wenig bekannt
+263;mittel;Königssee ableitbar
+264;mittel;Steinhuder Meer
+265;mittel;Pfaueninsel ableitbar
+266;leicht;Museumsinsel klar
+267;schwer;Herreninsel wenig bekannt
+268;mittel;Fraueninsel ableitbar
+269;schwer;Reichenau wenig bekannt
+270;leicht;Ostfriesische Inseln klar
+271;leicht;Ostfriesland klar
+272;leicht;Ruhrgebiet klar
+273;schwer;Bergisches Land weniger bekannt
+274;leicht;Münsterland klar
+275;mittel;Rheingau ableitbar
+276;schwer;Waren (Müritz) wenig bekannt
+277;mittel;Singen am Hohentwiel
+278;schwer;Feucht wenig bekannt
+279;schwer;Waldfeucht wenig bekannt
+280;schwer;Rain (Lech) wenig bekannt
+281;schwer;Frechen, Wortspiel "Die Frechen"
+282;schwer;Lippe als Kreis, Wortspiel ok
+283;schwer;Müllheim wenig bekannt
+284;leicht;Karlsruhe klar
+285;mittel;Kaiserslautern ableitbar
+286;mittel;Braunschweig ableitbar
+287;mittel;Salzgitter ableitbar
+288;mittel;Eisenhüttenstadt ableitbar
+289;mittel;Halberstadt ableitbar
+290;schwer;Salzwedel wenig bekannt
+291;schwer;Weißenfels wenig bekannt
+292;schwer;Bernburg wenig bekannt
+293;schwer;Brandenburg an der Havel, "Feuer" als Brand
+294;mittel;Magdeburg ableitbar
+295;leicht;Regensburg klar
+296;leicht;Würzburg klar
+297;leicht;Freiburg klar
+298;schwer;Herzberg am Harz wenig bekannt
+299;mittel;Königswinter ableitbar
+300;mittel;Winterberg ableitbar
+301;schwer;Sonneberg wenig bekannt
+302;schwer;Sternberg wenig bekannt
+303;schwer;Himmelpforten, Pforten/Tor ungenau
+304;mittel;Engelskirchen ableitbar
+305;dumm;Hude ist nicht "Hüter"; besser: Kämpfer + Weide(alt) oder anderes Rätsel
+306;schwer;Königsbrunn wenig bekannt
+307;mittel;Fürstenwalde ableitbar
+308;mittel;Finsterwalde ableitbar
+309;mittel;Falkensee ableitbar
+310;schwer;Falkenstein mehrfach, Ort unklar
+311;leicht;Flughafen als Hinweis
+312;schwer;Schwarzenberg wenig bekannt
+313;schwer;Weißwasser wenig bekannt
+314;schwer;Schwarzheide wenig bekannt
+315;mittel;Grünstadt ableitbar
+316;leicht;Rothenburg bekannt
+317;mittel;Blaubeuren, Hinweis Blautopf
+318;schwer;Herrenberg wenig bekannt
+319;mittel;Steinfurt ableitbar
+320;mittel;Glückstadt ableitbar
+321;mittel;Glücksburg ableitbar
+322;schwer;Ochsenhausen wenig bekannt
+323;schwer;Lindenfels wenig bekannt
+324;schwer;Lilienthal wenig bekannt
+325;schwer;Birkenwerder wenig bekannt
+326;mittel;Langenhagen ableitbar
+327;mittel;Wolfhagen ableitbar
+328;mittel;Waldeck, Tipp Edersee hilft
+329;mittel;Freiberg ableitbar
+330;mittel;Freital ableitbar
+331;mittel;Weinheim ableitbar
+332;mittel;Schneeberg ableitbar
+333;mittel;Bergheim ableitbar
+334;mittel;Meerbusch ableitbar
+335;mittel;Rheinbach ableitbar
+336;mittel;Wegberg ableitbar
+337;schwer;Herzogenrath wenig bekannt
+338;mittel;Münsterland ableitbar
+339;mittel;Oldenburg ableitbar
+340;mittel;Beelitz, Spargel bekannt
+341;mittel;Schwetzingen, Spargel bekannt
+342;schwer;Teltow wenig bekannt
+343;schwer;Fildern wenig bekannt
+344;mittel;Bamberg ableitbar
+345;mittel;Bautzen ableitbar
+346;mittel;Düsseldorf ableitbar
+347;leicht;Düsseldorf klar
+348;leicht;Dortmund klar
+349;leicht;München klar
+350;schwer;Bremer Klaben wenig bekannt
+351;mittel;Büsum ableitbar
+352;mittel;Holstein ableitbar
+353;leicht;Schwarzwald klar
+354;mittel;Elsass ableitbar
+355;mittel;Schwaben ableitbar
+356;mittel;Schwaben ableitbar
+357;leicht;Nürnberg klar
+358;mittel;Regensburg ableitbar
+359;mittel;Halle ableitbar
+360;schwer;Erfurt, Puffbohne unbekannt
+361;mittel;Plauen ableitbar
+362;mittel;Pforzheim ableitbar
+363;schwer;Idar-Oberstein wenig bekannt
+364;mittel;Erzgebirge ableitbar
+365;leicht;Harz klar
+366;schwer;Teufelsmoor wenig bekannt
+367;mittel;Husum ableitbar
+368;leicht;Helgoland klar
+369;leicht;Sylt klar
+370;leicht;Bitburg klar
+371;mittel;Warstein ableitbar
+372;mittel;Erding ableitbar
+373;leicht;Flensburg klar
+374;leicht;Flensburg klar
+375;mittel;Gerolstein ableitbar
+376;leicht;Köln klar
+377;leicht;München klar
+378;leicht;Dortmund klar
+379;leicht;Hamburg klar
+380;leicht;Bremen klar
+381;leicht;Köln klar
+382;leicht;Frankfurt klar
+383;leicht;Stuttgart klar
+384;leicht;Leipzig klar
+385;leicht;Freiburg klar
+386;leicht;Mainz klar
+387;leicht;Mönchengladbach klar
+388;leicht;Leverkusen klar
+389;leicht;Wolfsburg klar
+390;mittel;Augsburg ableitbar
+391;mittel;Rosenheim ableitbar
+392;leicht;Frankfurt klar
+393;leicht;Stuttgart klar
+394;leicht;Bremerhaven klar
+395;leicht;Hamburg klar
+396;mittel;Neandertal ableitbar
+397;leicht;Bochum klar
+398;leicht;Heidelberg klar
+399;mittel;Loreley bekannt
+400;mittel;Eisenach, Wartburg-Hinweis
+401;leicht;Köln klar
+402;leicht;Frankfurt klar
+403;leicht;Frankfurt klar
+404;leicht;München klar
+405;mittel;Heringsdorf, Lösung steckt im Rätsel
+406;leicht;Münster klar
+407;mittel;Bad Tölz ableitbar
+408;leicht;Berlin klar
+409;mittel;Marzahn ableitbar
+410;mittel;Timmendorfer Strand ableitbar
+411;mittel;Oberstdorf ableitbar
+412;mittel;Bad Reichenhall ableitbar
+413;schwer;Krombach wenig bekannt
+414;mittel;Jever ableitbar
+415;schwer;Radeberg wenig bekannt
+416;schwer;Bad Köstritz wenig bekannt
+417;mittel;Einbeck ableitbar
+418;schwer;Oettingen wenig bekannt
+419;mittel;Kulmbach ableitbar
+420;mittel;Bamberg ableitbar
+421;schwer;Selters wenig bekannt
+422;schwer;Fachingen wenig bekannt
+423;mittel;Halberstadt ableitbar
+424;mittel;Nordhausen ableitbar
+425;mittel;Rüdesheim ableitbar
+426;mittel;Coburg ableitbar
+427;leicht;Dresden klar
+428;mittel;Jena ableitbar
+429;mittel;Glashütte ableitbar
+430;mittel;Weimar ableitbar
+431;schwer;Altenburg wenig bekannt
+432;leicht;Magdeburg klar
+433;mittel;Nebra ableitbar
+434;leicht;Wittenberg klar
+435;mittel;Augsburg ableitbar
+436;mittel;Göttingen ableitbar
+437;leicht;Hannover klar
+438;leicht;St. Pauli klar
+439;mittel;Hoffenheim ableitbar
+440;leicht;Gelsenkirchen klar
+441;leicht;Berlin klar
+442;mittel;Heidenheim ableitbar
+443;mittel;Darmstadt ableitbar
+444;leicht;Rostock klar
+445;mittel;Kiel ableitbar
+446;mittel;Fürth ableitbar
+447;mittel;Kaiserslautern ableitbar
+448;leicht;Dresden klar
+449;mittel;Bielefeld ableitbar
+450;mittel;Kitzbühel liegt in Österreich, Karte nicht Deutschland
+451;mittel;Wismar ableitbar
+452;mittel;Leipzig ableitbar
+453;leicht;Berlin klar
+454;mittel;Oberhof ableitbar
+455;mittel;Ruhpolding ableitbar
+456;leicht;Wilhelmshaven klar
+457;mittel;Hexentanzplatz, Lösung im Rätsel
+458;mittel;Kyffhäuser bekannt
+459;mittel;Bodensee ableitbar
+460;schwer;Ammerland wenig bekannt
+461;schwer;Pulsnitz wenig bekannt
+462;mittel;Hamburg ableitbar
+463;schwer;Altenburg wenig bekannt
+464;mittel;Leipzig ableitbar
+465;leicht;Gelsenkirchen klar
+466;mittel;Bremen ableitbar
+467;schwer;Mühlhausen wenig bekannt
+468;schwer;Otterndorf wenig bekannt
+469;schwer;Rehburg-Loccum wenig bekannt
+470;schwer;Rabenau; Raben sind keine Raubvögel
+471;schwer;Kranichfeld wenig bekannt
+472;schwer;Roßtal wenig bekannt
+473;schwer;Katzhütte wenig bekannt
+474;schwer;Fuchsstadt wenig bekannt
+475;schwer;Hirschberg mehrfach, Hinweis hilft
+476;mittel;Höllental ableitbar
+477;schwer;Kühlungsborn, Wortbildung knifflig
+478;mittel;Warnemünde, Rätselzeile "Warne" verwirrend
+479;schwer;Bad Teinach wenig bekannt
+480;schwer;Schierke wenig bekannt
+481;schwer;Wernesgrün wenig bekannt
+482;leicht;Aachen klar
+483;leicht;Troja klar
+484;mittel;Provence ableitbar
+485;leicht;Capri klar
+486;leicht;Pisa klar
+487;leicht;Irland klar
+488;mittel;"englisch" gebratenes Steak bekannt
+489;leicht;Bordeaux klar
+490;leicht;Loch Ness klar
+491;leicht;Frankreich klar
+492;leicht;Norwegen klar
+493;leicht;Wien klar
+494;leicht;Wien klar
+495;leicht;Wien klar
+496;mittel;Côte d'Azur ableitbar
+497;mittel;Schengen ableitbar
+498;mittel;Genf ableitbar
+499;leicht;Mittelmeer klar
+500;mittel;Lyon ableitbar
+501;schwer;Debrecen wenig bekannt
+502;leicht;Venedig klar
+503;leicht;London klar
+504;mittel;Shetland ableitbar
+505;leicht;Island klar
+506;mittel;Azoren ableitbar
+507;leicht;Island klar
+508;leicht;Monaco klar
+509;leicht;Frankreich klar
+510;leicht;Bern klar
+511;leicht;London klar
+512;leicht;Russland klar; "Kartenspiel" ungenau (Glücksspiel)
+513;schwer;Border Collie → Borders, Ort unscharf
+514;mittel;Yorkshire ableitbar
+515;leicht;Dänemark klar
+516;leicht;Schweden klar
+517;mittel;Lüttich ableitbar
+518;leicht;Mallorca klar
+519;leicht;Athen klar
+520;leicht;Rom klar
+521;leicht;Spanien klar
+522;mittel;Yorkshire ableitbar
+523;leicht;Kreta klar
+524;mittel;Neapel ableitbar
+525;leicht;Madrid klar
+526;leicht;Barcelona klar
+527;leicht;Liverpool klar
+528;leicht;Liverpool klar, Duplikat 527
+529;mittel;Lösung im Rätsel, Isle of Wight
+530;mittel;Limerick ableitbar
+531;mittel;Liver + pool, Englisch nötig
+532;mittel;Oxford ableitbar
+533;mittel;Newcastle ableitbar
+534;mittel;Blackpool ableitbar
+535;mittel;Swansea ableitbar
+536;mittel;Portsmouth ableitbar
+537;mittel;Land's End ableitbar
+538;mittel;Greenwich ableitbar
+539;mittel;Windsor ableitbar
+540;mittel;Rugby ableitbar
+541;leicht;Wimbledon klar
+542;leicht;Wembley klar
+543;mittel;Le Mans ableitbar
+544;leicht;Cannes klar
+545;mittel;Silverstone, Rätsel gibt Lösung vor
+546;mittel;Monza ableitbar
+547;schwer;Gap (Alpen) wenig bekannt
+548;schwer;Lens wenig bekannt
+549;mittel;Tours ableitbar
+550;mittel;Cork ableitbar
+551;schwer;Deal wenig bekannt
+552;mittel;Spa ableitbar
+553;mittel;Bergen ableitbar
+554;mittel;Hell (Norwegen), Wortspiel
+555;schwer;Hull wenig bekannt
+556;mittel;Wels ableitbar
+557;mittel;Zug ableitbar
+558;schwer;Posen, Wortspiel "posen"
+559;mittel;Öland ableitbar
+560;mittel;Lappland ableitbar
+561;mittel;England ableitbar
+562;mittel;Seeland ableitbar
+563;mittel;Plattensee ableitbar
+564;leicht;Burgenland klar
+565;leicht;Ärmelkanal klar
+566;leicht;Nordkap klar
+567;mittel;Jungfrau ableitbar
+568;mittel;Mont Blanc ableitbar
+569;mittel;Transsilvanien ableitbar
+570;mittel;Walachei Redensart
+571;mittel;Böhmen Redensart
+572;mittel;Holland in Not Redensart
+573;leicht;Schweden klar
+574;mittel;Sparta ableitbar
+575;schwer;Lakonien, Wortherkunft
+576;schwer;Mäander ist Fluss, Wortspiel
+577;mittel;Delphi ableitbar
+578;mittel;Rhodos ableitbar
+579;mittel;Milos ableitbar
+580;leicht;Pompeji klar
+581;mittel;Assisi ableitbar
+582;mittel;Padua ableitbar
+583;mittel;Turin ableitbar
+584;mittel;Mailand ableitbar
+585;mittel;Mailand, Duplikat 584
+586;mittel;Modena ableitbar
+587;mittel;Parma, Lösung im Rätsel
+588;mittel;Murano ableitbar
+589;mittel;Carrara ableitbar
+590;mittel;Como ableitbar
+591;mittel;Málaga ableitbar
+592;mittel;Sevilla ableitbar
+593;mittel;La Mancha ableitbar
+594;mittel;Santiago de Compostela ableitbar
+595;mittel;Pamplona ableitbar
+596;mittel;Valencia ableitbar
+597;mittel;Madeira ableitbar
+598;mittel;Marseille ableitbar
+599;mittel;Saint-Tropez ableitbar
+600;mittel;Lourdes ableitbar
+601;mittel;Versailles ableitbar
+602;mittel;Chantilly ableitbar
+603;mittel;Lothringen ableitbar
+604;mittel;Brie ableitbar
+605;mittel;Asti ableitbar
+606;mittel;Gouda ableitbar
+607;mittel;Delft ableitbar
+608;mittel;Budweis ableitbar
+609;mittel;Karlsbad ableitbar
+610;mittel;Prag ableitbar
+611;mittel;Warschau ableitbar
+612;mittel;Wien ableitbar
+613;mittel;Kiew ableitbar
+614;mittel;Wolga ableitbar
+615;leicht;Tschernobyl klar
+616;mittel;Normandie ableitbar
+617;mittel;Dünkirchen ableitbar
+618;mittel;Verdun ableitbar
+619;mittel;Maastricht ableitbar
+620;mittel;Rom ableitbar
+621;leicht;Brüssel klar
+622;mittel;Brüssel ableitbar
+623;schwer;Aran-Inseln wenig bekannt
+624;mittel;Tipperary ableitbar
+625;schwer;Leek wenig bekannt
+626;mittel;Galway ableitbar
+627;mittel;Kilkenny ableitbar
+628;mittel;Worcester ableitbar
+629;schwer;Eton wenig bekannt
+630;schwer;Tweed als Fluss wenig bekannt
+631;mittel;Dover ableitbar
+632;mittel;London, Scotland Yard
+633;mittel;Wales ableitbar
+634;mittel;Norwegen ableitbar
+635;mittel;Russland ableitbar
+636;mittel;Großbritannien ableitbar
+637;schwer;Bologna wenig bekannt
+638;mittel;Portugal ableitbar
+639;mittel;Pyrenäen ableitbar
+640;mittel;Andalusien ableitbar
+641;mittel;Friesland ableitbar
+642;schwer;Camargue wenig bekannt
+643;mittel;Highlands ableitbar
+644;schwer;Aberdeen wenig bekannt
+645;schwer;Texel wenig bekannt
+646;leicht;Ungarn klar
+647;leicht;Ungarn klar
+648;mittel;Moldau ableitbar
+649;leicht;Venedig klar
+650;leicht;Dänemark klar
+651;leicht;Moskau klar
+652;leicht;Venedig klar
+653;leicht;Paris klar
+654;mittel;Korsika ableitbar
+655;schwer;Boom wenig bekannt
+656;leicht;Davos klar
+657;leicht;St. Moritz klar
+658;mittel;Kitzbühel ableitbar
+659;mittel;Salzburg ableitbar
+660;schwer;Ötztal, Rätselzeile verwirrend
+661;leicht;Amsterdam klar
+662;leicht;Amsterdam klar
+663;mittel;Basel ableitbar
+664;mittel;Danzig ableitbar
+665;mittel;Kaukasus ableitbar
+666;leicht;Gibraltar klar
+667;schwer;Stilton wenig bekannt
+668;leicht;Wien klar
+669;leicht;Marseille klar
+670;leicht;Portugal klar
+671;leicht;Griechenland klar
+672;leicht;Polen klar
+673;mittel;Frankfurt, Rätseltext verwirrend
+674;leicht;Polen klar
+675;leicht;Griechenland klar
+676;leicht;Frankreich klar
+677;leicht;England klar
+678;leicht;England klar
+679;leicht;Irland klar
+680;leicht;Frankreich klar
+681;leicht;Spanien klar
+682;leicht;Deutschland klar
+683;leicht;Deutschland klar
+684;leicht;Irland klar
+685;leicht;Irland klar
+686;mittel;Highlands ableitbar
+687;mittel;Bologna ableitbar
+688;leicht;Schweiz klar
+689;schwer;Béarn wenig bekannt
+690;schwer;Cassis wenig bekannt
+691;mittel;Évian ableitbar
+692;mittel;Volvic ableitbar
+693;mittel;Chablis ableitbar
+694;schwer;Calvados als Département
+695;mittel;Chartreuse ableitbar
+696;mittel;Beaujolais ableitbar
+697;schwer;Montélimar wenig bekannt
+698;mittel;Avignon ableitbar
+699;mittel;Siena ableitbar
+700;mittel;Lido ableitbar
+701;mittel;Marsala ableitbar
+702;schwer;Soave wenig bekannt
+703;schwer;Barolo wenig bekannt
+704;schwer;Frascati wenig bekannt
+705;mittel;Sanremo ableitbar
+706;mittel;La Rioja ableitbar
+707;mittel;La Mancha ableitbar
+708;mittel;Toledo ableitbar
+709;schwer;Gruyères wenig bekannt
+710;mittel;Appenzell ableitbar
+711;schwer;Entlebuch wenig bekannt
+712;schwer;Munster wenig bekannt
+713;schwer;Hafling wenig bekannt
+714;mittel;Simmental ableitbar
+715;schwer;Hereford wenig bekannt
+716;schwer;Galloway wenig bekannt
+717;mittel;Guernsey ableitbar
+718;schwer;Connemara wenig bekannt
+719;schwer;Clyde wenig bekannt
+720;mittel;Ardennen ableitbar
+721;schwer;Kangal wenig bekannt
+722;schwer;Van wenig bekannt
+723;mittel;Krim ableitbar
+724;mittel;Engadin ableitbar
+725;mittel;Marienbad ableitbar
+726;schwer;Olmütz wenig bekannt
+727;schwer;Thorn wenig bekannt; "Dornenstrauch" meint Thorn
+728;mittel;Arnheim ableitbar
+729;mittel;Gent ableitbar
+730;mittel;Brügge ableitbar
+731;mittel;Antwerpen ableitbar
+732;mittel;Bayeux ableitbar
+733;mittel;Toulouse ableitbar
+734;mittel;Limoges ableitbar
+735;schwer;Limousin wenig bekannt
+736;mittel;Chartres ableitbar
+737;mittel;Vichy ableitbar
+738;leicht;Stonehenge, Rätsel gibt Wort vor
+739;mittel;Glastonbury ableitbar
+740;mittel;Roskilde ableitbar
+741;mittel;Ascot ableitbar
+742;mittel;St Andrews ableitbar
+743;mittel;Holmenkollen ableitbar
+744;mittel;Cortina ableitbar
+745;mittel;Roubaix ableitbar
+746;mittel;Lausanne ableitbar
+747;mittel;Den Haag ableitbar
+748;mittel;Jalta ableitbar
+749;mittel;Rubikon ableitbar
+750;mittel;Thermopylen ableitbar
+751;mittel;Trafalgar ableitbar
+752;mittel;Austerlitz ableitbar
+753;mittel;Gallipoli ableitbar
+754;mittel;Ithaka ableitbar
+755;mittel;Knossos ableitbar
+756;mittel;Samos ableitbar
+757;mittel;Montecristo, Schreibweise Monte Christo
+758;mittel;Verona ableitbar
+759;mittel;Windsor ableitbar
+760;mittel;Finnland ableitbar
+761;mittel;Königsberg ableitbar
+762;schwer;Tilsit wenig bekannt
+763;mittel;Masuren ableitbar
+764;mittel;Schaffhausen ableitbar
+765;schwer;Rye wenig bekannt
+766;schwer;Wells wenig bekannt
+767;schwer;Bury wenig bekannt
+768;schwer;Moss wenig bekannt
+769;schwer;Angers wenig bekannt
+770;mittel;Melk, Befehlsform
+771;schwer;Sitten (Sion) wenig bekannt
+772;schwer;Laufen (Schweiz) wenig bekannt
+773;mittel;Lolland ableitbar
+774;mittel;Costa Brava ableitbar
+775;mittel;Montenegro ableitbar; "Insel" im Rätsel falsch
+776;mittel;Lago Maggiore ableitbar
+777;mittel;Mönch ableitbar
+778;schwer;Strontian wenig bekannt
+779;mittel;Leiden ableitbar
+780;mittel;Willendorf ableitbar
+781;mittel;Seveso ableitbar
+782;schwer;Ypern, Yperit
+783;schwer;Orpington wenig bekannt
+784;mittel;Wales ableitbar
+785;schwer;Fair Isle wenig bekannt
+786;schwer;Harris wenig bekannt
+787;mittel;Skye ableitbar
+788;schwer;Bakewell wenig bekannt
+789;schwer;Suffolk wenig bekannt
+790;schwer;Sussex wenig bekannt
+791;schwer;Bresse wenig bekannt
+792;mittel;Armagnac ableitbar
+793;mittel;USA, Wortspiel
+794;leicht;China klar
+795;leicht;China klar
+796;mittel;Indischer Ozean ableitbar
+797;leicht;Indien klar
+798;leicht;Afrika klar
+799;mittel;Nil ableitbar
+800;leicht;Totes Meer klar
+801;mittel;Neuseeland ableitbar; "Frisch" für neu ungenau
+802;leicht;New York klar
+803;mittel;New Mexico ableitbar
+804;leicht;Grand Canyon klar
+805;leicht;Rocky Mountains klar
+806;leicht;Great Barrier Reef klar
+807;mittel;Große Seen ableitbar
+808;mittel;Amazonas ableitbar
+809;mittel;Philadelphia ableitbar
+810;leicht;Kentucky klar
+811;leicht;New York klar
+812;leicht;Chicago klar
+813;mittel;Himalaya ableitbar
+814;leicht;Madagaskar klar
+815;leicht;Thailand klar
+816;leicht;Tokio klar
+817;leicht;Australien klar
+818;mittel;Kanada ableitbar
+819;leicht;Argentinien klar
+820;leicht;Karibik klar
+821;leicht;Bethlehem klar
+822;leicht;Kalifornien klar
+823;leicht;Alabama klar
+824;leicht;USA klar
+825;leicht;Afrika klar
+826;leicht;New York klar
+827;leicht;Las Vegas klar
+828;leicht;Ecuador klar
+829;mittel;La Paz ableitbar
+830;leicht;Buenos Aires klar
+831;leicht;Rio de Janeiro klar
+832;mittel;Sierra Leone ableitbar
+833;mittel;Kap Verde ableitbar
+834;mittel;Nevada ableitbar
+835;schwer;Eureka (Kalifornien) wenig bekannt
+836;leicht;Salt Lake City klar
+837;mittel;Long Beach ableitbar
+838;leicht;Death Valley klar
+839;leicht;Yellowstone klar
+840;leicht;Pearl Harbor klar
+841;mittel;Key West ableitbar
+842;leicht;Silicon Valley klar
+843;leicht;Hollywood klar
+844;mittel;Queensland ableitbar
+845;schwer;Yellowknife wenig bekannt
+846;schwer;Whitehorse wenig bekannt
+847;mittel;Palm Springs ableitbar
+848;mittel;Palm Beach ableitbar
+849;leicht;New Orleans klar
+850;mittel;New Jersey ableitbar
+851;mittel;Neufundland ableitbar
+852;mittel;Neufundland ableitbar
+853;mittel;Kap Hoorn ableitbar
+854;leicht;Kapstadt klar
+855;leicht;Tafelberg klar
+856;leicht;Pazifik klar
+857;mittel;Komodo ableitbar
+858;mittel;Kamtschatka ableitbar
+859;mittel;Persien ableitbar
+860;mittel;Himalaya ableitbar
+861;mittel;Ägypten ableitbar
+862;mittel;Maine ableitbar
+863;mittel;Havanna ableitbar
+864;leicht;Sibirien klar
+865;mittel;Boston ableitbar
+866;mittel;Bengalen ableitbar
+867;mittel;Arabien ableitbar
+868;mittel;Arabien ableitbar
+869;leicht;Texas klar
+870;mittel;Kobe ableitbar
+871;mittel;Tequila ableitbar
+872;leicht;Jamaika klar
+873;mittel;Darjeeling ableitbar
+874;mittel;Assam ableitbar
+875;mittel;Singapur ableitbar
+876;mittel;Bombay/Mumbai ableitbar
+877;mittel;Copacabana ableitbar
+878;mittel;Charleston ableitbar
+879;mittel;Woodstock ableitbar
+880;mittel;Boston ableitbar
+881;mittel;Indianapolis ableitbar
+882;mittel;Dakar ableitbar
+883;leicht;Alcatraz klar
+884;leicht;Dallas klar
+885;leicht;Miami klar
+886;mittel;Hawaii ableitbar
+887;leicht;Beverly Hills klar
+888;leicht;Chicago klar
+889;leicht;Boston klar
+890;mittel;Mauritius ableitbar
+891;mittel;Madagaskar ableitbar
+892;leicht;Bermuda klar
+893;schwer;Macau wenig bekannt
+894;mittel;Darwin ableitbar
+895;schwer;Shanghai, "schanghaien" Wortspiel
+896;mittel;Babylon ableitbar
+897;mittel;Jericho ableitbar
+898;mittel;Ararat ableitbar
+899;mittel;Damaskus ableitbar
+900;schwer;Sodom (Totes Meer) ungenau
+901;mittel;Kyoto ableitbar
+902;mittel;Roswell ableitbar
+903;mittel;Anden ableitbar
+904;mittel;Patagonien ableitbar
+905;leicht;Sahara klar
+906;mittel;Lima ableitbar
+907;mittel;Goa ableitbar
+908;schwer;Bounty-Inseln wenig bekannt
+909;mittel;St. Helena ableitbar
+910;schwer;Robinson-Crusoe-Insel, Lösung im Rätsel
+911;mittel;Mongolei ableitbar
+912;mittel;Sumatra ableitbar
+913;mittel;Kokosinseln, Lösung im Rätsel
+914;schwer;Satsuma wenig bekannt
+915;mittel;Vermont ableitbar
+916;mittel;Río de la Plata ableitbar
+917;schwer;Valparaíso wenig bekannt
+918;mittel;El Salvador ableitbar
+919;schwer;Trinidad wenig bekannt
+920;mittel;Nova Scotia ableitbar
+921;mittel;Neuguinea ableitbar
+922;mittel;Jungferninseln ableitbar
+923;schwer;Rhode Island wenig bekannt
+924;leicht;Ägypten klar
+925;leicht;Hawaii klar
+926;leicht;Hawaii klar
+927;leicht;Brasilien klar
+928;leicht;Grönland klar
+929;leicht;Capri klar
+930;leicht;Moskau klar
+931;mittel;Nokia ableitbar
+932;leicht;Amsterdam klar
+933;leicht;Griechenland klar
+934;mittel;Łódź ableitbar
+935;mittel;Piräus ableitbar
+936;mittel;Kufstein ableitbar
+937;mittel;Kintyre ableitbar
+938;mittel;Babylon ableitbar
+939;mittel;San Francisco ableitbar
+940;mittel;Mendocino ableitbar
+941;mittel;Massachusetts ableitbar
+942;mittel;Westerland ableitbar
+943;mittel;Ipanema ableitbar
+944;mittel;Sansibar ableitbar
+945;mittel;Sierra Madre ableitbar
+946;mittel;Guinea ableitbar
+947;mittel;Sumatra ableitbar
+948;leicht;Sibirien klar
+949;mittel;Peru ableitbar
+950;mittel;Akita ableitbar
+951;mittel;Lhasa ableitbar
+952;mittel;Singapur ableitbar
+953;mittel;Somalia ableitbar
+954;mittel;Toyota ableitbar
+955;mittel;Fuji ableitbar
+956;mittel;Sapporo ableitbar
+957;mittel;Tennessee ableitbar
+958;mittel;Virginia ableitbar
+959;schwer;Kona wenig bekannt
+960;schwer;Pisco wenig bekannt
+961;mittel;Malibu ableitbar
+962;mittel;Madras/Chennai ableitbar
+963;mittel;Okinawa ableitbar
+964;mittel;Klondike ableitbar
+965;mittel;Montreal ableitbar
+966;mittel;Coachella; "Jazz" falsch, Festival bekannt
+967;mittel;Fargo ableitbar
+968;schwer;Lake Placid wenig bekannt
+969;mittel;Augusta ableitbar
+970;leicht;Hawaii klar
+971;mittel;Alice Springs ableitbar
+972;mittel;Christchurch ableitbar
+973;leicht;Ganges klar
+974;mittel;Agra ableitbar
+975;schwer;Manila wenig bekannt
+976;schwer;Ur, Wortspiel "uralt"
+977;mittel;Amarillo ableitbar
+978;mittel;El Paso ableitbar
+979;mittel;Santa Fe ableitbar
+980;mittel;Colorado ableitbar
+981;mittel;Rio Grande ableitbar
+982;mittel;Baton Rouge ableitbar
+983;mittel;Little Rock ableitbar
+984;schwer;Bakersfield wenig bekannt
+985;schwer;Thunder Bay wenig bekannt
+986;schwer;Medicine Hat wenig bekannt
+987;schwer;Hot Springs wenig bekannt
+988;mittel;Cookinseln ableitbar
+989;schwer;Gesellschaftsinseln wenig bekannt
+990;mittel;Pitcairn ableitbar
+991;mittel;Golf von Mexiko ableitbar
+992;mittel;Persischer Golf ableitbar
+993;mittel;Jerusalem ableitbar
+994;schwer;Bourbon County wenig bekannt
+995;schwer;Plymouth Rock wenig bekannt
+996;mittel;Daytona ableitbar
+997;mittel;Papua-Neuguinea ableitbar
+998;mittel;Calgary ableitbar
+999;mittel;Arabisches Meer ableitbar
+1000;mittel;Südchinesisches Meer ableitbar

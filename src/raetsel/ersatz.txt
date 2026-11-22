@@ -4,3 +4,13 @@
 40;eu;M;Fluss Cam + Brücke (englisch) = ? Eine berühmte Universitätsstadt.;Cam + bridge;Cambridge;52.2053,0.1218;Cambridge liegt nördlich von London.;
 72;world;M;Welches Rinderfilet im Blätterteig trägt den gleichen Namen wie die Hauptstadt Neuseelands? Beef …;Beef Wellington;Wellington;-41.2866,174.7756;Wellington ist die Hauptstadt Neuseelands.;
 75;world;S;Wie heißt „Hafen von Spanien“ auf Englisch? Gesucht ist die Hauptstadt von Trinidad und Tobago.;Port of Spain;Port of Spain;10.6596,-61.5019;Port of Spain liegt auf der Karibikinsel Trinidad.;
+181;de;M;Baum mit Eicheln (ohne -e) + Stätte (ohne -e) = ? Eine Bischofsstadt im Altmühltal.;Eich + stätt;Eichstätt;=Eichstätt/DE;;
+305;de;M;Viele Bäume + Gotteshaus (ohne -e) = ? Eine Stadt bei Freiburg.;Wald + kirch;Waldkirch;48.0939,7.9611;;
+450;eu;M;Welche Krimiserie spielt in einem Tiroler Skiort? SOKO …;SOKO Kitzbühel;Kitzbühel;47.4464,12.3922;;
+478;de;M;Welches Seebad bei Rostock liegt dort, wo die Warnow in die Ostsee mündet? Warne…;Warnemünde;Warnemünde;54.1767,12.0844;;
+512;eu;L;Welches gefährliche Glücksspiel mit einem Revolver heißt nach einem großen Land im Osten? …es Roulette;Russisch Roulette;Russland;55.75,37.6;;
+528;eu;L;Welches Riesenrad an der Themse heißt „Auge“ der Hauptstadt? Das … Eye;London Eye;London;51.5033,-0.1196;;
+660;eu;S;Nach welchem Tal in Tirol ist die Gletschermumie „Ötzi“ benannt? Das …tal;Ötztal;Ötztal;47.0,10.9;;
+673;eu;M;Welche Würstchen heißen bei uns „Wiener“, in Wien aber nach einer Stadt am Main? Die …;Frankfurter Würstchen;Frankfurt am Main;50.1155,8.6842;Bei uns „Wiener“, in Wien „Frankfurter“.;
+775;eu;M;Wie heißt „Schwarzer Berg“ auf Italienisch? Gesucht ist ein Land auf dem Balkan.;Montenegro;Montenegro;42.7,19.3;;
+966;world;M;Welches große Musikfestival findet jedes Frühjahr in der Wüste bei Palm Springs statt?;Coachella;Coachella;33.6803,-116.1739;;
