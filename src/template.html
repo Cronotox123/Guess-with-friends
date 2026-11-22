@@ -1,0 +1,354 @@
+<title>Punktlandung</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;600&display=swap">
+<style>
+/* Layout: eine Bildschirmspalte, Karte füllt die Mitte, Aktionen unten in Daumenreichweite */
+:root{
+  --bg:#101528; --panel:#1a2140; --line:#2b3561; --fg:#eef1ff; --muted:#9aa3c9;
+  --sea:#1d3557; --land:#e9e4d4; --land2:#d8d1bb; --stroke:#7d8bb5;
+  --accent:#ffd23f; --ok:#3ddc97; --bad:#ff6b6b;
+  --display:"Bricolage Grotesque","Arial Rounded MT Bold",system-ui,sans-serif;
+  --body:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:dark;
+}
+html,body,#app{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+.screen{display:flex;flex-direction:column;gap:14px;min-height:100%;box-sizing:border-box;padding-block:16px;max-width:640px;margin:0 auto}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,11vw,3.4rem);line-height:.95;margin:8px 0 0;letter-spacing:-.02em;text-wrap:balance}
+h1 .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--accent);margin-left:.06em;box-shadow:0 0 0 .1em rgba(255,210,63,.25)}
+h2{font-family:var(--display);font-weight:800;font-size:1.6rem;margin:0;line-height:1.1;text-wrap:balance}
+p{margin:0;line-height:1.5}
+.muted{color:var(--muted)}
+.label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px;padding:16px 18px;font-weight:600;font-size:1.05rem;touch-action:manipulation}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:#1b1600;width:100%}
+.primary:disabled{opacity:.35}
+.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.row{display:flex;gap:10px;align-items:center}
+input[type=text]{font:inherit;font-size:1.05rem;flex:1;min-width:0;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:14px}
+.players{display:flex;flex-direction:column;gap:8px;list-style:none;padding:0;margin:0}
+.players li{display:flex;align-items:center;gap:12px;background:var(--panel);border-radius:12px;padding:10px 12px}
+.chip{width:16px;height:16px;border-radius:50%;flex:none;border:2px solid #fff}
+.players li span{flex:1;min-width:0;overflow-wrap:anywhere;font-weight:600}
+.x{background:transparent;color:var(--muted);padding:6px 10px;font-size:1.3rem}
+.spacer{flex:1}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.lvl{font-size:.8rem;font-weight:600;padding:4px 10px;border-radius:99px;background:var(--panel);border:1px solid var(--line)}
+.lvl.leicht{color:var(--ok)} .lvl.mittel{color:var(--accent)} .lvl.schwer{color:var(--bad)}
+.qtext{font-family:var(--display);font-weight:800;font-size:1.45rem;line-height:1.15;text-wrap:balance}
+.turn{display:flex;align-items:center;gap:10px;font-weight:600}
+.mapwrap{position:relative;border-radius:16px;overflow:hidden;background:var(--sea);border:1px solid var(--line);width:100%;max-height:68vh;margin:0 auto;touch-action:none}
+.mapwrap svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sea{fill:var(--sea)} .land{fill:var(--land2);stroke:none} .de{fill:var(--land);stroke:var(--stroke);stroke-width:.8;vector-effect:non-scaling-stroke}
+.border{fill:none;stroke:var(--stroke);stroke-width:.7;vector-effect:non-scaling-stroke}
+.zoom{position:absolute;right:8px;bottom:8px;display:flex;gap:6px}
+.zoom button{width:40px;height:40px;padding:0;border-radius:12px;background:rgba(16,21,40,.85);color:var(--fg);font-size:1.4rem;border:1px solid var(--line)}
+.hint{position:absolute;left:8px;top:8px;font-size:.78rem;background:rgba(16,21,40,.8);padding:5px 9px;border-radius:8px;color:var(--fg);pointer-events:none}
+.cover{justify-content:center;text-align:center;align-items:center}
+.bigname{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,13vw,4rem);line-height:1;overflow-wrap:anywhere}
+.results{display:flex;flex-direction:column;gap:6px;list-style:none;padding:0;margin:0}
+.results li{display:flex;align-items:center;gap:10px;background:var(--panel);border-radius:12px;padding:10px 12px}
+.results li .n{flex:1;min-width:0;font-weight:600;overflow-wrap:anywhere}
+.results .km{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.9rem}
+.res{font-weight:800;width:1.6em;text-align:center}
+.res.ok{color:var(--ok)} .res.bad{color:var(--bad)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:12px 8px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.pts{font-family:var(--display);font-weight:800;font-size:1.4rem;text-align:right}
+th.pts{text-align:right}
+tr.win td{color:var(--accent)}
+.tablewrap{overflow-x:auto}
+.pop{animation:pop .6s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.pop{animation:none}}
+.err{color:var(--bad);font-size:.9rem;min-height:1.2em}
+.solve{display:flex;flex-direction:column;gap:6px;background:var(--panel);border-radius:14px;padding:12px 14px}
+.sol{font-family:var(--display);font-weight:800;font-size:1.3rem;line-height:1.2}
+.sol strong{color:var(--accent)}
+.arrow{color:var(--muted)}
+.riddle{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.screen.host{max-width:1100px}
+.qtext.big{font-size:clamp(1.5rem,3.6vw,2.4rem)}
+.hostgrid{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+@media (min-width:820px){.hostgrid{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}}
+.lobby{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+@media (min-width:700px){.lobby{grid-template-columns:260px minmax(0,1fr)}}
+.qrbox{box-sizing:border-box;background:#fff;border-radius:16px;padding:10px;width:min(260px,100%);aspect-ratio:1;display:grid;place-items:center;color:#101528}
+.qrbox svg{width:100%;height:100%}
+.lobbyinfo{display:flex;flex-direction:column;gap:8px;min-width:0}
+.joinurl{font-weight:600;overflow-wrap:anywhere}
+.code{font-family:var(--display);font-weight:800;font-size:3.2rem;letter-spacing:.15em;color:var(--accent)}
+.modes{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:600px){.modes{grid-template-columns:1fr 1fr}}
+.mode{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--panel);color:var(--fg);border:2px solid var(--line)}
+.mode span{font-weight:400;font-size:.9rem;color:var(--muted)}
+.mode.on{border-color:var(--accent)}
+.board{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;counter-reset:b}
+.board li{display:flex;align-items:center;gap:10px;background:var(--panel);border-radius:10px;padding:8px 12px;counter-increment:b}
+.board li::before{content:counter(b);color:var(--muted);font-variant-numeric:tabular-nums;width:1.2em}
+.board li span{flex:1;min-width:0;overflow-wrap:anywhere}
+.board b{font-family:var(--display);font-size:1.2rem}
+.cover{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;justify-content:center;flex:1}
+</style>
+
+<div id="app"></div>
+
+<script>
+const DATA = __DATA__;
+const COLORS = ['#ff6b6b','#4dabf7','#3ddc97','#c084fc','#ff9f43','#f06595','#20c997','#a9e34b','#74c0fc','#ffa8a8','#e599f7','#ffd8a8'];
+const app = document.getElementById('app');
+const ROUND = 10;
+let S = load() || {phase:'setup', players:[], q:0, turn:0, dots:{}, scores:{}, history:[]};
+let tmpDot = null;
+
+function curQ(){ return DATA.questions[S.set[S.q]]; }
+function save(){ try{ localStorage.setItem('mmnp', JSON.stringify(S)); }catch(e){} }
+function load(){ try{
+  const s = JSON.parse(localStorage.getItem('mmnp'));
+  if(!s || !s.phase || !Array.isArray(s.players)) return null;
+  if(s.phase==='setup') return s;
+  const ok = Array.isArray(s.set) && s.set.length===10 && s.set.every(i=>Number.isInteger(i) && DATA.questions[i]);
+  return ok ? s : {phase:'setup', players:s.players, q:0, turn:0, dots:{}, scores:{}, history:[]};
+}catch(e){ return null; } }
+/* 10 Fragen ziehen: zuerst leicht, dann leicht und mittel, zum Schluss schwer. Bereits gespielte Fragen kommen erst wieder, wenn der Katalog durch ist. */
+function drawSet(){
+  let used = []; try{ used = JSON.parse(localStorage.getItem('mmnp-used')) || []; }catch(e){}
+  const usedSet = new Set(used);
+  const pool = lvl => { const all = DATA.questions.map((q,i)=>i).filter(i=>DATA.questions[i].lvl===lvl); const fresh = all.filter(i=>!usedSet.has(i)); return fresh.length >= 10 ? fresh : all; };
+  const pick = (ids, lastMaps) => { const pref = ids.filter(i=>!lastMaps.includes(DATA.questions[i].map)); const from = pref.length ? pref : ids; return from[Math.floor(Math.random()*from.length)]; };
+  const plan = ['leicht','leicht','leicht','mittel','leicht','mittel','mittel','leicht','mittel','schwer'];
+  const set = [];
+  for(const lvl of plan){
+    const last = set.slice(-2).map(i=>DATA.questions[i].map);
+    const ids = pool(lvl).filter(i=>!set.includes(i) && !set.some(j=>DATA.questions[j].t===DATA.questions[i].t));
+    set.push(pick(ids, last.length===2 && last[0]===last[1] ? [last[0]] : []));
+  }
+  let next = [...used, ...set]; if(next.length > DATA.questions.length - 40) next = set;
+  try{ localStorage.setItem('mmnp-used', JSON.stringify(next)); }catch(e){}
+  return set;
+}
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function color(i){ return COLORS[i % COLORS.length]; }
+function go(phase){ S.phase = phase; save(); render(); window.scrollTo(0,0); }
+
+function render(){
+  ({setup:renderSetup, pass:renderPass, place:renderPlace, reveal:renderReveal, end:renderEnd})[S.phase]();
+}
+
+/* ---------- Spieler eintragen ---------- */
+function renderSetup(){
+  app.innerHTML = `<div class="screen">
+    <h1>Punkt&shy;landung<span class="dot"></span></h1>
+    <p class="muted">Erst das Rätsel knacken, dann den Ort finden. Die Lösung klingt wie eine Stadt, eine Region oder ein Land. Wer mit seinem Punkt im Kreis landet, liegt richtig. ${ROUND} Rätsel pro Spiel aus ${DATA.questions.length} im Katalog, ein Handy für alle.</p>
+    <form id="addf" class="row" autocomplete="off">
+      <input type="text" id="pname" placeholder="Name eingeben" maxlength="20" aria-label="Spielername">
+      <button class="ghost" type="submit">Hinzufügen</button>
+    </form>
+    <div class="err" id="err"></div>
+    <ul class="players">${S.players.map((p,i)=>`<li><i class="chip" style="background:${color(i)}"></i><span>${esc(p)}</span><button class="x" data-del="${i}" aria-label="${esc(p)} entfernen">×</button></li>`).join('')}</ul>
+    <div class="spacer"></div>
+    <p class="label">${S.players.length} Spieler</p>
+    <button class="primary" id="start" ${S.players.length<1?'disabled':''}>Spiel starten</button>
+    ${PARTY.available()?'<button class="ghost" id="party">Partymodus: Tablet in die Mitte, jeder spielt mit seinem Handy</button>':''}
+  </div>`;
+  const pb = document.getElementById('party'); if(pb) pb.onclick = ()=>startHost();
+  const inp = document.getElementById('pname');
+  document.getElementById('addf').onsubmit = e=>{
+    e.preventDefault();
+    const n = inp.value.trim();
+    const err = document.getElementById('err');
+    if(!n){ err.textContent = 'Bitte einen Namen eingeben.'; return; }
+    if(S.players.some(p=>p.toLowerCase()===n.toLowerCase())){ err.textContent = 'Diesen Namen gibt es schon.'; return; }
+    S.players.push(n); save(); renderSetup(); document.getElementById('pname').focus();
+  };
+  app.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{ S.players.splice(+b.dataset.del,1); save(); renderSetup(); });
+  document.getElementById('start').onclick = ()=>{
+    S.q=0; S.turn=0; S.dots={}; S.scores={}; S.history=[]; S.set=drawSet();
+    S.players.forEach(p=>S.scores[p]=0);
+    go('pass');
+  };
+}
+
+/* ---------- Handy weitergeben ---------- */
+function renderPass(){
+  const i = S.turn;
+  app.innerHTML = `<div class="screen cover">
+    <p class="label">Frage ${S.q+1} von ${ROUND}</p>
+    <p class="muted">${i===0?'Los geht’s. Das Handy bekommt':'Handy weitergeben an'}</p>
+    <div class="bigname" style="color:${color(i)}">${esc(S.players[i])}</div>
+    <p class="muted">Die anderen bitte nicht hinschauen.</p>
+    <div class="spacer"></div>
+    <button class="primary" id="go">Ich bin ${esc(S.players[i])}, zeig die Frage</button>
+    <button class="ghost" id="quit">Spiel abbrechen</button>
+    <div id="qc" class="row" hidden><button class="ghost" id="qno" style="flex:1">Weiterspielen</button><button class="primary" id="qyes" style="flex:1;background:var(--bad)">Ja, abbrechen</button></div>
+  </div>`;
+  document.getElementById('go').onclick = ()=>{ tmpDot=null; go('place'); };
+  document.getElementById('quit').onclick = ()=>{ document.getElementById('qc').hidden=false; document.getElementById('quit').hidden=true; };
+  document.getElementById('qno').onclick = ()=>{ document.getElementById('qc').hidden=true; document.getElementById('quit').hidden=false; };
+  document.getElementById('qyes').onclick = ()=>go('setup');
+}
+
+/* ---------- Karte mit Zoom ---------- */
+function mapSVG(m){
+  return `<svg viewBox="0 0 ${m.w} ${m.h}" preserveAspectRatio="xMidYMid meet" aria-label="Karte">
+    ${m.layers.map(([c,d])=>`<path class="${c}" d="${d}"/>`).join('')}
+    <g id="over"></g></svg>`;
+}
+function setupMap(wrap, m, onTap){
+  const svg = wrap.querySelector('svg');
+  let vb = {x:0,y:0,w:m.w,h:m.h};
+  const apply = ()=>{ svg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`); if(wrap._onzoom) wrap._onzoom(); };
+  const clamp = ()=>{
+    vb.w = Math.min(m.w, Math.max(m.w/12, vb.w)); vb.h = vb.w*m.h/m.w;
+    vb.x = Math.min(m.w-vb.w, Math.max(0, vb.x)); vb.y = Math.min(m.h-vb.h, Math.max(0, vb.y));
+  };
+  // SVG-Einheiten pro Bildschirmpixel
+  const unit = ()=>{ const r = svg.getBoundingClientRect(); return Math.max(vb.w/r.width, vb.h/r.height); };
+  const toSvg = (cx,cy)=>{ const p = svg.createSVGPoint(); p.x=cx; p.y=cy; return p.matrixTransform(svg.getScreenCTM().inverse()); };
+  const zoomAt = (f, cx, cy)=>{ const p = toSvg(cx,cy); vb.x = p.x-(p.x-vb.x)/f; vb.y = p.y-(p.y-vb.y)/f; vb.w/=f; vb.h/=f; clamp(); apply(); };
+  const pts = new Map(); let moved=false, start=null, pinch=null;
+  wrap.addEventListener('pointerdown', e=>{
+    if(e.target.closest('.zoom')) return;
+    wrap.setPointerCapture(e.pointerId);
+    pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pts.size===1){ moved=false; start={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y}; }
+    if(pts.size===2){ const [a,b]=[...pts.values()]; pinch={d:Math.hypot(a.x-b.x,a.y-b.y)}; moved=true; }
+  });
+  wrap.addEventListener('pointermove', e=>{
+    if(!pts.has(e.pointerId)) return;
+    pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(pts.size===2 && pinch){
+      const [a,b]=[...pts.values()]; const d=Math.hypot(a.x-b.x,a.y-b.y);
+      zoomAt(d/pinch.d,(a.x+b.x)/2,(a.y+b.y)/2); pinch.d=d;
+    } else if(pts.size===1 && start){
+      const dx=e.clientX-start.x, dy=e.clientY-start.y;
+      if(Math.hypot(dx,dy)>8) moved=true;
+      if(moved && vb.w<m.w){ const u=unit(); vb.x=start.vx-dx*u; vb.y=start.vy-dy*u; clamp(); apply(); }
+    }
+  });
+  const up = e=>{
+    if(!pts.has(e.pointerId)) return;
+    pts.delete(e.pointerId);
+    if(pts.size<2) pinch=null;
+    if(pts.size===0){ if(!moved && onTap){ const p=toSvg(e.clientX,e.clientY); if(p.x>=0&&p.y>=0&&p.x<=m.w&&p.y<=m.h) onTap(p.x,p.y); } start=null; }
+    else { const [a]=[...pts.values()]; start={x:a.x,y:a.y,vx:vb.x,vy:vb.y}; }
+  };
+  wrap.addEventListener('pointerup', up); wrap.addEventListener('pointercancel', e=>{ moved=true; up(e); });
+  wrap.addEventListener('wheel', e=>{ e.preventDefault(); zoomAt(e.deltaY<0?1.25:0.8, e.clientX, e.clientY); }, {passive:false});
+  wrap.querySelector('[data-z="in"]').onclick = ()=>{ const b=svg.getBoundingClientRect(); zoomAt(1.6, b.left+b.width/2, b.top+b.height/2); };
+  wrap.querySelector('[data-z="out"]').onclick = ()=>{ const b=svg.getBoundingClientRect(); zoomAt(1/1.6, b.left+b.width/2, b.top+b.height/2); };
+  wrap.querySelector('[data-z="reset"]').onclick = ()=>{ vb={x:0,y:0,w:m.w,h:m.h}; apply(); };
+  return {unit, zoomTo(x,y,w){ vb.w=w; vb.h=w*m.h/m.w; vb.x=x-vb.w/2; vb.y=y-vb.h/2; clamp(); apply(); }};
+}
+const zoomButtons = `<div class="zoom"><button data-z="in" aria-label="Hineinzoomen">+</button><button data-z="out" aria-label="Herauszoomen">−</button><button data-z="reset" aria-label="Ganze Karte">⤢</button></div>`;
+function dotMarkup(x,y,c,u,label){
+  const r = 8*u;
+  return `<g class="pop" style="transform-origin:${x}px ${y}px"><circle cx="${x}" cy="${y}" r="${r}" fill="${c}" stroke="#fff" stroke-width="${2.5*u}"/>${label?`<text x="${x+r+3*u}" y="${y+4*u}" font-size="${13*u}" font-weight="700" fill="#fff" stroke="#101528" stroke-width="${3*u}" paint-order="stroke" font-family="Inter,system-ui,sans-serif">${esc(label)}</text>`:''}</g>`;
+}
+
+/* ---------- Punkt setzen ---------- */
+function renderPlace(){
+  const q = curQ(), m = DATA.maps[q.map], i = S.turn, p = S.players[i];
+  app.innerHTML = `<div class="screen">
+    <div class="qhead"><span class="label">Frage ${S.q+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
+    <div class="riddle">Rätsel lösen, dann den Ort tippen</div>
+    <div class="qtext">${esc(q.t)}</div>
+    <div class="turn"><i class="chip" style="background:${color(i)}"></i>${esc(p)} ist dran</div>
+    <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}<div class="hint">Tippen setzt den Punkt · zwei Finger zoomen</div></div>
+    <button class="primary" id="ok" disabled>OK, Punkt bestätigen</button>
+  </div>`;
+  const wrap = document.getElementById('mw'), over = wrap.querySelector('#over'), ok = document.getElementById('ok');
+  let ctl;
+  const draw = ()=>{ over.innerHTML = tmpDot ? dotMarkup(tmpDot.x,tmpDot.y,color(i),ctl.unit()) : ''; };
+  ctl = setupMap(wrap, m, (x,y)=>{ tmpDot={x,y}; ok.disabled=false; const h=wrap.querySelector('.hint'); if(h) h.hidden=true; draw(); });
+  wrap._onzoom = ()=>{ if(tmpDot) over.innerHTML = dotMarkup(tmpDot.x,tmpDot.y,color(i),ctl.unit()).replace('class="pop"',''); };
+  if(tmpDot){ ok.disabled=false; draw(); }
+  ok.onclick = ()=>{
+    if(!tmpDot) return;
+    S.dots[p] = {x:+tmpDot.x.toFixed(1), y:+tmpDot.y.toFixed(1)}; tmpDot=null;
+    if(S.turn < S.players.length-1){ S.turn++; go('pass'); }
+    else { score(); go('reveal'); }
+  };
+}
+
+function score(){
+  const q = curQ();
+  const res = S.players.map(p=>{
+    const d = S.dots[p], px = Math.hypot(d.x-q.x, d.y-q.y);
+    const hit = px <= q.r; if(hit) S.scores[p]++;
+    return {p, hit, km: Math.round(px/q.k)};
+  });
+  S.history[S.q] = res;
+}
+
+/* ---------- Auswertung pro Frage ---------- */
+function renderReveal(){
+  const q = curQ(), m = DATA.maps[q.map], res = S.history[S.q];
+  const last = S.q === ROUND-1;
+  const hits = res.filter(r=>r.hit).length;
+  const sorted = [...res].sort((a,b)=>a.km-b.km);
+  app.innerHTML = `<div class="screen">
+    <div class="qhead"><span class="label">Auflösung · Frage ${S.q+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
+    <div class="qtext">${esc(q.t)}</div>
+    <div class="solve"><span class="label">Gemeint war</span><div class="sol">${esc(q.s)} <span class="arrow">→</span> <strong>${esc(q.o)}</strong></div><p class="muted">${esc(q.a)} Kreis: ${q.km} km Radius.</p></div>
+    <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}</div>
+    <h2>${hits===0?'Niemand lag richtig':hits===res.length?(res.length===1?'Richtig!':'Alle lagen richtig!'):`${hits} von ${res.length} lagen richtig`}</h2>
+    <ul class="results">${sorted.map(r=>`<li><span class="res ${r.hit?'ok':'bad'}">${r.hit?'✓':'✗'}</span><i class="chip" style="background:${color(S.players.indexOf(r.p))}"></i><span class="n">${esc(r.p)}</span><span class="km">${r.km} km daneben</span></li>`).join('')}</ul>
+    <button class="primary" id="next">${last?'Zur Endwertung':'Nächste Frage'}</button>
+  </div>`;
+  const wrap = document.getElementById('mw'), over = wrap.querySelector('#over');
+  let ctl;
+  const draw = (anim)=>{
+    const u = ctl.unit();
+    let s = `<circle cx="${q.x}" cy="${q.y}" r="${q.r}" fill="rgba(255,210,63,.28)" stroke="#ffd23f" stroke-width="${3*u}" ${anim?'class="pop"':''} style="transform-origin:${q.x}px ${q.y}px"/>
+             <circle cx="${q.x}" cy="${q.y}" r="${3*u}" fill="#ffd23f"/>`;
+    S.players.forEach((p,i)=>{ const d=S.dots[p]; s += dotMarkup(d.x,d.y,color(i),u,p); });
+    over.innerHTML = anim ? s : s.replace(/class="pop"/g,'');
+  };
+  ctl = setupMap(wrap, m, null);
+  wrap._onzoom = ()=>draw(false);
+  // Auf Kreis und alle Punkte zoomen
+  const xs=[q.x-q.r,q.x+q.r,...S.players.map(p=>S.dots[p].x)], ys=[q.y-q.r,q.y+q.r,...S.players.map(p=>S.dots[p].y)];
+  const bw = Math.max(Math.max(...xs)-Math.min(...xs), (Math.max(...ys)-Math.min(...ys))*m.w/m.h)*1.5;
+  ctl.zoomTo((Math.max(...xs)+Math.min(...xs))/2,(Math.max(...ys)+Math.min(...ys))/2, Math.max(bw, q.r*6));
+  draw(true);
+  document.getElementById('next').onclick = ()=>{
+    if(last) go('end'); else { S.q++; S.turn=0; S.dots={}; go('pass'); }
+  };
+}
+
+/* ---------- Endwertung ---------- */
+function renderEnd(){
+  const rows = S.players.map((p,i)=>({p,i,pts:S.scores[p],km:S.history.reduce((a,h)=>a+(h.find(r=>r.p===p)||{km:0}).km,0)}))
+    .sort((a,b)=>b.pts-a.pts || a.km-b.km);
+  const top = rows[0];
+  app.innerHTML = `<div class="screen">
+    <p class="label">Endwertung</p>
+    <h1>${esc(top.p)} gewinnt<span class="dot"></span></h1>
+    <p class="muted">${top.pts} von ${ROUND} Punkten im Kreis. Bei Gleichstand entscheidet, wer insgesamt weniger Kilometer daneben lag.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Spieler</th><th>km daneben</th><th class="pts">Punkte</th></tr></thead>
+      <tbody>${rows.map((r,k)=>`<tr class="${k===0?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${color(r.i)}"></i>${esc(r.p)}</span></td><td>${r.km.toLocaleString('de-DE')}</td><td class="pts">${r.pts}</td></tr>`).join('')}</tbody>
+    </table></div>
+    <div class="spacer"></div>
+    <button class="primary" id="again">Nochmal mit denselben Spielern</button>
+    <button class="ghost" id="newp">Neue Spieler eintragen</button>
+  </div>`;
+  document.getElementById('again').onclick = ()=>{ S.q=0; S.turn=0; S.dots={}; S.history=[]; S.set=drawSet(); S.players.forEach(p=>S.scores[p]=0); go('pass'); };
+  document.getElementById('newp').onclick = ()=>{ S.players=[]; go('setup'); };
+}
+
+__PARTY__
+const joinCode = new URLSearchParams(location.search).get('join');
+if(joinCode && PARTY.available()) startPlayer(joinCode);
+else try{ render(); }catch(e){
+  try{ localStorage.removeItem('mmnp'); }catch(_){}
+  S = {phase:'setup', players:(S&&S.players)||[], q:0, turn:0, dots:{}, scores:{}, history:[]};
+  render();
+}
+</script>
