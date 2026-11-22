@@ -1,0 +1,6 @@
+# Nr;Karte;Stufe;Rätsel;Lösung;Ort;Koordinaten;Erklärung;km  (ersetzt das Rätsel mit dieser Nummer)
+21;de;M;Welcher kräftig riechende Käse mit Rotschmiere heißt nach einer Domstadt an der Lahn?;Limburger;Limburg an der Lahn;50.3884,8.0627;Der Limburger heißt nach Limburg an der Lahn.;
+29;de;M;Womit holt man den Staub von Regal und Bilderrahmen? Mit dem Staub…;Staubwedel;Wedel;53.58,9.7;Wedel liegt an der Elbe westlich von Hamburg.;
+40;eu;M;Fluss Cam + Brücke (englisch) = ? Eine berühmte Universitätsstadt.;Cam + bridge;Cambridge;52.2053,0.1218;Cambridge liegt nördlich von London.;
+72;world;M;Welches Rinderfilet im Blätterteig trägt den gleichen Namen wie die Hauptstadt Neuseelands? Beef …;Beef Wellington;Wellington;-41.2866,174.7756;Wellington ist die Hauptstadt Neuseelands.;
+75;world;S;Wie heißt „Hafen von Spanien“ auf Englisch? Gesucht ist die Hauptstadt von Trinidad und Tobago.;Port of Spain;Port of Spain;10.6596,-61.5019;Port of Spain liegt auf der Karibikinsel Trinidad.;
