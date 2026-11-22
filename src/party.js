@@ -114,6 +114,7 @@ function renderHostLobby(){
     </div>
     <p class="label" id="hcount">${H.order.length} Spieler</p>
     <div id="hplayers">${hostPlayerList(false)}</div>
+    ${diffPicker()}
     <p class="label">Wertung</p>
     <div class="modes">
       <button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Kreis</b><span>1 Punkt, wenn dein Punkt im Kreis liegt.</span></button>
@@ -123,6 +124,7 @@ function renderHostLobby(){
     <button class="ghost" id="hback">Zurück zum Ein-Handy-Spiel</button>
   </div>`;
   app.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{ H.mode=b.dataset.mode; renderHostLobby(); });
+  bindDiff(renderHostLobby);
   document.getElementById('hstart').onclick = ()=>{
     H.set = drawSet(); H.q = 0; H.history = [];
     H.order.forEach(pid=>{ H.players[pid].score=0; H.players[pid].km=0; });
