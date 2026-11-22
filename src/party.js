@@ -15,10 +15,6 @@ function qrSvg(text){
   return q.createSvgTag({cellSize:6, margin:2, scalable:true});
 }
 function wakeLock(){ try{ navigator.wakeLock && navigator.wakeLock.request('screen').catch(()=>{}); }catch(e){} }
-function ptsFor(mode, px, r){
-  if(mode === 'kreis') return px <= r ? 1 : 0;
-  return Math.max(0, Math.round(100 * (1 - px / (4 * r))));   // 100 in der Mitte, 0 ab dem vierfachen Radius
-}
 function ptsLabel(mode){ return mode === 'kreis' ? 'Treffer' : 'Punkte'; }
 
 /* ---------------- HOST (Tablet) ---------------- */
@@ -126,7 +122,7 @@ function renderHostLobby(){
     ${diffPicker()}
     <p class="label">Wertung</p>
     <div class="modes">
-      <button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Kreis</b><span>1 Punkt, wenn dein Punkt im Kreis liegt.</span></button>
+      <button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Ziel</b><span>1 Punkt, wenn dein Punkt im Kreis oder in der Zielfläche liegt.</span></button>
       <button class="mode ${H.mode==='distanz'?'on':''}" data-mode="distanz"><b>Je näher, desto mehr</b><span>Bis zu 100 Punkte, je nach Abstand zum Ziel.</span></button>
     </div>
     <button class="primary stick" id="hstart" ${H.order.length<(H.play?2:1)?'disabled':''}>Spiel starten</button>
@@ -184,10 +180,10 @@ function renderHostQuestion(){
 function hostReveal(){
   const q = DATA.questions[H.set[H.q]];
   const res = H.order.filter(pid=>H.dots[pid]).map(pid=>{
-    const d=H.dots[pid], px=Math.hypot(d.x-q.x,d.y-q.y), p=H.players[pid];
-    const pts = ptsFor(H.mode, px, q.r), km = Math.round(px/q.k);
+    const d=H.dots[pid], j=judge(q, d.x, d.y), p=H.players[pid];
+    const pts = ptsFor(H.mode, j, q), km = j.km;
     p.score += pts; p.km += km;
-    return {pid, hit: px<=q.r, km, pts};
+    return {pid, hit: j.hit, km, pts};
   });
   H.history[H.q] = res; H.phase='reveal';
   const rev = revPayload();
@@ -200,18 +196,16 @@ function revealMap(wrap, m, q, dots){
   const over = wrap.querySelector('#over'); let ctl;
   const draw = anim=>{
     const u = ctl.unit();
-    let s = `<circle cx="${q.x}" cy="${q.y}" r="${q.r}" fill="rgba(255,210,63,.28)" stroke="#ffd23f" stroke-width="${3*u}" ${anim?'class="pop"':''} style="transform-origin:${q.x}px ${q.y}px"/><circle cx="${q.x}" cy="${q.y}" r="${3*u}" fill="#ffd23f"/>`;
+    let s = targetSVG(q, u, anim);
     dots.forEach(d=>{ s += dotMarkup(d.x,d.y,d.c,u,d.n); });
     over.innerHTML = anim ? s : s.replace(/class="pop"/g,'');
   };
   ctl = setupMap(wrap, m, null);
   wrap._onzoom = ()=>draw(false);
-  const xs=[q.x-q.r,q.x+q.r,...dots.map(d=>d.x)], ys=[q.y-q.r,q.y+q.r,...dots.map(d=>d.y)];
-  const bw = Math.max(Math.max(...xs)-Math.min(...xs),(Math.max(...ys)-Math.min(...ys))*m.w/m.h)*1.4;
-  ctl.zoomTo((Math.max(...xs)+Math.min(...xs))/2,(Math.max(...ys)+Math.min(...ys))/2, Math.max(bw, q.r*6));
+  revealZoom(ctl, m, q, dots);
   draw(true);
 }
-function revealSolve(q){ return `<div class="solve"><span class="label">Gemeint war</span><div class="sol">${esc(q.s)} <span class="arrow">→</span> <strong>${esc(q.o)}</strong></div><p class="muted">${esc(q.a)} Kreis: ${q.km} km Radius.</p></div>`; }
+function revealSolve(q){ return `<div class="solve"><span class="label">Gemeint war</span><div class="sol">${esc(q.s)} <span class="arrow">→</span> <strong>${esc(q.o)}</strong></div><p class="muted">${esc(q.a)} ${targetText(q)}</p></div>`; }
 function revealLists(rows, board){
   return `<ul class="results">${rows.map(r=>`<li><span class="res ${r.hit?'ok':'bad'}">${r.hit?'✓':'✗'}</span><i class="chip" style="background:${r.c}"></i><span class="n">${esc(r.n)}</span><span class="km">${r.km} km · +${r.pts}</span></li>`).join('') || '<li>Keiner hat einen Punkt gesetzt.</li>'}</ul>
     <p class="label" style="margin-top:14px">Zwischenstand</p>
@@ -248,7 +242,7 @@ function endMsg(pid){ const rk=hostRanking(); const i=rk.findIndex(r=>r.pid===pi
 function renderHostEnd(){
   const rows = hostRanking();
   app.innerHTML = `<div class="screen host">
-    <p class="label">Endwertung · ${H.mode==='kreis'?'Treffer im Kreis':'Je näher, desto mehr'}</p>
+    <p class="label">Endwertung · ${H.mode==='kreis'?'Treffer im Ziel':'Je näher, desto mehr'}</p>
     <h1>${esc(rows[0].name)} gewinnt<span class="dot"></span></h1>
     <div class="tablewrap"><table>
       <thead><tr><th>#</th><th>Spieler</th><th>km daneben</th><th class="pts">${ptsLabel(H.mode)}</th></tr></thead>

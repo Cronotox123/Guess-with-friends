@@ -1,0 +1,246 @@
+# Karte|Ort|Klasse|Quelle   Klasse: g = Grenze (Land, Bundesland, Insel), a = Gebiet (+20 %), f = Fluss (5 % je Seite). Nicht gelistet = Kreis.
+de|Rügen|g|i
+de|Spreewald|a|k:Oberspreewald-Lausitz,Dahme-Spreewald
+de|Harz|a|r:Harz
+de|Thüringen|g|de:Thüringen
+de|Pfalz|a|k:Südliche Weinstraße,Germersheim,Bad Dürkheim,Kaiserslautern,Kusel,Südwestpfalz,Donnersbergkreis,Rhein-Pfalz-Kreis,Landau in der Pfalz,Neustadt Städte,Zweibrücken,Ludwigshafen Städte,Speyer,Frankenthal (Pfalz)
+de|Allgäu|a|k:Oberallgäu,Ostallgäu,Unterallgäu,Lindau (Bodensee),Kempten (Allgäu),Kaufbeuren,Memmingen
+de|Westfalen|a|kb:Arnsberg,Detmold,Munster
+de|Schwaben|a|kb:Stuttgart,Tübingen,Schwaben
+de|Ostfriesland|a|k:Aurich,Leer,Wittmund,Emden
+de|Holstein|a|k:Dithmarschen,Steinburg,Pinneberg,Segeberg,Stormarn,Herzogtum Lauenburg,Ostholstein,Plön,Neumünster,Kiel,Lübeck,Rendsburg-Eckernförde
+de|Thüringer Wald|a|k:Ilm-Kreis,Schmalkalden-Meiningen,Suhl,Hildburghausen,Sonneberg
+de|Bayerischer Wald|a|k:Regen,Freyung-Grafenau,Cham
+de|Pfälzerwald|a|k:Südwestpfalz,Kaiserslautern,Bad Dürkheim
+de|Teutoburger Wald|a|k:Lippe,Gütersloh,Bielefeld,Steinfurt
+de|Schwäbische Alb|a|k:Reutlingen,Zollernalbkreis,Alb-Donau,Göppingen,Heidenheim,Sigmaringen
+de|Fränkische Schweiz|a|k:Forchheim,Bayreuth
+de|Sächsische Schweiz|a|k:Sächsische Schweiz,Weißeritzkreis
+de|Holsteinische Schweiz|a|k:Plön,Ostholstein
+de|Lüneburger Heide|a|k:Soltau-Fallingbostel,Uelzen,Lüneburg,Celle
+de|Mecklenburgische Seenplatte|a|k:Müritz,Mecklenburg-Strelitz
+de|Sauerland|a|k:Hochsauerlandkreis,Olpe,Märkischer Kreis
+de|Vogtland|a|k:Vogtlandkreis,Greiz,Plauen
+de|Eichsfeld|a|k:Eichsfeld,Göttingen
+de|Erzgebirge|a|r:Erzgebirge
+de|Fichtelgebirge|a|k:Wunsiedel
+de|Vogelsberg|a|k:Vogelsbergkreis
+de|Eifel|a|k:Vulkaneifel,Bitburg-Prüm,Euskirchen,Daun
+de|Bodensee|g|l:Bodensee
+de|Nordsee|a|s:North Sea
+de|Ostsee|a|s:Baltic Sea;s:Gulf of Bothnia;s:Gulf of Finland;s:Gulf of Riga;s:Mecklenburger Bucht;s:Kattegat;s:Øresund
+de|Steinhuder Meer|g|l:Steinhuder Meer
+de|Ostfriesische Inseln|g|i:30
+de|Ruhrgebiet|a|k:Dortmund,Essen,Duisburg,Bochum,Gelsenkirchen,Oberhausen,Mülheim an der Ruhr,Herne,Bottrop,Hagen,Hamm,Recklinghausen,Unna,Ennepe-Ruhr,Wesel
+de|Bergisches Land|a|k:Wuppertal,Solingen,Remscheid,Oberbergischer Kreis,Rheinisch-Bergischer Kreis
+de|Münsterland|a|k:Münster,Steinfurt,Borken,Coesfeld,Warendorf
+de|Rheingau|a|k:Rheingau-Taunus-Kreis
+de|Lippe (Kreis)|g|k:Lippe
+de|Elsass|g|a1:Bas-Rhin/FR,Haut-Rhin/FR
+de|Teufelsmoor|a|k:Osterholz
+de|Ammerland|g|k:Ammerland
+de|Helgoland|g|i
+de|Sylt|g|i
+de|Kyffhäuser|a|k:Kyffhäuserkreis
+de|Westerland|g|i
+eu|Isle of Man|g|i
+eu|Emmental|a|a1:Bern/CH
+eu|Champagne|a|a1:Marne/FR,Aube/FR
+eu|Dalmatien|a|r:Dalmatia
+eu|Schwarzes Meer|g|s:Black Sea
+eu|Malta|g|c:Malta
+eu|Jersey|g|i
+eu|Holland|g|a1:Noord-Holland/NL,Zuid-Holland/NL
+eu|Schweden|g|c:Sweden
+eu|Spanien|g|su:Spain
+eu|Schweiz|g|c:Switzerland
+eu|Irland|g|c:Ireland
+eu|Schottland|g|su:Scotland
+eu|Russland|g|c:Russia
+eu|Polen|g|c:Poland
+eu|Tirol|g|a1:Tirol/AT
+eu|Griechenland|g|c:Greece
+eu|Türkei|g|c:Turkey
+eu|Ungarn|g|c:Hungary
+eu|Burgund|a|a1:Côte-d'Or/FR,Saône-et-Loire/FR,Yonne/FR,Nièvre/FR
+eu|Chianti|a|a1:Siena/IT
+eu|Belgien|g|c:Belgium
+eu|Provence|a|a1reg:Provence-Alpes-Côte-d'Azur/FR
+eu|England|g|su:England
+eu|Loch Ness|g|l:Loch Ness
+eu|Frankreich|g|su:France
+eu|Norwegen|g|c:Norway
+eu|Côte d'Azur|a|a1:Alpes-Maritimes/FR,Var/FR
+eu|Mittelmeer|a|s:Mediterranean Sea;s:Adriatic Sea;s:Aegean Sea;s:Ionian Sea;s:Tyrrhenian Sea;s:Ligurian Sea;s:Balearic Sea;s:Alboran Sea;s:Sea of Crete;s:Gulf of Sidra;s:Gulf of Gabès
+eu|Shetland|g|i:60
+eu|Island|g|c:Iceland
+eu|Borders (Schottland)|a|a1:Scottish Borders/GB
+eu|Yorkshire|a|a1:North Yorkshire/GB,East Riding of Yorkshire/GB,Leeds/GB,Sheffield/GB,Bradford/GB,Wakefield/GB,Kirklees/GB,Calderdale/GB,Rotherham/GB,Doncaster/GB,Barnsley/GB,York/GB
+eu|Dänemark|g|su:Denmark
+eu|Mallorca|g|i
+eu|Kreta|g|i
+eu|Isle of Wight|g|i
+eu|Öland|g|i
+eu|Lappland|a|a1:Lapland/FI,Norrbotten/SE,Finnmark/NO
+eu|Seeland|g|i
+eu|Plattensee|g|l:Lake Balaton
+eu|Burgenland|g|a1:Burgenland/AT
+eu|Ärmelkanal|a|s:English Channel
+eu|Transsilvanien|a|a1:Alba/RO,Bistrița-Năsăud/RO,Brașov/RO,Cluj/RO,Covasna/RO,Harghita/RO,Hunedoara/RO,Mureș/RO,Sibiu/RO,Sălaj/RO
+eu|Walachei|a|a1:Argeș/RO,Dâmbovița/RO,Prahova/RO,Buzău/RO,Teleorman/RO,Giurgiu/RO,Ialomița/RO,Călărași/RO,Ilfov/RO,Bucharest/RO,Olt/RO,Dolj/RO,Gorj/RO,Vâlcea/RO,Mehedinți/RO
+eu|Böhmen|a|a1:Prague/CZ,Central Bohemian/CZ,South Bohemian/CZ,Plzeňský/CZ,Karlovy Vary/CZ,Ústí nad Labem/CZ,Liberec/CZ,Hradec Králové/CZ,Pardubice/CZ
+eu|Lakonien|a|a1reg:Peloponnisos/GR
+eu|Mäander (Fluss)|f|f:Büyük Menderes;f:Byk Menderes
+eu|Rhodos|g|i
+eu|Milos|g|i
+eu|La Mancha|a|a1:Ciudad Real/ES,Albacete/ES,Cuenca/ES,Toledo/ES
+eu|Madeira|g|su:Madeira
+eu|Lothringen|a|a1:Moselle/FR,Meurthe-et-Moselle/FR,Meuse/FR,Vosges/FR
+eu|Brie|a|a1:Seine-et-Marne/FR
+eu|Wolga|f|f:Volga
+eu|Normandie|a|a1reg:Normandie/FR
+eu|Aran-Inseln|g|i:15
+eu|Tweed (Fluss)|f|f:Tweed
+eu|Wales|g|su:Wales
+eu|Großbritannien|g|c:United Kingdom
+eu|Portugal|g|su:Portugal
+eu|Pyrenäen|a|r:Pyrenees
+eu|Andalusien|g|a1reg:Andalucía/ES
+eu|Friesland|g|a1:Friesland/NL
+eu|Schottische Highlands|a|a1:Highland/GB
+eu|Texel|g|i
+eu|Moldau (Fluss)|f|f:Vltava
+eu|Korsika|g|su:Corsica
+eu|Kaukasus|a|r:Caucasus Mts.
+eu|Deutschland|g|c:Germany
+eu|Béarn|a|a1:Pyrénées-Atlantiques/FR
+eu|Calvados|g|a1:Calvados/FR
+eu|Beaujolais|a|a1:Rhône/FR
+eu|La Rioja|g|a1:La Rioja/ES
+eu|Simmental|a|a1:Bern/CH
+eu|Galloway|a|a1:Dumfries and Galloway/GB
+eu|Guernsey|g|i
+eu|Connemara|a|a1:Galway/IE
+eu|Ardennen|a|r:Ardennes
+eu|Krim|g|r:CRIMEA
+eu|Engadin|a|a1:Graubünden/CH
+eu|Limousin|a|a1:Haute-Vienne/FR,Corrèze/FR,Creuse/FR
+eu|Ithaka|g|i
+eu|Samos|g|i
+eu|Montecristo|g|i
+eu|Finnland|g|c:Finland
+eu|Masuren|a|a1:Warmian-Masurian/PL
+eu|Lolland|g|i
+eu|Costa Brava|a|a1:Girona/ES
+eu|Montenegro|g|c:Montenegro
+eu|Fair Isle|g|i
+eu|Harris|g|i
+eu|Skye|g|i
+eu|Suffolk|g|a1:Suffolk/GB
+eu|Sussex|g|a1:East Sussex/GB,West Sussex/GB,Brighton and Hove/GB
+eu|Bresse|a|a1:Ain/FR
+eu|Armagnac|a|a1:Gers/FR
+world|Elfenbeinküste|g|c:Ivory Coast
+world|Feuerland|g|i
+world|Osterinsel|g|i
+world|Weihnachtsinsel|g|i
+world|Costa Rica|g|c:Costa Rica
+world|Puerto Rico|g|c:Puerto Rico
+world|Bermuda|g|c:Bermuda
+world|Hawaii|g|su:Hawaii
+world|Labrador|a|r:LABRADOR
+world|Kaschmir|a|a1:Jammu and Kashmir/IN,Ladakh/IN,Azad Kashmir/PK,Kashmir/-1
+world|Rotes Meer|g|s:Red Sea
+world|Gelbes Meer|g|s:Yellow Sea
+world|Kanaren|g|su:Canary Islands
+world|Mexiko|g|c:Mexico
+world|China|g|c:China
+world|Indien|g|c:India
+world|Ägypten|g|c:Egypt
+world|Arabien|a|r:ARABIAN PENINSULA
+world|Kalifornien|g|a1:California/US
+world|Texas|g|a1:Texas/US
+world|Alaska|g|su:Alaska
+world|Jamaika|g|c:Jamaica
+world|Kenia|g|c:Kenya
+world|Afghanistan|g|c:Afghanistan
+world|Kuba|g|c:Cuba
+world|Long Island|g|i
+world|Australien|g|c:Australia
+world|Sibirien|a|a1reg:Siberian/RU,Far Eastern/RU
+world|Bengalen|a|a1:West Bengal/IN;c:Bangladesh
+world|Galápagos|g|i:150
+world|Tasmanien|g|i
+world|Kanada|g|c:Canada
+world|Kolumbien|g|c:Colombia
+world|Tibet|g|a1:Xizang/CN
+world|USA|g|c:United States of America
+world|Indischer Ozean|a|s:INDIAN OCEAN
+world|Afrika|g|cont:Africa
+world|Nil|f|f:Nile
+world|Totes Meer|g|l:Dead Sea
+world|Neuseeland|g|c:New Zealand
+world|New Mexico|g|a1:New Mexico/US
+world|Rocky Mountains|a|r:ROCKY MOUNTAINS
+world|Great Barrier Reef|a|s:Great Barrier Reef
+world|Große Seen|a|r:GREAT LAKES
+world|Amazonas|f|f:Amazonas
+world|Kentucky|g|a1:Kentucky/US
+world|Himalaya|a|r:HIMALAYAS
+world|Madagaskar|g|c:Madagascar
+world|Thailand|g|c:Thailand
+world|Argentinien|g|c:Argentina
+world|Karibik|a|s:Caribbean Sea
+world|Alabama|g|a1:Alabama/US
+world|Ecuador|g|c:Ecuador
+world|Sierra Leone|g|c:Sierra Leone
+world|Kap Verde|g|c:Cabo Verde
+world|Nevada|g|a1:Nevada/US
+world|Queensland|g|a1:Queensland/AU
+world|New Jersey|g|a1:New Jersey/US
+world|Neufundland|g|i
+world|Pazifik|a|s:North Pacific Ocean;s:South Pacific Ocean
+world|Kamtschatka|a|a1:Kamchatka/RU
+world|Persien|g|c:Iran
+world|Maine|g|a1:Maine/US
+world|Assam|g|a1:Assam/IN
+world|Mauritius|g|c:Mauritius
+world|Anden|a|r:ANDES
+world|Patagonien|a|r:PATAGONIA
+world|Sahara|a|r:SAHARA
+world|Goa|g|a1:Goa/IN
+world|St. Helena|g|i
+world|Mongolei|g|c:Mongolia
+world|Sumatra|g|i
+world|Kokosinseln|g|i:40
+world|Vermont|g|a1:Vermont/US
+world|Río de la Plata|g|s:Río de la Plata
+world|El Salvador|g|c:El Salvador
+world|Trinidad|g|i
+world|Nova Scotia|g|a1:Nova Scotia/CA
+world|Neuguinea|g|i
+world|Jungferninseln|g|i:60
+world|Rhode Island|g|a1:Rhode Island/US
+world|Brasilien|g|c:Brazil
+world|Grönland|g|c:Greenland
+world|Massachusetts|g|a1:Massachusetts/US
+world|Sansibar|g|i
+world|Sierra Madre|a|r:SIERRA MADRE OCCIDENTAL;r:SIERRA MADRE ORIENTAL;r:Sierra Madre del Sur
+world|Guinea|g|c:Guinea
+world|Peru|g|c:Peru
+world|Somalia|g|c:Somalia
+world|Tennessee|g|a1:Tennessee/US
+world|Virginia|g|a1:Virginia/US
+world|Ganges|f|f:Ganges
+world|Colorado|g|a1:Colorado/US
+world|Rio Grande|f|f:Rio Grande
+world|Cookinseln|g|i:500
+world|Gesellschaftsinseln|g|i:200
+world|Pitcairn|g|i
+world|Golf von Mexiko|g|s:Gulf of Mexico
+world|Persischer Golf|g|s:Persian Gulf
+world|Papua-Neuguinea|g|c:Papua New Guinea
+world|Arabisches Meer|g|s:Arabian Sea
+world|Südchinesisches Meer|g|s:South China Sea
+world|Azoren|g|su:Azores
+de|Schwarzwald|a|k:Freudenstadt,Calw,Ortenaukreis,Rastatt,Baden-Baden,Breisgau-Hochschwarzwald,Schwarzwald-Baar-Kreis,Emmendingen,Rottweil

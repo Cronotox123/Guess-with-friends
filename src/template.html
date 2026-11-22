@@ -66,7 +66,9 @@ tr.win td{color:var(--accent)}
 .tablewrap{overflow-x:auto}
 .pop{animation:pop .6s cubic-bezier(.2,1.4,.4,1) both}
 @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
-@media (prefers-reduced-motion:reduce){.pop{animation:none}}
+.fade{animation:fade .7s ease-out both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.pop,.fade{animation:none}}
 .err{color:var(--bad);font-size:.9rem;min-height:1.2em}
 .solve{display:flex;flex-direction:column;gap:6px;background:var(--panel);border-radius:14px;padding:12px 14px}
 .sol{font-family:var(--display);font-weight:800;font-size:1.3rem;line-height:1.2}
@@ -167,7 +169,7 @@ function render(){
 function renderSetup(){
   app.innerHTML = `<div class="screen">
     <h1>Punkt&shy;landung<span class="dot"></span></h1>
-    <p class="muted">Erst das Rätsel knacken, dann den Ort finden. Die Lösung klingt wie eine Stadt, eine Region oder ein Land. Wer mit seinem Punkt im Kreis landet, liegt richtig. ${ROUND} Rätsel pro Spiel aus ${DATA.questions.length} im Katalog, ein Handy für alle.</p>
+    <p class="muted">Erst das Rätsel knacken, dann den Ort finden. Die Lösung klingt wie eine Stadt, eine Region oder ein Land. Wer mit seinem Punkt im Zielkreis landet, liegt richtig. Ist die Lösung ein Land, ein Gebiet oder ein Fluss, zählt die ganze Fläche bzw. der Flusslauf plus etwas Spielraum. ${ROUND} Rätsel pro Spiel aus ${DATA.questions.length} im Katalog, ein Handy für alle.</p>
     <form id="addf" class="row" autocomplete="off">
       <input type="text" id="pname" placeholder="Name eingeben" maxlength="20" aria-label="Spielername">
       <button class="ghost" type="submit">Hinzufügen</button>
@@ -302,12 +304,71 @@ function renderPlace(){
   };
 }
 
+/* ---------- Ziel: Kreis oder Fläche (Land, Gebiet, Fluss) ---------- */
+const SHP = {};
+function shape(q){
+  if(!q.g || !DATA.shapes || !DATA.shapes[q.g]) return null;
+  if(SHP[q.g]) return SHP[q.g];
+  const raw = DATA.shapes[q.g];
+  const rings = raw.d.split(';').map(r=>{ const n=r.split(',').map(Number), out=[]; let x=0,y=0; for(let i=0;i+1<n.length;i+=2){ x+=n[i]; y+=n[i+1]; out.push([x/10,y/10]); } return out; });
+  let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9; rings.forEach(r=>r.forEach(([x,y])=>{ x0=Math.min(x0,x); y0=Math.min(y0,y); x1=Math.max(x1,x); y1=Math.max(y1,y); }));
+  const line = raw.c==='f';
+  const d = rings.map(r=>'M'+r.map(p=>p[0]+','+p[1]).join('L')+(line?'':'Z')).join('');
+  return SHP[q.g] = {c:raw.c, line, rings, d, box:[x0,y0,x1,y1]};
+}
+function segDist(px,py,ax,ay,bx,by){ const dx=bx-ax, dy=by-ay, L=dx*dx+dy*dy; let t = L ? ((px-ax)*dx+(py-ay)*dy)/L : 0; t=Math.max(0,Math.min(1,t)); return Math.hypot(px-ax-t*dx, py-ay-t*dy); }
+/* Abstand in px zum Ziel (0 = in der Fläche) und ob es zählt */
+function judge(q, x, y){
+  const sh = shape(q);
+  if(!sh){ const d = Math.hypot(x-q.x, y-q.y); return {d, band:q.r, hit:d<=q.r, km:Math.round(d/q.k)}; }
+  let inside = false, best = 1e9;
+  for(const r of sh.rings){
+    const n = r.length;
+    if(n===1){ best = Math.min(best, Math.hypot(x-r[0][0], y-r[0][1])); continue; }
+    for(let i=0, j=sh.line?0:n-1; i<n; j=i++){
+      if(sh.line && i===0) continue;
+      const [xi,yi]=r[i], [xj,yj]=r[j];
+      if(!sh.line && ((yi>y)!==(yj>y)) && x < (xj-xi)*(y-yi)/(yj-yi)+xi) inside = !inside;
+      best = Math.min(best, segDist(x,y,xi,yi,xj,yj));
+    }
+  }
+  const d = inside ? 0 : best;
+  return {d, band:q.b, hit:d<=q.b, km:Math.round(d/q.k)};
+}
+/* Punkte: Kreis-Modus 1/0; Distanz-Modus 100 im Ziel, dann abnehmend */
+function ptsFor(mode, j, q){
+  if(mode === 'kreis') return j.hit ? 1 : 0;
+  if(!q.g) return Math.max(0, Math.round(100 * (1 - j.d / (4 * q.r))));
+  return j.d <= j.band ? 100 : Math.max(0, Math.round(100 * (1 - (j.d - j.band) / (3 * q.r))));
+}
+function targetText(q){
+  const sh = shape(q);
+  if(!sh) return `Kreis: ${q.km} km Radius.`;
+  if(sh.line) return `Ziel ist der Flusslauf, ${q.bk} km links und rechts zählen mit.`;
+  return `Ziel ist die ganze Fläche, dazu ${q.bk} km Spielraum am Rand.`;
+}
+function targetSVG(q, u, anim){
+  const sh = shape(q), pop = anim ? 'class="pop"' : '';
+  if(!sh) return `<circle cx="${q.x}" cy="${q.y}" r="${q.r}" fill="rgba(255,210,63,.28)" stroke="#ffd23f" stroke-width="${3*u}" ${pop} style="transform-origin:${q.x}px ${q.y}px"/><circle cx="${q.x}" cy="${q.y}" r="${3*u}" fill="#ffd23f"/>`;
+  const fx = anim ? 'class="fade"' : '';
+  if(sh.line) return `<g ${fx}><path d="${sh.d}" fill="none" stroke="#ffd23f" stroke-opacity=".28" stroke-width="${2*q.b}" stroke-linecap="round" stroke-linejoin="round"/><path d="${sh.d}" fill="none" stroke="#ffd23f" stroke-width="${3.5*u}" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  return `<g ${fx}><path d="${sh.d}" fill="#ffd23f" fill-opacity=".18" stroke="#ffd23f" stroke-opacity=".18" stroke-width="${2*q.b}" stroke-linejoin="round" fill-rule="evenodd"/><path d="${sh.d}" fill="#ffd23f" fill-opacity=".45" stroke="#ffd23f" stroke-width="${2*u}" stroke-linejoin="round" fill-rule="evenodd"/></g>`;
+}
+/* Ausschnitt fürs Zoomen: Ziel + alle Punkte */
+function revealZoom(ctl, m, q, pts){
+  const sh = shape(q), b = sh ? q.b : q.r;
+  const box = sh ? sh.box : [q.x,q.y,q.x,q.y];
+  const xs=[box[0]-b, box[2]+b, ...pts.map(d=>d.x)], ys=[box[1]-b, box[3]+b, ...pts.map(d=>d.y)];
+  const bw = Math.max(Math.max(...xs)-Math.min(...xs),(Math.max(...ys)-Math.min(...ys))*m.w/m.h)*1.4;
+  ctl.zoomTo((Math.max(...xs)+Math.min(...xs))/2,(Math.max(...ys)+Math.min(...ys))/2, Math.max(bw, sh ? 60 : q.r*6));
+}
+
 function score(){
   const q = curQ();
   const res = S.players.map(p=>{
-    const d = S.dots[p], px = Math.hypot(d.x-q.x, d.y-q.y);
-    const hit = px <= q.r; if(hit) S.scores[p]++;
-    return {p, hit, km: Math.round(px/q.k)};
+    const d = S.dots[p], j = judge(q, d.x, d.y);
+    if(j.hit) S.scores[p]++;
+    return {p, hit:j.hit, km:j.km};
   });
   S.history[S.q] = res;
 }
@@ -321,7 +382,7 @@ function renderReveal(){
   app.innerHTML = `<div class="screen">
     <div class="qhead"><span class="label">Auflösung · Frage ${S.q+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
     <div class="qtext">${esc(q.t)}</div>
-    <div class="solve"><span class="label">Gemeint war</span><div class="sol">${esc(q.s)} <span class="arrow">→</span> <strong>${esc(q.o)}</strong></div><p class="muted">${esc(q.a)} Kreis: ${q.km} km Radius.</p></div>
+    <div class="solve"><span class="label">Gemeint war</span><div class="sol">${esc(q.s)} <span class="arrow">→</span> <strong>${esc(q.o)}</strong></div><p class="muted">${esc(q.a)} ${targetText(q)}</p></div>
     <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}</div>
     <h2>${hits===0?'Niemand lag richtig':hits===res.length?(res.length===1?'Richtig!':'Alle lagen richtig!'):`${hits} von ${res.length} lagen richtig`}</h2>
     <ul class="results">${sorted.map(r=>`<li><span class="res ${r.hit?'ok':'bad'}">${r.hit?'✓':'✗'}</span><i class="chip" style="background:${color(S.players.indexOf(r.p))}"></i><span class="n">${esc(r.p)}</span><span class="km">${r.km} km daneben</span></li>`).join('')}</ul>
@@ -331,17 +392,14 @@ function renderReveal(){
   let ctl;
   const draw = (anim)=>{
     const u = ctl.unit();
-    let s = `<circle cx="${q.x}" cy="${q.y}" r="${q.r}" fill="rgba(255,210,63,.28)" stroke="#ffd23f" stroke-width="${3*u}" ${anim?'class="pop"':''} style="transform-origin:${q.x}px ${q.y}px"/>
-             <circle cx="${q.x}" cy="${q.y}" r="${3*u}" fill="#ffd23f"/>`;
+    let s = targetSVG(q, u, anim);
     S.players.forEach((p,i)=>{ const d=S.dots[p]; s += dotMarkup(d.x,d.y,color(i),u,p); });
     over.innerHTML = anim ? s : s.replace(/class="pop"/g,'');
   };
   ctl = setupMap(wrap, m, null);
   wrap._onzoom = ()=>draw(false);
   // Auf Kreis und alle Punkte zoomen
-  const xs=[q.x-q.r,q.x+q.r,...S.players.map(p=>S.dots[p].x)], ys=[q.y-q.r,q.y+q.r,...S.players.map(p=>S.dots[p].y)];
-  const bw = Math.max(Math.max(...xs)-Math.min(...xs), (Math.max(...ys)-Math.min(...ys))*m.w/m.h)*1.5;
-  ctl.zoomTo((Math.max(...xs)+Math.min(...xs))/2,(Math.max(...ys)+Math.min(...ys))/2, Math.max(bw, q.r*6));
+  revealZoom(ctl, m, q, S.players.map(p=>S.dots[p]));
   draw(true);
   document.getElementById('next').onclick = ()=>{
     if(last) go('end'); else { S.q++; S.turn=0; S.dots={}; go('pass'); }
@@ -356,7 +414,7 @@ function renderEnd(){
   app.innerHTML = `<div class="screen">
     <p class="label">Endwertung</p>
     <h1>${esc(top.p)} gewinnt<span class="dot"></span></h1>
-    <p class="muted">${top.pts} von ${ROUND} Punkten im Kreis. Bei Gleichstand entscheidet, wer insgesamt weniger Kilometer daneben lag.</p>
+    <p class="muted">${top.pts} von ${ROUND} Treffern. Bei Gleichstand entscheidet, wer insgesamt weniger Kilometer daneben lag.</p>
     <div class="tablewrap"><table>
       <thead><tr><th>#</th><th>Spieler</th><th>km daneben</th><th class="pts">Punkte</th></tr></thead>
       <tbody>${rows.map((r,k)=>`<tr class="${k===0?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${color(r.i)}"></i>${esc(r.p)}</span></td><td>${r.km.toLocaleString('de-DE')}</td><td class="pts">${r.pts}</td></tr>`).join('')}</tbody>
