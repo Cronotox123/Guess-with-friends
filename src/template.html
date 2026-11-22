@@ -49,6 +49,7 @@ input[type=text]{font:inherit;font-size:1.05rem;flex:1;min-width:0;background:va
 .zoom button{width:40px;height:40px;padding:0;border-radius:12px;background:rgba(16,21,40,.85);color:var(--fg);font-size:1.4rem;border:1px solid var(--line)}
 .hint{position:absolute;left:8px;top:8px;font-size:.78rem;background:rgba(16,21,40,.8);padding:5px 9px;border-radius:8px;color:var(--fg);pointer-events:none}
 .cover{justify-content:center;text-align:center;align-items:center}
+.phead{margin:6px 0 10px}.phead .bigname{font-size:clamp(2rem,10vw,3rem)}
 .bigname{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,13vw,4rem);line-height:1;overflow-wrap:anywhere}
 .results{display:flex;flex-direction:column;gap:6px;list-style:none;padding:0;margin:0}
 .results li{display:flex;align-items:center;gap:10px;background:var(--panel);border-radius:12px;padding:10px 12px}
@@ -177,10 +178,11 @@ function renderSetup(){
     ${diffPicker()}
     <p class="label">${S.players.length} Spieler</p>
     <button class="primary" id="start" ${S.players.length<1?'disabled':''}>Spiel starten</button>
-    ${PARTY.available()?'<button class="ghost" id="party">Partymodus: Tablet in die Mitte, jeder spielt mit seinem Handy</button>':''}
+    ${PARTY.available()?'<button class="ghost" id="hparty">Handy-Party: Ich starte, die anderen scannen den QR-Code</button><button class="ghost" id="party">Tablet-Party: Tablet in die Mitte, jeder spielt mit seinem Handy</button>':''}
   </div>`;
   bindDiff(renderSetup);
   const pb = document.getElementById('party'); if(pb) pb.onclick = ()=>startHost();
+  const hb = document.getElementById('hparty'); if(hb) hb.onclick = ()=>startHost(true);
   const inp = document.getElementById('pname');
   document.getElementById('addf').onsubmit = e=>{
     e.preventDefault();

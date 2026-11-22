@@ -54,6 +54,7 @@ input[type=text]{font:inherit;font-size:1.05rem;flex:1;min-width:0;background:va
 .zoom button{width:40px;height:40px;padding:0;border-radius:12px;background:rgba(16,21,40,.85);color:var(--fg);font-size:1.4rem;border:1px solid var(--line)}
 .hint{position:absolute;left:8px;top:8px;font-size:.78rem;background:rgba(16,21,40,.8);padding:5px 9px;border-radius:8px;color:var(--fg);pointer-events:none}
 .cover{justify-content:center;text-align:center;align-items:center}
+.phead{margin:6px 0 10px}.phead .bigname{font-size:clamp(2rem,10vw,3rem)}
 .bigname{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,13vw,4rem);line-height:1;overflow-wrap:anywhere}
 .results{display:flex;flex-direction:column;gap:6px;list-style:none;padding:0;margin:0}
 .results li{display:flex;align-items:center;gap:10px;background:var(--panel);border-radius:12px;padding:10px 12px}
@@ -186,10 +187,11 @@ function renderSetup(){
     ${diffPicker()}
     <p class="label">${S.players.length} Spieler</p>
     <button class="primary" id="start" ${S.players.length<1?'disabled':''}>Spiel starten</button>
-    ${PARTY.available()?'<button class="ghost" id="party">Partymodus: Tablet in die Mitte, jeder spielt mit seinem Handy</button>':''}
+    ${PARTY.available()?'<button class="ghost" id="hparty">Handy-Party: Ich starte, die anderen scannen den QR-Code</button><button class="ghost" id="party">Tablet-Party: Tablet in die Mitte, jeder spielt mit seinem Handy</button>':''}
   </div>`;
   bindDiff(renderSetup);
   const pb = document.getElementById('party'); if(pb) pb.onclick = ()=>startHost();
+  const hb = document.getElementById('hparty'); if(hb) hb.onclick = ()=>startHost(true);
   const inp = document.getElementById('pname');
   document.getElementById('addf').onsubmit = e=>{
     e.preventDefault();
@@ -401,8 +403,13 @@ function ptsLabel(mode){ return mode === 'kreis' ? 'Treffer' : 'Punkte'; }
 
 /* ---------------- HOST (Tablet) ---------------- */
 let H = null;
-function startHost(){
-  H = { code: partyCode(), peer: null, mode: 'kreis', players: {}, order: [], phase: 'lobby', set: [], q: 0, dots: {}, history: [], status: 'Verbinde …' };
+function startHost(play){
+  H = { code: partyCode(), peer: null, mode: 'kreis', players: {}, order: [], phase: 'lobby', set: [], q: 0, dots: {}, history: [], status: 'Verbinde …', play: !!play };
+  if(H.play){   // Handy-Party: der Gastgeber spielt auf seinem Handy selbst mit
+    let n=''; try{ n=localStorage.getItem('pl-name')||''; }catch(e){}
+    H.players.host = { name: n || 'Gastgeber', color: color(0), score: 0, km: 0, conn: null, connected: true, joinedAt: 0, me: true };
+    H.order.push('host');
+  }
   wakeLock();
   hostPeer();
   renderHost();
@@ -448,22 +455,25 @@ function hostOnData(conn, msg){
     H.dots[pid] = {x,y};
     send(conn, {t:'wait', num:H.q});
     renderHostLight();
-    const active = H.order.filter(id=>H.players[id].connected);
-    if(active.length && active.every(id=>H.dots[id])) setTimeout(()=>{ if(H.phase==='question') hostReveal(); }, 600);
+    checkAllIn();
   }
+}
+function checkAllIn(){
+  const active = H.order.filter(id=>H.players[id].connected);
+  if(active.length && active.every(id=>H.dots[id])) setTimeout(()=>{ if(H.phase==='question') hostReveal(); }, 600);
 }
 function syncPlayer(pid){
   const p = H.players[pid]; if(!p.conn) return;
   if(H.phase==='lobby') send(p.conn, {t:'lobby', count:H.order.length});
   if(H.phase==='question') send(p.conn, H.dots[pid] ? {t:'wait', num:H.q} : {t:'question', num:H.q, idx:H.set[H.q], total:ROUND});
-  if(H.phase==='reveal'){ const r=(H.history[H.q]||[]).find(r=>r.pid===pid); send(p.conn, r ? {t:'result', num:H.q, ...r, mode:H.mode, total:ROUND, score:p.score} : {t:'wait', num:H.q}); }
+  if(H.phase==='reveal'){ const r=(H.history[H.q]||[]).find(r=>r.pid===pid); send(p.conn, r ? {t:'result', num:H.q, ...r, mode:H.mode, total:ROUND, score:p.score, rev:revPayload()} : {t:'missed', num:H.q, total:ROUND, mode:H.mode, score:p.score, rev:revPayload()}); }
   if(H.phase==='end') send(p.conn, endMsg(pid));
 }
 function renderHostStatus(){ const el=document.getElementById('hstatus'); if(el) el.textContent=H.status; }
 function hostPlayerList(withState){
   return `<ul class="players">${H.order.map(pid=>{ const p=H.players[pid];
     const st = withState ? (H.dots[pid] ? '<span class="res ok">✓</span>' : '<span class="muted">tippt …</span>') : '';
-    return `<li><i class="chip" style="background:${p.color}"></i><span>${esc(p.name)}</span>${p.connected?'':'<span class="muted">getrennt</span>'}${st}</li>`; }).join('')}</ul>`;
+    return `<li><i class="chip" style="background:${p.color}"></i><span>${esc(p.name)}${p.me?' (du)':''}</span>${p.connected?'':'<span class="muted">getrennt</span>'}${st}</li>`; }).join('')}</ul>`;
 }
 function renderHostLight(){
   if(!H) return;
@@ -480,7 +490,8 @@ function renderHost(){
 function renderHostLobby(){
   const url = joinUrl(H.code);
   app.innerHTML = `<div class="screen host">
-    <div class="qhead"><span class="label">Partymodus</span><span class="lvl" id="hstatus">${esc(H.status)}</span></div>
+    <div class="qhead"><span class="label">${H.play?'Handy-Party':'Partymodus'}</span><span class="lvl" id="hstatus">${esc(H.status)}</span></div>
+    ${H.play?`<p class="label">Dein Name</p><input type="text" id="hname" maxlength="20" value="${esc(H.players.host.name)}" aria-label="Dein Name">`:''}
     <h1>Punkt&shy;landung<span class="dot"></span></h1>
     <div class="lobby">
       <div class="qrbox">${H.status==='bereit' ? qrSvg(url) : '<p class="muted">Raum wird geöffnet …</p>'}</div>
@@ -498,11 +509,14 @@ function renderHostLobby(){
       <button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Kreis</b><span>1 Punkt, wenn dein Punkt im Kreis liegt.</span></button>
       <button class="mode ${H.mode==='distanz'?'on':''}" data-mode="distanz"><b>Je näher, desto mehr</b><span>Bis zu 100 Punkte, je nach Abstand zum Ziel.</span></button>
     </div>
-    <button class="primary stick" id="hstart" ${H.order.length<1?'disabled':''}>Spiel starten</button>
+    <button class="primary stick" id="hstart" ${H.order.length<(H.play?2:1)?'disabled':''}>Spiel starten</button>
+    ${H.play?'<p class="muted small">Du spielst selbst mit und tippst nach jeder Auflösung auf „Nächste Frage“, wenn alle so weit sind.</p>':''}
     <button class="ghost" id="hback">Zurück zum Ein-Handy-Spiel</button>
   </div>`;
   app.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{ H.mode=b.dataset.mode; renderHostLobby(); });
   bindDiff(renderHostLobby);
+  const hn = document.getElementById('hname');
+  if(hn) hn.onchange = hn.oninput = ()=>{ const v=hn.value.trim().slice(0,20); H.players.host.name = v || 'Gastgeber'; try{ if(v) localStorage.setItem('pl-name', v); }catch(e){} };
   document.getElementById('hstart').onclick = ()=>{
     H.set = drawSet(); H.q = 0; H.history = [];
     H.order.forEach(pid=>{ H.players[pid].score=0; H.players[pid].km=0; });
@@ -518,9 +532,25 @@ function hostQuestion(){
 }
 function renderHostQuestion(){
   const q = DATA.questions[H.set[H.q]], m = DATA.maps[q.map];
+  if(H.play && !H.dots.host){   // Gastgeber setzt seinen eigenen Punkt
+    const me = H.players.host; let dot = null;
+    app.innerHTML = `<div class="screen fit">
+      <div class="qhead"><span class="label">Frage ${H.q+1} / ${ROUND} · Raum ${H.code}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
+      <div class="qtext">${esc(q.t)}</div>
+      <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}<div class="hint">Tippen setzt den Punkt · zwei Finger zoomen</div></div>
+      <button class="primary stick" id="ok" disabled>OK, Punkt setzen</button>
+    </div>`;
+    const wrap=document.getElementById('mw'), over=wrap.querySelector('#over'), ok=document.getElementById('ok');
+    let ctl;
+    const draw=anim=>{ over.innerHTML = dot ? (anim?dotMarkup(dot.x,dot.y,me.color,ctl.unit()):dotMarkup(dot.x,dot.y,me.color,ctl.unit()).replace('class="pop"','')) : ''; };
+    ctl = setupMap(wrap, m, (x,y)=>{ dot={x:+x.toFixed(1),y:+y.toFixed(1)}; ok.disabled=false; const h=wrap.querySelector('.hint'); if(h) h.hidden=true; draw(true); });
+    wrap._onzoom = ()=>draw(false);
+    ok.onclick = ()=>{ if(!dot || H.phase!=='question') return; H.dots.host = dot; renderHost(); checkAllIn(); };
+    return;
+  }
   app.innerHTML = `<div class="screen host">
     <div class="qhead"><span class="label">Frage ${H.q+1} / ${ROUND} · Raum ${H.code}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
-    <div class="riddle">Rätsel lösen, dann auf dem Handy den Ort tippen</div>
+    <div class="riddle">${H.play?'Dein Punkt ist gesetzt. Warte auf die anderen oder löse jetzt auf.':'Rätsel lösen, dann auf dem Handy den Ort tippen'}</div>
     <div class="qtext big">${esc(q.t)}</div>
     <div class="hostgrid">
       <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}</div>
@@ -540,51 +570,61 @@ function hostReveal(){
     return {pid, hit: px<=q.r, km, pts};
   });
   H.history[H.q] = res; H.phase='reveal';
-  for(const r of res){ const p=H.players[r.pid]; send(p.conn, {t:'result', num:H.q, ...r, mode:H.mode, total:ROUND, score:p.score}); }
-  H.order.filter(pid=>!H.dots[pid]).forEach(pid=>send(H.players[pid].conn, {t:'missed', num:H.q}));
+  const rev = revPayload();
+  for(const r of res){ const p=H.players[r.pid]; send(p.conn, {t:'result', num:H.q, ...r, mode:H.mode, total:ROUND, score:p.score, rev}); }
+  H.order.filter(pid=>!H.dots[pid]).forEach(pid=>send(H.players[pid].conn, {t:'missed', num:H.q, total:ROUND, mode:H.mode, score:H.players[pid].score, rev}));
   renderHost();
 }
-function renderHostReveal(){
-  const q = DATA.questions[H.set[H.q]], m = DATA.maps[q.map], res = H.history[H.q];
-  const last = H.q === ROUND-1;
-  const sorted = [...res].sort((a,b)=>b.pts-a.pts || a.km-b.km);
-  const board = H.order.map(pid=>H.players[pid]).sort((a,b)=>b.score-a.score || a.km-b.km);
-  app.innerHTML = `<div class="screen host">
-    <div class="qhead"><span class="label">Auflösung · Frage ${H.q+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
-    <div class="qtext">${esc(q.t)}</div>
-    <div class="solve"><span class="label">Gemeint war</span><div class="sol">${esc(q.s)} <span class="arrow">→</span> <strong>${esc(q.o)}</strong></div><p class="muted">${esc(q.a)} Kreis: ${q.km} km Radius.</p></div>
-    <div class="hostgrid">
-      <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}</div>
-      <div>
-        <ul class="results">${sorted.map(r=>{ const p=H.players[r.pid]; return `<li><span class="res ${r.hit?'ok':'bad'}">${r.hit?'✓':'✗'}</span><i class="chip" style="background:${p.color}"></i><span class="n">${esc(p.name)}</span><span class="km">${r.km} km · +${r.pts}</span></li>`; }).join('') || '<li>Keiner hat einen Punkt gesetzt.</li>'}</ul>
-        <p class="label" style="margin-top:14px">Zwischenstand</p>
-        <ol class="board">${board.map(p=>`<li><i class="chip" style="background:${p.color}"></i><span>${esc(p.name)}</span><b>${p.score}</b></li>`).join('')}</ol>
-      </div>
-    </div>
-    <button class="primary stick" id="hnext">${last?'Zur Endwertung':'Nächste Frage'}</button>
-  </div>`;
-  const wrap = document.getElementById('mw'), over = wrap.querySelector('#over');
-  let ctl;
+/* Auflösung: gemeinsame Teile für Tablet und Handys */
+function revealMap(wrap, m, q, dots){
+  const over = wrap.querySelector('#over'); let ctl;
   const draw = anim=>{
     const u = ctl.unit();
     let s = `<circle cx="${q.x}" cy="${q.y}" r="${q.r}" fill="rgba(255,210,63,.28)" stroke="#ffd23f" stroke-width="${3*u}" ${anim?'class="pop"':''} style="transform-origin:${q.x}px ${q.y}px"/><circle cx="${q.x}" cy="${q.y}" r="${3*u}" fill="#ffd23f"/>`;
-    res.forEach(r=>{ const d=H.dots[r.pid], p=H.players[r.pid]; s += dotMarkup(d.x,d.y,p.color,u,p.name); });
+    dots.forEach(d=>{ s += dotMarkup(d.x,d.y,d.c,u,d.n); });
     over.innerHTML = anim ? s : s.replace(/class="pop"/g,'');
   };
   ctl = setupMap(wrap, m, null);
   wrap._onzoom = ()=>draw(false);
-  const pts = res.map(r=>H.dots[r.pid]);
-  const xs=[q.x-q.r,q.x+q.r,...pts.map(d=>d.x)], ys=[q.y-q.r,q.y+q.r,...pts.map(d=>d.y)];
+  const xs=[q.x-q.r,q.x+q.r,...dots.map(d=>d.x)], ys=[q.y-q.r,q.y+q.r,...dots.map(d=>d.y)];
   const bw = Math.max(Math.max(...xs)-Math.min(...xs),(Math.max(...ys)-Math.min(...ys))*m.w/m.h)*1.4;
   ctl.zoomTo((Math.max(...xs)+Math.min(...xs))/2,(Math.max(...ys)+Math.min(...ys))/2, Math.max(bw, q.r*6));
   draw(true);
+}
+function revealSolve(q){ return `<div class="solve"><span class="label">Gemeint war</span><div class="sol">${esc(q.s)} <span class="arrow">→</span> <strong>${esc(q.o)}</strong></div><p class="muted">${esc(q.a)} Kreis: ${q.km} km Radius.</p></div>`; }
+function revealLists(rows, board){
+  return `<ul class="results">${rows.map(r=>`<li><span class="res ${r.hit?'ok':'bad'}">${r.hit?'✓':'✗'}</span><i class="chip" style="background:${r.c}"></i><span class="n">${esc(r.n)}</span><span class="km">${r.km} km · +${r.pts}</span></li>`).join('') || '<li>Keiner hat einen Punkt gesetzt.</li>'}</ul>
+    <p class="label" style="margin-top:14px">Zwischenstand</p>
+    <ol class="board">${board.map(p=>`<li><i class="chip" style="background:${p.c}"></i><span>${esc(p.n)}</span><b>${p.s}</b></li>`).join('')}</ol>`;
+}
+function revPayload(){
+  const res = H.history[H.q] || [];
+  const rows = [...res].sort((a,b)=>b.pts-a.pts || a.km-b.km).map(r=>{ const d=H.dots[r.pid], p=H.players[r.pid]; return {n:p.name, c:p.color, x:d.x, y:d.y, hit:r.hit, km:r.km, pts:r.pts}; });
+  const board = hostRanking().map(p=>({n:p.name, c:p.color, s:p.score}));
+  return {idx:H.set[H.q], rows, board};
+}
+function renderHostReveal(){
+  const q = DATA.questions[H.set[H.q]], m = DATA.maps[q.map], res = H.history[H.q];
+  const last = H.q === ROUND-1;
+  const rv = revPayload();
+  app.innerHTML = `<div class="screen host">
+    <div class="qhead"><span class="label">Auflösung · Frage ${H.q+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
+    <div class="qtext">${esc(q.t)}</div>
+    ${revealSolve(q)}
+    <div class="hostgrid">
+      <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}</div>
+      <div>${revealLists(rv.rows, rv.board)}</div>
+    </div>
+    <button class="primary stick" id="hnext">${last?'Zur Endwertung':'Nächste Frage'}</button>
+  </div>`;
+  revealMap(document.getElementById('mw'), m, q, rv.rows);
   document.getElementById('hnext').onclick = ()=>{
     if(last){ H.phase='end'; H.order.forEach(pid=>send(H.players[pid].conn, endMsg(pid))); renderHost(); }
     else { H.q++; hostQuestion(); }
   };
 }
 function hostRanking(){ return H.order.map(pid=>({pid,...H.players[pid]})).sort((a,b)=>b.score-a.score || a.km-b.km); }
-function endMsg(pid){ const rk=hostRanking(); const i=rk.findIndex(r=>r.pid===pid); return {t:'end', rank:i+1, of:rk.length, score:H.players[pid].score, mode:H.mode, winner:rk[0].name}; }
+function endMsg(pid){ const rk=hostRanking(); const i=rk.findIndex(r=>r.pid===pid); return {t:'end', rank:i+1, of:rk.length, score:H.players[pid].score, mode:H.mode, winner:rk[0].name, rows:rk.map(r=>({n:r.name, c:r.color, km:r.km, s:r.score}))}; }
 function renderHostEnd(){
   const rows = hostRanking();
   app.innerHTML = `<div class="screen host">
@@ -644,7 +684,7 @@ function playerOnData(msg){
   if(msg.t==='question'){ if(P.state==='place' && P.num===msg.num) return; P.num=msg.num; P.idx=msg.idx; P.dot=null; P.state='place'; renderPlayer(); }
   if(msg.t==='wait'){ if(P.state==='wait' && P.num===msg.num) return; P.num=msg.num; P.state='wait'; renderPlayer(); }
   if(msg.t==='result'){ P.last=msg; P.state='result'; renderPlayer(); }
-  if(msg.t==='missed'){ P.last=null; P.state='missed'; renderPlayer(); }
+  if(msg.t==='missed'){ P.last=msg; P.state='missed'; renderPlayer(); }
   if(msg.t==='end'){ P.last=msg; P.state='end'; renderPlayer(); }
 }
 function playerShell(inner){
@@ -656,7 +696,7 @@ function playerShell(inner){
 function renderPlayer(){
   if(P.state==='name'){
     app.innerHTML = playerShell(`<h1>Punkt&shy;landung<span class="dot"></span></h1>
-      <p class="muted">Du spielst mit deinem Handy. Die Rätsel stehen auf dem Tablet und hier.</p>
+      <p class="muted">Du spielst mit deinem Handy. Die Rätsel und die Auflösung kommen direkt hierher.</p>
       <form id="pf" class="row" autocomplete="off"><input type="text" id="pn" maxlength="20" placeholder="Dein Name" aria-label="Dein Name" value="${esc(P.name)}"><button class="primary" style="width:auto" type="submit">Mitspielen</button></form>
       <div class="err" id="perr"></div>`);
     document.getElementById('pf').onsubmit = e=>{ e.preventDefault(); const n=document.getElementById('pn').value.trim(); if(!n){ document.getElementById('perr').textContent='Bitte gib deinen Namen ein.'; return; }
@@ -682,15 +722,27 @@ function renderPlayer(){
       send(P.conn, {t:'dot', num:P.num, x:P.dot.x, y:P.dot.y}); ok.disabled=true; ok.textContent='Gesendet …'; };
     return;
   }
-  if(P.state==='wait'){ app.innerHTML = playerShell(`<div class="cover"><h2>Punkt gesetzt</h2><p class="muted">Warte auf die anderen. Die Auflösung kommt auf dem Tablet.</p></div>`); return; }
-  if(P.state==='missed'){ app.innerHTML = playerShell(`<div class="cover"><h2>Zu spät</h2><p class="muted">Diese Runde wurde ohne dich aufgelöst. Gleich geht es weiter.</p></div>`); return; }
-  if(P.state==='result'){ const r=P.last;
-    app.innerHTML = playerShell(`<div class="cover"><p class="label">Frage ${r.num+1} / ${r.total}</p>
-      <div class="bigname" style="color:${r.hit?'var(--ok)':'var(--bad)'}">${r.hit?'Treffer!':'Daneben'}</div>
-      <p class="muted">${r.km} km vom Ziel · +${r.pts} ${ptsLabel(r.mode)}</p><h2>Gesamt: ${r.score}</h2><p class="muted">Schau aufs Tablet für die Auflösung.</p></div>`); return; }
+  if(P.state==='wait'){ app.innerHTML = playerShell(`<div class="cover"><h2>Punkt gesetzt</h2><p class="muted">Warte auf die anderen. Die Auflösung kommt gleich auch hier aufs Handy.</p></div>`); return; }
+  if(P.state==='result' || P.state==='missed'){ const r=P.last||{};
+    const head = P.state==='missed' ? `<div class="bigname" style="color:var(--bad)">Zu spät</div><p class="muted">Diese Runde lief ohne deinen Punkt.</p>`
+      : `<div class="bigname" style="color:${r.hit?'var(--ok)':'var(--bad)'}">${r.hit?'Treffer!':'Daneben'}</div><p class="muted">${r.km} km vom Ziel · +${r.pts} ${ptsLabel(r.mode)} · Gesamt: ${r.score}</p>`;
+    const rv = r.rev, q = rv && DATA.questions[rv.idx];
+    if(!q){ app.innerHTML = playerShell(`<div class="cover">${head}</div>`); return; }
+    const m = DATA.maps[q.map];
+    app.innerHTML = playerShell(`<div class="qhead"><span class="label">Auflösung · Frage ${(r.num||0)+1} / ${r.total||ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
+      <div class="phead">${head}</div>
+      <div class="qtext">${esc(q.t)}</div>
+      ${revealSolve(q)}
+      <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}</div>
+      ${revealLists(rv.rows, rv.board)}
+      <p class="muted" style="margin-top:12px">Gleich geht es mit der nächsten Frage weiter.</p>`);
+    revealMap(document.getElementById('mw'), m, q, rv.rows);
+    return; }
   if(P.state==='end'){ const r=P.last;
     app.innerHTML = playerShell(`<div class="cover"><p class="label">Endstand</p><div class="bigname" style="color:${r.rank===1?'var(--accent)':'var(--fg)'}">Platz ${r.rank}</div>
-      <p class="muted">von ${r.of} · ${r.score} ${ptsLabel(r.mode)}</p>${r.rank===1?'<h2>Du hast gewonnen!</h2>':`<p class="muted">Gewonnen hat ${esc(r.winner)}.</p>`}</div>`); return; }
+      <p class="muted">von ${r.of} · ${r.score} ${ptsLabel(r.mode)}</p>${r.rank===1?'<h2>Du hast gewonnen!</h2>':`<p class="muted">Gewonnen hat ${esc(r.winner)}.</p>`}</div>
+      ${r.rows?`<div class="tablewrap"><table><thead><tr><th>#</th><th>Spieler</th><th>km daneben</th><th class="pts">${ptsLabel(r.mode)}</th></tr></thead>
+      <tbody>${r.rows.map((x,k)=>`<tr class="${k===0?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${x.c}"></i>${esc(x.n)}</span></td><td>${x.km.toLocaleString('de-DE')}</td><td class="pts">${x.s}</td></tr>`).join('')}</tbody></table></div>`:''}`); return; }
 }
 
 const joinCode = new URLSearchParams(location.search).get('join');
