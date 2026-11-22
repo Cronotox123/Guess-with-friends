@@ -119,7 +119,7 @@ function renderHostLobby(){
       <button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Kreis</b><span>1 Punkt, wenn dein Punkt im Kreis liegt.</span></button>
       <button class="mode ${H.mode==='distanz'?'on':''}" data-mode="distanz"><b>Je näher, desto mehr</b><span>Bis zu 100 Punkte, je nach Abstand zum Ziel.</span></button>
     </div>
-    <button class="primary" id="hstart" ${H.order.length<1?'disabled':''}>Spiel starten</button>
+    <button class="primary stick" id="hstart" ${H.order.length<1?'disabled':''}>Spiel starten</button>
     <button class="ghost" id="hback">Zurück zum Ein-Handy-Spiel</button>
   </div>`;
   app.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{ H.mode=b.dataset.mode; renderHostLobby(); });
@@ -146,7 +146,7 @@ function renderHostQuestion(){
       <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}</div>
       <div><p class="label" id="hcount">${H.order.length} Spieler</p><div id="hplayers">${hostPlayerList(true)}</div></div>
     </div>
-    <button class="ghost" id="hnow">Jetzt auflösen</button>
+    <button class="ghost stick" id="hnow">Jetzt auflösen</button>
   </div>`;
   setupMap(document.getElementById('mw'), m, null);
   document.getElementById('hnow').onclick = ()=>hostReveal();
@@ -181,7 +181,7 @@ function renderHostReveal(){
         <ol class="board">${board.map(p=>`<li><i class="chip" style="background:${p.color}"></i><span>${esc(p.name)}</span><b>${p.score}</b></li>`).join('')}</ol>
       </div>
     </div>
-    <button class="primary" id="hnext">${last?'Zur Endwertung':'Nächste Frage'}</button>
+    <button class="primary stick" id="hnext">${last?'Zur Endwertung':'Nächste Frage'}</button>
   </div>`;
   const wrap = document.getElementById('mw'), over = wrap.querySelector('#over');
   let ctl;
@@ -268,7 +268,7 @@ function playerOnData(msg){
   if(msg.t==='end'){ P.last=msg; P.state='end'; renderPlayer(); }
 }
 function playerShell(inner){
-  return `<div class="screen">
+  return `<div class="screen${P.state==='place'?' fit':''}">
     <div class="qhead"><span class="label">Raum ${esc(P.code)}</span>${P.name?`<span class="turn"><i class="chip" style="background:${P.color}"></i>${esc(P.name)}</span>`:''}</div>
     <p class="err" id="pstatus" ${P.online||P.state==='name'?'hidden':''}>Verbinde …</p>
     ${inner}</div>`;
@@ -292,7 +292,7 @@ function renderPlayer(){
       <div class="qhead"><span class="label">Frage ${P.num+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
       <div class="qtext">${esc(q.t)}</div>
       <div class="mapwrap" id="mw" style="aspect-ratio:${m.w}/${Math.max(m.h, m.w*0.62)}">${mapSVG(m)}${zoomButtons}<div class="hint">Tippen setzt den Punkt · zwei Finger zoomen</div></div>
-      <button class="primary" id="ok" disabled>OK, Punkt abschicken</button>`);
+      <button class="primary stick" id="ok" disabled>OK, Punkt abschicken</button>`);
     const wrap=document.getElementById('mw'), over=wrap.querySelector('#over'), ok=document.getElementById('ok');
     let ctl;
     const draw=()=>{ over.innerHTML = P.dot ? dotMarkup(P.dot.x,P.dot.y,P.color,ctl.unit()) : ''; };
