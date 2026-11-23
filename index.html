@@ -442,7 +442,12 @@ function renderEnd(){
 const PARTY = {
   available: () => typeof window.Peer === 'function',
   prefix: 'punktlandung-v1-',
-  peerOpts: { debug: 0, config: { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }, { urls: 'stun:global.stun.twilio.com:3478' }] } },
+  // STUN reicht nur, wenn beide im selben WLAN sind. Für Mobilfunk/fremde Netze braucht es TURN-Relais (öffentliche, kostenlose Server).
+  peerOpts: { debug: 0, config: { iceServers: [
+    { urls: ['stun:stun.l.google.com:19302', 'stun:stun1.l.google.com:19302', 'stun:global.stun.twilio.com:3478'] },
+    { urls: ['turn:freestun.net:3478', 'turn:freestun.net:3478?transport=tcp'], username: 'free', credential: 'free' },
+    { urls: ['turn:openrelay.metered.ca:80', 'turn:openrelay.metered.ca:443', 'turn:openrelay.metered.ca:443?transport=tcp', 'turns:openrelay.metered.ca:443'], username: 'openrelayproject', credential: 'openrelayproject' },
+  ] } },
 };
 if(window.__peerOverride) Object.assign(PARTY.peerOpts, window.__peerOverride);
 function partyCode(){ const a='ABCDEFGHJKLMNPQRSTUVWXYZ'; let s=''; for(let i=0;i<4;i++) s+=a[Math.floor(Math.random()*a.length)]; return s; }
@@ -553,6 +558,7 @@ function renderHostLobby(){
         <p class="muted">Mit dem Handy den QR-Code scannen oder diese Adresse öffnen:</p>
         <p class="joinurl">${esc(url)}</p>
         <p class="label">Raumcode</p><div class="code">${H.code}</div>
+        <p class="muted small">Am besten klappt es im selben WLAN. Unterwegs: Gastgeber macht einen Hotspot an, die anderen verbinden sich damit. Diesen Bildschirm offen lassen.</p>
       </div>
     </div>
     <p class="label" id="hcount">${H.order.length} Spieler</p>
@@ -711,16 +717,20 @@ function playerConnect(){
     P.peer.on('open', ()=>openConn());
     P.peer.on('disconnected', ()=>{ setTimeout(()=>{ try{ if(!P.peer.destroyed) P.peer.reconnect(); }catch(e){} }, 1000); });
     P.peer.on('error', err=>{
-      if(err.type==='peer-unavailable'){ P.online=false; setStatus('Raum '+P.code+' nicht gefunden. Läuft das Spiel auf dem Tablet?'); }
-      else setStatus('Verbindungsproblem, versuche es weiter …');
+      if(err.type==='peer-unavailable'){ P.online=false; setStatus('Raum '+P.code+' nicht gefunden. Ist das Spiel beim Gastgeber noch offen (Bildschirm an, Browser im Vordergrund)?'); }
+      else setStatus((P.fails||0)>=2 ? HINT : 'Verbindungsproblem, versuche es weiter …');
       scheduleRetry();
     });
   } else if(P.peer.open) openConn();
 }
+const HINT = 'Die Handys finden sich nicht. Tipp: Alle ins gleiche WLAN – oder der Gastgeber macht einen Hotspot an und die anderen verbinden sich damit. Ich versuche es weiter …';
 function openConn(){
   const conn = P.peer.connect(PARTY.prefix + P.code, {reliable:true});
   P.conn = conn;
-  conn.on('open', ()=>{ P.online=true; setStatus(''); send(conn, {t:'hello', pid:P.pid, name:P.name}); });
+  clearTimeout(P.wait);
+  // Ohne Antwort nach 15 s: abbrechen, neu versuchen und ab dem 2. Fehlschlag einen Tipp zeigen
+  P.wait = setTimeout(()=>{ if(P.conn===conn && !P.online){ P.fails=(P.fails||0)+1; try{ conn.close(); }catch(e){} setStatus(P.fails>=2 ? HINT : 'Verbindung dauert, versuche es nochmal …'); scheduleRetry(); } }, 15000);
+  conn.on('open', ()=>{ clearTimeout(P.wait); P.online=true; P.fails=0; setStatus(''); send(conn, {t:'hello', pid:P.pid, name:P.name}); });
   conn.on('data', playerOnData);
   conn.on('close', ()=>{ if(P.conn===conn){ P.online=false; setStatus('Verbindung verloren, verbinde neu …'); scheduleRetry(); } });
   conn.on('error', ()=>scheduleRetry());
