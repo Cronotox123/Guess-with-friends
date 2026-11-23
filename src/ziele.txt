@@ -244,3 +244,5 @@ world|Arabisches Meer|g|s:Arabian Sea
 world|Südchinesisches Meer|g|s:South China Sea
 world|Azoren|g|su:Azores
 de|Schwarzwald|a|k:Freudenstadt,Calw,Ortenaukreis,Rastatt,Baden-Baden,Breisgau-Hochschwarzwald,Schwarzwald-Baar-Kreis,Emmendingen,Rottweil
+de|Sachsen|g|de:Sachsen
+de|Fehmarn|g|i
