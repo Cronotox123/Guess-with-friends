@@ -728,7 +728,9 @@ function hostRelay(){
     for(const url of RELAY.brokers){
       let c; try{ c = mqtt.connect(url, mqttOpts(url, {reconnectPeriod:4000, connectTimeout:8000, clean:true})); }catch(e){ continue; }
       c._code = null;
-      c.on('connect', ()=>{ c._code = H.code; c.subscribe(relayTopic(H.code, 'up')); renderRelayStatus(); });
+      c.on('connect', ()=>{ c._code = H.code; c.subscribe(relayTopic(H.code, 'up')); renderRelayStatus();
+        // Vermittlungs-Server nicht erreichbar, aber ein Umweg steht: QR-Code trotzdem zeigen
+        if(!H.relayUp){ H.relayUp = true; if(H.phase==='lobby' && H.status!=='bereit') renderHost(); } });
       c.on('close', ()=>renderRelayStatus());
       c.on('error', ()=>{});
       c.on('message', (topic, buf)=>{
@@ -905,7 +907,7 @@ function renderHostLobby(){
     ${H.play?`<p class="label">Dein Name</p><input type="text" id="hname" maxlength="20" value="${esc(H.players.host.name)}" aria-label="Dein Name">`:''}
     <h1>Punkt&shy;landung<span class="dot"></span></h1>
     <div class="lobby">
-      <div class="qrbox">${H.status==='bereit' ? qrSvg(url) : '<p class="muted">Raum wird geöffnet …</p>'}</div>
+      <div class="qrbox">${(H.status==='bereit' || H.relayUp) ? qrSvg(url) : '<p class="muted">Raum wird geöffnet …</p>'}</div>
       <div class="lobbyinfo">
         <p class="muted">Mit dem Handy den QR-Code scannen oder diese Adresse öffnen:</p>
         <p class="joinurl">${esc(url)}</p>
@@ -1279,7 +1281,7 @@ function renderPlayer(){
 /* ---------- Verbindungstest: ?test ---------- */
 function runDiag(){
   const rows = [];
-  const show = ()=>{ app.innerHTML = `<div class="screen"><h2>Verbindungstest</h2><p class="label">Version 24.11. · Umweg über Vermittler</p><p class="muted">Bitte warten, bis alle Zeilen fertig sind (ca. 20 Sekunden), dann ein Bildschirmfoto schicken.</p>
+  const show = ()=>{ app.innerHTML = `<div class="screen"><h2>Verbindungstest</h2><p class="label">Version 24.11.c</p><p class="muted">Bitte warten, bis alle Zeilen fertig sind (ca. 20 Sekunden), dann ein Bildschirmfoto schicken.</p>
     <ul class="results">${rows.map(r=>`<li><span class="res ${r.ok===true?'ok':r.ok===false?'bad':''}">${r.ok===true?'✓':r.ok===false?'✗':'…'}</span><span class="n">${esc(r.name)}</span><span class="km">${esc(r.info||'')}</span></li>`).join('')}</ul>
     <p class="muted small">${esc(navigator.userAgent)}</p></div>`; };
   const row = name => { const r = {name, ok:null, info:''}; rows.push(r); show(); return (ok, info)=>{ r.ok = ok; r.info = info; show(); }; };
