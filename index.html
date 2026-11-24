@@ -693,7 +693,10 @@ function ptsLabel(mode){ return mode === 'kreis' ? 'Treffer' : 'Punkte'; }
 /* ---------- Ersatzweg: Nachrichten über öffentliche MQTT-Server ----------
    Klappt die direkte Handy-zu-Handy-Verbindung (WebRTC) nicht, z. B. im Mobilfunk,
    schicken Spieler und Gastgeber ihre Nachrichten über einen öffentlichen Nachrichten-Server. */
-const RELAY = { brokers: ['wss://broker.hivemq.com:8884/mqtt', 'wss://broker.emqx.io:8084/mqtt', 'wss://test.mosquitto.org:8081'] };
+// Zuerst Server auf Port 443 (kommt auch durch Firmen- und Gast-WLANs), dann die übrigen
+const RELAY = { brokers: ['wss://public.cloud.shiftr.io', 'wss://mqtt.eclipseprojects.io:443/mqtt', 'wss://broker.hivemq.com:8884/mqtt', 'wss://broker.emqx.io:8084/mqtt', 'wss://test.mosquitto.org:8081'],
+  auth: { 'wss://public.cloud.shiftr.io': {username:'public', password:'public'} } };
+const mqttOpts = (url, o) => Object.assign(o, RELAY.auth[url] || {});
 if(window.__relayOverride) RELAY.brokers = window.__relayOverride;
 const relayTopic = (code, part) => 'punktlandung/v1/' + code + '/' + part;
 function loadMqtt(cb){
@@ -705,7 +708,7 @@ function hostRelay(){
   H.relays = []; H.rconns = {};
   loadMqtt(()=>{
     for(const url of RELAY.brokers){
-      let c; try{ c = mqtt.connect(url, {reconnectPeriod:4000, connectTimeout:8000, clean:true}); }catch(e){ continue; }
+      let c; try{ c = mqtt.connect(url, mqttOpts(url, {reconnectPeriod:4000, connectTimeout:8000, clean:true})); }catch(e){ continue; }
       c._code = null;
       c.on('connect', ()=>{ c._code = H.code; c.subscribe(relayTopic(H.code, 'up')); renderRelayStatus(); });
       c.on('close', ()=>renderRelayStatus());
@@ -737,7 +740,7 @@ function playerRelay(){
     let i = 0;
     const next = ()=>{
       const url = RELAY.brokers[i++ % RELAY.brokers.length];
-      let c; try{ c = mqtt.connect(url, {reconnectPeriod:0, connectTimeout:7000, clean:true}); }catch(e){ return setTimeout(next, 1000); }
+      let c; try{ c = mqtt.connect(url, mqttOpts(url, {reconnectPeriod:0, connectTimeout:7000, clean:true})); }catch(e){ return setTimeout(next, 1000); }
       P.relay = c; let ok = false, done = false;
       const host = url.replace(/^wss?:\/\//,'').replace(/[:/].*$/,'');
       setStatus('Umweg: verbinde mit ' + host + ' …');
@@ -1254,7 +1257,7 @@ function renderPlayer(){
 /* ---------- Verbindungstest: ?test ---------- */
 function runDiag(){
   const rows = [];
-  const show = ()=>{ app.innerHTML = `<div class="screen"><h2>Verbindungstest</h2><p class="muted">Bitte warten, bis alle Zeilen fertig sind (ca. 20 Sekunden), dann ein Bildschirmfoto schicken.</p>
+  const show = ()=>{ app.innerHTML = `<div class="screen"><h2>Verbindungstest</h2><p class="label">Version 24.11. · Port 443</p><p class="muted">Bitte warten, bis alle Zeilen fertig sind (ca. 20 Sekunden), dann ein Bildschirmfoto schicken.</p>
     <ul class="results">${rows.map(r=>`<li><span class="res ${r.ok===true?'ok':r.ok===false?'bad':''}">${r.ok===true?'✓':r.ok===false?'✗':'…'}</span><span class="n">${esc(r.name)}</span><span class="km">${esc(r.info||'')}</span></li>`).join('')}</ul>
     <p class="muted small">${esc(navigator.userAgent)}</p></div>`; };
   const row = name => { const r = {name, ok:null, info:''}; rows.push(r); show(); return (ok, info)=>{ r.ok = ok; r.info = info; show(); }; };
@@ -1278,7 +1281,7 @@ function runDiag(){
     for(const url of RELAY.brokers){
       const d = row('Umweg ' + url.replace(/^wss?:\/\//,'').replace(/[:/].*$/,''));
       const t1 = Date.now(), topic = 'punktlandung/v1/test/' + Math.random().toString(36).slice(2);
-      let c; try{ c = mqtt.connect(url, {reconnectPeriod:0, connectTimeout:10000}); }catch(e){ d(false, String(e.message||e)); continue; }
+      let c; try{ c = mqtt.connect(url, mqttOpts(url, {reconnectPeriod:0, connectTimeout:10000})); }catch(e){ d(false, String(e.message||e)); continue; }
       const to = setTimeout(()=>{ d(false, 'keine Antwort'); try{c.end(true);}catch(e){} }, 12000);
       c.on('error', e=>{ clearTimeout(to); d(false, String(e.message||e).slice(0,40)); });
       c.on('connect', ()=>{ c.subscribe(topic, ()=>c.publish(topic, 'ping')); });
