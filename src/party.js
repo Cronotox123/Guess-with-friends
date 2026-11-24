@@ -40,7 +40,8 @@ function hostRelay(){
     for(const url of RELAY.brokers){
       let c; try{ c = mqtt.connect(url, {reconnectPeriod:4000, connectTimeout:8000, clean:true}); }catch(e){ continue; }
       c._code = null;
-      c.on('connect', ()=>{ c._code = H.code; c.subscribe(relayTopic(H.code, 'up')); });
+      c.on('connect', ()=>{ c._code = H.code; c.subscribe(relayTopic(H.code, 'up')); renderRelayStatus(); });
+      c.on('close', ()=>renderRelayStatus());
       c.on('error', ()=>{});
       c.on('message', (topic, buf)=>{
         let m; try{ m = JSON.parse(buf.toString()); }catch(e){ return; }
@@ -58,6 +59,7 @@ function hostRelay(){
     H.rwatch = setInterval(()=>{ for(const pid of H.order){ const p = H.players[pid]; if(p.conn && p.conn.relay && Date.now() - p.conn.seen > 35000){ p.conn.open = false; p.connected = false; p.conn = null; renderHostLight(); } } }, 10000);
   });
 }
+function renderRelayStatus(){ const el=document.getElementById('hrelay'); if(el && H && H.relays){ const n=H.relays.filter(c=>c.connected).length; el.textContent = 'Umweg-Server: ' + n + ' von ' + RELAY.brokers.length + ' verbunden'; } }
 function hostRelayResub(){ (H.relays||[]).forEach(c=>{ try{ if(c._code) c.unsubscribe(relayTopic(c._code, 'up')); c._code = H.code; c.subscribe(relayTopic(H.code, 'up')); }catch(e){} }); }
 function playerRelay(){
   if(P.relay) return;
@@ -69,8 +71,10 @@ function playerRelay(){
     const next = ()=>{
       const url = RELAY.brokers[i++ % RELAY.brokers.length];
       let c; try{ c = mqtt.connect(url, {reconnectPeriod:0, connectTimeout:7000, clean:true}); }catch(e){ return setTimeout(next, 1000); }
-      P.relay = c; let ok = false;
-      const again = ()=>{ if(P.relay !== c) return; try{ c.end(true); }catch(e){} P.online = false; setTimeout(()=>{ if(P.relay === c) next(); }, ok ? 1500 : 300); };
+      P.relay = c; let ok = false, done = false;
+      const host = url.replace(/^wss?:\/\//,'').replace(/[:/].*$/,'');
+      setStatus('Umweg: verbinde mit ' + host + ' …');
+      const again = ()=>{ if(done || P.relay !== c) return; done = true; try{ c.end(true); }catch(e){} P.online = false; setTimeout(()=>{ if(P.relay === c) next(); }, ok ? 1500 : 300); };
       c.on('error', ()=>{ if(!ok) again(); });
       c.on('close', ()=>{ if(ok){ setStatus('Verbindung verloren, verbinde neu …'); } again(); });
       c.on('connect', ()=>{
@@ -78,7 +82,7 @@ function playerRelay(){
         c.subscribe(relayTopic(P.code, 'down/' + cid), ()=>{
           const conn = {open:true, relay:true, send(msg){ try{ c.publish(relayTopic(P.code, 'up'), JSON.stringify({cid, msg})); }catch(e){} }};
           P.conn = conn; clearTimeout(P.wait); clearTimeout(P.retry);
-          setStatus('Umweg steht, warte auf den Gastgeber …');
+          setStatus('Umweg über ' + host + ' steht, warte auf den Gastgeber …');
           conn.send({t:'hello', pid:P.pid, name:P.name});
           // Kommt keine Antwort, Hallo wiederholen (Gastgeber evtl. auf anderem Server)
           clearTimeout(P.hello); P.hello = setTimeout(()=>{ if(P.relay === c && !P.online){ again(); } }, 6000);
@@ -179,7 +183,7 @@ function renderHostLight(){
   const c = document.getElementById('hcount'); if(c) c.textContent = H.order.length + ' Spieler';
 }
 function renderHost(){
-  if(H.phase==='lobby') return renderHostLobby();
+  if(H.phase==='lobby'){ renderHostLobby(); renderRelayStatus(); return; }
   if(H.phase==='question') return renderHostQuestion();
   if(H.phase==='reveal') return renderHostReveal();
   if(H.phase==='end') return renderHostEnd();
@@ -196,6 +200,7 @@ function renderHostLobby(){
         <p class="muted">Mit dem Handy den QR-Code scannen oder diese Adresse öffnen:</p>
         <p class="joinurl">${esc(url)}</p>
         <p class="label">Raumcode</p><div class="code">${H.code}</div>
+        <p class="muted small" id="hrelay">Umweg-Server: verbinde …</p>
         <p class="muted small">Am besten klappt es im selben WLAN. Unterwegs: Gastgeber macht einen Hotspot an, die anderen verbinden sich damit. Diesen Bildschirm offen lassen.</p>
       </div>
     </div>
@@ -450,4 +455,41 @@ function renderPlayer(){
       <p class="muted">von ${r.of} · ${r.score} ${ptsLabel(r.mode)}</p>${r.rank===1?'<h2>Du hast gewonnen!</h2>':`<p class="muted">Gewonnen hat ${esc(r.winner)}.</p>`}</div>
       ${r.rows?`<div class="tablewrap"><table><thead><tr><th>#</th><th>Spieler</th><th>km daneben</th><th class="pts">${ptsLabel(r.mode)}</th></tr></thead>
       <tbody>${r.rows.map((x,k)=>`<tr class="${k===0?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${x.c}"></i>${esc(x.n)}</span></td><td>${x.km.toLocaleString('de-DE')}</td><td class="pts">${x.s}</td></tr>`).join('')}</tbody></table></div>`:''}`); return; }
+}
+
+/* ---------- Verbindungstest: ?test ---------- */
+function runDiag(){
+  const rows = [];
+  const show = ()=>{ app.innerHTML = `<div class="screen"><h2>Verbindungstest</h2><p class="muted">Bitte warten, bis alle Zeilen fertig sind (ca. 20 Sekunden), dann ein Bildschirmfoto schicken.</p>
+    <ul class="results">${rows.map(r=>`<li><span class="res ${r.ok===true?'ok':r.ok===false?'bad':''}">${r.ok===true?'✓':r.ok===false?'✗':'…'}</span><span class="n">${esc(r.name)}</span><span class="km">${esc(r.info||'')}</span></li>`).join('')}</ul>
+    <p class="muted small">${esc(navigator.userAgent)}</p></div>`; };
+  const row = name => { const r = {name, ok:null, info:''}; rows.push(r); show(); return (ok, info)=>{ r.ok = ok; r.info = info; show(); }; };
+  const t0 = Date.now(), ms = ()=>(Date.now()-t0)+' ms';
+  // 1. Vermittlungs-Server (PeerJS)
+  const d1 = row('Vermittlungs-Server');
+  try{ const p = new Peer(PARTY.prefix + 'test-' + Math.random().toString(36).slice(2,8), PARTY.peerOpts);
+    const to = setTimeout(()=>{ d1(false, 'keine Antwort'); try{p.destroy();}catch(e){} }, 12000);
+    p.on('open', ()=>{ clearTimeout(to); d1(true, ms()); setTimeout(()=>{ try{p.destroy();}catch(e){} }, 500); });
+    p.on('error', e=>{ clearTimeout(to); d1(false, e.type); });
+  }catch(e){ d1(false, String(e.message||e)); }
+  // 2. Direktverbindung: welche Wege findet das Handy?
+  const d2 = row('Direktverbindung (Wege)');
+  try{ const pc = new RTCPeerConnection(PARTY.peerOpts.config); pc.createDataChannel('x'); const seen = {host:0, srflx:0, relay:0};
+    pc.onicecandidate = e=>{ if(e.candidate){ const m = / typ (\w+)/.exec(e.candidate.candidate); if(m && m[1] in seen) seen[m[1]]++; } };
+    pc.createOffer().then(o=>pc.setLocalDescription(o));
+    setTimeout(()=>{ d2(seen.srflx+seen.relay>0, `lokal ${seen.host}, öffentlich ${seen.srflx}, Relais ${seen.relay}`); try{pc.close();}catch(e){} }, 9000);
+  }catch(e){ d2(false, String(e.message||e)); }
+  // 3. Umweg-Server (MQTT): verbinden, Nachricht an sich selbst schicken
+  loadMqtt(()=>{
+    for(const url of RELAY.brokers){
+      const d = row('Umweg ' + url.replace(/^wss?:\/\//,'').replace(/[:/].*$/,''));
+      const t1 = Date.now(), topic = 'punktlandung/v1/test/' + Math.random().toString(36).slice(2);
+      let c; try{ c = mqtt.connect(url, {reconnectPeriod:0, connectTimeout:10000}); }catch(e){ d(false, String(e.message||e)); continue; }
+      const to = setTimeout(()=>{ d(false, 'keine Antwort'); try{c.end(true);}catch(e){} }, 12000);
+      c.on('error', e=>{ clearTimeout(to); d(false, String(e.message||e).slice(0,40)); });
+      c.on('connect', ()=>{ c.subscribe(topic, ()=>c.publish(topic, 'ping')); });
+      c.on('message', ()=>{ clearTimeout(to); d(true, (Date.now()-t1)+' ms'); try{c.end(true);}catch(e){} });
+    }
+  });
+  if(!window.mqtt) setTimeout(()=>{ if(!window.mqtt){ const d = row('Umweg-Bibliothek'); d(false, 'nicht geladen'); } }, 8000);
 }

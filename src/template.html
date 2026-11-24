@@ -429,7 +429,8 @@ function renderEnd(){
 
 __PARTY__
 const joinCode = new URLSearchParams(location.search).get('join');
-if(joinCode && PARTY.available()) startPlayer(joinCode);
+if(new URLSearchParams(location.search).has('test') && PARTY.available()) runDiag();
+else if(joinCode && PARTY.available()) startPlayer(joinCode);
 else try{ render(); }catch(e){
   try{ localStorage.removeItem('mmnp'); }catch(_){}
   S = {phase:'setup', players:(S&&S.players)||[], q:0, turn:0, dots:{}, scores:{}, history:[]};
