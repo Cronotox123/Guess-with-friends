@@ -106,6 +106,19 @@ tr.win td{color:var(--accent)}
 .ghost.stick{background:var(--bg)}
 .stick{position:sticky;bottom:max(10px, env(safe-area-inset-bottom, 0px));z-index:5;box-shadow:0 -10px 18px var(--bg)}
 .cover{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;justify-content:center;flex:1}
+.res.half{color:var(--accent)}
+.rms{grid-template-columns:repeat(2,1fr);margin-top:8px}
+@media (min-width:520px){.rms{grid-template-columns:repeat(4,1fr)}}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.abtn{align-items:center;text-align:center;font-family:var(--display);font-weight:800;font-size:1.3rem;padding:22px 10px;min-height:72px}
+.abtn.on{background:var(--accent);color:#1b1600}
+.guess{display:flex;flex-direction:column;gap:10px}
+.gin{display:flex;align-items:center;gap:10px;background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:0 14px}
+.gin:focus-within{border-color:var(--accent)}
+.gin input{flex:1;min-width:0;background:transparent;border:0;color:var(--fg);font:inherit;font-family:var(--display);font-weight:800;font-size:1.8rem;padding:14px 0;outline:none}
+.unit{font-weight:600;color:var(--muted);font-size:1.1rem;white-space:nowrap}
+.solve a{color:var(--fg)}
+.tbq{border:2px solid var(--accent);border-radius:14px;padding:12px 14px}
 </style>
 
 <div id="app"></div>
@@ -118,13 +131,17 @@ const ROUND = 10;
 let S = load() || {phase:'setup', players:[], q:0, turn:0, dots:{}, scores:{}, history:[]};
 let tmpDot = null;
 
+const RATEN = __RATEN__;
 function curQ(){ return DATA.questions[S.set[S.q]]; }
+/* Eine Frage im Spiel ist entweder ein Kartenrätsel (Zahl = Index in DATA.questions) oder eine Ratefrage ({r: Index in RATEN}) */
+function isR(it){ return !!it && typeof it==='object'; }
+function itemOk(it){ return Number.isInteger(it) ? !!DATA.questions[it] : (isR(it) && Number.isInteger(it.r) && !!RATEN[it.r]); }
 function save(){ try{ localStorage.setItem('mmnp', JSON.stringify(S)); }catch(e){} }
 function load(){ try{
   const s = JSON.parse(localStorage.getItem('mmnp'));
   if(!s || !s.phase || !Array.isArray(s.players)) return null;
   if(s.phase==='setup') return s;
-  const ok = Array.isArray(s.set) && s.set.length===10 && s.set.every(i=>Number.isInteger(i) && DATA.questions[i]);
+  const ok = Array.isArray(s.set) && s.set.length===10 && s.set.every(itemOk) && (!/^t/.test(s.phase) || (s.tb && RATEN[s.tb.r]));
   return ok ? s : {phase:'setup', players:s.players, q:0, turn:0, dots:{}, scores:{}, history:[]};
 }catch(e){ return null; } }
 /* Schwierigkeit: wird beim Start gewählt und gemerkt */
@@ -143,33 +160,157 @@ function bindDiff(rerender){ app.querySelectorAll('[data-diff]').forEach(b=>b.on
 /* 10 Fragen ziehen: zuerst leicht, dann leicht und mittel, zum Schluss schwer. Bereits gespielte Fragen kommen erst wieder, wenn der Katalog durch ist. */
 function drawSet(){
   let used = []; try{ used = JSON.parse(localStorage.getItem('mmnp-used')) || []; }catch(e){}
-  const usedSet = new Set(used);
+  let rused = []; try{ rused = JSON.parse(localStorage.getItem('pl-rused')) || []; }catch(e){}
+  const usedSet = new Set(used), rusedSet = new Set(rused);
   const pool = lvl => { const all = DATA.questions.map((q,i)=>i).filter(i=>DATA.questions[i].lvl===lvl); const fresh = all.filter(i=>!usedSet.has(i)); return fresh.length >= 10 ? fresh : all; };
   const pick = (ids, lastMaps) => { const pref = ids.filter(i=>!lastMaps.includes(DATA.questions[i].map)); const from = pref.length ? pref : ids; return from[Math.floor(Math.random()*from.length)]; };
-  const plan = PLANS[getDiff()].plan;
+  const rms = getRm();
+  // Ratefragen: gewünschte Stufe, sonst die nächstliegende; möglichst nicht zweimal derselbe Modus hintereinander
+  const rpick = (lvl, taken, lastM) => {
+    const order = {leicht:['leicht','mittel','schwer'], mittel:['mittel','leicht','schwer'], schwer:['schwer','mittel','leicht']}[lvl];
+    let ids = [];
+    for(const l of order){ const all = RATEN.map((q,i)=>i).filter(i=>RATEN[i].s===l && rms.includes(RATEN[i].m) && !taken.includes(i)); const fresh = all.filter(i=>!rusedSet.has(i)); ids = fresh.length ? fresh : all; if(ids.length) break; }
+    if(!ids.length) ids = RATEN.map((q,i)=>i).filter(i=>!taken.includes(i));
+    const pref = ids.filter(i=>RATEN[i].m!==lastM); const from = pref.length ? pref : ids;
+    return from[Math.floor(Math.random()*from.length)];
+  };
+  const plan = PLANS[getDiff()].plan, cat = getCat();
   const set = [];
-  for(const lvl of plan){
-    const last = set.slice(-2).map(i=>DATA.questions[i].map);
-    const ids = pool(lvl).filter(i=>!set.includes(i) && !set.some(j=>DATA.questions[j].t===DATA.questions[i].t));
+  plan.forEach((lvl, k)=>{
+    const raten = cat==='raten' || (cat==='mix' && k%2===1);
+    if(raten){
+      const taken = set.filter(isR).map(it=>it.r), lastR = set.filter(isR).slice(-1)[0];
+      set.push({r: rpick(lvl, taken, lastR ? RATEN[lastR.r].m : null)});
+      return;
+    }
+    const ks = set.filter(i=>!isR(i));
+    const last = ks.slice(-2).map(i=>DATA.questions[i].map);
+    const ids = pool(lvl).filter(i=>!ks.includes(i) && !ks.some(j=>DATA.questions[j].t===DATA.questions[i].t));
     set.push(pick(ids, last.length===2 && last[0]===last[1] ? [last[0]] : []));
-  }
-  let next = [...used, ...set]; if(next.length > DATA.questions.length - 40) next = set;
-  try{ localStorage.setItem('mmnp-used', JSON.stringify(next)); }catch(e){}
+  });
+  const ks = set.filter(i=>!isR(i)), rs = set.filter(isR).map(it=>it.r);
+  let next = [...used, ...ks]; if(next.length > DATA.questions.length - 40) next = ks;
+  let rnext = [...rused, ...rs]; if(rnext.length > RATEN.length - 40) rnext = rs;
+  try{ localStorage.setItem('mmnp-used', JSON.stringify(next)); localStorage.setItem('pl-rused', JSON.stringify(rnext)); }catch(e){}
   return set;
 }
+/* ---------- Kategorie: Karte, Raten oder gemischt ---------- */
+const CATS = {
+  karte:{name:'Karte', info:'Nur Kartenrätsel: Rätsel lösen, Ort tippen.'},
+  raten:{name:'Raten', info:'Nur Ratefragen. Bis 5 % daneben gibt 1 Treffer, bis 20 % einen halben. Bei Gleichstand gewinnt, wer im Schnitt weniger Prozent daneben lag.'},
+  mix:{name:'Gemischt', info:'Abwechselnd Karte und Raten. Es zählen nur Treffer, bei Gleichstand entscheidet eine Schätz-Stechfrage.'},
+};
+const RMODES = {
+  gk:{name:'Größer oder kleiner', short:'Größer/Kleiner'},
+  schaetzen:{name:'Zahlen schätzen', short:'Schätzen'},
+  kalorien:{name:'Kalorien raten', short:'Kalorien'},
+  preise:{name:'Preise raten', short:'Preise'},
+};
+function getCat(){ try{ const c=localStorage.getItem('pl-cat'); if(CATS[c]) return c; }catch(e){} return 'karte'; }
+function setCat(c){ try{ localStorage.setItem('pl-cat', c); }catch(e){} }
+function getRm(){ try{ const a=JSON.parse(localStorage.getItem('pl-rm')); if(Array.isArray(a)){ const f=a.filter(m=>RMODES[m]); if(f.length) return f; } }catch(e){} return Object.keys(RMODES); }
+function setRm(a){ try{ localStorage.setItem('pl-rm', JSON.stringify(a)); }catch(e){} }
+function catPicker(){
+  const cur = getCat(), rm = getRm();
+  return `<p class="label">Kategorie</p><div class="diffs">${Object.entries(CATS).map(([k,c])=>`<button type="button" class="diff ${k===cur?'on':''}" data-cat="${k}">${c.name}</button>`).join('')}</div>
+    ${cur!=='karte'?`<div class="diffs rms">${Object.entries(RMODES).map(([k,m])=>`<button type="button" class="diff ${rm.includes(k)?'on':''}" data-rm="${k}" aria-pressed="${rm.includes(k)}">${m.short}</button>`).join('')}</div>`:''}
+    <p class="muted small">${CATS[cur].info}</p>`;
+}
+function bindCat(rerender){
+  app.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{ setCat(b.dataset.cat); rerender(); });
+  app.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{ let a=getRm(); const m=b.dataset.rm; a = a.includes(m) ? a.filter(x=>x!==m) : [...a, m]; if(a.length) setRm(a); rerender(); });
+}
+/* ---------- Ratefragen: Eingabe, Wertung, Anzeige ---------- */
+function parseNum(s){
+  s = String(s).replace(/[\s '€$%]/g,'').replace(/[a-zäöü.]+$/i,'');
+  if(!s) return null;
+  if(s.includes(',')) s = s.replace(/\./g,'').replace(',','.');
+  else if(/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g,'');
+  if(!/^\d*\.?\d+$|^\d+\.$/.test(s)) return null;
+  const v = parseFloat(s); return isFinite(v) ? v : null;
+}
+function fmtNum(v){ return Number(v).toLocaleString('de-DE', {maximumFractionDigits: Math.abs(v)<100 ? 2 : Math.abs(v)<10000 ? 1 : 0}); }
+function fmtPct(d){ return (d>=2?'≥ ':'') + (d*100).toLocaleString('de-DE', {maximumFractionDigits: d<0.1 ? 1 : 0}) + ' %'; }
+function fmtPts(x){ return String(Math.round(x*10)/10).replace('.', ','); }
+/* Größer/Kleiner: richtig = 1. Zahlen: bis 5 % daneben = 1, bis 20 % = ½. dev = Abweichung (für den Gleichstand, gedeckelt bei 200 %) */
+function judgeR(q, a){
+  if(q.m==='gk'){ const hit = !!a && a.c===q.c; return {hit, pts:hit?1:0, dev:null}; }
+  const g = a ? +a.g : NaN;
+  if(!isFinite(g)) return {hit:false, pts:0, dev:2};
+  const dev = Math.min(2, Math.abs(g-q.v)/Math.abs(q.v));
+  const pts = dev<=0.05 ? 1 : dev<=0.2 ? 0.5 : 0;
+  return {hit:pts>0, pts, dev};
+}
+function rAnsText(q, a){
+  if(!a) return '–';
+  if(q.m==='gk') return esc(q.o[a.c] || '–');
+  return esc(fmtNum(a.g) + (q.u ? ' '+q.u : ''));
+}
+function rHead(q, label){
+  return `<div class="qhead"><span class="label">${label}</span><span class="lvl ${q.s}">${q.s}</span></div>
+    <div class="riddle">${RMODES[q.m].name}</div>
+    <div class="qtext">${esc(q.q)}</div>`;
+}
+function guessHTML(q, btn){
+  if(q.m==='gk') return `<div class="ab">${q.o.map((o,k)=>`<button type="button" class="mode abtn" data-ab="${k}">${esc(o)}</button>`).join('')}</div>
+    <div class="spacer"></div><button class="primary stick" id="ok" disabled>${btn}</button>`;
+  return `<form id="gf" class="guess" autocomplete="off">
+    <div class="gin"><input type="text" inputmode="decimal" enterkeyhint="done" id="gv" placeholder="Deine Schätzung" aria-label="Deine Schätzung">${q.u?`<span class="unit">${esc(q.u)}</span>`:''}</div>
+    <p class="muted small" id="gecho">&nbsp;</p>
+    <button class="primary" id="ok" type="submit" disabled>${btn}</button></form>`;
+}
+function bindGuess(q, done){
+  const ok = document.getElementById('ok'); let ans = null;
+  if(q.m==='gk'){
+    app.querySelectorAll('[data-ab]').forEach(b=>b.onclick=()=>{ ans={c:+b.dataset.ab}; app.querySelectorAll('[data-ab]').forEach(x=>x.classList.toggle('on', x===b)); ok.disabled=false; });
+    ok.onclick = ()=>{ if(ans) done(ans, ok); };
+    return;
+  }
+  const inp = document.getElementById('gv'), echo = document.getElementById('gecho');
+  inp.oninput = ()=>{ const v = parseNum(inp.value); ans = v===null ? null : {g:v}; ok.disabled = !ans; echo.textContent = ans ? '= ' + fmtNum(v) + (q.u?' '+q.u:'') : (inp.value.trim() ? 'Bitte nur eine Zahl eingeben' : ' '); };
+  document.getElementById('gf').onsubmit = e=>{ e.preventDefault(); if(ans){ inp.blur(); done(ans, ok); } };
+  setTimeout(()=>{ try{ inp.focus(); }catch(e){} }, 60);
+}
+function srcLinks(src){
+  const urls = String(src).match(/https?:\/\/[^\s]+/g) || [];
+  if(!urls.length) return esc(src);
+  return urls.map(u=>{ let h=u; try{ h=new URL(u).hostname.replace(/^www\./,''); }catch(e){} return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(h)}</a>`; }).join(', ');
+}
+function rSolve(q){
+  return `<div class="solve"><span class="label">Richtige Antwort</span><div class="sol"><strong>${esc(q.a)}</strong></div><p class="muted small">Quelle: ${srcLinks(q.src)}</p></div>`;
+}
+/* rows: {n, c, a, hit, pts, dev} */
+function rRows(q, rows){
+  return `<ul class="results">${rows.map((r,k)=>`<li><span class="res ${r.pts==null?'half':r.pts>=1?'ok':r.pts>0?'half':'bad'}">${r.pts==null?(k===0?'★':''):r.pts>=1?'✓':r.pts>0?'½':'✗'}</span><i class="chip" style="background:${r.c}"></i><span class="n">${esc(r.n)}</span><span class="km">${rAnsText(q, r.a)}${q.m!=='gk'&&r.dev!=null?' · '+fmtPct(r.dev):''}${r.pts!=null?' · +'+fmtPts(r.pts):''}</span></li>`).join('') || '<li>Keiner hat geantwortet.</li>'}</ul>`;
+}
+function rSummary(rows){
+  const full = rows.filter(r=>r.pts>=1).length, half = rows.filter(r=>r.pts>0 && r.pts<1).length;
+  if(rows.length===1) return full ? 'Richtig!' : half ? 'Knapp dran!' : 'Daneben';
+  if(!full && !half) return 'Niemand lag richtig';
+  if(full===rows.length) return 'Alle lagen richtig!';
+  return `${full} richtig${half?`, ${half} knapp dran`:''}`;
+}
+/* Stechfrage: eine Schätzfrage, die im Spiel noch nicht vorkam */
+function pickTie(set){
+  const taken = (set||[]).filter(isR).map(it=>it.r);
+  const ids = RATEN.map((q,i)=>i).filter(i=>RATEN[i].m==='schaetzen' && !taken.includes(i));
+  return ids[Math.floor(Math.random()*ids.length)];
+}
+/* Gleichstand an der Spitze (nur Treffer zählen) */
+function topTie(list, key){ if(list.length<2) return []; const top=Math.max(...list.map(key)); const t=list.filter(x=>key(x)===top); return t.length>1 ? t : []; }
 function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function color(i){ return COLORS[i % COLORS.length]; }
 function go(phase){ S.phase = phase; save(); render(); window.scrollTo(0,0); }
 
 function render(){
-  ({setup:renderSetup, pass:renderPass, place:renderPlace, reveal:renderReveal, end:renderEnd})[S.phase]();
+  ({setup:renderSetup, pass:renderPass, place:renderPlace, reveal:renderReveal, end:renderEnd, tpass:renderPass, tguess:renderTGuess, treveal:renderTReveal})[S.phase]();
 }
 
 /* ---------- Spieler eintragen ---------- */
 function renderSetup(){
   app.innerHTML = `<div class="screen">
     <h1>Punkt&shy;landung<span class="dot"></span></h1>
-    <p class="muted">Erst das Rätsel knacken, dann den Ort finden. Die Lösung klingt wie eine Stadt, eine Region oder ein Land. Wer mit seinem Punkt im Zielkreis landet, liegt richtig. Ist die Lösung ein Land, ein Gebiet oder ein Fluss, zählt die ganze Fläche bzw. der Flusslauf plus etwas Spielraum. ${ROUND} Rätsel pro Spiel aus ${DATA.questions.length} im Katalog, ein Handy für alle.</p>
+    <p class="muted">${getCat()==='raten' ? `Größer oder kleiner, Zahlen schätzen, Kalorien und Preise raten. Jede Antwort ist mit Quelle belegt. ${ROUND} Fragen pro Spiel aus ${RATEN.length}, ein Handy für alle.` : `Erst das Rätsel knacken, dann den Ort finden. Die Lösung klingt wie eine Stadt, eine Region oder ein Land. Wer mit seinem Punkt im Zielkreis landet, liegt richtig. Ist die Lösung ein Land, ein Gebiet oder ein Fluss, zählt die ganze Fläche bzw. der Flusslauf plus etwas Spielraum. ${ROUND} Fragen pro Spiel, ein Handy für alle.`}</p>
     <form id="addf" class="row" autocomplete="off">
       <input type="text" id="pname" placeholder="Name eingeben" maxlength="20" aria-label="Spielername">
       <button class="ghost" type="submit">Hinzufügen</button>
@@ -177,12 +318,13 @@ function renderSetup(){
     <div class="err" id="err"></div>
     <ul class="players">${S.players.map((p,i)=>`<li><i class="chip" style="background:${color(i)}"></i><span>${esc(p)}</span><button class="x" data-del="${i}" aria-label="${esc(p)} entfernen">×</button></li>`).join('')}</ul>
     <div class="spacer"></div>
+    ${catPicker()}
     ${diffPicker()}
     <p class="label">${S.players.length} Spieler</p>
     <button class="primary" id="start" ${S.players.length<1?'disabled':''}>Spiel starten</button>
     ${PARTY.available()?'<button class="ghost" id="hparty">Handy-Party: Ich starte, die anderen scannen den QR-Code</button><button class="ghost" id="party">Tablet-Party: Tablet in die Mitte, jeder spielt mit seinem Handy</button>':''}
   </div>`;
-  bindDiff(renderSetup);
+  bindDiff(renderSetup); bindCat(renderSetup);
   const pb = document.getElementById('party'); if(pb) pb.onclick = ()=>startHost();
   const hb = document.getElementById('hparty'); if(hb) hb.onclick = ()=>startHost(true);
   const inp = document.getElementById('pname');
@@ -196,26 +338,25 @@ function renderSetup(){
   };
   app.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{ S.players.splice(+b.dataset.del,1); save(); renderSetup(); });
   document.getElementById('start').onclick = ()=>{
-    S.q=0; S.turn=0; S.dots={}; S.scores={}; S.history=[]; S.set=drawSet();
-    S.players.forEach(p=>S.scores[p]=0);
-    go('pass');
+    newGame();
   };
 }
+function newGame(){ S.q=0; S.turn=0; S.dots={}; S.scores={}; S.history=[]; S.tb=null; S.cat=getCat(); S.set=drawSet(); S.players.forEach(p=>S.scores[p]=0); go('pass'); }
 
 /* ---------- Handy weitergeben ---------- */
 function renderPass(){
-  const i = S.turn;
+  const tb = S.phase==='tpass', name = tb ? S.tb.players[S.tb.turn] : S.players[S.turn], i = S.players.indexOf(name), first = tb ? S.tb.turn===0 : S.turn===0;
   app.innerHTML = `<div class="screen cover">
-    <p class="label">Frage ${S.q+1} von ${ROUND}</p>
-    <p class="muted">${i===0?'Los geht’s. Das Handy bekommt':'Handy weitergeben an'}</p>
-    <div class="bigname" style="color:${color(i)}">${esc(S.players[i])}</div>
+    <p class="label">${tb?'Stechfrage':`Frage ${S.q+1} von ${ROUND}`}</p>
+    <p class="muted">${first?'Los geht’s. Das Handy bekommt':'Handy weitergeben an'}</p>
+    <div class="bigname" style="color:${color(i)}">${esc(name)}</div>
     <p class="muted">Die anderen bitte nicht hinschauen.</p>
     <div class="spacer"></div>
-    <button class="primary" id="go">Ich bin ${esc(S.players[i])}, zeig die Frage</button>
+    <button class="primary" id="go">Ich bin ${esc(name)}, zeig die Frage</button>
     <button class="ghost" id="quit">Spiel abbrechen</button>
     <div id="qc" class="row" hidden><button class="ghost" id="qno" style="flex:1">Weiterspielen</button><button class="primary" id="qyes" style="flex:1;background:var(--bad)">Ja, abbrechen</button></div>
   </div>`;
-  document.getElementById('go').onclick = ()=>{ tmpDot=null; go('place'); };
+  document.getElementById('go').onclick = ()=>{ tmpDot=null; go(tb?'tguess':'place'); };
   document.getElementById('quit').onclick = ()=>{ document.getElementById('qc').hidden=false; document.getElementById('quit').hidden=true; };
   document.getElementById('qno').onclick = ()=>{ document.getElementById('qc').hidden=true; document.getElementById('quit').hidden=false; };
   document.getElementById('qyes').onclick = ()=>go('setup');
@@ -281,6 +422,7 @@ function dotMarkup(x,y,c,u,label){
 
 /* ---------- Punkt setzen ---------- */
 function renderPlace(){
+  if(isR(S.set[S.q])) return renderGuess();
   const q = curQ(), m = DATA.maps[q.map], i = S.turn, p = S.players[i];
   app.innerHTML = `<div class="screen fit">
     <div class="qhead"><span class="label">Frage ${S.q+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
@@ -364,17 +506,77 @@ function revealZoom(ctl, m, q, pts){
 }
 
 function score(){
+  const it = S.set[S.q];
+  if(isR(it)){
+    const q = RATEN[it.r];
+    S.history[S.q] = S.players.map(p=>{ const a = S.dots[p], j = judgeR(q, a); S.scores[p] += j.pts; return {p, hit:j.hit, pts:j.pts, dev:j.dev, a}; });
+    return;
+  }
   const q = curQ();
   const res = S.players.map(p=>{
     const d = S.dots[p], j = judge(q, d.x, d.y);
     if(j.hit) S.scores[p]++;
-    return {p, hit:j.hit, km:j.km};
+    return {p, hit:j.hit, km:j.km, pts:j.hit?1:0};
   });
   S.history[S.q] = res;
+}
+/* ---------- Ratefrage: Antwort eingeben ---------- */
+function renderGuess(){
+  const q = RATEN[S.set[S.q].r], i = S.turn, p = S.players[i];
+  app.innerHTML = `<div class="screen">
+    ${rHead(q, `Frage ${S.q+1} / ${ROUND}`)}
+    <div class="turn"><i class="chip" style="background:${color(i)}"></i>${esc(p)} ist dran</div>
+    ${guessHTML(q, 'OK, Antwort bestätigen')}
+  </div>`;
+  bindGuess(q, ans=>{
+    S.dots[p] = ans;
+    if(S.turn < S.players.length-1){ S.turn++; go('pass'); }
+    else { score(); go('reveal'); }
+  });
+}
+function renderRevealR(){
+  const q = RATEN[S.set[S.q].r], res = S.history[S.q], last = S.q === ROUND-1;
+  const rows = [...res].sort((a,b)=>b.pts-a.pts || (a.dev??0)-(b.dev??0)).map(r=>({...r, n:r.p, c:color(S.players.indexOf(r.p))}));
+  app.innerHTML = `<div class="screen">
+    ${rHead(q, `Auflösung · Frage ${S.q+1} / ${ROUND}`)}
+    ${rSolve(q)}
+    <h2>${rSummary(rows)}</h2>
+    ${rRows(q, rows)}
+    <div class="spacer"></div>
+    <button class="primary stick" id="next">${last?'Zur Endwertung':'Nächste Frage'}</button>
+  </div>`;
+  document.getElementById('next').onclick = ()=>{ if(last) go('end'); else { S.q++; S.turn=0; S.dots={}; go('pass'); } };
+}
+/* ---------- Stechfrage (Gemischt, Gleichstand an der Spitze) ---------- */
+function renderTGuess(){
+  const q = RATEN[S.tb.r], p = S.tb.players[S.tb.turn], i = S.players.indexOf(p);
+  app.innerHTML = `<div class="screen">
+    <div class="tbq">${rHead(q, 'Stechfrage · am nächsten dran gewinnt')}</div>
+    <div class="turn"><i class="chip" style="background:${color(i)}"></i>${esc(p)} ist dran</div>
+    ${guessHTML(q, 'OK, Antwort bestätigen')}
+  </div>`;
+  bindGuess(q, ans=>{
+    S.tb.g[p] = ans;
+    if(S.tb.turn < S.tb.players.length-1){ S.tb.turn++; go('tpass'); }
+    else { S.tb.res = S.tb.players.map(n=>({p:n, a:S.tb.g[n], dev:judgeR(q, S.tb.g[n]).dev})).sort((a,b)=>a.dev-b.dev); go('treveal'); }
+  });
+}
+function renderTReveal(){
+  const q = RATEN[S.tb.r], best = S.tb.res[0].dev, win = S.tb.res.filter(r=>r.dev===best).map(r=>r.p);
+  app.innerHTML = `<div class="screen">
+    ${rHead(q, 'Auflösung · Stechfrage')}
+    ${rSolve(q)}
+    <h2>${win.length>1?'Wieder gleich nah dran!':esc(win[0])+' lag am nächsten'}</h2>
+    ${rRows(q, S.tb.res.map(r=>({...r, n:r.p, c:color(S.players.indexOf(r.p)), pts:null})))}
+    <div class="spacer"></div>
+    <button class="primary stick" id="next">Zur Endwertung</button>
+  </div>`;
+  document.getElementById('next').onclick = ()=>go('end');
 }
 
 /* ---------- Auswertung pro Frage ---------- */
 function renderReveal(){
+  if(isR(S.set[S.q])) return renderRevealR();
   const q = curQ(), m = DATA.maps[q.map], res = S.history[S.q];
   const last = S.q === ROUND-1;
   const hits = res.filter(r=>r.hit).length;
@@ -407,23 +609,50 @@ function renderReveal(){
 }
 
 /* ---------- Endwertung ---------- */
+/* Karte allein: Treffer, dann km. Raten allein: Treffer, dann Ø Abweichung in %. Gemischt: nur Treffer, bei Gleichstand Stechfrage. */
+function endRows(){
+  const cat = S.cat || 'karte';
+  const rows = S.players.map((p,i)=>{
+    const hs = S.history.map(h=>(h||[]).find(r=>r.p===p)).filter(Boolean);
+    const km = hs.reduce((a,r)=>a+(r.km||0),0), devs = hs.filter(r=>r.dev!=null).map(r=>r.dev);
+    return {p, i, pts:S.scores[p], km, dev: devs.length ? devs.reduce((a,b)=>a+b,0)/devs.length : null};
+  });
+  const tbd = p=>{ const r = S.tb && S.tb.res && S.tb.res.find(x=>x.p===p); return r ? r.dev : 99; };
+  rows.sort((a,b)=>b.pts-a.pts || (cat==='karte' ? a.km-b.km : cat==='raten' ? (a.dev??9)-(b.dev??9) : tbd(a.p)-tbd(b.p)));
+  return {cat, rows};
+}
 function renderEnd(){
-  const rows = S.players.map((p,i)=>({p,i,pts:S.scores[p],km:S.history.reduce((a,h)=>a+(h.find(r=>r.p===p)||{km:0}).km,0)}))
-    .sort((a,b)=>b.pts-a.pts || a.km-b.km);
-  const top = rows[0];
+  const {cat, rows} = endRows(), top = rows[0];
+  const tie = cat==='mix' ? topTie(rows, r=>r.pts) : [];
+  if(tie.length && !(S.tb && S.tb.res)){
+    app.innerHTML = `<div class="screen cover">
+      <p class="label">Endwertung</p>
+      <h1>Gleichstand<span class="dot"></span></h1>
+      <p class="muted">${tie.map(r=>esc(r.p)).join(', ')} haben je ${fmtPts(top.pts)} Treffer. Eine Schätzfrage entscheidet: Wer am nächsten dran ist, gewinnt.</p>
+      <div class="spacer"></div>
+      <button class="primary" id="tb">Stechfrage starten</button>
+    </div>`;
+    document.getElementById('tb').onclick = ()=>{ S.tb = {r:pickTie(S.set), players:tie.map(r=>r.p), turn:0, g:{}}; go('tpass'); };
+    return;
+  }
+  const sec = cat==='karte' ? ['km daneben', r=>r.km.toLocaleString('de-DE')] : cat==='raten' ? ['Ø daneben', r=>r.dev==null?'–':fmtPct(r.dev)] : null;
+  const winners = tie.length && S.tb && S.tb.res ? S.tb.res.filter(r=>r.dev===S.tb.res[0].dev).map(r=>r.p) : [top.p];
+  const note = cat==='karte' ? 'Bei Gleichstand entscheidet, wer insgesamt weniger Kilometer daneben lag.'
+    : cat==='raten' ? 'Bei Gleichstand entscheidet, wer im Schnitt weniger Prozent daneben lag.'
+    : (S.tb && S.tb.res ? `Gleichstand, die Stechfrage hat entschieden.` : 'Es zählen nur Treffer.');
   app.innerHTML = `<div class="screen">
-    <p class="label">Endwertung</p>
-    <h1>${esc(top.p)} gewinnt<span class="dot"></span></h1>
-    <p class="muted">${top.pts} von ${ROUND} Treffern. Bei Gleichstand entscheidet, wer insgesamt weniger Kilometer daneben lag.</p>
+    <p class="label">Endwertung · ${CATS[cat].name}</p>
+    <h1>${winners.map(esc).join(' und ')} ${winners.length>1?'gewinnen':'gewinnt'}<span class="dot"></span></h1>
+    <p class="muted">${fmtPts(top.pts)} von ${ROUND} Treffern. ${note}</p>
     <div class="tablewrap"><table>
-      <thead><tr><th>#</th><th>Spieler</th><th>km daneben</th><th class="pts">Punkte</th></tr></thead>
-      <tbody>${rows.map((r,k)=>`<tr class="${k===0?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${color(r.i)}"></i>${esc(r.p)}</span></td><td>${r.km.toLocaleString('de-DE')}</td><td class="pts">${r.pts}</td></tr>`).join('')}</tbody>
+      <thead><tr><th>#</th><th>Spieler</th>${sec?`<th>${sec[0]}</th>`:''}<th class="pts">Treffer</th></tr></thead>
+      <tbody>${rows.map((r,k)=>`<tr class="${winners.includes(r.p)?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${color(r.i)}"></i>${esc(r.p)}</span></td>${sec?`<td>${sec[1](r)}</td>`:''}<td class="pts">${fmtPts(r.pts)}</td></tr>`).join('')}</tbody>
     </table></div>
     <div class="spacer"></div>
     <button class="primary" id="again">Nochmal mit denselben Spielern</button>
     <button class="ghost" id="newp">Neue Spieler eintragen</button>
   </div>`;
-  document.getElementById('again').onclick = ()=>{ S.q=0; S.turn=0; S.dots={}; S.history=[]; S.set=drawSet(); S.players.forEach(p=>S.scores[p]=0); go('pass'); };
+  document.getElementById('again').onclick = ()=>newGame();
   document.getElementById('newp').onclick = ()=>{ S.players=[]; go('setup'); };
 }
 

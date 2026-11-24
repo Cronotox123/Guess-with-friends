@@ -101,7 +101,7 @@ function startHost(play){
   H = { code: partyCode(), peer: null, mode: 'kreis', players: {}, order: [], phase: 'lobby', set: [], q: 0, dots: {}, history: [], status: 'Verbinde …', play: !!play };
   if(H.play){   // Handy-Party: der Gastgeber spielt auf seinem Handy selbst mit
     let n=''; try{ n=localStorage.getItem('pl-name')||''; }catch(e){}
-    H.players.host = { name: n || 'Gastgeber', color: color(0), score: 0, km: 0, conn: null, connected: true, joinedAt: 0, me: true };
+    H.players.host = { name: n || 'Gastgeber', color: color(0), score: 0, km: 0, dsum: 0, dn: 0, conn: null, connected: true, joinedAt: 0, me: true };
     H.order.push('host');
   }
   wakeLock();
@@ -140,7 +140,7 @@ function hostOnData(conn, msg){
     let p = H.players[pid];
     if(!p){
       if(H.order.some(id=>H.players[id].name.toLowerCase()===name.toLowerCase())) name += ' ' + (H.order.length+1);
-      p = H.players[pid] = { name, color: color(H.order.length), score: 0, km: 0, conn: null, connected: false, joinedAt: H.q };
+      p = H.players[pid] = { name, color: color(H.order.length), score: 0, km: 0, dsum: 0, dn: 0, conn: null, connected: false, joinedAt: H.q };
       H.order.push(pid);
     }
     if(p.conn && p.conn !== conn){ try{ p.conn.close(); }catch(e){} }
@@ -151,40 +151,58 @@ function hostOnData(conn, msg){
   }
   if(msg.t === 'dot'){
     const pid = Object.keys(H.players).find(id=>H.players[id].conn===conn);
-    if(!pid || H.phase!=='question' || msg.num!==H.q) return;
+    if(!pid || H.phase!=='question' || msg.num!==H.q || isR(H.set[H.q])) return;
     const x = +msg.x, y = +msg.y; if(!isFinite(x)||!isFinite(y)) return;
     H.dots[pid] = {x,y};
     send(conn, {t:'wait', num:H.q});
     renderHostLight();
     checkAllIn();
   }
+  if(msg.t === 'guess'){
+    const pid = Object.keys(H.players).find(id=>H.players[id].conn===conn);
+    const a = msg.a || {}, ans = Number.isInteger(a.c) ? {c:a.c} : (a.g!=null && isFinite(+a.g)) ? {g:+a.g} : null;
+    if(!pid || !ans) return;
+    if(H.phase==='question' && msg.num===H.q && isR(H.set[H.q])) H.dots[pid] = ans;
+    else if(H.phase==='tb' && msg.num===ROUND && H.tb.pids.includes(pid)) H.tb.g[pid] = ans;
+    else return;
+    send(conn, {t:'wait', num:msg.num, tb:H.phase==='tb'});
+    renderHostLight();
+    checkAllIn();
+  }
 }
 function checkAllIn(){
+  if(H.phase==='tb'){
+    const act = H.tb.pids.filter(id=>H.players[id].connected);
+    if(act.every(id=>H.tb.g[id])) setTimeout(()=>{ if(H.phase==='tb') hostTbReveal(); }, 600);
+    return;
+  }
   const active = H.order.filter(id=>H.players[id].connected);
   if(active.length && active.every(id=>H.dots[id])) setTimeout(()=>{ if(H.phase==='question') hostReveal(); }, 600);
 }
 function syncPlayer(pid){
   const p = H.players[pid]; if(!p.conn) return;
   if(H.phase==='lobby') send(p.conn, {t:'lobby', count:H.order.length});
-  if(H.phase==='question') send(p.conn, H.dots[pid] ? {t:'wait', num:H.q} : {t:'question', num:H.q, idx:H.set[H.q], total:ROUND});
+  if(H.phase==='question') send(p.conn, H.dots[pid] ? {t:'wait', num:H.q} : {t:'question', num:H.q, it:H.set[H.q], total:ROUND});
+  if(H.phase==='tb') send(p.conn, tbMsg(pid));
   if(H.phase==='reveal'){ const r=(H.history[H.q]||[]).find(r=>r.pid===pid); send(p.conn, r ? {t:'result', num:H.q, ...r, mode:H.mode, total:ROUND, score:p.score, rev:revPayload()} : {t:'missed', num:H.q, total:ROUND, mode:H.mode, score:p.score, rev:revPayload()}); }
   if(H.phase==='end') send(p.conn, endMsg(pid));
 }
 function renderHostStatus(){ const el=document.getElementById('hstatus'); if(el) el.textContent=H.status; }
 function hostPlayerList(withState){
   return `<ul class="players">${H.order.map(pid=>{ const p=H.players[pid];
-    const st = withState ? (H.dots[pid] ? '<span class="res ok">✓</span>' : '<span class="muted">tippt …</span>') : '';
+    const done = H.phase==='tb' ? (H.tb.g[pid] || !H.tb.pids.includes(pid)) : H.dots[pid];
+    const st = withState ? (done ? '<span class="res ok">✓</span>' : '<span class="muted">tippt …</span>') : '';
     return `<li><i class="chip" style="background:${p.color}"></i><span>${esc(p.name)}${p.me?' (du)':''}</span>${p.connected?'':'<span class="muted">getrennt</span>'}${st}</li>`; }).join('')}</ul>`;
 }
 function renderHostLight(){
   if(!H) return;
   const el = document.getElementById('hplayers');
-  if(el) el.innerHTML = hostPlayerList(H.phase==='question');
+  if(el) el.innerHTML = hostPlayerList(H.phase==='question' || H.phase==='tb');
   const c = document.getElementById('hcount'); if(c) c.textContent = H.order.length + ' Spieler';
 }
 function renderHost(){
   if(H.phase==='lobby'){ renderHostLobby(); renderRelayStatus(); return; }
-  if(H.phase==='question') return renderHostQuestion();
+  if(H.phase==='question' || H.phase==='tb') return renderHostQuestion();
   if(H.phase==='reveal') return renderHostReveal();
   if(H.phase==='end') return renderHostEnd();
 }
@@ -206,23 +224,25 @@ function renderHostLobby(){
     </div>
     <p class="label" id="hcount">${H.order.length} Spieler</p>
     <div id="hplayers">${hostPlayerList(false)}</div>
+    ${catPicker()}
     ${diffPicker()}
-    <p class="label">Wertung</p>
+    ${getCat()==='karte'?`<p class="label">Wertung</p>
     <div class="modes">
       <button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Ziel</b><span>1 Punkt, wenn dein Punkt im Kreis oder in der Zielfläche liegt.</span></button>
       <button class="mode ${H.mode==='distanz'?'on':''}" data-mode="distanz"><b>Je näher, desto mehr</b><span>Bis zu 100 Punkte, je nach Abstand zum Ziel.</span></button>
-    </div>
+    </div>`:''}
     <button class="primary stick" id="hstart" ${H.order.length<(H.play?2:1)?'disabled':''}>Spiel starten</button>
     ${H.play?'<p class="muted small">Du spielst selbst mit und tippst nach jeder Auflösung auf „Nächste Frage“, wenn alle so weit sind.</p>':''}
     <button class="ghost" id="hback">Zurück zum Ein-Handy-Spiel</button>
   </div>`;
   app.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{ H.mode=b.dataset.mode; renderHostLobby(); });
-  bindDiff(renderHostLobby);
+  bindDiff(renderHostLobby); bindCat(renderHostLobby);
   const hn = document.getElementById('hname');
   if(hn) hn.onchange = hn.oninput = ()=>{ const v=hn.value.trim().slice(0,20); H.players.host.name = v || 'Gastgeber'; try{ if(v) localStorage.setItem('pl-name', v); }catch(e){} };
   document.getElementById('hstart').onclick = ()=>{
-    H.set = drawSet(); H.q = 0; H.history = [];
-    H.order.forEach(pid=>{ H.players[pid].score=0; H.players[pid].km=0; });
+    H.cat = getCat(); if(H.cat!=='karte') H.mode = 'kreis';
+    H.set = drawSet(); H.q = 0; H.history = []; H.tb = null;
+    H.order.forEach(pid=>{ Object.assign(H.players[pid], {score:0, km:0, dsum:0, dn:0}); });
     broadcast(()=>({t:'mode', mode:H.mode}));
     hostQuestion();
   };
@@ -230,11 +250,13 @@ function renderHostLobby(){
 }
 function hostQuestion(){
   H.phase='question'; H.dots={};
-  broadcast(()=>({t:'question', num:H.q, idx:H.set[H.q], total:ROUND}));
+  broadcast(()=>({t:'question', num:H.q, it:H.set[H.q], total:ROUND}));
   renderHost();
 }
 function renderHostQuestion(){
-  const q = DATA.questions[H.set[H.q]], m = DATA.maps[q.map];
+  const it = H.phase==='tb' ? {r:H.tb.r} : H.set[H.q];
+  if(isR(it)) return renderHostGuess(RATEN[it.r]);
+  const q = DATA.questions[it], m = DATA.maps[q.map];
   if(H.play && !H.dots.host){   // Gastgeber setzt seinen eigenen Punkt
     const me = H.players.host; let dot = null;
     app.innerHTML = `<div class="screen fit">
@@ -264,7 +286,37 @@ function renderHostQuestion(){
   setupMap(document.getElementById('mw'), m, null);
   document.getElementById('hnow').onclick = ()=>hostReveal();
 }
+/* Ratefrage auf dem Gastgeber-Gerät (auch Stechfrage) */
+function renderHostGuess(q){
+  const tb = H.phase==='tb', label = tb ? 'Stechfrage · Raum '+H.code : `Frage ${H.q+1} / ${ROUND} · Raum ${H.code}`;
+  const mine = tb ? H.play && H.tb.pids.includes('host') && !H.tb.g.host : H.play && !H.dots.host;
+  if(mine){
+    app.innerHTML = `<div class="screen">${tb?`<div class="tbq">${rHead(q, label)}</div>`:rHead(q, label)}${guessHTML(q, 'OK, Antwort abgeben')}</div>`;
+    bindGuess(q, ans=>{ if(tb){ if(H.phase!=='tb') return; H.tb.g.host = ans; } else { if(H.phase!=='question') return; H.dots.host = ans; } renderHost(); checkAllIn(); });
+    return;
+  }
+  const info = tb ? `Gleichstand! Stechfrage für ${H.tb.pids.map(id=>esc(H.players[id].name)).join(' und ')}. Wer am nächsten dran ist, gewinnt.`
+    : H.play ? 'Deine Antwort ist abgegeben. Warte auf die anderen oder löse jetzt auf.' : 'Antwort auf dem Handy eingeben';
+  app.innerHTML = `<div class="screen host">
+    ${rHead(q, label).replace('class="qtext"','class="qtext big"')}
+    <p class="muted">${info}</p>
+    ${q.m==='gk'?`<div class="ab">${q.o.map(o=>`<div class="mode abtn">${esc(o)}</div>`).join('')}</div>`:q.u?`<p class="muted">Antwort in: <b>${esc(q.u)}</b></p>`:''}
+    <div><p class="label" id="hcount">${H.order.length} Spieler</p><div id="hplayers">${hostPlayerList(true)}</div></div>
+    <div class="spacer"></div>
+    <button class="ghost stick" id="hnow">Jetzt auflösen</button>
+  </div>`;
+  document.getElementById('hnow').onclick = ()=> tb ? hostTbReveal() : hostReveal();
+}
 function hostReveal(){
+  if(isR(H.set[H.q])){
+    const q = RATEN[H.set[H.q].r];
+    const res = H.order.filter(pid=>H.dots[pid]).map(pid=>{
+      const a = H.dots[pid], j = judgeR(q, a), p = H.players[pid];
+      p.score += j.pts; if(j.dev!=null){ p.dsum += j.dev; p.dn++; }
+      return {pid, hit:j.hit, pts:j.pts, dev:j.dev, a};
+    });
+    return hostAfterReveal(res);
+  }
   const q = DATA.questions[H.set[H.q]];
   const res = H.order.filter(pid=>H.dots[pid]).map(pid=>{
     const d=H.dots[pid], j=judge(q, d.x, d.y), p=H.players[pid];
@@ -272,6 +324,9 @@ function hostReveal(){
     p.score += pts; p.km += km;
     return {pid, hit: j.hit, km, pts};
   });
+  hostAfterReveal(res);
+}
+function hostAfterReveal(res){
   H.history[H.q] = res; H.phase='reveal';
   const rev = revPayload();
   for(const r of res){ const p=H.players[r.pid]; send(p.conn, {t:'result', num:H.q, ...r, mode:H.mode, total:ROUND, score:p.score, rev}); }
@@ -293,21 +348,43 @@ function revealMap(wrap, m, q, dots){
   draw(true);
 }
 function revealSolve(q){ return `<div class="solve"><span class="label">Gemeint war</span><div class="sol">${esc(q.s)} <span class="arrow">→</span> <strong>${esc(q.o)}</strong></div><p class="muted">${esc(q.a)} ${targetText(q)}</p></div>`; }
+function revealBoard(board){ return `<p class="label" style="margin-top:14px">Zwischenstand</p>
+    <ol class="board">${board.map(p=>`<li><i class="chip" style="background:${p.c}"></i><span>${esc(p.n)}</span><b>${fmtPts(p.s)}</b></li>`).join('')}</ol>`; }
 function revealLists(rows, board){
   return `<ul class="results">${rows.map(r=>`<li><span class="res ${r.hit?'ok':'bad'}">${r.hit?'✓':'✗'}</span><i class="chip" style="background:${r.c}"></i><span class="n">${esc(r.n)}</span><span class="km">${r.km} km · +${r.pts}</span></li>`).join('') || '<li>Keiner hat einen Punkt gesetzt.</li>'}</ul>
-    <p class="label" style="margin-top:14px">Zwischenstand</p>
-    <ol class="board">${board.map(p=>`<li><i class="chip" style="background:${p.c}"></i><span>${esc(p.n)}</span><b>${p.s}</b></li>`).join('')}</ol>`;
+    ${revealBoard(board)}`;
 }
 function revPayload(){
   const res = H.history[H.q] || [];
-  const rows = [...res].sort((a,b)=>b.pts-a.pts || a.km-b.km).map(r=>{ const d=H.dots[r.pid], p=H.players[r.pid]; return {n:p.name, c:p.color, x:d.x, y:d.y, hit:r.hit, km:r.km, pts:r.pts}; });
   const board = hostRanking().map(p=>({n:p.name, c:p.color, s:p.score}));
-  return {idx:H.set[H.q], rows, board};
+  if(isR(H.set[H.q])){
+    const rows = [...res].sort((a,b)=>b.pts-a.pts || (a.dev??0)-(b.dev??0)).map(r=>{ const p=H.players[r.pid]; return {n:p.name, c:p.color, a:r.a, hit:r.hit, pts:r.pts, dev:r.dev}; });
+    return {it:H.set[H.q], rows, board};
+  }
+  const rows = [...res].sort((a,b)=>b.pts-a.pts || a.km-b.km).map(r=>{ const d=H.dots[r.pid], p=H.players[r.pid]; return {n:p.name, c:p.color, x:d.x, y:d.y, hit:r.hit, km:r.km, pts:r.pts}; });
+  return {it:H.set[H.q], rows, board};
 }
 function renderHostReveal(){
-  const q = DATA.questions[H.set[H.q]], m = DATA.maps[q.map], res = H.history[H.q];
   const last = H.q === ROUND-1;
   const rv = revPayload();
+  const next = ()=>{
+    if(!last){ H.q++; hostQuestion(); return; }
+    const rk = hostRanking(), tie = H.cat==='mix' ? topTie(rk, r=>r.score) : [];
+    if(tie.length){ H.tb = {r:pickTie(H.set), pids:tie.map(r=>r.pid), g:{}}; H.phase='tb'; H.order.forEach(pid=>send(H.players[pid].conn, tbMsg(pid))); renderHost(); return; }
+    hostEnd();
+  };
+  if(isR(H.set[H.q])){
+    const q = RATEN[H.set[H.q].r];
+    app.innerHTML = `<div class="screen host">
+      ${rHead(q, `Auflösung · Frage ${H.q+1} / ${ROUND}`)}
+      ${rSolve(q)}
+      <div class="hostgrid"><div><h2>${rSummary(rv.rows)}</h2>${rRows(q, rv.rows)}</div><div>${revealBoard(rv.board)}</div></div>
+      <button class="primary stick" id="hnext">${last?'Zur Endwertung':'Nächste Frage'}</button>
+    </div>`;
+    document.getElementById('hnext').onclick = next;
+    return;
+  }
+  const q = DATA.questions[H.set[H.q]], m = DATA.maps[q.map];
   app.innerHTML = `<div class="screen host">
     <div class="qhead"><span class="label">Auflösung · Frage ${H.q+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
     <div class="qtext">${esc(q.t)}</div>
@@ -319,22 +396,55 @@ function renderHostReveal(){
     <button class="primary stick" id="hnext">${last?'Zur Endwertung':'Nächste Frage'}</button>
   </div>`;
   revealMap(document.getElementById('mw'), m, q, rv.rows);
-  document.getElementById('hnext').onclick = ()=>{
-    if(last){ H.phase='end'; H.order.forEach(pid=>send(H.players[pid].conn, endMsg(pid))); renderHost(); }
-    else { H.q++; hostQuestion(); }
-  };
+  document.getElementById('hnext').onclick = next;
 }
-function hostRanking(){ return H.order.map(pid=>({pid,...H.players[pid]})).sort((a,b)=>b.score-a.score || a.km-b.km); }
-function endMsg(pid){ const rk=hostRanking(); const i=rk.findIndex(r=>r.pid===pid); return {t:'end', rank:i+1, of:rk.length, score:H.players[pid].score, mode:H.mode, winner:rk[0].name, rows:rk.map(r=>({n:r.name, c:r.color, km:r.km, s:r.score}))}; }
+/* Stechfrage im Partymodus */
+function tbMsg(pid){
+  const inTb = H.tb.pids.includes(pid);
+  if(inTb && !H.tb.g[pid]) return {t:'question', num:ROUND, it:{r:H.tb.r}, total:ROUND, tb:true};
+  return {t:'wait', num:ROUND, tb:true, who: inTb ? '' : H.tb.pids.map(id=>H.players[id].name).join(' und ')};
+}
+function hostTbReveal(){
+  const q = RATEN[H.tb.r];
+  H.tb.res = H.tb.pids.map(pid=>({pid, a:H.tb.g[pid], dev: H.tb.g[pid] ? judgeR(q, H.tb.g[pid]).dev : 99})).sort((a,b)=>a.dev-b.dev);
+  hostEnd();
+}
+function hostEnd(){ H.phase='end'; H.order.forEach(pid=>send(H.players[pid].conn, endMsg(pid))); renderHost(); }
+function tbDev(pid){ const r = H.tb && H.tb.res && H.tb.res.find(x=>x.pid===pid); return r ? r.dev : 99; }
+function hostRanking(){
+  const cat = H.cat || 'karte';
+  return H.order.map(pid=>({pid,...H.players[pid]})).sort((a,b)=>b.score-a.score
+    || (cat==='karte' ? a.km-b.km : cat==='raten' ? (a.dn?a.dsum/a.dn:9)-(b.dn?b.dsum/b.dn:9) : tbDev(a.pid)-tbDev(b.pid)));
+}
+/* Daten für die Endwertung (Gastgeber und Handys) */
+function endData(){
+  const cat = H.cat || 'karte', rk = hostRanking();
+  const sec = cat==='karte' ? 'km daneben' : cat==='raten' ? 'Ø daneben' : '';
+  const secv = r => cat==='karte' ? r.km.toLocaleString('de-DE') : cat==='raten' ? (r.dn ? fmtPct(r.dsum/r.dn) : '–') : '';
+  let winners = [rk[0].name], tb = null;
+  if(H.tb && H.tb.res){
+    const best = H.tb.res[0].dev; winners = H.tb.res.filter(r=>r.dev===best).map(r=>H.players[r.pid].name);
+    tb = {r:H.tb.r, rows:H.tb.res.map(r=>({n:H.players[r.pid].name, c:H.players[r.pid].color, a:r.a, dev:r.a?r.dev:null, pts:null}))};
+  }
+  const label = cat==='karte' ? (H.mode==='kreis'?'Karte · Treffer im Ziel':'Karte · Je näher, desto mehr') : CATS[cat].name;
+  return {cat, sec, label, winners, tb, rows:rk.map(r=>({n:r.name, c:r.color, s:r.score, v:secv(r), pid:r.pid}))};
+}
+function endMsg(pid){ const d=endData(); const i=d.rows.findIndex(r=>r.pid===pid); return {t:'end', rank:i+1, of:d.rows.length, score:H.players[pid].score, mode:H.mode, winner:d.winners.join(' und '), win:d.winners.includes(H.players[pid].name), sec:d.sec, label:d.label, tb:d.tb, rows:d.rows.map(({pid,...r})=>r)}; }
+function endTable(d){
+  return `<div class="tablewrap"><table>
+      <thead><tr><th>#</th><th>Spieler</th>${d.sec?`<th>${d.sec}</th>`:''}<th class="pts">${ptsLabel(d.mode||H&&H.mode)}</th></tr></thead>
+      <tbody>${d.rows.map((r,k)=>`<tr class="${d.winners.includes(r.n)?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${r.c}"></i>${esc(r.n)}</span></td>${d.sec?`<td>${r.v}</td>`:''}<td class="pts">${fmtPts(r.s)}</td></tr>`).join('')}</tbody>
+    </table></div>`;
+}
+function endTb(tb){ if(!tb || !RATEN[tb.r]) return ''; const q = RATEN[tb.r];
+  return `<p class="label" style="margin-top:8px">Stechfrage</p><div class="qtext">${esc(q.q)}</div>${rSolve(q)}${rRows(q, tb.rows)}`; }
 function renderHostEnd(){
-  const rows = hostRanking();
+  const d = endData();
   app.innerHTML = `<div class="screen host">
-    <p class="label">Endwertung · ${H.mode==='kreis'?'Treffer im Ziel':'Je näher, desto mehr'}</p>
-    <h1>${esc(rows[0].name)} gewinnt<span class="dot"></span></h1>
-    <div class="tablewrap"><table>
-      <thead><tr><th>#</th><th>Spieler</th><th>km daneben</th><th class="pts">${ptsLabel(H.mode)}</th></tr></thead>
-      <tbody>${rows.map((r,k)=>`<tr class="${k===0?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${r.color}"></i>${esc(r.name)}</span></td><td>${r.km.toLocaleString('de-DE')}</td><td class="pts">${r.score}</td></tr>`).join('')}</tbody>
-    </table></div>
+    <p class="label">Endwertung · ${d.label}</p>
+    <h1>${d.winners.map(esc).join(' und ')} ${d.winners.length>1?'gewinnen':'gewinnt'}<span class="dot"></span></h1>
+    ${endTable(d)}
+    ${endTb(d.tb)}
     <button class="primary" id="hagain">Nochmal mit allen</button>
   </div>`;
   document.getElementById('hagain').onclick = ()=>{ H.phase='lobby'; broadcast(()=>({t:'lobby', count:H.order.length})); renderHost(); };
@@ -348,7 +458,7 @@ function startPlayer(code){
   try{ pid = localStorage.getItem('pl-pid'); name = localStorage.getItem('pl-name') || ''; }catch(e){}
   if(!pid){ pid = Math.random().toString(36).slice(2) + Date.now().toString(36); try{ localStorage.setItem('pl-pid', pid); }catch(e){} }
   let lastCode = null; try{ lastCode = localStorage.getItem('pl-code'); }catch(e){}
-  P = { code, pid, name, peer:null, conn:null, state:'name', color:'#ffd23f', mode:'kreis', num:-1, idx:null, dot:null, last:null, retry:null, online:false };
+  P = { code, pid, name, peer:null, conn:null, state:'name', color:'#ffd23f', mode:'kreis', num:-1, it:null, dot:null, last:null, retry:null, online:false };
   wakeLock();
   if(name && lastCode === code){ P.state='connecting'; renderPlayer(); playerConnect(); }   // Seite neu geladen: automatisch wieder rein
   else renderPlayer();
@@ -393,8 +503,8 @@ function playerOnData(msg){
   if(msg.t==='welcome'){ P.name=msg.name; P.color=msg.color; P.mode=msg.mode; if(P.state==='name'||P.state==='connecting'){ P.state='lobby'; renderPlayer(); } }
   if(msg.t==='mode'){ P.mode=msg.mode; }
   if(msg.t==='lobby'){ P.state='lobby'; P.count=msg.count; renderPlayer(); }
-  if(msg.t==='question'){ if(P.state==='place' && P.num===msg.num) return; P.num=msg.num; P.idx=msg.idx; P.dot=null; P.state='place'; renderPlayer(); }
-  if(msg.t==='wait'){ if(P.state==='wait' && P.num===msg.num) return; P.num=msg.num; P.state='wait'; renderPlayer(); }
+  if(msg.t==='question'){ if(P.state==='place' && P.num===msg.num) return; if(!itemOk(msg.it)) return; P.num=msg.num; P.it=msg.it; P.tb=!!msg.tb; P.dot=null; P.state='place'; renderPlayer(); }
+  if(msg.t==='wait'){ if(P.state==='wait' && P.num===msg.num) return; P.num=msg.num; P.waitMsg=msg; P.state='wait'; renderPlayer(); }
   if(msg.t==='result'){ P.last=msg; P.state='result'; renderPlayer(); }
   if(msg.t==='missed'){ P.last=msg; P.state='missed'; renderPlayer(); }
   if(msg.t==='end'){ P.last=msg; P.state='end'; renderPlayer(); }
@@ -418,8 +528,15 @@ function renderPlayer(){
   }
   if(P.state==='connecting'){ app.innerHTML = playerShell(`<div class="cover"><h2>Verbinde mit dem Tablet …</h2><p class="muted">Raum ${esc(P.code)}</p></div>`); setStatus(''); return; }
   if(P.state==='lobby'){ app.innerHTML = playerShell(`<div class="cover"><h2>Du bist drin!</h2><p class="muted">Warte, bis der Gastgeber das Spiel startet.</p></div>`); return; }
+  if(P.state==='place' && isR(P.it)){
+    const q = RATEN[P.it.r];
+    app.innerHTML = playerShell(`${P.tb?`<div class="tbq">${rHead(q, 'Stechfrage · am nächsten dran gewinnt')}</div>`:rHead(q, `Frage ${P.num+1} / ${ROUND}`)}${guessHTML(q, 'OK, Antwort abschicken')}`);
+    bindGuess(q, (ans, ok)=>{ if(!P.online){ setStatus('Keine Verbindung. Deine Antwort wird gesendet, sobald sie wieder da ist.'); }
+      send(P.conn, {t:'guess', num:P.num, a:ans}); ok.disabled=true; ok.textContent='Gesendet …'; app.querySelectorAll('[data-ab]').forEach(b=>b.disabled=true); });
+    return;
+  }
   if(P.state==='place'){
-    const q = DATA.questions[P.idx], m = DATA.maps[q.map];
+    const q = DATA.questions[P.it], m = DATA.maps[q.map];
     app.innerHTML = playerShell(`
       <div class="qhead"><span class="label">Frage ${P.num+1} / ${ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
       <div class="qtext">${esc(q.t)}</div>
@@ -434,11 +551,22 @@ function renderPlayer(){
       send(P.conn, {t:'dot', num:P.num, x:P.dot.x, y:P.dot.y}); ok.disabled=true; ok.textContent='Gesendet …'; };
     return;
   }
-  if(P.state==='wait'){ app.innerHTML = playerShell(`<div class="cover"><h2>Punkt gesetzt</h2><p class="muted">Warte auf die anderen. Die Auflösung kommt gleich auch hier aufs Handy.</p></div>`); return; }
+  if(P.state==='wait'){ const w = P.waitMsg || {};
+    if(w.tb && w.who){ app.innerHTML = playerShell(`<div class="cover"><h2>Gleichstand!</h2><p class="muted">${esc(w.who)} spielen eine Stechfrage. Das Ergebnis kommt gleich.</p></div>`); return; }
+    app.innerHTML = playerShell(`<div class="cover"><h2>${isR(P.it)?'Antwort abgegeben':'Punkt gesetzt'}</h2><p class="muted">Warte auf die anderen. Die Auflösung kommt gleich auch hier aufs Handy.</p></div>`); return; }
   if(P.state==='result' || P.state==='missed'){ const r=P.last||{};
     const head = P.state==='missed' ? `<div class="bigname" style="color:var(--bad)">Zu spät</div><p class="muted">Diese Runde lief ohne deinen Punkt.</p>`
-      : `<div class="bigname" style="color:${r.hit?'var(--ok)':'var(--bad)'}">${r.hit?'Treffer!':'Daneben'}</div><p class="muted">${r.km} km vom Ziel · +${r.pts} ${ptsLabel(r.mode)} · Gesamt: ${r.score}</p>`;
-    const rv = r.rev, q = rv && DATA.questions[rv.idx];
+      : `<div class="bigname" style="color:${r.hit?'var(--ok)':'var(--bad)'}">${r.hit?'Treffer!':'Daneben'}</div><p class="muted">${r.km} km vom Ziel · +${r.pts} ${ptsLabel(r.mode)} · Gesamt: ${fmtPts(r.score)}</p>`;
+    const rv = r.rev;
+    if(rv && isR(rv.it) && RATEN[rv.it.r]){
+      const q = RATEN[rv.it.r];
+      const h = P.state==='missed' ? head : `<div class="bigname" style="color:${r.pts>=1?'var(--ok)':r.pts>0?'var(--accent)':'var(--bad)'}">${r.pts>=1?'Treffer!':r.pts>0?'Knapp dran!':'Daneben'}</div>
+        <p class="muted">${q.m==='gk'?'Deine Antwort: '+rAnsText(q, r.a):rAnsText(q, r.a)+' · '+fmtPct(r.dev)+' daneben'} · +${fmtPts(r.pts)} Treffer · Gesamt: ${fmtPts(r.score)}</p>`;
+      app.innerHTML = playerShell(`<div class="phead">${h}</div>${rHead(q, `Auflösung · Frage ${(r.num||0)+1} / ${r.total||ROUND}`)}${rSolve(q)}${rRows(q, rv.rows)}${revealBoard(rv.board)}
+        <p class="muted" style="margin-top:12px">Gleich geht es mit der nächsten Frage weiter.</p>`);
+      return;
+    }
+    const q = rv && Number.isInteger(rv.it) && DATA.questions[rv.it];
     if(!q){ app.innerHTML = playerShell(`<div class="cover">${head}</div>`); return; }
     const m = DATA.maps[q.map];
     app.innerHTML = playerShell(`<div class="qhead"><span class="label">Auflösung · Frage ${(r.num||0)+1} / ${r.total||ROUND}</span><span class="lvl ${q.lvl}">${q.lvl}</span></div>
@@ -452,9 +580,8 @@ function renderPlayer(){
     return; }
   if(P.state==='end'){ const r=P.last;
     app.innerHTML = playerShell(`<div class="cover"><p class="label">Endstand</p><div class="bigname" style="color:${r.rank===1?'var(--accent)':'var(--fg)'}">Platz ${r.rank}</div>
-      <p class="muted">von ${r.of} · ${r.score} ${ptsLabel(r.mode)}</p>${r.rank===1?'<h2>Du hast gewonnen!</h2>':`<p class="muted">Gewonnen hat ${esc(r.winner)}.</p>`}</div>
-      ${r.rows?`<div class="tablewrap"><table><thead><tr><th>#</th><th>Spieler</th><th>km daneben</th><th class="pts">${ptsLabel(r.mode)}</th></tr></thead>
-      <tbody>${r.rows.map((x,k)=>`<tr class="${k===0?'win':''}"><td>${k+1}</td><td><span class="row"><i class="chip" style="background:${x.c}"></i>${esc(x.n)}</span></td><td>${x.km.toLocaleString('de-DE')}</td><td class="pts">${x.s}</td></tr>`).join('')}</tbody></table></div>`:''}`); return; }
+      <p class="muted">von ${r.of} · ${fmtPts(r.score)} ${ptsLabel(r.mode)}</p>${r.win?'<h2>Du hast gewonnen!</h2>':`<p class="muted">Gewonnen hat ${esc(r.winner)}.</p>`}</div>
+      ${r.rows?endTable({sec:r.sec, mode:r.mode, rows:r.rows, winners:r.winner.split(' und ')}):''}${endTb(r.tb)}`); return; }
 }
 
 /* ---------- Verbindungstest: ?test ---------- */
