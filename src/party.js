@@ -22,6 +22,75 @@ function qrSvg(text){
 function wakeLock(){ try{ navigator.wakeLock && navigator.wakeLock.request('screen').catch(()=>{}); }catch(e){} }
 function ptsLabel(mode){ return mode === 'kreis' ? 'Treffer' : 'Punkte'; }
 
+
+/* ---------- Ersatzweg: Nachrichten über öffentliche MQTT-Server ----------
+   Klappt die direkte Handy-zu-Handy-Verbindung (WebRTC) nicht, z. B. im Mobilfunk,
+   schicken Spieler und Gastgeber ihre Nachrichten über einen öffentlichen Nachrichten-Server. */
+const RELAY = { brokers: ['wss://broker.hivemq.com:8884/mqtt', 'wss://broker.emqx.io:8084/mqtt', 'wss://test.mosquitto.org:8081'] };
+if(window.__relayOverride) RELAY.brokers = window.__relayOverride;
+const relayTopic = (code, part) => 'punktlandung/v1/' + code + '/' + part;
+function loadMqtt(cb){
+  if(window.mqtt) return cb();
+  const s = document.createElement('script'); s.src = 'vendor/mqtt.min.js'; s.onload = ()=>cb(); s.onerror = ()=>{}; document.head.appendChild(s);
+}
+function hostRelay(){
+  if(!H || H.relays) return;
+  H.relays = []; H.rconns = {};
+  loadMqtt(()=>{
+    for(const url of RELAY.brokers){
+      let c; try{ c = mqtt.connect(url, {reconnectPeriod:4000, connectTimeout:8000, clean:true}); }catch(e){ continue; }
+      c._code = null;
+      c.on('connect', ()=>{ c._code = H.code; c.subscribe(relayTopic(H.code, 'up')); });
+      c.on('error', ()=>{});
+      c.on('message', (topic, buf)=>{
+        let m; try{ m = JSON.parse(buf.toString()); }catch(e){ return; }
+        if(!m || !m.cid || !m.msg || topic !== relayTopic(H.code, 'up')) return;
+        const key = url + '|' + m.cid;
+        let conn = H.rconns[key];
+        if(!conn){ const code = H.code, cid = String(m.cid).slice(0,40); conn = H.rconns[key] = {open:true, relay:true, send(msg){ try{ c.publish(relayTopic(code, 'down/' + cid), JSON.stringify(msg)); }catch(e){} }, close(){ this.open = false; }}; }
+        conn.seen = Date.now(); conn.open = true;
+        hostOnData(conn, m.msg);
+      });
+      H.relays.push(c);
+    }
+    // Spieler über den Umweg melden sich alle 10 s; wer 35 s still ist, gilt als getrennt
+    clearInterval(H.rwatch);
+    H.rwatch = setInterval(()=>{ for(const pid of H.order){ const p = H.players[pid]; if(p.conn && p.conn.relay && Date.now() - p.conn.seen > 35000){ p.conn.open = false; p.connected = false; p.conn = null; renderHostLight(); } } }, 10000);
+  });
+}
+function hostRelayResub(){ (H.relays||[]).forEach(c=>{ try{ if(c._code) c.unsubscribe(relayTopic(c._code, 'up')); c._code = H.code; c.subscribe(relayTopic(H.code, 'up')); }catch(e){} }); }
+function playerRelay(){
+  if(P.relay) return;
+  P.relay = 'starting';
+  setStatus('Direkte Verbindung klappt nicht, nehme den Umweg über einen Server …');
+  loadMqtt(()=>{
+    const cid = (P.pid + '').slice(0,16) + Math.random().toString(36).slice(2,6);
+    let i = 0;
+    const next = ()=>{
+      const url = RELAY.brokers[i++ % RELAY.brokers.length];
+      let c; try{ c = mqtt.connect(url, {reconnectPeriod:0, connectTimeout:7000, clean:true}); }catch(e){ return setTimeout(next, 1000); }
+      P.relay = c; let ok = false;
+      const again = ()=>{ if(P.relay !== c) return; try{ c.end(true); }catch(e){} P.online = false; setTimeout(()=>{ if(P.relay === c) next(); }, ok ? 1500 : 300); };
+      c.on('error', ()=>{ if(!ok) again(); });
+      c.on('close', ()=>{ if(ok){ setStatus('Verbindung verloren, verbinde neu …'); } again(); });
+      c.on('connect', ()=>{
+        ok = true;
+        c.subscribe(relayTopic(P.code, 'down/' + cid), ()=>{
+          const conn = {open:true, relay:true, send(msg){ try{ c.publish(relayTopic(P.code, 'up'), JSON.stringify({cid, msg})); }catch(e){} }};
+          P.conn = conn; clearTimeout(P.wait); clearTimeout(P.retry);
+          setStatus('Umweg steht, warte auf den Gastgeber …');
+          conn.send({t:'hello', pid:P.pid, name:P.name});
+          // Kommt keine Antwort, Hallo wiederholen (Gastgeber evtl. auf anderem Server)
+          clearTimeout(P.hello); P.hello = setTimeout(()=>{ if(P.relay === c && !P.online){ again(); } }, 6000);
+        });
+      });
+      c.on('message', (t, buf)=>{ let m; try{ m = JSON.parse(buf.toString()); }catch(e){ return; } if(P.relay !== c) return; if(!P.online){ P.online = true; setStatus(''); } playerOnData(m); });
+    };
+    next();
+    clearInterval(P.ping); P.ping = setInterval(()=>{ if(P.conn && P.conn.relay && P.online) P.conn.send({t:'ping'}); }, 10000);
+  });
+}
+
 /* ---------------- HOST (Tablet) ---------------- */
 let H = null;
 function startHost(play){
@@ -33,6 +102,7 @@ function startHost(play){
   }
   wakeLock();
   hostPeer();
+  hostRelay();
   renderHost();
 }
 function hostPeer(){
@@ -42,7 +112,7 @@ function hostPeer(){
   const t = setTimeout(()=>{ if(H.peer===peer && !peer.open){ try{ peer.destroy(); }catch(e){} H.status='Server antwortet nicht, neuer Versuch …'; renderHostStatus(); hostPeer(); } }, 10000);
   peer.on('open', ()=>{ clearTimeout(t); if(H.peer!==peer) return; const first = H.status!=='bereit'; H.status = 'bereit'; if(first) renderHost(); else renderHostStatus(); });
   peer.on('error', err=>{
-    if(err.type === 'unavailable-id'){ H.code = partyCode(); peer.destroy(); hostPeer(); return; }
+    if(err.type === 'unavailable-id'){ H.code = partyCode(); peer.destroy(); hostPeer(); hostRelayResub(); return; }
     if(err.type === 'peer-unavailable') return;
     if(H.peer!==peer) return;
     H.status = 'Verbindungsproblem: ' + err.type + ', neuer Versuch …'; renderHostStatus();
@@ -280,19 +350,20 @@ function startPlayer(code){
 }
 function playerConnect(){
   clearTimeout(P.retry);
+  if(P.relay) return;   // Umweg läuft schon
   if(P.peer && !P.peer.destroyed && P.peer.open){ openConn(); return; }
   // Hängt die Verbindung zum Vermittlungs-Server oder ist sie kaputt: alten Peer wegwerfen und frisch anfangen
   if(P.peer){ try{ P.peer.destroy(); }catch(e){} }
   const peer = P.peer = new Peer(PARTY.prefix + 'p-' + Math.random().toString(36).slice(2, 10), PARTY.peerOpts);
   setStatus((P.fails||0)>=2 ? SRVHINT : 'Verbinde mit dem Server …');
   clearTimeout(P.srv);
-  P.srv = setTimeout(()=>{ if(P.peer===peer && !peer.open){ P.fails=(P.fails||0)+1; setStatus('Server antwortet nicht, neuer Versuch …'); scheduleRetry(); } }, 10000);
+  P.srv = setTimeout(()=>{ if(P.peer===peer && !peer.open){ P.fails=(P.fails||0)+1; playerRelay(); } }, 10000);
   peer.on('open', ()=>{ if(P.peer!==peer) return; clearTimeout(P.srv); setStatus('Server erreicht, suche das Spiel …'); openConn(); });
   peer.on('disconnected', ()=>{ if(P.peer!==peer) return; setTimeout(()=>{ try{ if(P.peer===peer && !peer.destroyed && peer.disconnected) peer.reconnect(); }catch(e){ scheduleRetry(); } }, 1000); });
   peer.on('error', err=>{
     if(P.peer!==peer) return;
-    if(err.type==='peer-unavailable'){ P.online=false; setStatus('Raum '+P.code+' nicht gefunden. Ist das Spiel beim Gastgeber noch offen (Bildschirm an, Browser im Vordergrund)?'); }
-    else { P.fails=(P.fails||0)+1; setStatus(P.fails>=2 ? SRVHINT : 'Verbindungsproblem ('+err.type+'), versuche es weiter …'); }
+    if(err.type==='peer-unavailable'){ P.online=false; P.fails=(P.fails||0)+1; if(P.fails>=2){ playerRelay(); return; } setStatus('Raum '+P.code+' nicht gefunden. Ist das Spiel beim Gastgeber noch offen (Bildschirm an, Browser im Vordergrund)?'); }
+    else { P.fails=(P.fails||0)+1; if(P.fails>=2){ playerRelay(); return; } setStatus('Verbindungsproblem ('+err.type+'), versuche es weiter …'); }
     scheduleRetry();
   });
 }
@@ -303,7 +374,7 @@ function openConn(){
   P.conn = conn;
   clearTimeout(P.wait);
   // Ohne Antwort nach 15 s: abbrechen, neu versuchen und ab dem 2. Fehlschlag einen Tipp zeigen
-  P.wait = setTimeout(()=>{ if(P.conn===conn && !P.online){ P.fails=(P.fails||0)+1; try{ conn.close(); }catch(e){} setStatus(P.fails>=2 ? HINT : 'Verbindung dauert, versuche es nochmal …'); scheduleRetry(); } }, 15000);
+  P.wait = setTimeout(()=>{ if(P.conn===conn && !P.online){ P.fails=(P.fails||0)+1; try{ conn.close(); }catch(e){} playerRelay(); } }, 8000);
   conn.on('open', ()=>{ clearTimeout(P.wait); P.online=true; P.fails=0; setStatus(''); send(conn, {t:'hello', pid:P.pid, name:P.name}); });
   conn.on('data', playerOnData);
   conn.on('close', ()=>{ if(P.conn===conn){ P.online=false; setStatus('Verbindung verloren, verbinde neu …'); scheduleRetry(); } });
