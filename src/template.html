@@ -119,6 +119,7 @@ tr.win td{color:var(--accent)}
 .unit{font-weight:600;color:var(--muted);font-size:1.1rem;white-space:nowrap}
 .solve a{color:var(--fg)}
 .tbq{border:2px solid var(--accent);border-radius:14px;padding:12px 14px}
+.lang{align-self:flex-end;color:var(--muted);font-size:.85rem;font-weight:600;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:4px 12px;margin-bottom:-6px}
 </style>
 
 <div id="app"></div>
@@ -309,6 +310,7 @@ function render(){
 /* ---------- Spieler eintragen ---------- */
 function renderSetup(){
   app.innerHTML = `<div class="screen">
+    <a class="lang" href="en/" lang="en">English</a>
     <h1>Punkt&shy;landung<span class="dot"></span></h1>
     <p class="muted">${getCat()==='raten' ? `Größer oder kleiner, Zahlen schätzen, Kalorien und Preise raten. Jede Antwort ist mit Quelle belegt. ${ROUND} Fragen pro Spiel aus ${RATEN.length}, ein Handy für alle.` : `Erst das Rätsel knacken, dann den Ort finden. Die Lösung klingt wie eine Stadt, eine Region oder ein Land. Wer mit seinem Punkt im Zielkreis landet, liegt richtig. Ist die Lösung ein Land, ein Gebiet oder ein Fluss, zählt die ganze Fläche bzw. der Flusslauf plus etwas Spielraum. ${ROUND} Fragen pro Spiel, ein Handy für alle.`}</p>
     <form id="addf" class="row" autocomplete="off">

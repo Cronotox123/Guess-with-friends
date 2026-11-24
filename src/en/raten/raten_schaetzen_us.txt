@@ -1,0 +1,78 @@
+# Estimate (USA, English) – Nr;Stufe;Frage;Antwort;Quelle
+1;leicht;How many people lived in California at the 2020 Census?;39,576,757;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+2;leicht;How many people lived in Texas at the 2020 Census?;29,183,290;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+3;leicht;How many people lived in Florida at the 2020 Census?;21,570,527;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+4;leicht;How many people lived in New York at the 2020 Census?;20,215,751;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+5;leicht;How many people lived in Illinois at the 2020 Census?;12,822,739;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+6;mittel;How many people lived in Alaska at the 2020 Census?;736,081;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+7;mittel;How many people lived in Hawaii at the 2020 Census?;1,460,137;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+8;mittel;How many people lived in Wyoming at the 2020 Census?;577,719;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+9;mittel;How many people lived in Vermont at the 2020 Census?;643,503;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+10;mittel;How many people lived in Washington at the 2020 Census?;7,715,946;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+11;mittel;How many people lived in Ohio at the 2020 Census?;11,808,848;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+12;mittel;How many people lived in Georgia at the 2020 Census?;10,725,274;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+13;mittel;How many people lived in Michigan at the 2020 Census?;10,084,442;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+14;mittel;How many people lived in Arizona at the 2020 Census?;7,158,923;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+15;mittel;How many people lived in Colorado at the 2020 Census?;5,782,171;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+16;mittel;How many people lived in Nevada at the 2020 Census?;3,108,462;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+17;mittel;How many people lived in Oregon at the 2020 Census?;4,241,500;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+18;mittel;How many people lived in Utah at the 2020 Census?;3,275,252;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+19;schwer;How many people lived in Montana at the 2020 Census?;1,085,407;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+20;schwer;How many people lived in Maine at the 2020 Census?;1,363,582;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+21;schwer;How many people lived in Kansas at the 2020 Census?;2,940,865;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+22;mittel;How many people lived in Tennessee at the 2020 Census?;6,916,897;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+23;mittel;How many people lived in Louisiana at the 2020 Census?;4,661,468;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+24;mittel;How many people lived in Iowa at the 2020 Census?;3,192,406;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+25;schwer;How many people lived in Delaware at the 2020 Census?;990,837;https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table01.pdf
+26;leicht;How many people lived in the city of New York in 2025 (Census estimate)?;8,584,629;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+27;leicht;How many people lived in the city of Los Angeles in 2025 (Census estimate)?;3,869,089;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+28;leicht;How many people lived in the city of Chicago in 2025 (Census estimate)?;2,731,585;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+29;leicht;How many people lived in the city of Houston in 2025 (Census estimate)?;2,397,315;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+30;leicht;How many people lived in the city of Phoenix in 2025 (Census estimate)?;1,665,481;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+31;leicht;How many people lived in the city of Philadelphia in 2025 (Census estimate)?;1,574,281;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+32;mittel;How many people lived in the city of Dallas in 2025 (Census estimate)?;1,329,491;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+33;mittel;How many people lived in the city of Austin in 2025 (Census estimate)?;1,002,632;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+34;mittel;How many people lived in the city of San Francisco in 2025 (Census estimate)?;826,079;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+35;mittel;How many people lived in the city of Seattle in 2025 (Census estimate)?;784,777;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+36;mittel;How many people lived in the city of Denver in 2025 (Census estimate)?;740,613;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+37;mittel;How many people lived in the city of Nashville in 2025 (Census estimate)?;721,074;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+38;mittel;How many people lived in the city of Washington, D.C. in 2025 (Census estimate)?;693,645;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+39;mittel;How many people lived in the city of Las Vegas in 2025 (Census estimate)?;679,817;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+40;mittel;How many people lived in the city of Boston in 2025 (Census estimate)?;672,973;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+41;mittel;How many people lived in the city of Detroit in 2025 (Census estimate)?;649,095;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+42;mittel;How many people lived in the city of Atlanta in 2025 (Census estimate)?;529,110;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+43;mittel;How many people lived in the city of Miami in 2025 (Census estimate)?;489,812;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+44;mittel;How many people lived in the city of New Orleans in 2025 (Census estimate)?;362,154;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+45;mittel;How many people lived in the city of Honolulu in 2025 (Census estimate)?;341,868;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+46;leicht;How high is Denali, the highest point in Alaska, in feet?;20,310 ft (6,190 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+47;leicht;How high is Mount Whitney, the highest point in California, in feet?;14,505 ft (4,421 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+48;mittel;How high is Mount Elbert, the highest point in Colorado, in feet?;14,440 ft (4,401 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+49;mittel;How high is Mount Rainier, the highest point in Washington, in feet?;14,400 ft (4,389 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+50;mittel;How high is Mauna Kea, the highest point in Hawaii, in feet?;13,803 ft (4,207 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+51;mittel;How high is Guadalupe Peak, the highest point in Texas, in feet?;8,751 ft (2,667 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+52;leicht;How high is Britton Hill, the highest point in Florida, in feet?;345 ft (105 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+53;mittel;How high is Mount Marcy, the highest point in New York, in feet?;5,343 ft (1,629 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+54;schwer;How high is Kuwohi, the highest point in Tennessee, in feet?;6,643 ft (2,025 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+55;schwer;How high is Mount Mitchell, the highest point in North Carolina, in feet?;6,684 ft (2,037 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+56;mittel;How high is Mount Washington, the highest point in New Hampshire, in feet?;6,286 ft (1,916 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+57;schwer;How high is Humphreys Peak, the highest point in Arizona, in feet?;12,637 ft (3,852 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+58;schwer;How high is Mount Hood, the highest point in Oregon, in feet?;11,249 ft (3,429 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+59;schwer;How high is Mount Sunflower, the highest point in Kansas, in feet?;4,041 ft (1,232 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+60;schwer;How high is Driskill Mountain, the highest point in Louisiana, in feet?;535 ft (163 m);https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_elevation
+61;leicht;How tall is the One World Trade Center in New York City, in feet?;1,776 ft (541 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+62;schwer;How tall is the Central Park Tower in New York City, in feet?;1,550 ft (472 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+63;leicht;How tall is the Willis Tower in Chicago, in feet?;1,450 ft (442 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+64;schwer;How tall is the One Vanderbilt in New York City, in feet?;1,401 ft (427 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+65;schwer;How tall is 432 Park Avenue in New York City, in feet?;1,396 ft (426 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+66;schwer;How tall is the Trump International Hotel and Tower in Chicago, in feet?;1,388 ft (423 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+67;leicht;How tall is the Empire State Building in New York City, in feet?;1,250 ft (381 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+68;schwer;How tall is the Bank of America Tower in New York City, in feet?;1,200 ft (366 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+69;mittel;How tall is the John Hancock Center in Chicago, in feet?;1,128 ft (344 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+70;schwer;How tall is the Comcast Technology Center in Philadelphia, in feet?;1,121 ft (342 m);https://www.wikiwand.com/en/articles/List_of_tallest_buildings_in_the_United_States
+71;mittel;How big is the city of New York (land area, in square miles)?;300.5 sq mi;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+72;mittel;How big is the city of Los Angeles (land area, in square miles)?;469.5 sq mi;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+73;schwer;How big is the city of Houston (land area, in square miles)?;640.4 sq mi;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+74;schwer;How big is the city of Jacksonville (land area, in square miles)?;747.3 sq mi;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+75;mittel;How big is the city of San Francisco (land area, in square miles)?;46.9 sq mi;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+76;schwer;How big is the city of Oklahoma City (land area, in square miles)?;606.2 sq mi;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population
+77;schwer;How big is the city of Boston (land area, in square miles)?;48.3 sq mi;https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population

@@ -1,11 +1,11 @@
 // Löst ziele.txt in GeoJSON-Geometrien auf -> ziele_geo.json  {"map|Ort": {cls, spec, geom}}
 import fs from 'fs';
 import * as d3 from 'd3-geo';
-import {R} from './raetsel.mjs';
+const {R} = await import(process.env.RAETSEL || './raetsel.mjs');
 import * as topoS from 'topojson-server';
 import * as topoC from 'topojson-client';
 function dissolve(polys){ if (polys.length<2) return polys; const t = topoS.topology({x:{type:'GeometryCollection',geometries:polys.map(p=>({type:'Polygon',coordinates:p}))}}, 1e6); return topoC.merge(t, t.objects.x.geometries).coordinates; }
-const NE = '../ne/';
+const NE = process.env.NE || '../ne/';
 const cache = {};
 const load = f => cache[f] ||= JSON.parse(fs.readFileSync(NE + f + '.geojson')).features;
 const low = s => (s ?? '') + '';
@@ -101,7 +101,7 @@ function resolve(spec, p) {
 }
 
 const out = {}, report = [];
-for (const l of fs.readFileSync('ziele.txt', 'utf8').split('\n')) {
+for (const l of fs.readFileSync(process.env.ZIELE || 'ziele.txt', 'utf8').split('\n')) {
   if (!l.trim() || l[0] === '#') continue;
   const [map, ort, cls, spec] = l.split('|');
   const key = map + '|' + ort, p = pt[key];
@@ -118,7 +118,7 @@ for (const l of fs.readFileSync('ziele.txt', 'utf8').split('\n')) {
   if (dKm > 30) report.push(`WEIT ${key}: Punkt ${Math.round(dKm)} km außerhalb`);
   out[key] = {cls, spec, geom, areaKm, lenKm};
 }
-fs.writeFileSync('ziele_geo.json', JSON.stringify(out));
+fs.writeFileSync(process.env.ZIELE_OUT || 'ziele_geo.json', JSON.stringify(out));
 console.log(Object.keys(out).length, 'Ziele aufgelöst');
 console.log(report.join('\n'));
 for (const [k, v] of Object.entries(out)) console.log(k.padEnd(36), v.cls, v.lenKm ? 'Länge ' + v.lenKm : 'Fläche ' + v.areaKm);

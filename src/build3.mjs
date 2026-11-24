@@ -2,12 +2,13 @@ import fs from 'fs';
 import {createRequire} from 'module';
 import * as topo from 'topojson-client';
 import * as d3 from 'd3-geo';
-import {R} from './raetsel.mjs';
+const {R} = await import(process.env.RAETSEL || './raetsel.mjs');
+const EN = process.env.KARTEN === 'us';
 const require = createRequire(import.meta.url);
 const cities = require('all-the-cities');
 const t50 = JSON.parse(fs.readFileSync('node_modules/world-atlas/countries-50m.json'));
 const t110 = JSON.parse(fs.readFileSync('node_modules/world-atlas/countries-110m.json'));
-const de = JSON.parse(fs.readFileSync('de.geojson'));
+const de = EN ? null : JSON.parse(fs.readFileSync('de.geojson'));
 const c50 = topo.feature(t50, t50.objects.countries);
 const b50 = topo.mesh(t50, t50.objects.countries, (a,b)=>a!==b);
 const b110 = topo.mesh(t110, t110.objects.countries, (a,b)=>a!==b);
@@ -21,7 +22,21 @@ const HDE = Math.ceil(d3.geoPath(pDE).bounds(deOutline)[1][1]+25); pDE.clipExten
 const pEU = d3.geoConicConformal().rotate([-10,0]).parallels([40,65]).fitExtent([[0,0],[W,620]], {type:'MultiPoint',coordinates:[[-24,35],[42,35],[42,71],[-24,71],[10,71],[10,34],[-24,53],[42,53]]});
 pEU.clipExtent([[0,0],[W,620]]);
 const pW = d3.geoNaturalEarth1().fitExtent([[5,5],[W*2-5,620-5]], {type:'Sphere'});
-const maps = {
+// USA-Karte (englische Version): Albers mit Alaska/Hawaii-Einschüben
+let mapUS = null;
+if (EN) {
+  const us = JSON.parse(fs.readFileSync('node_modules/us-atlas/states-10m.json'));
+  const states = topo.feature(us, us.objects.states);
+  const nation = topo.feature(us, us.objects.nation);
+  const pUS = d3.geoAlbersUsa().fitExtent([[10,10],[W-10,500]], nation);
+  const HUS = Math.ceil(d3.geoPath(pUS).bounds(nation)[1][1]+10);
+  mapUS = {w:W,h:HUS,proj:pUS,layers:[['sea',`M0,0H${W}V${HUS}H0Z`],['land',nation],['de',states],['border',topo.mesh(us, us.objects.states, (a,b)=>a!==b)]], km:{L:150,M:200,S:250}};
+}
+const maps = EN ? {
+  us: mapUS,
+  eu:{w:W,h:620,proj:pEU,layers:[['sea',{type:'Sphere'}],['land',land50],['border',b50]], km:{L:180,M:230,S:300}},
+  world:{w:W*2,h:620,proj:pW,layers:[['sea',{type:'Sphere'}],['land',land110],['border',b110]], km:{L:600,M:800,S:1000}},
+} : {
   de:{w:W,h:HDE,proj:pDE,layers:[['sea',{type:'Sphere'}],['land',land50],['de',{type:'FeatureCollection',features:de.features}],['border',b50]], km:{L:35,M:45,S:60}},
   eu:{w:W,h:620,proj:pEU,layers:[['sea',{type:'Sphere'}],['land',land50],['border',b50]], km:{L:180,M:230,S:300}},
   world:{w:W*2,h:620,proj:pW,layers:[['sea',{type:'Sphere'}],['land',land110],['border',b110]], km:{L:600,M:800,S:1000}},
@@ -30,8 +45,9 @@ const LV = {L:'leicht',M:'mittel',S:'schwer'};
 const Q = []; const miss = [];
 function add(map, t, lat, lon, lvl, a, s, o, kmOver){
   const m = maps[map], km = kmOver || m.km[lvl], p = m.proj;
-  const [x,y] = p([lon,lat]); const [x2,y2] = p([lon, lat + km/111.2]); const [x3,y3] = p([lon + km/111.2/Math.cos(lat*Math.PI/180), lat]);
-  const r = (Math.hypot(x2-x,y2-y)+Math.hypot(x3-x,y3-y))/2;
+  const c0 = p([lon,lat]); if (!c0) { miss.push('offmap '+t); return; }
+  const [x,y] = c0; const c2 = p([lon, lat + km/111.2]) || p([lon, lat - km/111.2]), c3 = p([lon + km/111.2/Math.cos(lat*Math.PI/180), lat]) || p([lon - km/111.2/Math.cos(lat*Math.PI/180), lat]);
+  const rs = [c2, c3].filter(Boolean).map(([a,b])=>Math.hypot(a-x,b-y)); const r = rs.reduce((u,v)=>u+v,0)/rs.length;
   if(!(x>=0&&y>=0&&x<=m.w&&y<=m.h)){ miss.push('offmap '+t); return; }
   if(Q.some(q=>q.map===map && q.t===t)) return;
   Q.push({t, s, o, a, map, lvl:LV[lvl], km, x:+x.toFixed(1), y:+y.toFixed(1), r:+r.toFixed(1), k:+(r/km).toFixed(4)});
@@ -42,8 +58,8 @@ function find(name, cc){
 }
 for (const [map,lvl,t,s,o,lat,lon,a,km] of R) add(map,t,lat,lon,lvl,a,s,o,km);
 // ---- Flächen-Ziele (Länder, Gebiete, Flüsse) ----
-const ZG = JSON.parse(fs.readFileSync('ziele_geo.json'));
-const MINK = {g:{de:5,eu:20,world:80}, a:{de:5,eu:20,world:80}, f:{de:10,eu:30,world:100}};
+const ZG = JSON.parse(fs.readFileSync(process.env.ZIELE_GEO || 'ziele_geo.json'));
+const MINK = {g:{de:5,us:20,eu:20,world:80}, a:{de:5,us:20,eu:20,world:80}, f:{de:10,us:30,eu:30,world:100}};
 function rewind(geom){ // d3 erwartet Außenringe im Uhrzeigersinn
   if (geom.type!=='MultiPolygon') return geom;
   return {type:'MultiPolygon', coordinates: geom.coordinates.map(poly => d3.geoArea({type:'Polygon',coordinates:poly}) > 2*Math.PI ? poly.map(r=>r.slice().reverse()) : poly)};
@@ -82,10 +98,11 @@ for (const q of Q) {
   q.g = key; q.bk = Math.round(bk); q.b = +(bk * q.k).toFixed(1);
 }
 const out = {maps:{}, questions:Q, shapes};
-for (const [k,m] of Object.entries(maps)) { const path=d3.geoPath(m.proj); out.maps[k]={w:m.w,h:m.h,layers:m.layers.map(([c,g])=>[c,rnd(path(g)||'')])}; }
-fs.writeFileSync('data.json', JSON.stringify(out));
+for (const [k,m] of Object.entries(maps)) { const path=d3.geoPath(m.proj); out.maps[k]={w:m.w,h:m.h,layers:m.layers.map(([c,g])=>[c,typeof g==='string'?g:rnd(path(g)||'')])}; }
+const DOUT = process.env.DATA_OUT || 'data.json';
+fs.writeFileSync(DOUT, JSON.stringify(out));
 const stat = {}; Q.forEach(q=>{const k=q.map+'/'+q.lvl; stat[k]=(stat[k]||0)+1;});
-console.log('total', Q.length, 'size', fs.statSync('data.json').size, stat);
+console.log('total', Q.length, 'size', fs.statSync(DOUT).size, stat);
 console.log('MISS', miss.join(' | '));
 console.log('Flächen', Object.keys(shapes).length, 'Fragen mit Fläche', Q.filter(q=>q.g).length, 'Bytes', JSON.stringify(shapes).length);
-fs.writeFileSync('zuordnung.json', JSON.stringify(Q.filter(q=>q.g).map(q=>({o:q.o,map:q.map,c:shapes[q.g].c,bk:q.bk,spec:shapeInfo[q.g].spec,t:q.t}))));
+fs.writeFileSync(process.env.ZUORD_OUT || 'zuordnung.json', JSON.stringify(Q.filter(q=>q.g).map(q=>({o:q.o,map:q.map,c:shapes[q.g].c,bk:q.bk,spec:shapeInfo[q.g].spec,t:q.t}))));

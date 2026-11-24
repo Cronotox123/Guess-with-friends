@@ -1,0 +1,96 @@
+# Karte|Ort|Klasse|Quelle (wie ziele.txt). Nicht gelistet = Kreis.
+us|Hawaii|g|a1:Hawaii/US
+us|California|g|a1:California/US
+us|Alabama|g|a1:Alabama/US
+us|Texas|g|a1:Texas/US
+us|New Jersey|g|a1:New Jersey/US
+us|New Mexico|g|a1:New Mexico/US
+us|Indiana|g|a1:Indiana/US
+us|Mississippi|g|a1:Mississippi/US
+us|Georgia|g|a1:Georgia/US
+us|Kentucky|g|a1:Kentucky/US
+us|Tennessee|g|a1:Tennessee/US
+us|Kansas|g|a1:Kansas/US
+us|Florida|g|a1:Florida/US
+us|Montana|g|a1:Montana/US
+us|Virginia|g|a1:Virginia/US
+us|Oklahoma|g|a1:Oklahoma/US
+us|Arizona|g|a1:Arizona/US
+us|Colorado|g|a1:Colorado/US
+us|Vermont|g|a1:Vermont/US
+us|Nevada|g|a1:Nevada/US
+us|New Hampshire|g|a1:New Hampshire/US
+us|New England|a|a1:Maine/US,New Hampshire/US,Vermont/US,Massachusetts/US,Rhode Island/US,Connecticut/US
+us|Kodiak Island|g|i
+us|Nantucket|g|i
+us|Maui|g|i
+us|Martha's Vineyard|g|i
+eu|Jersey|g|i
+eu|Isle of Man|g|i
+eu|Guernsey|g|i
+eu|Fair Isle|g|i
+eu|Elba|g|i
+eu|Rhodes|g|i
+eu|Ibiza|g|i
+eu|France|g|su:France
+eu|Iceland|g|c:Iceland
+eu|Finland|g|c:Finland
+eu|Wales|g|su:Wales
+eu|Denmark|g|su:Denmark
+eu|Norway|g|su:Norway
+eu|Ireland|g|c:Ireland
+eu|Kent|g|a1:Kent/GB
+eu|Iberia|a|c:Spain;c:Portugal
+eu|Aragon|g|a1reg:Aragón/ES
+eu|Mersey|f|f:Mersey
+eu|Tipperary|g|a1:Tipperary/IE
+world|Panama|g|c:Panama
+world|Bermuda|g|c:Bermuda
+world|Canada|g|c:Canada
+world|Africa|a|cont:Africa
+world|Nile|f|f:Nile
+world|Amazon|f|f:Amazonas
+world|China|g|c:China
+world|Madagascar|g|c:Madagascar
+world|Greenland|g|c:Greenland
+world|Jordan|g|c:Jordan
+world|India|g|c:India
+world|Argentina|g|c:Argentina
+world|Caribbean Sea|a|s:Caribbean Sea
+world|Red Sea|a|s:Red Sea
+world|Ecuador|g|c:Ecuador
+world|Ivory Coast|g|c:Côte d'Ivoire
+world|Canary Islands|g|a1reg:Canary Is./ES
+world|Easter Island|g|i
+world|Galápagos Islands|g|i:150
+world|Java|g|i
+world|Patagonia|a|r:Patagonia
+world|Arabia|a|r:Arabian Peninsula
+world|Chad|g|c:Chad
+world|Guinea|g|c:Guinea
+world|Costa Rica|g|c:Costa Rica
+world|Quebec|g|a1:Québec/CA
+world|Cuba|g|c:Cuba
+world|Tibet|a|a1:Xizang/CN
+world|Egypt|g|c:Egypt
+world|Persia|g|c:Iran
+world|Lake Victoria|g|l:Lake Victoria
+world|Nova Scotia|g|a1:Nova Scotia/CA
+world|Venezuela|g|c:Venezuela
+world|El Salvador|g|c:El Salvador
+world|Tierra del Fuego|g|i
+world|Yellow River|f|f:Huang
+world|Christmas Island|g|i
+world|Togo|g|c:Togo
+world|Komodo|g|i
+world|Honduras|g|c:Honduras
+world|Barbados|g|c:Barbados
+world|Trinidad|g|i
+world|Cayman Islands|g|c:Cayman Is.
+world|Cape Verde|g|c:Cabo Verde
+world|Sierra Leone|g|c:Sierra Leone
+world|Mauritius|g|c:Mauritius
+world|Solomon Islands|g|c:Solomon Is.
+world|Cook Islands|g|c:Cook Is.
+world|Kangaroo Island|g|i
+world|Blue Nile|f|f:Blue Nile

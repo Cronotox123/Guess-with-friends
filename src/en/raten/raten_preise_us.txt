@@ -1,0 +1,24 @@
+# Prices (USA, English) – Nr;Stufe;Frage;Antwort;Quelle
+1;leicht;What is the federal minimum wage in the US, per hour?;$7.25;https://www.dol.gov/agencies/whd/minimum-wage/state
+2;leicht;What is the state minimum wage in California, per hour (fall 2026)?;$16.90;https://www.dol.gov/agencies/whd/minimum-wage/state
+3;leicht;What is the state minimum wage in Washington, per hour (fall 2026)?;$17.13;https://www.dol.gov/agencies/whd/minimum-wage/state
+4;leicht;What is the state minimum wage in Florida, per hour (fall 2026)?;$15.00;https://www.dol.gov/agencies/whd/minimum-wage/state
+5;mittel;What is the state minimum wage in Hawaii, per hour (fall 2026)?;$16.00;https://www.dol.gov/agencies/whd/minimum-wage/state
+6;mittel;What is the state minimum wage in Colorado, per hour (fall 2026)?;$15.16;https://www.dol.gov/agencies/whd/minimum-wage/state
+7;mittel;What is the state minimum wage in Nevada, per hour (fall 2026)?;$12.00;https://www.dol.gov/agencies/whd/minimum-wage/state
+8;schwer;What is the state minimum wage in Michigan, per hour (fall 2026)?;$13.73;https://www.dol.gov/agencies/whd/minimum-wage/state
+9;schwer;What is the state minimum wage in Alaska, per hour (fall 2026)?;$14.00;https://www.dol.gov/agencies/whd/minimum-wage/state
+10;mittel;What is the state minimum wage in Arizona, per hour (fall 2026)?;$15.15;https://www.dol.gov/agencies/whd/minimum-wage/state
+11;schwer;What is the state minimum wage in Virginia, per hour (fall 2026)?;$12.77;https://www.dol.gov/agencies/whd/minimum-wage/state
+12;schwer;What is the state minimum wage in Minnesota, per hour (fall 2026)?;$11.41;https://www.dol.gov/agencies/whd/minimum-wage/state
+13;mittel;What is the state minimum wage in Oregon, per hour (fall 2026)?;$15.55;https://www.dol.gov/agencies/whd/minimum-wage/state
+14;schwer;What is the state minimum wage in Vermont, per hour (fall 2026)?;$14.42;https://www.dol.gov/agencies/whd/minimum-wage/state
+15;schwer;What is the state minimum wage in Missouri, per hour (fall 2026)?;$15.00;https://www.dol.gov/agencies/whd/minimum-wage/state
+16;schwer;What is the state minimum wage in Connecticut, per hour (fall 2026)?;$16.94;https://www.dol.gov/agencies/whd/minimum-wage/state
+17;mittel;What is the state minimum wage in Massachusetts, per hour (fall 2026)?;$15.00;https://www.dol.gov/agencies/whd/minimum-wage/state
+18;schwer;What is the state minimum wage in New Mexico, per hour (fall 2026)?;$12.00;https://www.dol.gov/agencies/whd/minimum-wage/state
+19;schwer;What is the state minimum wage in South Dakota, per hour (fall 2026)?;$11.85;https://www.dol.gov/agencies/whd/minimum-wage/state
+20;schwer;What is the state minimum wage in New Jersey, per hour (fall 2026)?;$15.92;https://www.dol.gov/agencies/whd/minimum-wage/state
+21;schwer;What is the state minimum wage in Maine, per hour (fall 2026)?;$15.10;https://www.dol.gov/agencies/whd/minimum-wage/state
+22;schwer;What is the minimum wage in New York City, per hour (fall 2026)?;$17.00;https://www.dol.gov/agencies/whd/minimum-wage/state
+23;mittel;What is the minimum wage in Washington, D.C., per hour (fall 2026)?;$18.40;https://www.dol.gov/agencies/whd/minimum-wage/state
