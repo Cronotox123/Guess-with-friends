@@ -788,7 +788,7 @@ function playerRelay(){
 /* ---------------- HOST (Tablet) ---------------- */
 let H = null;
 function startHost(play){
-  H = { code: partyCode(), peer: null, mode: 'kreis', players: {}, order: [], phase: 'lobby', set: [], q: 0, dots: {}, history: [], status: 'Verbinde …', play: !!play };
+  H = { code: partyCode(), peer: null, mode: 'nah', players: {}, order: [], phase: 'lobby', set: [], q: 0, dots: {}, history: [], status: 'Verbinde …', play: !!play };
   if(H.play){   // Handy-Party: der Gastgeber spielt auf seinem Handy selbst mit
     let n=''; try{ n=localStorage.getItem('pl-name')||''; }catch(e){}
     H.players.host = { name: n || 'Gastgeber', color: color(0), score: 0, km: 0, dsum: 0, dn: 0, conn: null, connected: true, joinedAt: 0, me: true };
@@ -920,11 +920,13 @@ function renderHostLobby(){
     <div id="hplayers">${hostPlayerList(false)}</div>
     ${catPicker()}
     ${diffPicker()}
-    ${getCat()==='karte'?`<p class="label">Wertung</p>
+    <p class="label">Wertung</p>
     <div class="modes">
-      <button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Ziel</b><span>1 Punkt, wenn dein Punkt im Kreis oder in der Zielfläche liegt.</span></button>
-      <button class="mode ${H.mode==='distanz'?'on':''}" data-mode="distanz"><b>Je näher, desto mehr</b><span>Bis zu 100 Punkte, je nach Abstand zum Ziel.</span></button>
-    </div>`:''}
+      <button class="mode ${H.mode==='nah'?'on':''}" data-mode="nah"><b>Wer am nächsten ist</b><span>Pro Frage bekommt nur der Nächste 1 Punkt.</span></button>
+      ${getCat()==='karte'?`<button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Ziel</b><span>1 Punkt für jeden, der im Kreis oder in der Zielfläche liegt.</span></button>
+      <button class="mode ${H.mode==='distanz'?'on':''}" data-mode="distanz"><b>Je näher, desto mehr</b><span>Bis zu 100 Punkte, je nach Abstand zum Ziel.</span></button>`
+      :`<button class="mode ${H.mode!=='nah'?'on':''}" data-mode="kreis"><b>Treffer</b><span>Punkte für jeden, der richtig oder nah genug liegt.</span></button>`}
+    </div>
     <button class="primary stick" id="hstart" ${H.order.length<(H.play?2:1)?'disabled':''}>Spiel starten</button>
     ${H.play?'<p class="muted small">Du spielst selbst mit und tippst nach jeder Auflösung auf „Nächste Frage“, wenn alle so weit sind.</p>':''}
     <button class="ghost" id="hback">Zurück zum Ein-Handy-Spiel</button>
@@ -934,7 +936,7 @@ function renderHostLobby(){
   const hn = document.getElementById('hname');
   if(hn) hn.onchange = hn.oninput = ()=>{ const v=hn.value.trim().slice(0,20); H.players.host.name = v || 'Gastgeber'; try{ if(v) localStorage.setItem('pl-name', v); }catch(e){} };
   document.getElementById('hstart').onclick = ()=>{
-    H.cat = getCat(); if(H.cat!=='karte') H.mode = 'kreis';
+    H.cat = getCat(); if(H.cat!=='karte' && H.mode==='distanz') H.mode = 'kreis';
     H.set = drawSet(); H.q = 0; H.history = []; H.tb = null;
     H.order.forEach(pid=>{ Object.assign(H.players[pid], {score:0, km:0, dsum:0, dn:0}); });
     broadcast(()=>({t:'mode', mode:H.mode}));
@@ -1006,19 +1008,29 @@ function hostReveal(){
     const q = RATEN[H.set[H.q].r];
     const res = H.order.filter(pid=>H.dots[pid]).map(pid=>{
       const a = H.dots[pid], j = judgeR(q, a), p = H.players[pid];
-      p.score += j.pts; if(j.dev!=null){ p.dsum += j.dev; p.dn++; }
-      return {pid, hit:j.hit, pts:j.pts, dev:j.dev, a};
+      if(j.dev!=null){ p.dsum += j.dev; p.dn++; }
+      // Für „Wer am nächsten ist“: Abstand (bei Größer/Kleiner zählt nur richtig/falsch)
+      return {pid, hit:j.hit, pts:j.pts, dev:j.dev, a, near: q.m==='gk' ? (j.hit?0:Infinity) : j.dev};
     });
-    return hostAfterReveal(res);
+    return hostAfterReveal(nearest(res));
   }
   const q = DATA.questions[H.set[H.q]];
   const res = H.order.filter(pid=>H.dots[pid]).map(pid=>{
     const d=H.dots[pid], j=judge(q, d.x, d.y), p=H.players[pid];
     const pts = ptsFor(H.mode, j, q), km = j.km;
-    p.score += pts; p.km += km;
-    return {pid, hit: j.hit, km, pts};
+    p.km += km;
+    return {pid, hit: j.hit, km, pts, near: j.d};
   });
-  hostAfterReveal(res);
+  hostAfterReveal(nearest(res));
+}
+/* Punkte vergeben. Modus „nah“: Nur wer am nächsten dran ist, bekommt 1 Punkt (bei Gleichstand alle Nächsten). */
+function nearest(res){
+  if(H.mode==='nah' && res.length){
+    const best = Math.min(...res.map(r=>r.near));
+    for(const r of res){ const win = isFinite(best) && r.near <= best + 1e-9; r.pts = win ? 1 : 0; r.hit = win; }
+  }
+  for(const r of res){ H.players[r.pid].score += r.pts; delete r.near; }
+  return res;
 }
 function hostAfterReveal(res){
   H.history[H.q] = res; H.phase='reveal';
@@ -1120,7 +1132,7 @@ function endData(){
     const best = H.tb.res[0].dev; winners = H.tb.res.filter(r=>r.dev===best).map(r=>H.players[r.pid].name);
     tb = {r:H.tb.r, rows:H.tb.res.map(r=>({n:H.players[r.pid].name, c:H.players[r.pid].color, a:r.a, dev:r.a?r.dev:null, pts:null}))};
   }
-  const label = cat==='karte' ? (H.mode==='kreis'?'Karte · Treffer im Ziel':'Karte · Je näher, desto mehr') : CATS[cat].name;
+  const label = (cat==='karte' ? (H.mode==='kreis'?'Karte · Treffer im Ziel':H.mode==='distanz'?'Karte · Je näher, desto mehr':'Karte') : CATS[cat].name) + (H.mode==='nah' ? ' · Wer am nächsten ist' : '');
   return {cat, sec, label, winners, tb, rows:rk.map(r=>({n:r.name, c:r.color, s:r.score, v:secv(r), pid:r.pid}))};
 }
 function endMsg(pid){ const d=endData(); const i=d.rows.findIndex(r=>r.pid===pid); return {t:'end', rank:i+1, of:d.rows.length, score:H.players[pid].score, mode:H.mode, winner:d.winners.join(' und '), win:d.winners.includes(H.players[pid].name), sec:d.sec, label:d.label, tb:d.tb, rows:d.rows.map(({pid,...r})=>r)}; }
@@ -1250,7 +1262,7 @@ function renderPlayer(){
     app.innerHTML = playerShell(`<div class="cover"><h2>${isR(P.it)?'Antwort abgegeben':'Punkt gesetzt'}</h2><p class="muted">Warte auf die anderen. Die Auflösung kommt gleich auch hier aufs Handy.</p></div>`); return; }
   if(P.state==='result' || P.state==='missed'){ const r=P.last||{};
     const head = P.state==='missed' ? `<div class="bigname" style="color:var(--bad)">Zu spät</div><p class="muted">Diese Runde lief ohne deinen Punkt.</p>`
-      : `<div class="bigname" style="color:${r.hit?'var(--ok)':'var(--bad)'}">${r.hit?'Treffer!':'Daneben'}</div><p class="muted">${r.km} km vom Ziel · +${r.pts} ${ptsLabel(r.mode)} · Gesamt: ${fmtPts(r.score)}</p>`;
+      : `<div class="bigname" style="color:${r.hit?'var(--ok)':'var(--bad)'}">${r.hit?(r.mode==='nah'?'Am nächsten dran!':'Treffer!'):'Daneben'}</div><p class="muted">${r.km} km vom Ziel · +${r.pts} ${ptsLabel(r.mode)} · Gesamt: ${fmtPts(r.score)}</p>`;
     const rv = r.rev;
     if(rv && isR(rv.it) && RATEN[rv.it.r]){
       const q = RATEN[rv.it.r];
