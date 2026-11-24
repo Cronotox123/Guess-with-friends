@@ -255,7 +255,7 @@ function renderHostLobby(){
     ${diffPicker()}
     <p class="label">Wertung</p>
     <div class="modes">
-      <button class="mode ${H.mode==='nah'?'on':''}" data-mode="nah"><b>Wer am nächsten ist</b><span>Pro Frage bekommt nur der Nächste 1 Punkt.</span></button>
+      <button class="mode ${H.mode==='nah'?'on':''}" data-mode="nah"><b>Treffer, sonst der Nächste</b><span>1 Punkt für jeden im Ziel. Liegt keiner im Ziel, bekommt der Nächste den Punkt.</span></button>
       ${getCat()==='karte'?`<button class="mode ${H.mode==='kreis'?'on':''}" data-mode="kreis"><b>Treffer im Ziel</b><span>1 Punkt für jeden, der im Kreis oder in der Zielfläche liegt.</span></button>
       <button class="mode ${H.mode==='distanz'?'on':''}" data-mode="distanz"><b>Je näher, desto mehr</b><span>Bis zu 100 Punkte, je nach Abstand zum Ziel.</span></button>`
       :`<button class="mode ${H.mode!=='nah'?'on':''}" data-mode="kreis"><b>Treffer</b><span>Punkte für jeden, der richtig oder nah genug liegt.</span></button>`}
@@ -356,11 +356,15 @@ function hostReveal(){
   });
   hostAfterReveal(nearest(res));
 }
-/* Punkte vergeben. Modus „nah“: Nur wer am nächsten dran ist, bekommt 1 Punkt (bei Gleichstand alle Nächsten). */
+/* Punkte vergeben. Modus „nah“: Wer im Ziel liegt, bekommt wie gewohnt den Punkt.
+   Liegt keiner im Ziel, bekommt der Nächste 1 Punkt (bei Gleichstand alle Nächsten). */
 function nearest(res){
   if(H.mode==='nah' && res.length){
-    const best = Math.min(...res.map(r=>r.near));
-    for(const r of res){ const win = isFinite(best) && r.near <= best + 1e-9; r.pts = win ? 1 : 0; r.hit = win; }
+    if(res.some(r=>r.hit)){ for(const r of res){ if(!('dev' in r)) r.pts = r.hit ? 1 : 0; } }
+    else {
+      const best = Math.min(...res.map(r=>r.near));
+      for(const r of res){ const win = isFinite(best) && r.near <= best + 1e-9; r.pts = win ? 1 : 0; r.hit = win; r.close = win; }
+    }
   }
   for(const r of res){ H.players[r.pid].score += r.pts; delete r.near; }
   return res;
@@ -465,7 +469,7 @@ function endData(){
     const best = H.tb.res[0].dev; winners = H.tb.res.filter(r=>r.dev===best).map(r=>H.players[r.pid].name);
     tb = {r:H.tb.r, rows:H.tb.res.map(r=>({n:H.players[r.pid].name, c:H.players[r.pid].color, a:r.a, dev:r.a?r.dev:null, pts:null}))};
   }
-  const label = (cat==='karte' ? (H.mode==='kreis'?'Karte · Treffer im Ziel':H.mode==='distanz'?'Karte · Je näher, desto mehr':'Karte') : CATS[cat].name) + (H.mode==='nah' ? ' · Wer am nächsten ist' : '');
+  const label = (cat==='karte' ? (H.mode==='kreis'?'Karte · Treffer im Ziel':H.mode==='distanz'?'Karte · Je näher, desto mehr':'Karte') : CATS[cat].name) + (H.mode==='nah' ? ' · Treffer, sonst der Nächste' : '');
   return {cat, sec, label, winners, tb, rows:rk.map(r=>({n:r.name, c:r.color, s:r.score, v:secv(r), pid:r.pid}))};
 }
 function endMsg(pid){ const d=endData(); const i=d.rows.findIndex(r=>r.pid===pid); return {t:'end', rank:i+1, of:d.rows.length, score:H.players[pid].score, mode:H.mode, winner:d.winners.join(' und '), win:d.winners.includes(H.players[pid].name), sec:d.sec, label:d.label, tb:d.tb, rows:d.rows.map(({pid,...r})=>r)}; }
@@ -595,7 +599,7 @@ function renderPlayer(){
     app.innerHTML = playerShell(`<div class="cover"><h2>${isR(P.it)?'Antwort abgegeben':'Punkt gesetzt'}</h2><p class="muted">Warte auf die anderen. Die Auflösung kommt gleich auch hier aufs Handy.</p></div>`); return; }
   if(P.state==='result' || P.state==='missed'){ const r=P.last||{};
     const head = P.state==='missed' ? `<div class="bigname" style="color:var(--bad)">Zu spät</div><p class="muted">Diese Runde lief ohne deinen Punkt.</p>`
-      : `<div class="bigname" style="color:${r.hit?'var(--ok)':'var(--bad)'}">${r.hit?(r.mode==='nah'?'Am nächsten dran!':'Treffer!'):'Daneben'}</div><p class="muted">${r.km} km vom Ziel · +${r.pts} ${ptsLabel(r.mode)} · Gesamt: ${fmtPts(r.score)}</p>`;
+      : `<div class="bigname" style="color:${r.hit?'var(--ok)':'var(--bad)'}">${r.hit?(r.close?'Am nächsten dran!':'Treffer!'):'Daneben'}</div><p class="muted">${r.km} km vom Ziel · +${r.pts} ${ptsLabel(r.mode)} · Gesamt: ${fmtPts(r.score)}</p>`;
     const rv = r.rev;
     if(rv && isR(rv.it) && RATEN[rv.it.r]){
       const q = RATEN[rv.it.r];
