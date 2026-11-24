@@ -1,0 +1,32 @@
+# Einzelwerte, jeweils wörtlich geprüft
+Ulmer Münster Höhe;161,5 m;https://www.skyscrapercenter.com/building/ulmer-munster/9537
+Kölner Dom Höhe;157 m (157,22 Südturm);https://www.deutschland.de/de/topic/kultur/koelner-dom-geschichte-bedeutung-architektur
+Kölner Dom Stufen zur Plattform;533;https://www.cologne-tourism.com/see-experience/cologne-cathedral/tower-ascent
+Kölner Dom Plattform Höhe;97 m;dito
+Berliner Fernsehturm Höhe;368 m;https://www.visitberlin.de/de/berliner-fernsehturm
+Berliner Fernsehturm Restaurant;207 m;dito
+Berliner Fernsehturm Stufen;986;https://en.wikipedia.org/wiki/Berlin_TV_Tower
+Eiffelturm Höhe;330 m (seit 15.3.2022);https://www.toureiffel.paris/en/news/history-and-culture/300-330-meters-story-towers-height
+Burj Khalifa;828 m;https://en.wikipedia.org/wiki/Pinnacle_height
+Einwohner DE 31.12.2024;83577140;https://www.destatis.de/EN/Themes/Society-Environment/Population/Current-Population/Tables/census-sex-and-citizenship-2024-basis-2022.html
+Lebendgeborene DE 2025;654241;https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Geburten/Tabellen/lebendgeborene-insgesamt.html
+Geburtenziffer DE 2024;1,35;https://www.destatis.de/EN/Press/2025/07/PE25_259_12.html
+Geburtenziffer Niedersachsen 2024;1,42;dito
+Geburtenziffer Berlin 2024;1,21;dito
+Wiesn 2025 Besucher;6,5 Mio;https://www.muenchen.de/veranstaltungen/oktoberfest/aktuell/wiesn-bilanz-2025-zahlen-und-fakten
+Wiesn 2025 Maß;rund 6,5 Mio (2024: 7 Mio);dito
+Wiesn 2024 Besucher;6,7 Mio;dito
+FRA Passagiere 2024;rund 61,6 Mio;https://www.fraport.com/en/newsroom/press-releases/2025/traffic-figures/fraport-traffic-figures-2024--frankfurt-remains-the-leading-airp.html
+Deutschlandticket 2026;63 €;https://www.zdfheute.de/politik/deutschlandticket-dticket-verkehr-nahverkehr-preis-erhoehung-100.html
+Deutschlandticket 2025;58 €;https://int.bahn.de/en/faq/deutschlandticket-cost-new
+Salvator Mundi;450,3 Mio $ (Zuschlag 400 Mio);https://news.artnet.com/market/last-known-leonardo-da-vinci-painting-just-sold-1149032
+Mercedes 300 SLR Uhlenhaut;135 Mio €;https://rmsothebys.com/media-center/press-releases/rm-sotheby-s-announces-the-sale-of-the-most-valuable-car-in-the-world-the-1955-mercedes-benz-300-slr-uhlenhaut-coup%C3%A9-is-sold-for-135-000-000
+Ford Model T 1908;850 $; Okt 1922 unter 300 $;https://www.thehenryford.org/collections/explore/articles/fords-model-t
+Super Anfang 1999;unter 79 Cent (1,54 DM);https://www.adac.de/verkehr/tanken-kraftstoff-antrieb/kraftstoffpreisentwicklung/
+Big Mac USA;580 kcal;https://www.mcdonalds.com/us/en-us/product/big-mac.html
+Whopper;670 kcal (270 g);https://en.wikipedia.org/wiki/Whopper
+Coca-Cola;42 kcal/100 ml;https://www.coca-cola.com/ch/de/brands/coca-cola
+Red Bull;46 kcal/100 ml;https://world.openfoodfacts.org/product/90376542/red-bull-energy-drink
+Nutella;539 kcal/100 g, Portion 15 g;https://world.openfoodfacts.org/product/4008400402222
+Haribo Goldbären;343 kcal/100 g;https://world.openfoodfacts.org/product/4001686301326
+Banane;89 kcal/100 g;USDA PDF (givewell)

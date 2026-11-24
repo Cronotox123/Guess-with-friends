@@ -1,0 +1,41 @@
+# Bodenerhebungen, Höhe m ü. NN – Statistisches Jahrbuch für die BRD 1959 S.28 (OCR) https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1959/pdf/514402342_0028.pdf
+Zugspitze;2963
+Watzmann;2713
+Hochvogel;2593
+Nebelhorn;2224
+Alpspitze;2628
+Herzogstand;1731
+Wendelstein;1838
+Untersberg;1973
+Feldberg (Schwarzwald);1495
+Belchen;1416
+Schauinsland;1284
+Hornisgrinde;1164
+Großer Arber;1456
+Rachel;1453
+Lusen;1373
+Großer Feldberg (Taunus);880
+Kahler Asten;841
+Erbeskopf;816
+Hohe Acht;747
+Wasserkuppe;950
+Kreuzberg (Rhön);928
+Hoher Meißner;750
+Brocken;1142
+Wurmberg;971
+Fichtelberg;1214
+Schneeberg (Fichtelgebirge);1051
+Ochsenkopf;1024
+Großer Beerberg;982
+Großer Inselsberg;916
+Kyffhäuser;457
+Bastei;315
+Drachenfels;321
+Hohenzollern;855
+Hesselberg;689
+Donnersberg;687
+Kalmit;673
+Melibokus;517
+Wilseder Berg;169
+Bungsberg;168
+Helgoland (Insel);56

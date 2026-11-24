@@ -1,0 +1,11 @@
+# Bundesland;Einwohner 1.1.2026 (vorläufig);Ausländeranteil % – Quelle: Statistik Austria https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+Österreich;9219113;20,5
+Burgenland;301674;11,7
+Kärnten;570167;14,0
+Niederösterreich;1730094;12,7
+Oberösterreich;1537669;16,6
+Salzburg;573748;21,1
+Steiermark;1272195;14,8
+Tirol;779174;19,3
+Vorarlberg;412356;21,0
+Wien;2042036;37,0

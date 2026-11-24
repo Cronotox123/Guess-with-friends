@@ -1,0 +1,19 @@
+# Bundesland;Einwohner 31.12.2025;Einw./km²  – Quelle: UBA/Destatis https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+# Fläche km² 31.12.2024 – Quelle: Destatis https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Land-Use/Tables/areas-laender.html
+Berlin;3700577;4153;891
+Hamburg;1869473;2476;755
+Bremen;706915;1683;420
+Nordrhein-Westfalen;17986214;527;34112
+Saarland;1007342;392;2572
+Baden-Württemberg;11238761;314;35748
+Hessen;6278594;297;21116
+Sachsen;4026599;218;18450
+Rheinland-Pfalz;4123022;208;19858
+Bayern;13245503;188;70542
+Schleswig-Holstein;2958519;187;15804
+Niedersachsen;8000826;168;47710
+Thüringen;2078946;128;16202
+Sachsen-Anhalt;2120252;103;20555
+Brandenburg;2551889;86;29654
+Mecklenburg-Vorpommern;1573685;68;23294
+Deutschland;83467117;233;357683

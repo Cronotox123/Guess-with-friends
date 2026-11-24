@@ -1,0 +1,38 @@
+# Länge in Bayern km – LfU Bayern, 100 längste Fließgewässer (Stand 2016) https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+Main;407,52
+Donau;380,84
+Isar;270,53
+Inn;218,76
+Altmühl;196,19
+Lech;166,46
+Fränkische Saale;140,18
+Iller;139,47
+Wertach;137,44
+Paar;134,42
+Wörnitz;131,81
+Pegnitz;113,46
+Rott;112,16
+Regen;107,55
+Amper;105,49
+Loisach;98,70
+Naab;97,77
+Zusam;97,46
+Schmutter;95,77
+Große Laber;88,19
+Vils;87,64
+Aisch;84,18
+Ilm;83,31
+Isen;81,02
+Mindel;80,82
+Fränkische Rezat;78,84
+Wiesent;78,48
+Kammel;72,15
+Roter Main;71,95
+Abens;71,60
+Ammer;71,37
+Wern;71,48
+Alz;63,54
+Salzach;59,57
+Mangfall;58,25
+Günz;54,88
+Würm;39,56

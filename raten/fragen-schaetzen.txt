@@ -1,0 +1,108 @@
+# Zahlen schätzen – Nr;Stufe;Frage;Antwort;Quelle
+1;leicht;Wie viele Einwohner hatte Berlin am 31.12.2023?;3.782.202;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+2;leicht;Wie viele Einwohner hatte Hamburg am 31.12.2023?;1.910.160;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+3;leicht;Wie viele Einwohner hatte München am 31.12.2023?;1.510.378;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+4;leicht;Wie viele Einwohner hatte Köln am 31.12.2023?;1.087.353;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+5;leicht;Wie viele Einwohner hatte Frankfurt am Main am 31.12.2023?;775.790;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+6;leicht;Wie viele Einwohner hatte Nordrhein-Westfalen am 31.12.2025?;17.986.214;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+7;leicht;Wie viele Einwohner hatte Bayern am 31.12.2025?;13.245.503;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+8;leicht;Wie groß ist Deutschland in km²?;357.683 km²;https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Land-Use/Tables/areas-laender.html
+9;leicht;Wie viele Menschen lebten am 1.1.2026 in Österreich?;9.219.113 (vorläufig);https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+10;leicht;Wie viele Menschen lebten am 1.1.2026 in Wien?;2.042.036 (vorläufig);https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+11;leicht;Wie hoch ist der höchste Turm des Ulmer Münster?;161,5 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+12;leicht;Wie hoch ist der höchste Turm des Kölner Doms?;157,2 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+13;leicht;Wie hoch ist die Zugspitze?;2.962 m;https://en.wikipedia.org/wiki/List_of_mountains_in_Germany
+14;leicht;Wie viele Menschen lebten am 31.12.2024 in Deutschland?;83.577.140;https://www.destatis.de/EN/Themes/Society-Environment/Population/Current-Population/Tables/census-sex-and-citizenship-2024-basis-2022.html
+15;leicht;Wie viele Besucher kamen 2025 auf das Münchner Oktoberfest?;6,5 Millionen;https://www.muenchen.de/veranstaltungen/oktoberfest/aktuell/wiesn-bilanz-2025-zahlen-und-fakten
+16;leicht;Wie hoch ist der Berliner Fernsehturm?;368 m;https://www.visitberlin.de/de/berliner-fernsehturm
+17;leicht;Wie hoch ist der Eiffelturm (seit 2022)?;330 m;https://www.toureiffel.paris/en/news/history-and-culture/300-330-meters-story-towers-height
+18;leicht;Wie hoch ist das Burj Khalifa in Dubai?;828 m;https://en.wikipedia.org/wiki/Pinnacle_height
+19;mittel;Wie viele Einwohner hatte Düsseldorf am 31.12.2023?;631.217;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+20;mittel;Wie viele Einwohner hatte Leipzig am 31.12.2023?;619.879;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+21;mittel;Wie viele Einwohner hatte Dortmund am 31.12.2023?;595.471;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+22;mittel;Wie viele Einwohner hatte Essen am 31.12.2023?;586.608;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+23;mittel;Wie viele Einwohner hatte Bremen am 31.12.2023?;577.026;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+24;mittel;Wie viele Einwohner hatte Dresden am 31.12.2023?;566.222;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+25;mittel;Wie viele Einwohner hatte Hannover am 31.12.2023?;548.186;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+26;mittel;Wie viele Einwohner hatte Nürnberg am 31.12.2023?;526.091;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+27;mittel;Wie viele Einwohner hatte Duisburg am 31.12.2023?;503.707;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+28;mittel;Wie viele Einwohner hatte Bonn am 31.12.2023?;335.789;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+29;mittel;Wie viele Einwohner hatte Münster am 31.12.2023?;322.904;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+30;mittel;Wie viele Einwohner hatte Karlsruhe am 31.12.2023?;309.964;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+31;mittel;Wie viele Einwohner hatte Augsburg am 31.12.2023?;303.150;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+32;mittel;Wie viele Einwohner hatte Mainz am 31.12.2023?;222.889;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+33;mittel;Wie viele Einwohner hatte Kiel am 31.12.2023?;248.873;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+34;mittel;Wie viele Einwohner hatte Freiburg im Breisgau am 31.12.2023?;237.244;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+35;mittel;Wie viele Einwohner hatte Aachen am 31.12.2023?;252.769;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+36;mittel;Wie groß ist die Stadtfläche von Berlin in km²?;891,12 km²;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+37;mittel;Wie groß ist die Stadtfläche von Hamburg in km²?;755,09 km²;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+38;mittel;Wie viele Einwohner hatte Baden-Württemberg am 31.12.2025?;11.238.761;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+39;mittel;Wie viele Einwohner hatte Niedersachsen am 31.12.2025?;8.000.826;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+40;mittel;Wie viele Einwohner hatte Hessen am 31.12.2025?;6.278.594;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+41;mittel;Wie viele Einwohner hatte Sachsen am 31.12.2025?;4.026.599;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+42;mittel;Wie viele Einwohner hatte Saarland am 31.12.2025?;1.007.342;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+43;mittel;Wie groß ist Bayern in km²?;70.542 km²;https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Land-Use/Tables/areas-laender.html
+44;mittel;Wie groß ist Niedersachsen in km²?;47.710 km²;https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Land-Use/Tables/areas-laender.html
+45;mittel;Wie groß ist Saarland in km²?;2.572 km²;https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Land-Use/Tables/areas-laender.html
+46;mittel;Wie viele Einwohner leben in Deutschland durchschnittlich auf einem km² (Stand 31.12.2025)?;233;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+47;mittel;Wie viele Menschen lebten am 1.1.2026 im Bundesland Tirol?;779.174 (vorläufig);https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+48;mittel;Wie viele Menschen lebten am 1.1.2026 im Bundesland Steiermark?;1.272.195 (vorläufig);https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+49;mittel;Wie viel Prozent der Menschen in Wien hatten am 1.1.2026 keine österreichische Staatsbürgerschaft?;37,0 %;https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+50;mittel;Wie schwer war ein in den USA 2024 geschlachtetes Rind im Durchschnitt (Lebendgewicht, in kg)?;1.399 Pfund ≈ 635 kg;https://esmis.nal.usda.gov/sites/default/release-files/r207tp32d/k930dv029/6w9267982/lsan0425.txt
+51;mittel;Wie schwer war ein in den USA 2024 geschlachtetes Schwein im Durchschnitt (Lebendgewicht, in kg)?;288 Pfund ≈ 131 kg;https://esmis.nal.usda.gov/sites/default/release-files/r207tp32d/k930dv029/6w9267982/lsan0425.txt
+52;mittel;Wie viele Rinder wurden 2024 in den USA gewerblich geschlachtet?;31,8 Millionen;https://esmis.nal.usda.gov/sites/default/release-files/r207tp32d/k930dv029/6w9267982/lsan0425.txt
+53;mittel;Wie viele Schweine wurden 2024 in den USA gewerblich geschlachtet?;130 Millionen;https://esmis.nal.usda.gov/sites/default/release-files/r207tp32d/k930dv029/6w9267982/lsan0425.txt
+54;mittel;Wie hoch ist der höchste Turm des Stephansdoms in Wien?;136,4 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+55;mittel;Wie hoch ist der höchste Turm des Petersdoms in Rom?;136,6 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+56;mittel;Wie hoch ist der höchste Turm des Freiburger Münster?;116,0 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+57;mittel;Wie hoch ist der höchste Turm des Hamburger Michels (St. Michaelis)?;132,0 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+58;mittel;Wie hoch ist der höchste Turm der Münchner Frauenkirche?;98,6 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+59;mittel;Wie hoch ist der höchste Turm der Sagrada Família in Barcelona?;172,5 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+60;mittel;Wie hoch ist die Mittelspitze des Watzmann?;2.713 m;https://en.wikipedia.org/wiki/List_of_mountains_in_Germany
+61;mittel;Wie viele Kilometer fließt die Isar durch Bayern?;270,53 km;https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+62;mittel;Wie viele Kilometer fließt der Main durch Bayern?;407,52 km;https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+63;mittel;Wie viele Kilometer fließt die Donau durch Bayern?;380,84 km;https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+64;mittel;Wie viele Kinder wurden 2025 in Deutschland lebend geboren?;654.241;https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Geburten/Tabellen/lebendgeborene-insgesamt.html
+65;mittel;Wie viele Maß Bier wurden auf dem Oktoberfest 2024 ausgeschenkt?;7 Millionen;https://www.muenchen.de/veranstaltungen/oktoberfest/aktuell/wiesn-bilanz-2025-zahlen-und-fakten
+66;mittel;Wie viele Passagiere zählte der Frankfurter Flughafen 2024?;rund 61,6 Millionen;https://www.fraport.com/en/newsroom/press-releases/2025/traffic-figures/fraport-traffic-figures-2024--frankfurt-remains-the-leading-airp.html
+67;mittel;Wie viele Stufen führen im Kölner Dom hinauf zur Aussichtsplattform?;533;https://www.cologne-tourism.com/see-experience/cologne-cathedral/tower-ascent
+68;mittel;In welcher Höhe liegt das Restaurant im Berliner Fernsehturm?;207 m;https://www.visitberlin.de/de/berliner-fernsehturm
+69;schwer;Wie viele Einwohner hatte Bielefeld am 31.12.2023?;338.410;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+70;schwer;Wie viele Einwohner hatte Erlangen am 31.12.2023?;117.806;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+71;schwer;Wie viele Einwohner hatte Jena am 31.12.2023?;110.791;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+72;schwer;Wie viele Einwohner hatte Fürth am 31.12.2023?;132.032;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+73;schwer;Wie viele Einwohner hatte Offenbach am Main am 31.12.2023?;135.490;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+74;schwer;Wie viele Einwohner hatte Herne am 31.12.2023?;157.896;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+75;schwer;Wie viele Einwohner hatte Ingolstadt am 31.12.2023?;142.308;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+76;schwer;Wie viele Einwohner hatte Göttingen am 31.12.2023?;120.261;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+77;schwer;Wie viele Einwohner hatte Cottbus am 31.12.2023?;100.010;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+78;schwer;Wie groß ist die Stadtfläche von München in km²?;310,70 km²;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+79;schwer;Wie groß ist die Stadtfläche von Köln in km²?;405,02 km²;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+80;schwer;Wie groß ist die Stadtfläche von Offenbach am Main in km²?;44,88 km²;https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+81;schwer;Wie viele Einwohner hatte Bremen am 31.12.2025?;706.915;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+82;schwer;Wie viele Einwohner hatte Thüringen am 31.12.2025?;2.078.946;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+83;schwer;Wie viele Einwohner hatte Mecklenburg-Vorpommern am 31.12.2025?;1.573.685;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+84;schwer;Wie viele Einwohner hatte Schleswig-Holstein am 31.12.2025?;2.958.519;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+85;schwer;Wie viele Einwohner hatte Rheinland-Pfalz am 31.12.2025?;4.123.022;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+86;schwer;Wie groß ist Bremen in km²?;420 km²;https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Land-Use/Tables/areas-laender.html
+87;schwer;Wie groß ist Brandenburg in km²?;29.654 km²;https://www.destatis.de/EN/Themes/Economic-Sectors-Enterprises/Agriculture-Forestry-Fisheries/Land-Use/Tables/areas-laender.html
+88;schwer;Wie viele Einwohner leben in Berlin durchschnittlich auf einem km² (Stand 31.12.2025)?;4.153;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+89;schwer;Wie viele Einwohner leben in Mecklenburg-Vorpommern durchschnittlich auf einem km² (Stand 31.12.2025)?;68;https://www.umweltbundesamt.de/system/files/medien/384/bilder/dateien/4_Tab_Flaeche-Bevoelkerung_2026-08-06.pdf
+90;schwer;Wie viele Menschen lebten am 1.1.2026 im Bundesland Salzburg?;573.748 (vorläufig);https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+91;schwer;Wie viele Menschen lebten am 1.1.2026 im Bundesland Burgenland?;301.674 (vorläufig);https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+92;schwer;Wie viele Menschen lebten am 1.1.2026 im Bundesland Vorarlberg?;412.356 (vorläufig);https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+93;schwer;Wie viel Prozent der Menschen in Österreich hatten am 1.1.2026 keine österreichische Staatsbürgerschaft?;20,5 %;https://www.statistik.at/fileadmin/announcement/2026/02/20260209Bevoelkerung1.1.2026.pdf
+94;schwer;Wie schwer war ein in den USA 2024 geschlachtetes Schaf oder Lamm im Durchschnitt (Lebendgewicht, in kg)?;119 Pfund ≈ 54 kg;https://esmis.nal.usda.gov/sites/default/release-files/r207tp32d/k930dv029/6w9267982/lsan0425.txt
+95;schwer;Wie schwer war ein in den USA 2024 geschlachtetes Kalb im Durchschnitt (Lebendgewicht, in kg)?;323 Pfund ≈ 147 kg;https://esmis.nal.usda.gov/sites/default/release-files/r207tp32d/k930dv029/6w9267982/lsan0425.txt
+96;schwer;Wie viel wog das Fleisch (Schlachtgewicht) eines in den USA 2024 geschlachteten Bullen im Schnitt (in kg)?;899 Pfund ≈ 408 kg;https://esmis.nal.usda.gov/sites/default/release-files/r207tp32d/k930dv029/6w9267982/lsan0425.txt
+97;schwer;Wie hoch ist der höchste Turm des Berliner Doms?;98,0 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+98;schwer;Wie hoch ist der höchste Turm des Regensburger Doms?;105,0 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+99;schwer;Wie hoch ist der höchste Turm des Straßburger Münster?;142,0 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+100;schwer;Wie hoch ist der höchste Turm des Frankfurter Kaiserdoms?;95,1 m;https://en.wikipedia.org/wiki/List_of_tallest_churches
+101;schwer;Wie hoch ist der Hochkalter in den Berchtesgadener Alpen?;2.607 m;https://en.wikipedia.org/wiki/List_of_mountains_in_Germany
+102;schwer;Wie viele Kilometer fließt der Inn durch Bayern?;218,76 km;https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+103;schwer;Wie viele Kilometer fließt die Altmühl durch Bayern?;196,19 km;https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+104;schwer;Wie viele Kilometer fließt der Lech durch Bayern?;166,46 km;https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+105;schwer;Wie viele Kilometer fließt die Pegnitz durch Bayern?;113,46 km;https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+106;schwer;Wie viele Kilometer fließt die Salzach durch Bayern?;59,57 km;https://www.lfu.bayern.de/wasser/gewaesserverzeichnisse/doc/tab_gew_name_100_abc.pdf
+107;schwer;Wie viele Stufen hat die Treppe im Berliner Fernsehturm?;986;https://en.wikipedia.org/wiki/Berlin_TV_Tower

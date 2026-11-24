@@ -1,0 +1,127 @@
+===== PRÜFLISTE: Zahlen schätzen (107 Fragen) =====
+AUFGABE (bitte genau so bearbeiten):
+Du prüfst Quizfragen für ein Partyspiel. Bei jeder Frage muss man eine Zahl schätzen. Volle Punkte gibt es bis 5 % daneben, Teilpunkte bis 20 %. Gespielt wird von deutschsprachigen Erwachsenen ohne Spezialwissen, auf dem Handy, ohne Internet-Suche. Die Antworten sind mit Quellen belegt; du musst sie nicht nachprüfen.
+
+Bewerte JEDE Frage mit genau einer Stufe:
+- leicht = fast jeder hat eine gute Vorstellung und liegt nah dran
+- mittel = viele liegen ungefähr richtig, manche weit daneben
+- schwer = kaum jemand weiß es, aber man kann sinnvoll schätzen und denkt beim Auflösen „interessant!“
+- dumm = NUR wenn die Frage unklar oder missverständlich ist, man nicht sinnvoll schätzen kann oder sie völlig langweilig ist
+
+KEIN Grund für „dumm“: ähnliche Fragen gibt es schon, die Zahl ist eher unbekannt, die Quelle ist ausländisch oder älter. Solche Fragen bekommen leicht, mittel oder schwer, und den Hinweis kannst du in den Grund schreiben.
+
+Antworte NUR mit einer Zeile pro Frage, ohne Einleitung, ohne Tabelle, in diesem Format:
+Nr;Stufe;kurzer Grund (max. 10 Wörter)
+Beispiel:
+17;mittel;bekannt, aber Größenordnung schwer
+18;dumm;Frage lässt zwei Deutungen zu
+
+Wenn bei „dumm“ eine bessere Formulierung naheliegt, schreib sie als Grund dazu. Lass keine Nummer aus. Format jeder Zeile: Nr | vorgeschlagene Stufe | Frage | Antwort
+
+1 | leicht | Wie viele Einwohner hatte Berlin am 31.12.2023? | 3.782.202
+2 | leicht | Wie viele Einwohner hatte Hamburg am 31.12.2023? | 1.910.160
+3 | leicht | Wie viele Einwohner hatte München am 31.12.2023? | 1.510.378
+4 | leicht | Wie viele Einwohner hatte Köln am 31.12.2023? | 1.087.353
+5 | leicht | Wie viele Einwohner hatte Frankfurt am Main am 31.12.2023? | 775.790
+6 | leicht | Wie viele Einwohner hatte Nordrhein-Westfalen am 31.12.2025? | 17.986.214
+7 | leicht | Wie viele Einwohner hatte Bayern am 31.12.2025? | 13.245.503
+8 | leicht | Wie groß ist Deutschland in km²? | 357.683 km²
+9 | leicht | Wie viele Menschen lebten am 1.1.2026 in Österreich? | 9.219.113 (vorläufig)
+10 | leicht | Wie viele Menschen lebten am 1.1.2026 in Wien? | 2.042.036 (vorläufig)
+11 | leicht | Wie hoch ist der höchste Turm des Ulmer Münster? | 161,5 m
+12 | leicht | Wie hoch ist der höchste Turm des Kölner Doms? | 157,2 m
+13 | leicht | Wie hoch ist die Zugspitze? | 2.962 m
+14 | leicht | Wie viele Menschen lebten am 31.12.2024 in Deutschland? | 83.577.140
+15 | leicht | Wie viele Besucher kamen 2025 auf das Münchner Oktoberfest? | 6,5 Millionen
+16 | leicht | Wie hoch ist der Berliner Fernsehturm? | 368 m
+17 | leicht | Wie hoch ist der Eiffelturm (seit 2022)? | 330 m
+18 | leicht | Wie hoch ist das Burj Khalifa in Dubai? | 828 m
+19 | mittel | Wie viele Einwohner hatte Düsseldorf am 31.12.2023? | 631.217
+20 | mittel | Wie viele Einwohner hatte Leipzig am 31.12.2023? | 619.879
+21 | mittel | Wie viele Einwohner hatte Dortmund am 31.12.2023? | 595.471
+22 | mittel | Wie viele Einwohner hatte Essen am 31.12.2023? | 586.608
+23 | mittel | Wie viele Einwohner hatte Bremen am 31.12.2023? | 577.026
+24 | mittel | Wie viele Einwohner hatte Dresden am 31.12.2023? | 566.222
+25 | mittel | Wie viele Einwohner hatte Hannover am 31.12.2023? | 548.186
+26 | mittel | Wie viele Einwohner hatte Nürnberg am 31.12.2023? | 526.091
+27 | mittel | Wie viele Einwohner hatte Duisburg am 31.12.2023? | 503.707
+28 | mittel | Wie viele Einwohner hatte Bonn am 31.12.2023? | 335.789
+29 | mittel | Wie viele Einwohner hatte Münster am 31.12.2023? | 322.904
+30 | mittel | Wie viele Einwohner hatte Karlsruhe am 31.12.2023? | 309.964
+31 | mittel | Wie viele Einwohner hatte Augsburg am 31.12.2023? | 303.150
+32 | mittel | Wie viele Einwohner hatte Mainz am 31.12.2023? | 222.889
+33 | mittel | Wie viele Einwohner hatte Kiel am 31.12.2023? | 248.873
+34 | mittel | Wie viele Einwohner hatte Freiburg im Breisgau am 31.12.2023? | 237.244
+35 | mittel | Wie viele Einwohner hatte Aachen am 31.12.2023? | 252.769
+36 | mittel | Wie groß ist die Stadtfläche von Berlin in km²? | 891,12 km²
+37 | mittel | Wie groß ist die Stadtfläche von Hamburg in km²? | 755,09 km²
+38 | mittel | Wie viele Einwohner hatte Baden-Württemberg am 31.12.2025? | 11.238.761
+39 | mittel | Wie viele Einwohner hatte Niedersachsen am 31.12.2025? | 8.000.826
+40 | mittel | Wie viele Einwohner hatte Hessen am 31.12.2025? | 6.278.594
+41 | mittel | Wie viele Einwohner hatte Sachsen am 31.12.2025? | 4.026.599
+42 | mittel | Wie viele Einwohner hatte Saarland am 31.12.2025? | 1.007.342
+43 | mittel | Wie groß ist Bayern in km²? | 70.542 km²
+44 | mittel | Wie groß ist Niedersachsen in km²? | 47.710 km²
+45 | mittel | Wie groß ist Saarland in km²? | 2.572 km²
+46 | mittel | Wie viele Einwohner leben in Deutschland durchschnittlich auf einem km² (Stand 31.12.2025)? | 233
+47 | mittel | Wie viele Menschen lebten am 1.1.2026 im Bundesland Tirol? | 779.174 (vorläufig)
+48 | mittel | Wie viele Menschen lebten am 1.1.2026 im Bundesland Steiermark? | 1.272.195 (vorläufig)
+49 | mittel | Wie viel Prozent der Menschen in Wien hatten am 1.1.2026 keine österreichische Staatsbürgerschaft? | 37,0 %
+50 | mittel | Wie schwer war ein in den USA 2024 geschlachtetes Rind im Durchschnitt (Lebendgewicht, in kg)? | 1.399 Pfund ≈ 635 kg
+51 | mittel | Wie schwer war ein in den USA 2024 geschlachtetes Schwein im Durchschnitt (Lebendgewicht, in kg)? | 288 Pfund ≈ 131 kg
+52 | mittel | Wie viele Rinder wurden 2024 in den USA gewerblich geschlachtet? | 31,8 Millionen
+53 | mittel | Wie viele Schweine wurden 2024 in den USA gewerblich geschlachtet? | 130 Millionen
+54 | mittel | Wie hoch ist der höchste Turm des Stephansdoms in Wien? | 136,4 m
+55 | mittel | Wie hoch ist der höchste Turm des Petersdoms in Rom? | 136,6 m
+56 | mittel | Wie hoch ist der höchste Turm des Freiburger Münster? | 116,0 m
+57 | mittel | Wie hoch ist der höchste Turm des Hamburger Michels (St. Michaelis)? | 132,0 m
+58 | mittel | Wie hoch ist der höchste Turm der Münchner Frauenkirche? | 98,6 m
+59 | mittel | Wie hoch ist der höchste Turm der Sagrada Família in Barcelona? | 172,5 m
+60 | mittel | Wie hoch ist die Mittelspitze des Watzmann? | 2.713 m
+61 | mittel | Wie viele Kilometer fließt die Isar durch Bayern? | 270,53 km
+62 | mittel | Wie viele Kilometer fließt der Main durch Bayern? | 407,52 km
+63 | mittel | Wie viele Kilometer fließt die Donau durch Bayern? | 380,84 km
+64 | mittel | Wie viele Kinder wurden 2025 in Deutschland lebend geboren? | 654.241
+65 | mittel | Wie viele Maß Bier wurden auf dem Oktoberfest 2024 ausgeschenkt? | 7 Millionen
+66 | mittel | Wie viele Passagiere zählte der Frankfurter Flughafen 2024? | rund 61,6 Millionen
+67 | mittel | Wie viele Stufen führen im Kölner Dom hinauf zur Aussichtsplattform? | 533
+68 | mittel | In welcher Höhe liegt das Restaurant im Berliner Fernsehturm? | 207 m
+69 | schwer | Wie viele Einwohner hatte Bielefeld am 31.12.2023? | 338.410
+70 | schwer | Wie viele Einwohner hatte Erlangen am 31.12.2023? | 117.806
+71 | schwer | Wie viele Einwohner hatte Jena am 31.12.2023? | 110.791
+72 | schwer | Wie viele Einwohner hatte Fürth am 31.12.2023? | 132.032
+73 | schwer | Wie viele Einwohner hatte Offenbach am Main am 31.12.2023? | 135.490
+74 | schwer | Wie viele Einwohner hatte Herne am 31.12.2023? | 157.896
+75 | schwer | Wie viele Einwohner hatte Ingolstadt am 31.12.2023? | 142.308
+76 | schwer | Wie viele Einwohner hatte Göttingen am 31.12.2023? | 120.261
+77 | schwer | Wie viele Einwohner hatte Cottbus am 31.12.2023? | 100.010
+78 | schwer | Wie groß ist die Stadtfläche von München in km²? | 310,70 km²
+79 | schwer | Wie groß ist die Stadtfläche von Köln in km²? | 405,02 km²
+80 | schwer | Wie groß ist die Stadtfläche von Offenbach am Main in km²? | 44,88 km²
+81 | schwer | Wie viele Einwohner hatte Bremen am 31.12.2025? | 706.915
+82 | schwer | Wie viele Einwohner hatte Thüringen am 31.12.2025? | 2.078.946
+83 | schwer | Wie viele Einwohner hatte Mecklenburg-Vorpommern am 31.12.2025? | 1.573.685
+84 | schwer | Wie viele Einwohner hatte Schleswig-Holstein am 31.12.2025? | 2.958.519
+85 | schwer | Wie viele Einwohner hatte Rheinland-Pfalz am 31.12.2025? | 4.123.022
+86 | schwer | Wie groß ist Bremen in km²? | 420 km²
+87 | schwer | Wie groß ist Brandenburg in km²? | 29.654 km²
+88 | schwer | Wie viele Einwohner leben in Berlin durchschnittlich auf einem km² (Stand 31.12.2025)? | 4.153
+89 | schwer | Wie viele Einwohner leben in Mecklenburg-Vorpommern durchschnittlich auf einem km² (Stand 31.12.2025)? | 68
+90 | schwer | Wie viele Menschen lebten am 1.1.2026 im Bundesland Salzburg? | 573.748 (vorläufig)
+91 | schwer | Wie viele Menschen lebten am 1.1.2026 im Bundesland Burgenland? | 301.674 (vorläufig)
+92 | schwer | Wie viele Menschen lebten am 1.1.2026 im Bundesland Vorarlberg? | 412.356 (vorläufig)
+93 | schwer | Wie viel Prozent der Menschen in Österreich hatten am 1.1.2026 keine österreichische Staatsbürgerschaft? | 20,5 %
+94 | schwer | Wie schwer war ein in den USA 2024 geschlachtetes Schaf oder Lamm im Durchschnitt (Lebendgewicht, in kg)? | 119 Pfund ≈ 54 kg
+95 | schwer | Wie schwer war ein in den USA 2024 geschlachtetes Kalb im Durchschnitt (Lebendgewicht, in kg)? | 323 Pfund ≈ 147 kg
+96 | schwer | Wie viel wog das Fleisch (Schlachtgewicht) eines in den USA 2024 geschlachteten Bullen im Schnitt (in kg)? | 899 Pfund ≈ 408 kg
+97 | schwer | Wie hoch ist der höchste Turm des Berliner Doms? | 98,0 m
+98 | schwer | Wie hoch ist der höchste Turm des Regensburger Doms? | 105,0 m
+99 | schwer | Wie hoch ist der höchste Turm des Straßburger Münster? | 142,0 m
+100 | schwer | Wie hoch ist der höchste Turm des Frankfurter Kaiserdoms? | 95,1 m
+101 | schwer | Wie hoch ist der Hochkalter in den Berchtesgadener Alpen? | 2.607 m
+102 | schwer | Wie viele Kilometer fließt der Inn durch Bayern? | 218,76 km
+103 | schwer | Wie viele Kilometer fließt die Altmühl durch Bayern? | 196,19 km
+104 | schwer | Wie viele Kilometer fließt der Lech durch Bayern? | 166,46 km
+105 | schwer | Wie viele Kilometer fließt die Pegnitz durch Bayern? | 113,46 km
+106 | schwer | Wie viele Kilometer fließt die Salzach durch Bayern? | 59,57 km
+107 | schwer | Wie viele Stufen hat die Treppe im Berliner Fernsehturm? | 986

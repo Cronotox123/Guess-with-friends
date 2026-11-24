@@ -1,0 +1,17 @@
+# USDA NASS Livestock Slaughter 2024 Summary – https://esmis.nal.usda.gov/sites/default/release-files/r207tp32d/k930dv029/6w9267982/lsan0425.txt
+Rotfleisch gesamt 2024;55,0 Mrd lb
+Rindfleisch;27,0 Mrd lb
+Schweinefleisch;27,8 Mrd lb
+Rinder geschlachtet;31,8 Mio
+Rind Lebendgewicht;1399 lb
+Kälber geschlachtet;211900
+Kalb Lebendgewicht;323 lb
+Schweine geschlachtet;130 Mio
+Schwein Lebendgewicht;288 lb
+Schafe/Lämmer geschlachtet;2,21 Mio
+Schaf Lebendgewicht;119 lb
+Schlachtgewicht Ochse(steer);931 lb
+Schlachtgewicht Färse;848 lb
+Schlachtgewicht Kuh;641 lb
+Schlachtgewicht Bulle;899 lb
+Schlachtgewicht Schwein;214 lb

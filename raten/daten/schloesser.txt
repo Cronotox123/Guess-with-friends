@@ -1,0 +1,49 @@
+# Eintritt 2026 Preisklasse 1 (regulär Erwachsene) – Bayerische Schlösserverwaltung https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+Residenz Ansbach;6,00
+Residenz Ellingen;6,00
+Willibaldsburg Eichstätt;6,00
+Schloss Johannisburg (Aschaffenburg);7,00
+Pompejanum (Aschaffenburg);7,00
+Neue Residenz Bamberg;7,00
+Schloss Seehof;6,00
+Burg Lauenstein;5,00
+Markgräfliches Opernhaus Bayreuth;10,00
+Neues Schloss Bayreuth;7,00
+Altes Schloss Eremitage;6,00
+Plassenburg Kulmbach;5,00
+Schloss Ehrenburg (Coburg);6,00
+Schloss Rosenau;6,00
+Walhalla;5,00
+Befreiungshalle Kelheim;5,00
+Burg Prunn;7,00
+Herrenchiemsee Gesamtkarte Insel;14,00
+Altes Schloss Herrenchiemsee;6,00
+König Ludwig II.-Museum;6,00
+Residenz Kempten;4,00
+Burg Burghausen;6,00
+Stadtresidenz Landshut;3,50
+Burg Trausnitz;6,00
+Schloss Linderhof Gesamtkarte;18,00
+Schloss Linderhof Einzelkarte;11,00
+Venusgrotte;9,00
+Königshaus am Schachen;6,00
+Residenzmuseum München;10,00
+Schatzkammer München;10,00
+Cuvilliés-Theater;5,00
+Gesamtkarte Residenz München;20,00
+Ruhmeshalle und Bavaria;5,00
+Schloss Nymphenburg;10,00
+Marstallmuseum;8,00
+Gesamtkarte Nymphenburg Sommer;20,00
+Schloss Höchstädt;6,00
+Schloss Neuburg;7,00
+Schloss Neuschwanstein;21,00
+Burg Cadolzburg;8,00
+Kaiserburg Nürnberg;7,00
+Gesamtkarte Kaiserburg Nürnberg;10,00
+Schloss Dachau;3,00
+Neues Schloss Schleißheim;7,00
+Residenz Würzburg;10,00
+Schloss Veitshöchheim;6,00
+Jahreskarte Einzel;55,00
+Jahreskarte Familie;100,00

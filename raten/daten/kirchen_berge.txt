@@ -1,0 +1,37 @@
+# Kirchtürme m – Wikipedia List of tallest churches https://en.wikipedia.org/wiki/List_of_tallest_churches (wörtlicher Teil)
+Ulmer Münster;161,5
+Kölner Dom;157,2
+Sagrada Família Barcelona;172,5
+Straßburger Münster;142,0
+Hamburg St. Nikolai (Turmruine);147,3
+Petersdom Rom;136,6
+Stephansdom Wien;136,4
+Neuer Dom Linz;134,8
+Hamburg St. Michaelis;132,0
+Hamburg St. Petri;132,0
+Landshut St. Martin;130,6
+Hamburg St. Jacobi;125,4
+Lübeck St. Marien;125,0
+Schweriner Dom;117,5
+Hamburg St. Katharinen;116,7
+Freiburger Münster;116,0
+Lübecker Dom;114,7
+Herz-Jesu-Kirche Graz;109,6
+Regensburger Dom;105,0
+Stralsund St. Marien;104,0
+Magdeburger Dom;101,0
+Berner Münster;100,6
+Gedächtniskirche Speyer;100,0
+Münchner Frauenkirche;98,6
+Berliner Dom;98,0
+Frankfurter Kaiserdom;95,1
+# Berge m – https://en.wikipedia.org/wiki/List_of_mountains_in_Germany (Fließtext)
+Zugspitze;2962
+Schneefernerkopf;2875
+Hochwanner;2746
+Mittlere Höllentalspitze;2742
+Watzmann Mittelspitze;2713
+Hochblassen;2703
+Hochkalter;2607
+Großer Daumen;2280
+Höfats;2259

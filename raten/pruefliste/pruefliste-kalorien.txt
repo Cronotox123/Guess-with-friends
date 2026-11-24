@@ -1,0 +1,120 @@
+===== PRÜFLISTE: Kalorien raten (100 Fragen) =====
+AUFGABE (bitte genau so bearbeiten):
+Du prüfst Quizfragen für ein Partyspiel. Bei jeder Frage muss man die Kalorien (kcal) eines Lebensmittels schätzen. Volle Punkte gibt es bis 5 % daneben, Teilpunkte bis 20 %. Gespielt wird von deutschsprachigen Erwachsenen ohne Spezialwissen, auf dem Handy, ohne Internet-Suche. Die Antworten sind mit Quellen belegt; du musst sie nicht nachprüfen.
+
+Bewerte JEDE Frage mit genau einer Stufe:
+- leicht = fast jeder hat eine gute Vorstellung und liegt nah dran
+- mittel = viele liegen ungefähr richtig, manche weit daneben
+- schwer = kaum jemand weiß es, aber man kann sinnvoll schätzen und denkt beim Auflösen „interessant!“
+- dumm = NUR wenn die Frage unklar oder missverständlich ist, man nicht sinnvoll schätzen kann oder sie völlig langweilig ist
+
+KEIN Grund für „dumm“: ähnliche Fragen gibt es schon, die Zahl ist eher unbekannt, die Quelle ist ausländisch oder älter. Solche Fragen bekommen leicht, mittel oder schwer, und den Hinweis kannst du in den Grund schreiben.
+
+Antworte NUR mit einer Zeile pro Frage, ohne Einleitung, ohne Tabelle, in diesem Format:
+Nr;Stufe;kurzer Grund (max. 10 Wörter)
+Beispiel:
+17;mittel;bekannt, aber Größenordnung schwer
+18;dumm;Frage lässt zwei Deutungen zu
+
+Wenn bei „dumm“ eine bessere Formulierung naheliegt, schreib sie als Grund dazu. Lass keine Nummer aus. Format jeder Zeile: Nr | vorgeschlagene Stufe | Frage | Antwort
+
+1 | leicht | Wie viele kcal hat ein mittelgroßer Apfel (125 g)? | ca. 61 kcal (gerechnet aus 49 kcal pro 100 g)
+2 | leicht | Wie viele kcal hat eine Tafel Vollmilchschokolade (100 g)? | ca. 541 kcal (gerechnet aus 541 kcal pro 100 g)
+3 | leicht | Wie viele kcal hat eine Tiefkühlpizza-Portion (300 g)? | ca. 666 kcal (gerechnet aus 222 kcal pro 100 g)
+4 | leicht | Wie viele kcal hat eine Dose Cola (330 ml)? | ca. 139 kcal (gerechnet aus 42 kcal pro 100 ml)
+5 | leicht | Wie viele kcal hat ein großes Glas Pils (500 ml)? | ca. 205 kcal (gerechnet aus 41 kcal pro 100 ml)
+6 | leicht | Wie viele kcal haben 100 g Banane? | 89 kcal
+7 | leicht | Wie viele kcal hat eine Portion Lasagne (300 g)? | ca. 438 kcal (gerechnet aus 146 kcal pro 100 g)
+8 | leicht | Wie viele kcal hat ein Glas Vollmilch (200 ml)? | ca. 128 kcal (gerechnet aus 64 kcal pro 100 ml)
+9 | leicht | Wie viele kcal hat ein Big Mac (McDonald’s USA)? | 580 kcal
+10 | leicht | Wie viele kcal hat ein Whopper (270 g)? | 670 kcal
+11 | mittel | Wie viele kcal hat eine große Birne (205 g)? | ca. 90 kcal (gerechnet aus 44 kcal pro 100 g)
+12 | mittel | Wie viele kcal hat eine Clementine (70 g)? | ca. 28 kcal (gerechnet aus 40 kcal pro 100 g)
+13 | mittel | Wie viele kcal hat eine Scheibe Wassermelone (80 g)? | ca. 29 kcal (gerechnet aus 36 kcal pro 100 g)
+14 | mittel | Wie viele kcal hat eine ganze Mango (335 g)? | ca. 168 kcal (gerechnet aus 50 kcal pro 100 g)
+15 | mittel | Wie viele kcal hat eine Karotte (80 g)? | ca. 20 kcal (gerechnet aus 25 kcal pro 100 g)
+16 | mittel | Wie viele kcal hat eine Tomate (95 g)? | ca. 11 kcal (gerechnet aus 12 kcal pro 100 g)
+17 | mittel | Wie viele kcal hat eine Portion Tiefkühl-Pommes (135 g)? | ca. 213 kcal (gerechnet aus 158 kcal pro 100 g)
+18 | mittel | Wie viele kcal hat eine Portion Kartoffelpüree (200 g)? | ca. 288 kcal (gerechnet aus 144 kcal pro 100 g)
+19 | mittel | Wie viele kcal hat eine Tafel Zartbitterschokolade (70 %) (100 g)? | ca. 578 kcal (gerechnet aus 578 kcal pro 100 g)
+20 | mittel | Wie viele kcal hat eine Portion Vanilleeis (95 g)? | ca. 169 kcal (gerechnet aus 178 kcal pro 100 g)
+21 | mittel | Wie viele kcal hat ein Esslöffel Honig (22 g)? | ca. 70 kcal (gerechnet aus 317 kcal pro 100 g)
+22 | mittel | Wie viele kcal hat ein Teelöffel Zucker (5 g)? | ca. 20 kcal (gerechnet aus 400 kcal pro 100 g)
+23 | mittel | Wie viele kcal hat Gouda für eine Brotscheibe (20 g)? | ca. 75 kcal (gerechnet aus 377 kcal pro 100 g)
+24 | mittel | Wie viele kcal hat eine Scheibe Salami (7 g)? | ca. 30 kcal (gerechnet aus 429 kcal pro 100 g)
+25 | mittel | Wie viele kcal hat ein Wiener Würstchen (65 g)? | ca. 137 kcal (gerechnet aus 211 kcal pro 100 g)
+26 | mittel | Wie viele kcal hat eine Portion Brie (30 g)? | ca. 108 kcal (gerechnet aus 361 kcal pro 100 g)
+27 | mittel | Wie viele kcal hat Frischkäse für eine Brotscheibe (15 g)? | ca. 42 kcal (gerechnet aus 278 kcal pro 100 g)
+28 | mittel | Wie viele kcal hat ein Weizenbrötchen (85 g)? | ca. 235 kcal (gerechnet aus 277 kcal pro 100 g)
+29 | mittel | Wie viele kcal hat ein Hamburgerbrötchen (80 g)? | ca. 240 kcal (gerechnet aus 300 kcal pro 100 g)
+30 | mittel | Wie viele kcal hat ein gekochtes Ei (56 g)? | ca. 83 kcal (gerechnet aus 148 kcal pro 100 g)
+31 | mittel | Wie viele kcal hat ein großes Croissant (80 g)? | ca. 274 kcal (gerechnet aus 342 kcal pro 100 g)
+32 | mittel | Wie viele kcal hat ein Berliner (65 g)? | ca. 275 kcal (gerechnet aus 423 kcal pro 100 g)
+33 | mittel | Wie viele kcal hat ein Donut (45 g)? | ca. 243 kcal (gerechnet aus 539 kcal pro 100 g)
+34 | mittel | Wie viele kcal hat eine Zimtschnecke (65 g)? | ca. 220 kcal (gerechnet aus 339 kcal pro 100 g)
+35 | mittel | Wie viele kcal hat eine Handvoll Walnüsse (20 g)? | ca. 136 kcal (gerechnet aus 680 kcal pro 100 g)
+36 | mittel | Wie viele kcal hat eine Handvoll Mandeln (20 g)? | ca. 120 kcal (gerechnet aus 601 kcal pro 100 g)
+37 | mittel | Wie viele kcal hat eine Handvoll Haselnüsse (20 g)? | ca. 134 kcal (gerechnet aus 670 kcal pro 100 g)
+38 | mittel | Wie viele kcal hat eine große Avocado (220 g)? | ca. 420 kcal (gerechnet aus 191 kcal pro 100 g)
+39 | mittel | Wie viele kcal hat ein Deziliter Erdbeeren (60 g)? | ca. 20 kcal (gerechnet aus 34 kcal pro 100 g)
+40 | mittel | Wie viele kcal hat ein Glas Orangensaft (200 ml)? | ca. 86 kcal (gerechnet aus 43 kcal pro 100 ml)
+41 | mittel | Wie viele kcal hat ein Glas Apfelsaft (200 ml)? | ca. 84 kcal (gerechnet aus 42 kcal pro 100 ml)
+42 | mittel | Wie viele kcal hat eine Dose Pils (330 ml)? | ca. 135 kcal (gerechnet aus 41 kcal pro 100 ml)
+43 | mittel | Wie viele kcal hat ein Glas trockener Weißwein (100 ml)? | ca. 69 kcal (gerechnet aus 69 kcal pro 100 ml)
+44 | mittel | Wie viele kcal hat ein Glas Sekt (100 ml)? | ca. 104 kcal (gerechnet aus 104 kcal pro 100 ml)
+45 | mittel | Wie viele kcal hat eine Tasse Kakao (Instant) (240 ml)? | ca. 125 kcal (gerechnet aus 52 kcal pro 100 ml)
+46 | mittel | Wie viele kcal hat eine Dose Energydrink (250 ml)? | ca. 122 kcal (gerechnet aus 49 kcal pro 100 ml)
+47 | mittel | Wie viele kcal hat ein Glas Smoothie (Heidelbeer-Apfel) (200 ml)? | ca. 100 kcal (gerechnet aus 50 kcal pro 100 ml)
+48 | mittel | Wie viele kcal hat eine große Tasse Caffè Latte mit Vollmilch (300 ml)? | ca. 177 kcal (gerechnet aus 59 kcal pro 100 ml)
+49 | mittel | Wie viele kcal haben 100 ml trockener Rotwein? | 64 kcal
+50 | mittel | Wie viele kcal haben 100 g gekochte Frühkartoffeln? | 63 kcal
+51 | mittel | Wie viele kcal haben 100 g Dürüm Kebab? | 192 kcal
+52 | mittel | Wie viele kcal haben 100 g Fruchtgummi-Pastillen? | 257 kcal
+53 | mittel | Wie viele kcal hat ein Taco mit Hackfleisch und Gemüse (230 g)? | ca. 389 kcal (gerechnet aus 169 kcal pro 100 g)
+54 | mittel | Wie viele kcal hat eine Portion Camembert (30 g)? | ca. 91 kcal (gerechnet aus 302 kcal pro 100 g)
+55 | mittel | Wie viele kcal hat ein Deziliter Naturjoghurt (100 g)? | ca. 69 kcal (gerechnet aus 69 kcal pro 100 g)
+56 | mittel | Wie viele kcal hat eine Portion Omelett (125 g)? | ca. 226 kcal (gerechnet aus 181 kcal pro 100 g)
+57 | mittel | Wie viele kcal hat eine Scheibe Vollkornbrot (45 g)? | ca. 110 kcal (gerechnet aus 245 kcal pro 100 g)
+58 | mittel | Wie viele kcal hat eine Scheibe Weißbrot (40 g)? | ca. 102 kcal (gerechnet aus 255 kcal pro 100 g)
+59 | mittel | Wie viele kcal hat ein Pfannkuchen (65 g)? | ca. 118 kcal (gerechnet aus 182 kcal pro 100 g)
+60 | mittel | Wie viele kcal hat eine große Waffel (85 g)? | ca. 216 kcal (gerechnet aus 254 kcal pro 100 g)
+61 | mittel | Wie viele kcal hat eine Portion Cornflakes (ohne Milch) (35 g)? | ca. 133 kcal (gerechnet aus 381 kcal pro 100 g)
+62 | mittel | Wie viele kcal hat ein Stück Schokoladenkuchen (80 g)? | ca. 281 kcal (gerechnet aus 351 kcal pro 100 g)
+63 | mittel | Wie viele kcal haben 100 g gebratener Bacon? | 520 kcal
+64 | mittel | Wie viele kcal haben 100 g Spiegelei? | 207 kcal
+65 | mittel | Wie viele kcal haben 100 g Früchtemüsli? | 376 kcal
+66 | mittel | Wie viele kcal haben 100 g Käsekuchen? | 334 kcal
+67 | mittel | Wie viele kcal haben 100 g Tiefkühl-Pommes? | 158 kcal
+68 | mittel | Wie viele kcal hat ein kleines Croissant (45 g)? | ca. 154 kcal (gerechnet aus 342 kcal pro 100 g)
+69 | mittel | Wie viele kcal hat ein Stück rohe Hähnchenbrust (100 g)? | ca. 111 kcal (gerechnet aus 111 kcal pro 100 g)
+70 | mittel | Wie viele kcal haben 100 g Salami? | 429 kcal
+71 | mittel | Wie viele kcal haben 100 g Walnüsse? | 680 kcal
+72 | mittel | Wie viele kcal hat eine Dose Red Bull (250 ml)? | ca. 115 kcal (gerechnet aus 46 kcal pro 100 ml)
+73 | mittel | Wie viele kcal hat eine Portion Nutella (15 g)? | ca. 81 kcal (gerechnet aus 539 kcal pro 100 g)
+74 | mittel | Wie viele kcal haben 100 g Haribo Goldbären? | 343 kcal
+75 | mittel | Wie viele kcal hat eine 300-g-Tüte Haribo Goldbären? | ca. 1.029 kcal (gerechnet aus 343 kcal pro 100 g)
+76 | mittel | Wie viele kcal hat eine 1,5-Liter-Flasche Coca-Cola? | ca. 630 kcal (gerechnet aus 42 kcal pro 100 ml)
+77 | schwer | Wie viele kcal hat eine einzelne Weintraube (5 g)? | ca. 4 kcal (gerechnet aus 71 kcal pro 100 g)
+78 | schwer | Wie viele kcal hat eine ganze Ananas (ohne Schale) (665 g)? | ca. 293 kcal (gerechnet aus 44 kcal pro 100 g)
+79 | schwer | Wie viele kcal hat eine ganze Salatgurke (325 g)? | ca. 29 kcal (gerechnet aus 9 kcal pro 100 g)
+80 | schwer | Wie viele kcal hat ein Marshmallow (7 g)? | ca. 24 kcal (gerechnet aus 348 kcal pro 100 g)
+81 | schwer | Wie viele kcal hat ein Würfelzucker (2 g)? | ca. 8 kcal (gerechnet aus 400 kcal pro 100 g)
+82 | schwer | Wie viele kcal hat eine Portion Hähnchenbrust (roh) (195 g)? | ca. 216 kcal (gerechnet aus 111 kcal pro 100 g)
+83 | schwer | Wie viele kcal hat ein kleiner Muffin (30 g)? | ca. 121 kcal (gerechnet aus 404 kcal pro 100 g)
+84 | schwer | Wie viele kcal hat ein großes Marmeladen-Plunderteilchen (80 g)? | ca. 234 kcal (gerechnet aus 293 kcal pro 100 g)
+85 | schwer | Wie viele kcal hat ein Deziliter (Schälchen) geröstete Erdnüsse (60 g)? | ca. 374 kcal (gerechnet aus 623 kcal pro 100 g)
+86 | schwer | Wie viele kcal hat ein Deziliter (Schälchen) gesalzene Cashews (60 g)? | ca. 362 kcal (gerechnet aus 604 kcal pro 100 g)
+87 | schwer | Wie viele kcal hat eine kleine Avocado (130 g)? | ca. 248 kcal (gerechnet aus 191 kcal pro 100 g)
+88 | schwer | Wie viele kcal hat ein Deziliter Kirschen (60 g)? | ca. 25 kcal (gerechnet aus 41 kcal pro 100 g)
+89 | schwer | Wie viele kcal hat eine Scheibe Kiwi (15 g)? | ca. 8 kcal (gerechnet aus 51 kcal pro 100 g)
+90 | schwer | Wie viele kcal hat eine Orangenspalte (35 g)? | ca. 14 kcal (gerechnet aus 41 kcal pro 100 g)
+91 | schwer | Wie viele kcal hat ein Brokkoliröschen (25 g)? | ca. 6 kcal (gerechnet aus 24 kcal pro 100 g)
+92 | schwer | Wie viele kcal haben 100 g roher Zuckermais? | 85 kcal
+93 | schwer | Wie viele kcal haben 100 g Zartbitterschokolade (85 %)? | 588 kcal
+94 | schwer | Wie viele kcal hat ein Deziliter Sprühsahne (25 g)? | ca. 81 kcal (gerechnet aus 325 kcal pro 100 g)
+95 | schwer | Wie viele kcal hat ein Deziliter Pistazien (50 g)? | ca. 294 kcal (gerechnet aus 589 kcal pro 100 g)
+96 | schwer | Wie viele kcal haben 100 g Hotdog-Brötchen? | 302 kcal
+97 | schwer | Wie viele kcal haben 100 g Haferbrei (mit Wasser gekocht)? | 39 kcal
+98 | schwer | Wie viele kcal haben 100 g Sprühsahne? | 325 kcal
+99 | schwer | Wie viele kcal hat eine kleine Waffel (20 g)? | ca. 51 kcal (gerechnet aus 254 kcal pro 100 g)
+100 | schwer | Wie viele kcal hat eine dünne Scheibe Gouda (10 g)? | ca. 38 kcal (gerechnet aus 377 kcal pro 100 g)

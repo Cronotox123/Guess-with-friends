@@ -1,0 +1,38 @@
+# Einzelhandelspreise Bundesgebiet, DM (1938 RM), Jahresdurchschnitt – Statistisches Jahrbuch für die BRD 1952 S.406 und 1953 S.502 (OCR, nur Werte die in beiden Ausgaben gleich sind)
+# Q1 https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf
+# Q2 https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+Roggenbrot 1 kg;1938;0,30
+Roggenbrot 1 kg;1949;0,40
+Roggenbrot 1 kg;1950;0,43
+Mischbrot 1 kg;1949;0,46
+Mischbrot 1 kg;1950;0,50
+Mischbrot 1 kg;1952;0,68 (nur Q2)
+Speisekartoffeln 5 kg;1950;0,76
+Speisekartoffeln 5 kg;1952;1,08 (nur Q2)
+Vollmilch 1 l;1938;0,23
+Vollmilch 1 l;1949;0,36
+Vollmilch 1 l;1950;0,35
+Vollmilch 1 l;1951;0,37
+Vollmilch 1 l;1952;0,38 (nur Q2)
+Butter 1 kg;1938;3,19
+Butter 1 kg;1949;5,12
+Butter 1 kg;1950;5,50
+Butter 1 kg;1951;6,12
+Butter 1 kg;1952;6,38 (nur Q2)
+Ei (Kl. B) 1 Stück;1938;0,12
+Ei (Kl. B) 1 Stück;1950;0,22
+Ei (Kl. B) 1 Stück;1951;0,23
+Ei (Kl. B) 1 Stück;1952;0,25 (nur Q2)
+Bohnenkaffee geröstet 1 kg;1950;28,79 / 28,80
+Bohnenkaffee geröstet 1 kg;1951;31,35 / 31,30
+Bohnenkaffee geröstet 1 kg;1952;32,50 (nur Q2)
+Rind Schmorfleisch 1 kg;1938;1,81
+Rind Schmorfleisch 1 kg;1951;3,93 / 3,92
+Schweinekotelett 1 kg;1938;2,10
+Schweinekotelett 1 kg;1951;4,64
+Schweinekotelett 1 kg;1952;4,75 (nur Q2)
+Tafeläpfel 1 kg;1949;1,31
+Tafeläpfel 1 kg;1951;0,83
+Zucker 1 kg;1950;1,16 (Verbrauchszucker Q1) / 1,18 (Raffinade Q2)
+Glas helles Lagerbier in einfacher Gaststätte;1950;0,34 (nur Q2)
+Glas helles Lagerbier in einfacher Gaststätte;1952;0,32 (nur Q2)

@@ -1,0 +1,121 @@
+===== PRÜFLISTE: Preise raten (101 Fragen) =====
+AUFGABE (bitte genau so bearbeiten):
+Du prüfst Quizfragen für ein Partyspiel. Bei jeder Frage muss man einen aktuellen oder historischen Preis schätzen. Volle Punkte gibt es bis 5 % daneben, Teilpunkte bis 20 %. Gespielt wird von deutschsprachigen Erwachsenen ohne Spezialwissen, auf dem Handy, ohne Internet-Suche. Die Antworten sind mit Quellen belegt; du musst sie nicht nachprüfen.
+
+Bewerte JEDE Frage mit genau einer Stufe:
+- leicht = fast jeder hat eine gute Vorstellung und liegt nah dran
+- mittel = viele liegen ungefähr richtig, manche weit daneben
+- schwer = kaum jemand weiß es, aber man kann sinnvoll schätzen und denkt beim Auflösen „interessant!“
+- dumm = NUR wenn die Frage unklar oder missverständlich ist, man nicht sinnvoll schätzen kann oder sie völlig langweilig ist
+
+KEIN Grund für „dumm“: ähnliche Fragen gibt es schon, die Zahl ist eher unbekannt, die Quelle ist ausländisch oder älter. Solche Fragen bekommen leicht, mittel oder schwer, und den Hinweis kannst du in den Grund schreiben.
+
+Antworte NUR mit einer Zeile pro Frage, ohne Einleitung, ohne Tabelle, in diesem Format:
+Nr;Stufe;kurzer Grund (max. 10 Wörter)
+Beispiel:
+17;mittel;bekannt, aber Größenordnung schwer
+18;dumm;Frage lässt zwei Deutungen zu
+
+Wenn bei „dumm“ eine bessere Formulierung naheliegt, schreib sie als Grund dazu. Lass keine Nummer aus. Format jeder Zeile: Nr | vorgeschlagene Stufe | Frage | Antwort
+
+1 | leicht | Was kostet 2026 der reguläre Eintritt ins Schloss Neuschwanstein? | 21,00 €
+2 | leicht | Was kostet 2026 der reguläre Eintritt ins Schloss Nymphenburg? | 10,00 €
+3 | leicht | Was kostet das Porto für einen Standardbrief innerhalb Deutschlands (Stand Juli 2026)? | 0,95 €
+4 | leicht | Was kostet das Deutschlandticket ab 2026 im Monat? | 63 €
+5 | leicht | Was kostete eine Maß Bier auf dem Oktoberfest 2025 im Durchschnitt? | 15,25 €
+6 | leicht | Wie hoch ist der gesetzliche Mindestlohn in Deutschland seit 1.1.2026 (pro Stunde)? | 13,90 €
+7 | leicht | Was kostet die österreichische Jahresvignette 2026 für ein Auto? | 106,80 €
+8 | leicht | Was kostet die Schweizer Autobahnvignette (in Franken)? | 40 Franken
+9 | leicht | Wie viel Pfand gibt es auf eine Einwegflasche oder Getränkedose? | 0,25 €
+10 | mittel | Was kostet 2026 der reguläre Eintritt ins Schloss Linderhof (Einzelkarte)? | 11,00 €
+11 | mittel | Was kostet 2026 der reguläre Eintritt für die Gesamtkarte „Insel“ auf Herrenchiemsee? | 14,00 €
+12 | mittel | Was kostet 2026 der reguläre Eintritt ins Residenzmuseum München? | 10,00 €
+13 | mittel | Was kostet 2026 der reguläre Eintritt in die Schatzkammer der Münchner Residenz? | 10,00 €
+14 | mittel | Was kostet 2026 der reguläre Eintritt für die Gesamtkarte der Münchner Residenz? | 20,00 €
+15 | mittel | Was kostet 2026 der reguläre Eintritt in die Würzburger Residenz? | 10,00 €
+16 | mittel | Was kostet 2026 der reguläre Eintritt in die Kaiserburg Nürnberg? | 7,00 €
+17 | mittel | Was kostet 2026 der reguläre Eintritt in die Walhalla bei Regensburg? | 5,00 €
+18 | mittel | Was kostet 2026 der reguläre Eintritt ins Markgräfliche Opernhaus Bayreuth (Welterbe)? | 10,00 €
+19 | mittel | Was kostet 2026 der reguläre Eintritt in die Bavaria an der Münchner Theresienwiese? | 5,00 €
+20 | mittel | Was kostet 2026 der reguläre Eintritt in die Venusgrotte von Schloss Linderhof? | 9,00 €
+21 | mittel | Was kostet 2026 die Jahreskarte der Bayerischen Schlösserverwaltung (Einzelperson)? | 55,00 €
+22 | mittel | Was kostet 2026 die Familien-Jahreskarte der Bayerischen Schlösserverwaltung? | 100,00 €
+23 | mittel | Was kostet 2026 die Gesamtkarte für Schloss Linderhof? | 18,00 €
+24 | mittel | Was kostet das Porto für eine Postkarte ins Ausland (Stand Juli 2026)? | 1,25 €
+25 | mittel | Was kostet das Porto für einen Großbrief innerhalb Deutschlands (Stand Juli 2026)? | 1,80 €
+26 | mittel | Was kostet das Porto für einen Maxibrief innerhalb Deutschlands (Stand Juli 2026)? | 2,90 €
+27 | mittel | Was kostete 1950 in Westdeutschland ein Liter Vollmilch im Schnitt? | 0,35 DM
+28 | mittel | Was kostete 1950 in Westdeutschland ein Kilo Butter im Schnitt? | 5,50 DM
+29 | mittel | Was kostete 1950 in Westdeutschland ein Ei (Klasse B) im Schnitt? | 0,22 DM (22 Pfennig)
+30 | mittel | Was kostete 1950 in Westdeutschland ein Kilo gerösteter Bohnenkaffee im Schnitt? | 28,80 DM
+31 | mittel | Was kostete 1950 in Westdeutschland ein Kilo Mischbrot im Schnitt? | 0,50 DM
+32 | mittel | Was kosteten 1950 in Westdeutschland 5 Kilo Speisekartoffeln im Schnitt? | 0,76 DM
+33 | mittel | Was kostete 1951 in Westdeutschland ein Kilo Schweinekotelett im Schnitt? | 4,64 DM
+34 | mittel | Was kostete 1951 in Westdeutschland ein Kilo Rinder-Schmorfleisch im Schnitt? | 3,93 DM
+35 | mittel | Was kostete 1951 in Westdeutschland ein Kilo Tafeläpfel im Schnitt? | 0,83 DM
+36 | mittel | Was kostete 1950 in Westdeutschland ein Glas helles Bier in einer einfachen Gaststätte? | 0,34 DM
+37 | mittel | Was kostete das Deutschlandticket 2025 im Monat? | 58 €
+38 | mittel | Für wie viel wurde Leonardo da Vincis „Salvator Mundi“ 2017 bei Christie’s versteigert (mit Gebühren)? | 450,3 Mio. Dollar
+39 | mittel | Für wie viel wurde 2022 das Mercedes 300 SLR Uhlenhaut-Coupé von 1955 versteigert? | 135 Mio. €
+40 | mittel | Was kostete ein neuer Ford Model T bei der Einführung 1908? | 850 Dollar
+41 | mittel | Was kostete die günstigste Maß Bier auf dem Oktoberfest 2025? | 14,50 €
+42 | mittel | Was kostete die teuerste Maß Bier auf dem Oktoberfest 2025? | 15,80 €
+43 | mittel | Was kostete eine Maß Bier auf dem Oktoberfest 2024 im Durchschnitt? | 14,73 €
+44 | mittel | Was kostete ein Liter Mineralwasser auf dem Oktoberfest 2025 im Durchschnitt? | 10,95 €
+45 | mittel | Auf wie viel Euro pro Stunde steigt der Mindestlohn am 1.1.2027? | 14,60 €
+46 | mittel | Was kostet ein neuer Personalausweis für Menschen ab 24 Jahren (Stand 2026)? | 46 €
+47 | mittel | Was kostet die österreichische 10-Tages-Vignette 2026 für ein Auto? | 12,80 €
+48 | mittel | Was kostet die österreichische 2-Monats-Vignette 2026 für ein Auto? | 32,00 €
+49 | mittel | Was kostet eine BahnCard 50 für die 2. Klasse (ein Jahr, Stand November 2026)? | 244 €
+50 | mittel | Was kostet eine BahnCard 25 für die 2. Klasse (ein Jahr, Stand November 2026)? | 62,90 €
+51 | mittel | Was kostet ab 2026 der Eintritt in den Louvre für Besucher von außerhalb der EU? | 32 €
+52 | mittel | Wie viel Pfand gibt es auf eine Mehrweg-Bierflasche aus Glas? | 0,08 €
+53 | schwer | Was kostet 2026 der reguläre Eintritt ins Cuvilliés-Theater in München? | 5,00 €
+54 | schwer | Was kostet 2026 der reguläre Eintritt in die Befreiungshalle Kelheim? | 5,00 €
+55 | schwer | Was kostet 2026 der reguläre Eintritt in die Neue Residenz Bamberg? | 7,00 €
+56 | schwer | Was kostet 2026 der reguläre Eintritt in die Burg zu Burghausen (längste Burg der Welt)? | 6,00 €
+57 | schwer | Was kostet 2026 der reguläre Eintritt in die Burg Trausnitz in Landshut? | 6,00 €
+58 | schwer | Was kostet 2026 der reguläre Eintritt ins Schloss Ehrenburg in Coburg? | 6,00 €
+59 | schwer | Was kostet 2026 der reguläre Eintritt in die Plassenburg in Kulmbach? | 5,00 €
+60 | schwer | Was kostet 2026 der reguläre Eintritt ins Marstallmuseum in Nymphenburg? | 8,00 €
+61 | schwer | Was kostet 2026 der reguläre Eintritt ins Schloss Dachau? | 3,00 €
+62 | schwer | Was kostet 2026 der reguläre Eintritt ins Neue Schloss Schleißheim? | 7,00 €
+63 | schwer | Was kostet 2026 der reguläre Eintritt ins Königshaus am Schachen? | 6,00 €
+64 | schwer | Was kostet 2026 der reguläre Eintritt in die Burg Cadolzburg? | 8,00 €
+65 | schwer | Was kostet 2026 der reguläre Eintritt ins Schloss Johannisburg in Aschaffenburg? | 7,00 €
+66 | schwer | Was kostet 2026 der reguläre Eintritt in die Residenz Kempten? | 4,00 €
+67 | schwer | Was kostet das Porto für einen Kompaktbrief innerhalb Deutschlands (Stand Juli 2026)? | 1,10 €
+68 | schwer | Was kostet das Porto für einen Großbrief ins Ausland (Stand Juli 2026)? | 3,30 €
+69 | schwer | Was kostet das Porto für einen Maxibrief ins Ausland (Stand Juli 2026)? | 6,50 €
+70 | schwer | Was kostet eine Warensendung innerhalb Deutschlands (Stand Juli 2026)? | 2,70 €
+71 | schwer | Was kostet der Zuschlag für ein Einschreiben Einwurf (Stand Juli 2026)? | 2,35 €
+72 | schwer | Was kostet der Zuschlag für einen Rückschein (Stand Juli 2026)? | 2,20 €
+73 | schwer | Was kostete 1938 in Deutschland ein Kilo Butter im Schnitt? | 3,19 Reichsmark
+74 | schwer | Was kostete 1938 in Deutschland ein Ei (Klasse B) im Schnitt? | 0,12 Reichsmark (12 Pfennig)
+75 | schwer | Was kostete 1952 in Westdeutschland ein Kilo gerösteter Bohnenkaffee im Schnitt? | 32,50 DM
+76 | schwer | Was kostete 1950 in Westdeutschland ein Kilo Roggenbrot im Schnitt? | 0,43 DM
+77 | schwer | Was kosteten 1952 in Westdeutschland 5 Kilo Speisekartoffeln im Schnitt? | 1,08 DM
+78 | schwer | Was kostete 1938 in Deutschland ein Kilo Schweinekotelett im Schnitt? | 2,10 Reichsmark
+79 | schwer | Was kostete 1938 in Deutschland ein Liter Vollmilch im Schnitt? | 0,23 Reichsmark
+80 | schwer | Was kostete 1949 in Westdeutschland ein Kilo Tafeläpfel im Schnitt? | 1,31 DM
+81 | schwer | Was kostete 1952 in Westdeutschland ein Kilo Butter im Schnitt? | 6,38 DM
+82 | schwer | Was kostete 1952 in Westdeutschland ein Ei (Klasse B) im Schnitt? | 0,25 DM (25 Pfennig)
+83 | schwer | Wie hoch war bei „Salvator Mundi“ (2017) der reine Zuschlag ohne Gebühren? | 400 Mio. Dollar
+84 | schwer | Was kostete Anfang 1999 ein Liter Super in Deutschland im Schnitt (in DM)? | knapp 1,54 DM (unter 79 Cent)
+85 | schwer | Was kostete eine Maß alkoholfreies Bier auf dem Oktoberfest 2025 im Durchschnitt? | 15,37 €
+86 | schwer | Was kostete ein Liter Spezi auf dem Oktoberfest 2025 im Durchschnitt? | 12,48 €
+87 | schwer | Was kostete ein Liter Limonade auf dem Oktoberfest 2025 im Durchschnitt? | 12,11 €
+88 | schwer | Was kostet ein neuer Personalausweis für Menschen unter 24 Jahren (Stand 2026)? | 27,60 €
+89 | schwer | Was kostet die österreichische 1-Tages-Vignette 2026 für ein Auto? | 9,60 €
+90 | schwer | Was kostet die österreichische Jahresvignette 2026 für ein Motorrad? | 42,70 €
+91 | schwer | Was kostet eine BahnCard 50 für die 1. Klasse (ein Jahr, Stand November 2026)? | 492 €
+92 | schwer | Was kostet eine BahnCard 25 für die 1. Klasse (ein Jahr, Stand November 2026)? | 125 €
+93 | schwer | Was kostete die günstigste Maß Bier auf dem Oktoberfest 2024? | 13,60 €
+94 | schwer | Was kostete die teuerste Maß Bier auf dem Oktoberfest 2024? | 15,30 €
+95 | schwer | Was kostet 2026 der reguläre Eintritt ins Alte Schloss Schleißheim? | 4,00 €
+96 | schwer | Was kostet 2026 der reguläre Eintritt ins Schloss Veitshöchheim? | 6,00 €
+97 | schwer | Was kostet 2026 der reguläre Eintritt in die Willibaldsburg in Eichstätt? | 6,00 €
+98 | schwer | Was kostet 2026 der reguläre Eintritt in die Burg Lauenstein? | 5,00 €
+99 | schwer | Was kostete 1952 in Westdeutschland ein Kilo Mischbrot im Schnitt? | 0,68 DM
+100 | schwer | Was kostete 1952 in Westdeutschland ein Liter Vollmilch im Schnitt? | 0,38 DM
+101 | schwer | Was kostete 1952 in Westdeutschland ein Kilo Schweinekotelett im Schnitt? | 4,75 DM

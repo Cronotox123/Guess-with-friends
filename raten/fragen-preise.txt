@@ -1,0 +1,102 @@
+# Preise raten – Nr;Stufe;Frage;Antwort;Quelle
+1;leicht;Was kostet 2026 der reguläre Eintritt ins Schloss Neuschwanstein?;21,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+2;leicht;Was kostet 2026 der reguläre Eintritt ins Schloss Nymphenburg?;10,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+3;leicht;Was kostet das Porto für einen Standardbrief innerhalb Deutschlands (Stand Juli 2026)?;0,95 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+4;leicht;Was kostet das Deutschlandticket ab 2026 im Monat?;63 €;https://www.zdfheute.de/politik/deutschlandticket-dticket-verkehr-nahverkehr-preis-erhoehung-100.html
+5;leicht;Was kostete eine Maß Bier auf dem Oktoberfest 2025 im Durchschnitt?;15,25 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+6;leicht;Wie hoch ist der gesetzliche Mindestlohn in Deutschland seit 1.1.2026 (pro Stunde)?;13,90 €;https://www.bundesregierung.de/breg-de/aktuelles/mindestlohn-steigt-2391010
+7;leicht;Was kostet die österreichische Jahresvignette 2026 für ein Auto?;106,80 €;https://www.oesterreich.gv.at/themen/mobilitaet/kfz/10/Vignette-und-Maut/Vignette-fuer-Fahrzeuge-bis-3,5-t.html
+8;leicht;Was kostet die Schweizer Autobahnvignette (in Franken)?;40 Franken;https://www.bazg.admin.ch/de/schweizer-autobahnvignette-gebuehr-zwei-arten
+9;leicht;Wie viel Pfand gibt es auf eine Einwegflasche oder Getränkedose?;0,25 €;https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/abfall/mehrweg-oder-einweg-wichtige-unterschiede-beim-pfand-11504
+10;mittel;Was kostet 2026 der reguläre Eintritt ins Schloss Linderhof (Einzelkarte)?;11,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+11;mittel;Was kostet 2026 der reguläre Eintritt für die Gesamtkarte „Insel“ auf Herrenchiemsee?;14,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+12;mittel;Was kostet 2026 der reguläre Eintritt ins Residenzmuseum München?;10,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+13;mittel;Was kostet 2026 der reguläre Eintritt in die Schatzkammer der Münchner Residenz?;10,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+14;mittel;Was kostet 2026 der reguläre Eintritt für die Gesamtkarte der Münchner Residenz?;20,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+15;mittel;Was kostet 2026 der reguläre Eintritt in die Würzburger Residenz?;10,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+16;mittel;Was kostet 2026 der reguläre Eintritt in die Kaiserburg Nürnberg?;7,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+17;mittel;Was kostet 2026 der reguläre Eintritt in die Walhalla bei Regensburg?;5,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+18;mittel;Was kostet 2026 der reguläre Eintritt ins Markgräfliche Opernhaus Bayreuth (Welterbe)?;10,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+19;mittel;Was kostet 2026 der reguläre Eintritt in die Bavaria an der Münchner Theresienwiese?;5,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+20;mittel;Was kostet 2026 der reguläre Eintritt in die Venusgrotte von Schloss Linderhof?;9,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+21;mittel;Was kostet 2026 die Jahreskarte der Bayerischen Schlösserverwaltung (Einzelperson)?;55,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+22;mittel;Was kostet 2026 die Familien-Jahreskarte der Bayerischen Schlösserverwaltung?;100,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+23;mittel;Was kostet 2026 die Gesamtkarte für Schloss Linderhof?;18,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+24;mittel;Was kostet das Porto für eine Postkarte ins Ausland (Stand Juli 2026)?;1,25 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+25;mittel;Was kostet das Porto für einen Großbrief innerhalb Deutschlands (Stand Juli 2026)?;1,80 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+26;mittel;Was kostet das Porto für einen Maxibrief innerhalb Deutschlands (Stand Juli 2026)?;2,90 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+27;mittel;Was kostete 1950 in Westdeutschland ein Liter Vollmilch im Schnitt?;0,35 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+28;mittel;Was kostete 1950 in Westdeutschland ein Kilo Butter im Schnitt?;5,50 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+29;mittel;Was kostete 1950 in Westdeutschland ein Ei (Klasse B) im Schnitt?;0,22 DM (22 Pfennig);https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+30;mittel;Was kostete 1950 in Westdeutschland ein Kilo gerösteter Bohnenkaffee im Schnitt?;28,80 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+31;mittel;Was kostete 1950 in Westdeutschland ein Kilo Mischbrot im Schnitt?;0,50 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+32;mittel;Was kosteten 1950 in Westdeutschland 5 Kilo Speisekartoffeln im Schnitt?;0,76 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+33;mittel;Was kostete 1951 in Westdeutschland ein Kilo Schweinekotelett im Schnitt?;4,64 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+34;mittel;Was kostete 1951 in Westdeutschland ein Kilo Rinder-Schmorfleisch im Schnitt?;3,93 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+35;mittel;Was kostete 1951 in Westdeutschland ein Kilo Tafeläpfel im Schnitt?;0,83 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+36;mittel;Was kostete 1950 in Westdeutschland ein Glas helles Bier in einer einfachen Gaststätte?;0,34 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+37;mittel;Was kostete das Deutschlandticket 2025 im Monat?;58 €;https://int.bahn.de/en/faq/deutschlandticket-cost-new
+38;mittel;Für wie viel wurde Leonardo da Vincis „Salvator Mundi“ 2017 bei Christie’s versteigert (mit Gebühren)?;450,3 Mio. Dollar;https://news.artnet.com/market/last-known-leonardo-da-vinci-painting-just-sold-1149032
+39;mittel;Für wie viel wurde 2022 das Mercedes 300 SLR Uhlenhaut-Coupé von 1955 versteigert?;135 Mio. €;https://rmsothebys.com/media-center/press-releases/rm-sotheby-s-announces-the-sale-of-the-most-valuable-car-in-the-world-the-1955-mercedes-benz-300-slr-uhlenhaut-coup%C3%A9-is-sold-for-135-000-000
+40;mittel;Was kostete ein neuer Ford Model T bei der Einführung 1908?;850 Dollar;https://www.thehenryford.org/collections/explore/articles/fords-model-t
+41;mittel;Was kostete die günstigste Maß Bier auf dem Oktoberfest 2025?;14,50 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+42;mittel;Was kostete die teuerste Maß Bier auf dem Oktoberfest 2025?;15,80 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+43;mittel;Was kostete eine Maß Bier auf dem Oktoberfest 2024 im Durchschnitt?;14,73 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+44;mittel;Was kostete ein Liter Mineralwasser auf dem Oktoberfest 2025 im Durchschnitt?;10,95 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+45;mittel;Auf wie viel Euro pro Stunde steigt der Mindestlohn am 1.1.2027?;14,60 €;https://www.bundesregierung.de/breg-de/aktuelles/mindestlohn-steigt-2391010
+46;mittel;Was kostet ein neuer Personalausweis für Menschen ab 24 Jahren (Stand 2026)?;46 €;https://www.gesetze-im-internet.de/pauswgebv/BJNR147700010.html
+47;mittel;Was kostet die österreichische 10-Tages-Vignette 2026 für ein Auto?;12,80 €;https://www.oesterreich.gv.at/themen/mobilitaet/kfz/10/Vignette-und-Maut/Vignette-fuer-Fahrzeuge-bis-3,5-t.html
+48;mittel;Was kostet die österreichische 2-Monats-Vignette 2026 für ein Auto?;32,00 €;https://www.oesterreich.gv.at/themen/mobilitaet/kfz/10/Vignette-und-Maut/Vignette-fuer-Fahrzeuge-bis-3,5-t.html
+49;mittel;Was kostet eine BahnCard 50 für die 2. Klasse (ein Jahr, Stand November 2026)?;244 €;https://www.bahn.de/angebot/bahncard/bahncard50-2-klasse
+50;mittel;Was kostet eine BahnCard 25 für die 2. Klasse (ein Jahr, Stand November 2026)?;62,90 €;https://www.bahn.de/angebot/bahncard/bahncard25/bahncard25
+51;mittel;Was kostet ab 2026 der Eintritt in den Louvre für Besucher von außerhalb der EU?;32 €;https://www.euronews.com/2025/11/28/louvre-to-hike-ticket-prices-for-non-eu-visitors-by-45-next-year
+52;mittel;Wie viel Pfand gibt es auf eine Mehrweg-Bierflasche aus Glas?;0,08 €;https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/abfall/mehrweg-oder-einweg-wichtige-unterschiede-beim-pfand-11504
+53;schwer;Was kostet 2026 der reguläre Eintritt ins Cuvilliés-Theater in München?;5,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+54;schwer;Was kostet 2026 der reguläre Eintritt in die Befreiungshalle Kelheim?;5,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+55;schwer;Was kostet 2026 der reguläre Eintritt in die Neue Residenz Bamberg?;7,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+56;schwer;Was kostet 2026 der reguläre Eintritt in die Burg zu Burghausen (längste Burg der Welt)?;6,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+57;schwer;Was kostet 2026 der reguläre Eintritt in die Burg Trausnitz in Landshut?;6,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+58;schwer;Was kostet 2026 der reguläre Eintritt ins Schloss Ehrenburg in Coburg?;6,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+59;schwer;Was kostet 2026 der reguläre Eintritt in die Plassenburg in Kulmbach?;5,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+60;schwer;Was kostet 2026 der reguläre Eintritt ins Marstallmuseum in Nymphenburg?;8,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+61;schwer;Was kostet 2026 der reguläre Eintritt ins Schloss Dachau?;3,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+62;schwer;Was kostet 2026 der reguläre Eintritt ins Neue Schloss Schleißheim?;7,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+63;schwer;Was kostet 2026 der reguläre Eintritt ins Königshaus am Schachen?;6,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+64;schwer;Was kostet 2026 der reguläre Eintritt in die Burg Cadolzburg?;8,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+65;schwer;Was kostet 2026 der reguläre Eintritt ins Schloss Johannisburg in Aschaffenburg?;7,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+66;schwer;Was kostet 2026 der reguläre Eintritt in die Residenz Kempten?;4,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+67;schwer;Was kostet das Porto für einen Kompaktbrief innerhalb Deutschlands (Stand Juli 2026)?;1,10 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+68;schwer;Was kostet das Porto für einen Großbrief ins Ausland (Stand Juli 2026)?;3,30 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+69;schwer;Was kostet das Porto für einen Maxibrief ins Ausland (Stand Juli 2026)?;6,50 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+70;schwer;Was kostet eine Warensendung innerhalb Deutschlands (Stand Juli 2026)?;2,70 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+71;schwer;Was kostet der Zuschlag für ein Einschreiben Einwurf (Stand Juli 2026)?;2,35 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+72;schwer;Was kostet der Zuschlag für einen Rückschein (Stand Juli 2026)?;2,20 €;https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf
+73;schwer;Was kostete 1938 in Deutschland ein Kilo Butter im Schnitt?;3,19 Reichsmark;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+74;schwer;Was kostete 1938 in Deutschland ein Ei (Klasse B) im Schnitt?;0,12 Reichsmark (12 Pfennig);https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+75;schwer;Was kostete 1952 in Westdeutschland ein Kilo gerösteter Bohnenkaffee im Schnitt?;32,50 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+76;schwer;Was kostete 1950 in Westdeutschland ein Kilo Roggenbrot im Schnitt?;0,43 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+77;schwer;Was kosteten 1952 in Westdeutschland 5 Kilo Speisekartoffeln im Schnitt?;1,08 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+78;schwer;Was kostete 1938 in Deutschland ein Kilo Schweinekotelett im Schnitt?;2,10 Reichsmark;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+79;schwer;Was kostete 1938 in Deutschland ein Liter Vollmilch im Schnitt?;0,23 Reichsmark;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+80;schwer;Was kostete 1949 in Westdeutschland ein Kilo Tafeläpfel im Schnitt?;1,31 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1952/pdf/514402342_0437.pdf und https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+81;schwer;Was kostete 1952 in Westdeutschland ein Kilo Butter im Schnitt?;6,38 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+82;schwer;Was kostete 1952 in Westdeutschland ein Ei (Klasse B) im Schnitt?;0,25 DM (25 Pfennig);https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+83;schwer;Wie hoch war bei „Salvator Mundi“ (2017) der reine Zuschlag ohne Gebühren?;400 Mio. Dollar;https://news.artnet.com/market/last-known-leonardo-da-vinci-painting-just-sold-1149032
+84;schwer;Was kostete Anfang 1999 ein Liter Super in Deutschland im Schnitt (in DM)?;knapp 1,54 DM (unter 79 Cent);https://www.adac.de/verkehr/tanken-kraftstoff-antrieb/kraftstoffpreisentwicklung/
+85;schwer;Was kostete eine Maß alkoholfreies Bier auf dem Oktoberfest 2025 im Durchschnitt?;15,37 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+86;schwer;Was kostete ein Liter Spezi auf dem Oktoberfest 2025 im Durchschnitt?;12,48 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+87;schwer;Was kostete ein Liter Limonade auf dem Oktoberfest 2025 im Durchschnitt?;12,11 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+88;schwer;Was kostet ein neuer Personalausweis für Menschen unter 24 Jahren (Stand 2026)?;27,60 €;https://www.gesetze-im-internet.de/pauswgebv/BJNR147700010.html
+89;schwer;Was kostet die österreichische 1-Tages-Vignette 2026 für ein Auto?;9,60 €;https://www.oesterreich.gv.at/themen/mobilitaet/kfz/10/Vignette-und-Maut/Vignette-fuer-Fahrzeuge-bis-3,5-t.html
+90;schwer;Was kostet die österreichische Jahresvignette 2026 für ein Motorrad?;42,70 €;https://www.oesterreich.gv.at/themen/mobilitaet/kfz/10/Vignette-und-Maut/Vignette-fuer-Fahrzeuge-bis-3,5-t.html
+91;schwer;Was kostet eine BahnCard 50 für die 1. Klasse (ein Jahr, Stand November 2026)?;492 €;https://www.bahn.de/angebot/bahncard/bahncard50-2-klasse
+92;schwer;Was kostet eine BahnCard 25 für die 1. Klasse (ein Jahr, Stand November 2026)?;125 €;https://www.bahn.de/angebot/bahncard/bahncard25/bahncard25
+93;schwer;Was kostete die günstigste Maß Bier auf dem Oktoberfest 2024?;13,60 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+94;schwer;Was kostete die teuerste Maß Bier auf dem Oktoberfest 2024?;15,30 €;https://stadt.muenchen.de/dam/jcr%3A8811dc3c-f77e-4c6c-af71-5136d8cca5ee/Bierpreis_Oktoberfest2025.pdf
+95;schwer;Was kostet 2026 der reguläre Eintritt ins Alte Schloss Schleißheim?;4,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+96;schwer;Was kostet 2026 der reguläre Eintritt ins Schloss Veitshöchheim?;6,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+97;schwer;Was kostet 2026 der reguläre Eintritt in die Willibaldsburg in Eichstätt?;6,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+98;schwer;Was kostet 2026 der reguläre Eintritt in die Burg Lauenstein?;5,00 €;https://www.schloss.bayern.de/deutsch/service/tourismus/preise2026.pdf
+99;schwer;Was kostete 1952 in Westdeutschland ein Kilo Mischbrot im Schnitt?;0,68 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+100;schwer;Was kostete 1952 in Westdeutschland ein Liter Vollmilch im Schnitt?;0,38 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf
+101;schwer;Was kostete 1952 in Westdeutschland ein Kilo Schweinekotelett im Schnitt?;4,75 DM;https://digi.bib.uni-mannheim.de/fileadmin/statjahrb/514402342_1953/pdf/514402342_0542.pdf

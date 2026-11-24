@@ -1,0 +1,66 @@
+# Einwohner;Fläche km² – Stand 31.12.2023 – Quelle: Deutscher Städtetag, https://www.staedtetag.de/files/dst/docs/Wir-ueber-uns/Statistik-der-Staedte/2024/ABC_311223.pdf
+Aachen;252769;160,85
+Augsburg;303150;146,85
+Bergisch Gladbach;112660;83,09
+Berlin;3782202;891,12
+Bielefeld;338410;258,83
+Bochum;366385;145,66
+Bonn;335789;141,06
+Bottrop;118705;100,61
+Braunschweig;252066;192,70
+Bremen;577026;318,20
+Bremerhaven;114677;101,41
+Chemnitz;250681;221,03
+Cottbus;100010;165,61
+Darmstadt;164792;122,07
+Dortmund;595471;280,71
+Dresden;566222;328,48
+Duisburg;503707;232,84
+Düsseldorf;631217;217,41
+Erfurt;215675;269,91
+Erlangen;117806;76,96
+Essen;586608;210,34
+Frankfurt am Main;775790;248,31
+Freiburg im Breisgau;237244;153,04
+Fürth;132032;63,35
+Gelsenkirchen;265885;104,94
+Göttingen;120261;117,02
+Gütersloh;102464;112,02
+Hagen;190490;160,45
+Halle (Saale);242172;135,56
+Hamburg;1910160;755,09
+Hamm;180761;226,66
+Hanau;103184;76,28
+Hannover;548186;204,30
+Heidelberg;162960;108,83
+Heilbronn;130093;99,89
+Herne;157896;51,42
+Hildesheim;102325;92,29
+Ingolstadt;142308;133,35
+Jena;110791;114,77
+Kaiserslautern;101486;139,70
+Karlsruhe;309964;173,42
+Kassel;204687;106,79
+Kiel;248873;118,65
+Köln;1087353;405,02
+Koblenz;115298;105,25
+Krefeld;228550;137,77
+Leipzig;619879;297,80
+Leverkusen;166414;78,87
+Lübeck;219044;214,19
+Ludwigshafen am Rhein;176110;77,43
+Magdeburg;240114;201,68
+Mainz;222889;97,73
+Mannheim;316877;144,97
+Moers;105606;67,64
+Mönchengladbach;268943;170,47
+Mülheim an der Ruhr;173255;91,28
+München;1510378;310,70
+Münster;322904;303,28
+Neuss;155163;99,52
+Nürnberg;526091;186,44
+Oberhausen;211099;77,09
+Offenbach am Main;135490;44,88
+Oldenburg;174629;103,09
+Osnabrück;166960;119,80
+Paderborn;155749;179,59

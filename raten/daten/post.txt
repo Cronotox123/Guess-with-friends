@@ -1,0 +1,16 @@
+# Deutsche Post Leistungen und Preise, Stand 01.07.2026 – https://www.deutschepost.de/dam/jcr:15eb81be-f45b-4111-86de-9cb40328e877/dp-leistungen-und-preise-sw-072026.pdf (wörtlich gelesen)
+Postkarte national;0,95
+Postkarte international;1,25
+Standardbrief national;0,95
+Standardbrief international;1,25
+Kompaktbrief national;1,10
+Kompaktbrief international;1,80
+Großbrief national;1,80
+Großbrief international;3,30
+Maxibrief national;2,90
+Maxibrief international;6,50
+Warensendung national;2,70
+Einschreiben Einwurf Zuschlag;2,35
+Einschreiben Zuschlag;2,65
+Einschreiben international Zuschlag;3,70
+Rückschein Zuschlag;2,20

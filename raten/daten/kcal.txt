@@ -1,0 +1,82 @@
+# Name;kcal/100 g;Portion;URL  (matvaretabellen.no, wörtlich)
+Avocado;191;klein 130 g, groß 220 g;https://matvaretabellen.no/en/avocado-raw
+Croissant;342;klein 45 g, groß 80 g;https://matvaretabellen.no/en/croissant-plain-industrially-made
+Walnüsse;680;Handvoll 20 g;https://matvaretabellen.no/en/walnuts
+Berliner;423;65 g;https://www.matvaretabellen.no/en/berliner-filled-dougnut/
+Donut;539;45 g;https://www.matvaretabellen.no/en/doughnut/
+Muffin;404;30 g;https://www.matvaretabellen.no/en/muffin/
+Zimtschnecke;339;65 g;https://www.matvaretabellen.no/en/cinnamon-roll-home-made/
+Plunder mit Marmelade;293;klein 50 g, groß 80 g;https://www.matvaretabellen.no/en/danish-pastry-filled-with-jam/
+Ei gekocht;148;56 g;https://www.matvaretabellen.no/en/egg-boiled/
+Hamburgerbrötchen;300;80 g;https://www.matvaretabellen.no/en/hamburger-bun/
+Apfel;49;mittel 125 g;https://www.matvaretabellen.no/en/apple-norwegian-raw/
+Birne;44;groß 205 g;https://www.matvaretabellen.no/en/pear-norwegian-raw/
+Orange;41;Spalte 35 g;https://www.matvaretabellen.no/en/orange-raw/
+Clementine;40;70 g;https://www.matvaretabellen.no/en/clementine-raw/
+Weintrauben;71;1 Traube 5 g;https://www.matvaretabellen.no/en/grapes-raw/
+Erdbeeren;34;1 dl 60 g;https://www.matvaretabellen.no/en/strawberries-raw/
+Wassermelone;36;Scheibe 80 g;https://www.matvaretabellen.no/en/melon-water-raw/
+Ananas;44;ganze 665 g;https://www.matvaretabellen.no/en/pineapple-raw/
+Mango;50;ganze 335 g;https://www.matvaretabellen.no/en/mango-raw/
+Kiwi;51;Scheibe 15 g;https://www.matvaretabellen.no/en/kiwi-fruit-raw/
+Kirschen;41;1 dl 60 g;https://www.matvaretabellen.no/en/cherries-raw/
+Karotte;25;80 g;https://www.matvaretabellen.no/en/carrot-norwegian-raw/
+Gurke;9;ganze 325 g;https://www.matvaretabellen.no/en/cucumber-norwegian-raw/
+Tomate;12;95 g;https://www.matvaretabellen.no/en/tomato-norwegian-raw/
+Brokkoli;24;Röschen 25 g;https://www.matvaretabellen.no/en/broccoli-norwegian-raw/
+Zuckermais roh;85;-;https://www.matvaretabellen.no/en/sweet-corn-norwegian-raw/
+Frühkartoffeln gekocht;63;-;https://www.matvaretabellen.no/en/potatoes-early-boiled/
+Pommes (TK);158;Portion 135 g;https://www.matvaretabellen.no/en/potatoes-french-fries-frozen/
+Kartoffelpüree;144;Portion 200 g;https://www.matvaretabellen.no/en/potatoes-mashed-home-made/
+Vollmilchschokolade;541;Tafel 100 g;https://www.matvaretabellen.no/en/chocolate-bar-milk/
+Zartbitter 70 %;578;Tafel 100 g;https://www.matvaretabellen.no/en/chocolate-dark-70-cocoa/
+Zartbitter 85 %;588;Tafel 100 g;https://www.matvaretabellen.no/en/chocolate-dark-85-cocoa/
+Fruchtgummi-Pastillen;257;1 Stück 1 g;https://www.matvaretabellen.no/en/pastilles/
+Marshmallow;348;1 Stück 7 g;https://www.matvaretabellen.no/en/marshmallows/
+Vanilleeis;178;Portion 95 g;https://www.matvaretabellen.no/en/ice-cream-dairy-vanilla/
+Honig;317;EL 22 g, TL 11 g;https://www.matvaretabellen.no/en/honey/
+Zucker;400;TL 5 g, Würfel 2 g;https://www.matvaretabellen.no/en/sugar-white-caster-sugar-cube-sugar/
+Cola mit Zucker;42/100 ml;Dose 330;https://www.matvaretabellen.no/en/soft-drinks-cola-with-sugar/
+Orangensaft;43/100 ml;Glas 200;https://www.matvaretabellen.no/en/orange-juice-from-concentrate/
+Apfelsaft;42/100 ml;Glas 200;https://www.matvaretabellen.no/en/apple-juice/
+Pils 4,7 %;41/100 ml;Glas 500, Dose 330;https://www.matvaretabellen.no/en/beer-4-7-vol-alcohol-pilsner/
+Rotwein trocken;64/100 ml;-;https://www.matvaretabellen.no/en/wine-red-dry/
+Weißwein trocken;69/100 ml;Glas 100;https://www.matvaretabellen.no/en/wine-white-dry-12-vol-alcohol/
+Sekt;104/100 ml;Glas 100;https://www.matvaretabellen.no/en/wine-white-rose-sparkling-unspecified/
+Kakao (Instant zubereitet);52/100 ml;Tasse 240;https://www.matvaretabellen.no/en/cocoa-instant-powder-prepared/
+Energydrink;49/100 ml;Dose 250;https://www.matvaretabellen.no/en/energy-drink-with-taurine-caffeine-and-b-vitamins/
+Smoothie Heidelbeer-Apfel;50/100 ml;Glas 200;https://www.matvaretabellen.no/en/smoothie-blueberries-and-apple/
+Caffè Latte Vollmilch;59/100 ml;Tasse 300;https://www.matvaretabellen.no/en/caffe-latte-single-with-whole-milk/
+Tiefkühlpizza;222;Portion 300 g;https://www.matvaretabellen.no/en/pizza-industrially-made/
+Wiener Würstchen;211;1 Stück 65 g;https://www.matvaretabellen.no/en/sausage-frankfurter-wiener/
+Salami;429;Scheibe 7 g;https://www.matvaretabellen.no/en/sausage-salami/
+Hähnchenbrust roh;111;Portion 195 g;https://www.matvaretabellen.no/en/chicken-fillet-without-skin-raw/
+Gouda;377;Scheibe 10 g, für eine Brotscheibe 20 g;https://www.matvaretabellen.no/en/cheese-gouda/
+Brie;361;Portion 30 g;https://www.matvaretabellen.no/en/cheese-ripened-brie/
+Frischkäse;278;für eine Brotscheibe 15 g;https://www.matvaretabellen.no/en/cream-cheese-plain/
+Weizenbrötchen;277;1 Stück 85 g;https://www.matvaretabellen.no/en/rolls-white-industrially-made/
+Erdnüsse geröstet gesalzen;623;1 dl 60 g;https://www.matvaretabellen.no/en/peanuts-roasted-salted/
+Mandeln;601;Handvoll 20 g;https://www.matvaretabellen.no/en/almonds/
+Cashews gesalzen;604;1 dl 60 g;https://www.matvaretabellen.no/en/cashew-nuts-salted/
+Haselnüsse;670;Handvoll 20 g;https://www.matvaretabellen.no/en/hazelnuts/
+Dürüm Kebab;192;-;https://www.matvaretabellen.no/en/kebab-durum/
+Lasagne;146;Portion 300 g;https://www.matvaretabellen.no/en/lasagne-with-minced-meat/
+Bacon gebraten;520;-;https://www.matvaretabellen.no/en/pork-bacon-side-bacon-pan-fried/
+Taco;169;1 Stück 230 g;https://www.matvaretabellen.no/en/taco-with-tortilla-minced-meat-vegetables/
+Camembert;302;Portion 30 g;https://www.matvaretabellen.no/en/cheese-ripened-camembert/
+Vollmilch;64/100 ml;Glas 200;https://www.matvaretabellen.no/en/milk-whole-unspecified/
+Naturjoghurt Vollmilch;69;EL 18 g, 1 dl 100 g;https://www.matvaretabellen.no/en/yoghurt-whole-milk-plain/
+Sprühsahne;325;EL 3 g, 1 dl 25 g;https://www.matvaretabellen.no/en/cream-whipped-canned/
+Spiegelei;207;-;https://www.matvaretabellen.no/en/egg-fried-in-fat/
+Omelett;181;Portion 125 g;https://www.matvaretabellen.no/en/omelette-fried-in-fat/
+Hotdog-Brötchen;302;-;https://www.matvaretabellen.no/en/hot-dog-bun/
+Vollkornbrot;245;Scheibe 45 g;https://www.matvaretabellen.no/en/bread-100-wholemeal-flour-skimmed-milk-home-made/
+Weißbrot;255;Scheibe 40 g;https://www.matvaretabellen.no/en/bread-white-0-25-industrially-made/
+Pfannkuchen;182;1 Stück 65 g;https://www.matvaretabellen.no/en/pancakes-fried-in-fat/
+Waffel;254;groß 85 g;https://www.matvaretabellen.no/en/waffles-prepared-from-powder/
+Cornflakes;381;Portion 35 g;https://www.matvaretabellen.no/en/corn-flakes-kelloggs/
+Früchtemüsli;376;-;https://www.matvaretabellen.no/en/muesli-with-fruit-fruktmusli/
+Haferbrei mit Wasser;39;-;https://www.matvaretabellen.no/en/porridge-prepared-with-oats-and-water/
+Käsekuchen;334;-;https://www.matvaretabellen.no/en/cake-cheese-cake-with-bisquit-bottom/
+Schokoladenkuchen;351;Portion 80 g;https://www.matvaretabellen.no/en/cake-chocolate-no-icing/
+Pistazien;589;1 dl 50 g;https://www.matvaretabellen.no/en/pistachio-nuts/

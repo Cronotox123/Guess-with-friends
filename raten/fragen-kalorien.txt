@@ -1,0 +1,101 @@
+# Kalorien raten – Nr;Stufe;Frage;Antwort;Quelle
+1;leicht;Wie viele kcal hat ein mittelgroßer Apfel (125 g)?;ca. 61 kcal (gerechnet aus 49 kcal pro 100 g);https://www.matvaretabellen.no/en/apple-norwegian-raw/
+2;leicht;Wie viele kcal hat eine Tafel Vollmilchschokolade (100 g)?;ca. 541 kcal (gerechnet aus 541 kcal pro 100 g);https://www.matvaretabellen.no/en/chocolate-bar-milk/
+3;leicht;Wie viele kcal hat eine Tiefkühlpizza-Portion (300 g)?;ca. 666 kcal (gerechnet aus 222 kcal pro 100 g);https://www.matvaretabellen.no/en/pizza-industrially-made/
+4;leicht;Wie viele kcal hat eine Dose Cola (330 ml)?;ca. 139 kcal (gerechnet aus 42 kcal pro 100 ml);https://www.matvaretabellen.no/en/soft-drinks-cola-with-sugar/
+5;leicht;Wie viele kcal hat ein großes Glas Pils (500 ml)?;ca. 205 kcal (gerechnet aus 41 kcal pro 100 ml);https://www.matvaretabellen.no/en/beer-4-7-vol-alcohol-pilsner/
+6;leicht;Wie viele kcal haben 100 g Banane?;89 kcal;https://files.givewell.org/files/DWDA%202009/Interventions/Salt_Substitution/US_Department_of_Agriculture_FoodData_Central_Nutrition_information_for_raw_banana_accessed_December_18_2020.pdf
+7;leicht;Wie viele kcal hat eine Portion Lasagne (300 g)?;ca. 438 kcal (gerechnet aus 146 kcal pro 100 g);https://www.matvaretabellen.no/en/lasagne-with-minced-meat/
+8;leicht;Wie viele kcal hat ein Glas Vollmilch (200 ml)?;ca. 128 kcal (gerechnet aus 64 kcal pro 100 ml);https://www.matvaretabellen.no/en/milk-whole-unspecified/
+9;leicht;Wie viele kcal hat ein Big Mac (McDonald’s USA)?;580 kcal;https://www.mcdonalds.com/us/en-us/product/big-mac.html
+10;leicht;Wie viele kcal hat ein Whopper (270 g)?;670 kcal;https://en.wikipedia.org/wiki/Whopper
+11;mittel;Wie viele kcal hat eine große Birne (205 g)?;ca. 90 kcal (gerechnet aus 44 kcal pro 100 g);https://www.matvaretabellen.no/en/pear-norwegian-raw/
+12;mittel;Wie viele kcal hat eine Clementine (70 g)?;ca. 28 kcal (gerechnet aus 40 kcal pro 100 g);https://www.matvaretabellen.no/en/clementine-raw/
+13;mittel;Wie viele kcal hat eine Scheibe Wassermelone (80 g)?;ca. 29 kcal (gerechnet aus 36 kcal pro 100 g);https://www.matvaretabellen.no/en/melon-water-raw/
+14;mittel;Wie viele kcal hat eine ganze Mango (335 g)?;ca. 168 kcal (gerechnet aus 50 kcal pro 100 g);https://www.matvaretabellen.no/en/mango-raw/
+15;mittel;Wie viele kcal hat eine Karotte (80 g)?;ca. 20 kcal (gerechnet aus 25 kcal pro 100 g);https://www.matvaretabellen.no/en/carrot-norwegian-raw/
+16;mittel;Wie viele kcal hat eine Tomate (95 g)?;ca. 11 kcal (gerechnet aus 12 kcal pro 100 g);https://www.matvaretabellen.no/en/tomato-norwegian-raw/
+17;mittel;Wie viele kcal hat eine Portion Tiefkühl-Pommes (135 g)?;ca. 213 kcal (gerechnet aus 158 kcal pro 100 g);https://www.matvaretabellen.no/en/potatoes-french-fries-frozen/
+18;mittel;Wie viele kcal hat eine Portion Kartoffelpüree (200 g)?;ca. 288 kcal (gerechnet aus 144 kcal pro 100 g);https://www.matvaretabellen.no/en/potatoes-mashed-home-made/
+19;mittel;Wie viele kcal hat eine Tafel Zartbitterschokolade (70 %) (100 g)?;ca. 578 kcal (gerechnet aus 578 kcal pro 100 g);https://www.matvaretabellen.no/en/chocolate-dark-70-cocoa/
+20;mittel;Wie viele kcal hat eine Portion Vanilleeis (95 g)?;ca. 169 kcal (gerechnet aus 178 kcal pro 100 g);https://www.matvaretabellen.no/en/ice-cream-dairy-vanilla/
+21;mittel;Wie viele kcal hat ein Esslöffel Honig (22 g)?;ca. 70 kcal (gerechnet aus 317 kcal pro 100 g);https://www.matvaretabellen.no/en/honey/
+22;mittel;Wie viele kcal hat ein Teelöffel Zucker (5 g)?;ca. 20 kcal (gerechnet aus 400 kcal pro 100 g);https://www.matvaretabellen.no/en/sugar-white-caster-sugar-cube-sugar/
+23;mittel;Wie viele kcal hat Gouda für eine Brotscheibe (20 g)?;ca. 75 kcal (gerechnet aus 377 kcal pro 100 g);https://www.matvaretabellen.no/en/cheese-gouda/
+24;mittel;Wie viele kcal hat eine Scheibe Salami (7 g)?;ca. 30 kcal (gerechnet aus 429 kcal pro 100 g);https://www.matvaretabellen.no/en/sausage-salami/
+25;mittel;Wie viele kcal hat ein Wiener Würstchen (65 g)?;ca. 137 kcal (gerechnet aus 211 kcal pro 100 g);https://www.matvaretabellen.no/en/sausage-frankfurter-wiener/
+26;mittel;Wie viele kcal hat eine Portion Brie (30 g)?;ca. 108 kcal (gerechnet aus 361 kcal pro 100 g);https://www.matvaretabellen.no/en/cheese-ripened-brie/
+27;mittel;Wie viele kcal hat Frischkäse für eine Brotscheibe (15 g)?;ca. 42 kcal (gerechnet aus 278 kcal pro 100 g);https://www.matvaretabellen.no/en/cream-cheese-plain/
+28;mittel;Wie viele kcal hat ein Weizenbrötchen (85 g)?;ca. 235 kcal (gerechnet aus 277 kcal pro 100 g);https://www.matvaretabellen.no/en/rolls-white-industrially-made/
+29;mittel;Wie viele kcal hat ein Hamburgerbrötchen (80 g)?;ca. 240 kcal (gerechnet aus 300 kcal pro 100 g);https://www.matvaretabellen.no/en/hamburger-bun/
+30;mittel;Wie viele kcal hat ein gekochtes Ei (56 g)?;ca. 83 kcal (gerechnet aus 148 kcal pro 100 g);https://www.matvaretabellen.no/en/egg-boiled/
+31;mittel;Wie viele kcal hat ein großes Croissant (80 g)?;ca. 274 kcal (gerechnet aus 342 kcal pro 100 g);https://matvaretabellen.no/en/croissant-plain-industrially-made
+32;mittel;Wie viele kcal hat ein Berliner (65 g)?;ca. 275 kcal (gerechnet aus 423 kcal pro 100 g);https://www.matvaretabellen.no/en/berliner-filled-dougnut/
+33;mittel;Wie viele kcal hat ein Donut (45 g)?;ca. 243 kcal (gerechnet aus 539 kcal pro 100 g);https://www.matvaretabellen.no/en/doughnut/
+34;mittel;Wie viele kcal hat eine Zimtschnecke (65 g)?;ca. 220 kcal (gerechnet aus 339 kcal pro 100 g);https://www.matvaretabellen.no/en/cinnamon-roll-home-made/
+35;mittel;Wie viele kcal hat eine Handvoll Walnüsse (20 g)?;ca. 136 kcal (gerechnet aus 680 kcal pro 100 g);https://matvaretabellen.no/en/walnuts
+36;mittel;Wie viele kcal hat eine Handvoll Mandeln (20 g)?;ca. 120 kcal (gerechnet aus 601 kcal pro 100 g);https://www.matvaretabellen.no/en/almonds/
+37;mittel;Wie viele kcal hat eine Handvoll Haselnüsse (20 g)?;ca. 134 kcal (gerechnet aus 670 kcal pro 100 g);https://www.matvaretabellen.no/en/hazelnuts/
+38;mittel;Wie viele kcal hat eine große Avocado (220 g)?;ca. 420 kcal (gerechnet aus 191 kcal pro 100 g);https://matvaretabellen.no/en/avocado-raw
+39;mittel;Wie viele kcal hat ein Deziliter Erdbeeren (60 g)?;ca. 20 kcal (gerechnet aus 34 kcal pro 100 g);https://www.matvaretabellen.no/en/strawberries-raw/
+40;mittel;Wie viele kcal hat ein Glas Orangensaft (200 ml)?;ca. 86 kcal (gerechnet aus 43 kcal pro 100 ml);https://www.matvaretabellen.no/en/orange-juice-from-concentrate/
+41;mittel;Wie viele kcal hat ein Glas Apfelsaft (200 ml)?;ca. 84 kcal (gerechnet aus 42 kcal pro 100 ml);https://www.matvaretabellen.no/en/apple-juice/
+42;mittel;Wie viele kcal hat eine Dose Pils (330 ml)?;ca. 135 kcal (gerechnet aus 41 kcal pro 100 ml);https://www.matvaretabellen.no/en/beer-4-7-vol-alcohol-pilsner/
+43;mittel;Wie viele kcal hat ein Glas trockener Weißwein (100 ml)?;ca. 69 kcal (gerechnet aus 69 kcal pro 100 ml);https://www.matvaretabellen.no/en/wine-white-dry-12-vol-alcohol/
+44;mittel;Wie viele kcal hat ein Glas Sekt (100 ml)?;ca. 104 kcal (gerechnet aus 104 kcal pro 100 ml);https://www.matvaretabellen.no/en/wine-white-rose-sparkling-unspecified/
+45;mittel;Wie viele kcal hat eine Tasse Kakao (Instant) (240 ml)?;ca. 125 kcal (gerechnet aus 52 kcal pro 100 ml);https://www.matvaretabellen.no/en/cocoa-instant-powder-prepared/
+46;mittel;Wie viele kcal hat eine Dose Energydrink (250 ml)?;ca. 122 kcal (gerechnet aus 49 kcal pro 100 ml);https://www.matvaretabellen.no/en/energy-drink-with-taurine-caffeine-and-b-vitamins/
+47;mittel;Wie viele kcal hat ein Glas Smoothie (Heidelbeer-Apfel) (200 ml)?;ca. 100 kcal (gerechnet aus 50 kcal pro 100 ml);https://www.matvaretabellen.no/en/smoothie-blueberries-and-apple/
+48;mittel;Wie viele kcal hat eine große Tasse Caffè Latte mit Vollmilch (300 ml)?;ca. 177 kcal (gerechnet aus 59 kcal pro 100 ml);https://www.matvaretabellen.no/en/caffe-latte-single-with-whole-milk/
+49;mittel;Wie viele kcal haben 100 ml trockener Rotwein?;64 kcal;https://www.matvaretabellen.no/en/wine-red-dry/
+50;mittel;Wie viele kcal haben 100 g gekochte Frühkartoffeln?;63 kcal;https://www.matvaretabellen.no/en/potatoes-early-boiled/
+51;mittel;Wie viele kcal haben 100 g Dürüm Kebab?;192 kcal;https://www.matvaretabellen.no/en/kebab-durum/
+52;mittel;Wie viele kcal haben 100 g Fruchtgummi-Pastillen?;257 kcal;https://www.matvaretabellen.no/en/pastilles/
+53;mittel;Wie viele kcal hat ein Taco mit Hackfleisch und Gemüse (230 g)?;ca. 389 kcal (gerechnet aus 169 kcal pro 100 g);https://www.matvaretabellen.no/en/taco-with-tortilla-minced-meat-vegetables/
+54;mittel;Wie viele kcal hat eine Portion Camembert (30 g)?;ca. 91 kcal (gerechnet aus 302 kcal pro 100 g);https://www.matvaretabellen.no/en/cheese-ripened-camembert/
+55;mittel;Wie viele kcal hat ein Deziliter Naturjoghurt (100 g)?;ca. 69 kcal (gerechnet aus 69 kcal pro 100 g);https://www.matvaretabellen.no/en/yoghurt-whole-milk-plain/
+56;mittel;Wie viele kcal hat eine Portion Omelett (125 g)?;ca. 226 kcal (gerechnet aus 181 kcal pro 100 g);https://www.matvaretabellen.no/en/omelette-fried-in-fat/
+57;mittel;Wie viele kcal hat eine Scheibe Vollkornbrot (45 g)?;ca. 110 kcal (gerechnet aus 245 kcal pro 100 g);https://www.matvaretabellen.no/en/bread-100-wholemeal-flour-skimmed-milk-home-made/
+58;mittel;Wie viele kcal hat eine Scheibe Weißbrot (40 g)?;ca. 102 kcal (gerechnet aus 255 kcal pro 100 g);https://www.matvaretabellen.no/en/bread-white-0-25-industrially-made/
+59;mittel;Wie viele kcal hat ein Pfannkuchen (65 g)?;ca. 118 kcal (gerechnet aus 182 kcal pro 100 g);https://www.matvaretabellen.no/en/pancakes-fried-in-fat/
+60;mittel;Wie viele kcal hat eine große Waffel (85 g)?;ca. 216 kcal (gerechnet aus 254 kcal pro 100 g);https://www.matvaretabellen.no/en/waffles-prepared-from-powder/
+61;mittel;Wie viele kcal hat eine Portion Cornflakes (ohne Milch) (35 g)?;ca. 133 kcal (gerechnet aus 381 kcal pro 100 g);https://www.matvaretabellen.no/en/corn-flakes-kelloggs/
+62;mittel;Wie viele kcal hat ein Stück Schokoladenkuchen (80 g)?;ca. 281 kcal (gerechnet aus 351 kcal pro 100 g);https://www.matvaretabellen.no/en/cake-chocolate-no-icing/
+63;mittel;Wie viele kcal haben 100 g gebratener Bacon?;520 kcal;https://www.matvaretabellen.no/en/pork-bacon-side-bacon-pan-fried/
+64;mittel;Wie viele kcal haben 100 g Spiegelei?;207 kcal;https://www.matvaretabellen.no/en/egg-fried-in-fat/
+65;mittel;Wie viele kcal haben 100 g Früchtemüsli?;376 kcal;https://www.matvaretabellen.no/en/muesli-with-fruit-fruktmusli/
+66;mittel;Wie viele kcal haben 100 g Käsekuchen?;334 kcal;https://www.matvaretabellen.no/en/cake-cheese-cake-with-bisquit-bottom/
+67;mittel;Wie viele kcal haben 100 g Tiefkühl-Pommes?;158 kcal;https://www.matvaretabellen.no/en/potatoes-french-fries-frozen/
+68;mittel;Wie viele kcal hat ein kleines Croissant (45 g)?;ca. 154 kcal (gerechnet aus 342 kcal pro 100 g);https://matvaretabellen.no/en/croissant-plain-industrially-made
+69;mittel;Wie viele kcal hat ein Stück rohe Hähnchenbrust (100 g)?;ca. 111 kcal (gerechnet aus 111 kcal pro 100 g);https://www.matvaretabellen.no/en/chicken-fillet-without-skin-raw/
+70;mittel;Wie viele kcal haben 100 g Salami?;429 kcal;https://www.matvaretabellen.no/en/sausage-salami/
+71;mittel;Wie viele kcal haben 100 g Walnüsse?;680 kcal;https://matvaretabellen.no/en/walnuts
+72;mittel;Wie viele kcal hat eine Dose Red Bull (250 ml)?;ca. 115 kcal (gerechnet aus 46 kcal pro 100 ml);https://world.openfoodfacts.org/product/90376542/red-bull-energy-drink
+73;mittel;Wie viele kcal hat eine Portion Nutella (15 g)?;ca. 81 kcal (gerechnet aus 539 kcal pro 100 g);https://world.openfoodfacts.org/product/4008400402222
+74;mittel;Wie viele kcal haben 100 g Haribo Goldbären?;343 kcal;https://world.openfoodfacts.org/product/4001686301326
+75;mittel;Wie viele kcal hat eine 300-g-Tüte Haribo Goldbären?;ca. 1.029 kcal (gerechnet aus 343 kcal pro 100 g);https://world.openfoodfacts.org/product/4001686301326
+76;mittel;Wie viele kcal hat eine 1,5-Liter-Flasche Coca-Cola?;ca. 630 kcal (gerechnet aus 42 kcal pro 100 ml);https://www.coca-cola.com/ch/de/brands/coca-cola
+77;schwer;Wie viele kcal hat eine einzelne Weintraube (5 g)?;ca. 4 kcal (gerechnet aus 71 kcal pro 100 g);https://www.matvaretabellen.no/en/grapes-raw/
+78;schwer;Wie viele kcal hat eine ganze Ananas (ohne Schale) (665 g)?;ca. 293 kcal (gerechnet aus 44 kcal pro 100 g);https://www.matvaretabellen.no/en/pineapple-raw/
+79;schwer;Wie viele kcal hat eine ganze Salatgurke (325 g)?;ca. 29 kcal (gerechnet aus 9 kcal pro 100 g);https://www.matvaretabellen.no/en/cucumber-norwegian-raw/
+80;schwer;Wie viele kcal hat ein Marshmallow (7 g)?;ca. 24 kcal (gerechnet aus 348 kcal pro 100 g);https://www.matvaretabellen.no/en/marshmallows/
+81;schwer;Wie viele kcal hat ein Würfelzucker (2 g)?;ca. 8 kcal (gerechnet aus 400 kcal pro 100 g);https://www.matvaretabellen.no/en/sugar-white-caster-sugar-cube-sugar/
+82;schwer;Wie viele kcal hat eine Portion Hähnchenbrust (roh) (195 g)?;ca. 216 kcal (gerechnet aus 111 kcal pro 100 g);https://www.matvaretabellen.no/en/chicken-fillet-without-skin-raw/
+83;schwer;Wie viele kcal hat ein kleiner Muffin (30 g)?;ca. 121 kcal (gerechnet aus 404 kcal pro 100 g);https://www.matvaretabellen.no/en/muffin/
+84;schwer;Wie viele kcal hat ein großes Marmeladen-Plunderteilchen (80 g)?;ca. 234 kcal (gerechnet aus 293 kcal pro 100 g);https://www.matvaretabellen.no/en/danish-pastry-filled-with-jam/
+85;schwer;Wie viele kcal hat ein Deziliter (Schälchen) geröstete Erdnüsse (60 g)?;ca. 374 kcal (gerechnet aus 623 kcal pro 100 g);https://www.matvaretabellen.no/en/peanuts-roasted-salted/
+86;schwer;Wie viele kcal hat ein Deziliter (Schälchen) gesalzene Cashews (60 g)?;ca. 362 kcal (gerechnet aus 604 kcal pro 100 g);https://www.matvaretabellen.no/en/cashew-nuts-salted/
+87;schwer;Wie viele kcal hat eine kleine Avocado (130 g)?;ca. 248 kcal (gerechnet aus 191 kcal pro 100 g);https://matvaretabellen.no/en/avocado-raw
+88;schwer;Wie viele kcal hat ein Deziliter Kirschen (60 g)?;ca. 25 kcal (gerechnet aus 41 kcal pro 100 g);https://www.matvaretabellen.no/en/cherries-raw/
+89;schwer;Wie viele kcal hat eine Scheibe Kiwi (15 g)?;ca. 8 kcal (gerechnet aus 51 kcal pro 100 g);https://www.matvaretabellen.no/en/kiwi-fruit-raw/
+90;schwer;Wie viele kcal hat eine Orangenspalte (35 g)?;ca. 14 kcal (gerechnet aus 41 kcal pro 100 g);https://www.matvaretabellen.no/en/orange-raw/
+91;schwer;Wie viele kcal hat ein Brokkoliröschen (25 g)?;ca. 6 kcal (gerechnet aus 24 kcal pro 100 g);https://www.matvaretabellen.no/en/broccoli-norwegian-raw/
+92;schwer;Wie viele kcal haben 100 g roher Zuckermais?;85 kcal;https://www.matvaretabellen.no/en/sweet-corn-norwegian-raw/
+93;schwer;Wie viele kcal haben 100 g Zartbitterschokolade (85 %)?;588 kcal;https://www.matvaretabellen.no/en/chocolate-dark-85-cocoa/
+94;schwer;Wie viele kcal hat ein Deziliter Sprühsahne (25 g)?;ca. 81 kcal (gerechnet aus 325 kcal pro 100 g);https://www.matvaretabellen.no/en/cream-whipped-canned/
+95;schwer;Wie viele kcal hat ein Deziliter Pistazien (50 g)?;ca. 294 kcal (gerechnet aus 589 kcal pro 100 g);https://www.matvaretabellen.no/en/pistachio-nuts/
+96;schwer;Wie viele kcal haben 100 g Hotdog-Brötchen?;302 kcal;https://www.matvaretabellen.no/en/hot-dog-bun/
+97;schwer;Wie viele kcal haben 100 g Haferbrei (mit Wasser gekocht)?;39 kcal;https://www.matvaretabellen.no/en/porridge-prepared-with-oats-and-water/
+98;schwer;Wie viele kcal haben 100 g Sprühsahne?;325 kcal;https://www.matvaretabellen.no/en/cream-whipped-canned/
+99;schwer;Wie viele kcal hat eine kleine Waffel (20 g)?;ca. 51 kcal (gerechnet aus 254 kcal pro 100 g);https://www.matvaretabellen.no/en/waffles-prepared-from-powder/
+100;schwer;Wie viele kcal hat eine dünne Scheibe Gouda (10 g)?;ca. 38 kcal (gerechnet aus 377 kcal pro 100 g);https://www.matvaretabellen.no/en/cheese-gouda/
