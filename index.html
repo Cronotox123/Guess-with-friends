@@ -703,6 +703,24 @@ function loadMqtt(cb){
   if(window.mqtt) return cb();
   const s = document.createElement('script'); s.src = 'vendor/mqtt.min.js'; s.onload = ()=>cb(); s.onerror = ()=>{}; document.head.appendChild(s);
 }
+
+/* Umweg 1: Nachrichten über den Vermittlungs-Server selbst. Der klappt fast überall, auch in Firmennetzen. */
+const SIG = 'CANDIDATE';
+function sigSend(peer, dst, msg){ try{ if(peer && peer.socket) peer.socket.send({type:SIG, dst, payload:{pl:msg}}); }catch(e){} }
+function sigListen(peer, fn){ try{ peer.socket.on('message', m=>{ if(m && m.type===SIG && m.payload && m.payload.pl && m.src) fn(m.src, m.payload.pl); }); }catch(e){} }
+function playerSig(){
+  if(P.relay) return;
+  const peer = P.peer; if(!peer || !peer.open){ playerRelay(); return; }
+  P.relay = 'sig';
+  setStatus('Direkte Verbindung klappt nicht, nehme den Umweg über den Vermittlungs-Server …');
+  const dst = PARTY.prefix + P.code;
+  const conn = {open:true, relay:true, send(m){ sigSend(P.peer, dst, m); }};
+  sigListen(peer, (src, msg)=>{ if(P.relay !== 'sig' || src !== dst) return; if(!P.online){ P.online = true; setStatus(''); clearTimeout(P.sigto); } playerOnData(msg); });
+  P.conn = conn; clearTimeout(P.wait); clearTimeout(P.retry);
+  conn.send({t:'hello', pid:P.pid, name:P.name});
+  P.sigto = setTimeout(()=>{ if(!P.online){ P.relay = null; playerRelay(); } }, 6000);
+  clearInterval(P.ping); P.ping = setInterval(()=>{ if(P.conn && P.conn.relay && P.online) P.conn.send({t:'ping'}); }, 10000);
+}
 function hostRelay(){
   if(!H || H.relays) return;
   H.relays = []; H.rconns = {};
@@ -782,6 +800,10 @@ function startHost(play){
 function hostPeer(){
   const peer = new Peer(PARTY.prefix + H.code, PARTY.peerOpts);
   H.peer = peer;
+  H.sconns = H.sconns || {};
+  sigListen(peer, (src, msg)=>{ if(H.peer !== peer) return; let conn = H.sconns[src];
+    if(!conn) conn = H.sconns[src] = {open:true, relay:true, send(m){ sigSend(H.peer, src, m); }, close(){ this.open = false; }};
+    conn.seen = Date.now(); conn.open = true; hostOnData(conn, msg); });
   // Antwortet der Vermittlungs-Server nicht, nach 10 s neu versuchen
   const t = setTimeout(()=>{ if(H.peer===peer && !peer.open){ try{ peer.destroy(); }catch(e){} H.status='Server antwortet nicht, neuer Versuch …'; renderHostStatus(); hostPeer(); } }, 10000);
   peer.on('open', ()=>{ clearTimeout(t); if(H.peer!==peer) return; const first = H.status!=='bereit'; H.status = 'bereit'; if(first) renderHost(); else renderHostStatus(); });
@@ -1159,7 +1181,7 @@ function openConn(){
   P.conn = conn;
   clearTimeout(P.wait);
   // Ohne Antwort nach 15 s: abbrechen, neu versuchen und ab dem 2. Fehlschlag einen Tipp zeigen
-  P.wait = setTimeout(()=>{ if(P.conn===conn && !P.online){ P.fails=(P.fails||0)+1; try{ conn.close(); }catch(e){} playerRelay(); } }, 8000);
+  P.wait = setTimeout(()=>{ if(P.conn===conn && !P.online){ P.fails=(P.fails||0)+1; try{ conn.close(); }catch(e){} playerSig(); } }, 8000);
   conn.on('open', ()=>{ clearTimeout(P.wait); P.online=true; P.fails=0; setStatus(''); send(conn, {t:'hello', pid:P.pid, name:P.name}); });
   conn.on('data', playerOnData);
   conn.on('close', ()=>{ if(P.conn===conn){ P.online=false; setStatus('Verbindung verloren, verbinde neu …'); scheduleRetry(); } });
@@ -1257,7 +1279,7 @@ function renderPlayer(){
 /* ---------- Verbindungstest: ?test ---------- */
 function runDiag(){
   const rows = [];
-  const show = ()=>{ app.innerHTML = `<div class="screen"><h2>Verbindungstest</h2><p class="label">Version 24.11. · Port 443</p><p class="muted">Bitte warten, bis alle Zeilen fertig sind (ca. 20 Sekunden), dann ein Bildschirmfoto schicken.</p>
+  const show = ()=>{ app.innerHTML = `<div class="screen"><h2>Verbindungstest</h2><p class="label">Version 24.11. · Umweg über Vermittler</p><p class="muted">Bitte warten, bis alle Zeilen fertig sind (ca. 20 Sekunden), dann ein Bildschirmfoto schicken.</p>
     <ul class="results">${rows.map(r=>`<li><span class="res ${r.ok===true?'ok':r.ok===false?'bad':''}">${r.ok===true?'✓':r.ok===false?'✗':'…'}</span><span class="n">${esc(r.name)}</span><span class="km">${esc(r.info||'')}</span></li>`).join('')}</ul>
     <p class="muted small">${esc(navigator.userAgent)}</p></div>`; };
   const row = name => { const r = {name, ok:null, info:''}; rows.push(r); show(); return (ok, info)=>{ r.ok = ok; r.info = info; show(); }; };
@@ -1266,7 +1288,11 @@ function runDiag(){
   const d1 = row('Vermittlungs-Server');
   try{ const p = new Peer(PARTY.prefix + 'test-' + Math.random().toString(36).slice(2,8), PARTY.peerOpts);
     const to = setTimeout(()=>{ d1(false, 'keine Antwort'); try{p.destroy();}catch(e){} }, 12000);
-    p.on('open', ()=>{ clearTimeout(to); d1(true, ms()); setTimeout(()=>{ try{p.destroy();}catch(e){} }, 500); });
+    const d1b = row('Umweg über Vermittlungs-Server');
+    p.on('open', id=>{ clearTimeout(to); d1(true, ms()); const t2 = Date.now();
+      const to2 = setTimeout(()=>{ d1b(false, 'keine Antwort'); try{p.destroy();}catch(e){} }, 8000);
+      sigListen(p, ()=>{ clearTimeout(to2); d1b(true, (Date.now()-t2)+' ms'); setTimeout(()=>{ try{p.destroy();}catch(e){} }, 300); });
+      sigSend(p, id, {t:'echo'}); });
     p.on('error', e=>{ clearTimeout(to); d1(false, e.type); });
   }catch(e){ d1(false, String(e.message||e)); }
   // 2. Direktverbindung: welche Wege findet das Handy?
